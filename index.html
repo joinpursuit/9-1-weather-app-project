@@ -12,26 +12,25 @@
 </head>
 <body>
     <header>
-        <h1>Weather App</h1>
-        <form>
-            <section>
-                <label for ="location"> Pick a Location</label>
-                <!-- Idk about this name -->
-                <input type="text" name="location" id="location" required />
-                <input type="submit" value="Get Weather" />
-            </section>
-        </form>
-    </header>
-    <aside id ="main">
-        <!-- MIGHT NOT NEED IT MIGHT NEED A DIV -->
+            <h1>Weather App</h1>
+            <form>
+                    <label for ="location"> Pick a Location</label>
+                    <!-- Idk about this name -->
+                    <input type="text" name="location" id="location" required />
+                    <input type="submit" value="Get Weather" />
+            </form>
+        </header>
         <main class="mainDisplay">
-            Choose a location to view the weather.
+            <p>
+                Choose a location to view the weather.
+            </p> 
         </main>
-        <section id="previousSeach" class="history">
-            <h4>Previous Searches</h4>
-            <p class="previousSearches">No Previous Searches.</p>
+        <aside class="history">
+            <section>
+                <h4>Previous Searches</h4>
+                <p>No previous searches</p>
+            </section>
             <ul></ul>
-        </section>
-    <aside/>
+        </aside>
 </body>
 </html>

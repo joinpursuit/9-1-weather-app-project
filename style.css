@@ -1,0 +1,22 @@
+body{
+    grid-template-columns: repeat(6, 1fr);
+}
+
+main{
+    grid-column: 2/5;
+}
+
+header{
+    grid-column: 2/6;
+    grid-area: 2 / 2 / span 2 / span 0;
+    box-shadow: 0 2px 10px 1px black;
+}
+
+aside{
+    grid-column: 5/6;
+    padding-block: 1.5%;
+    margin-top: 90px;
+    margin-left: 15%;
+    color:rgb(224, 224, 235)
+}
+
