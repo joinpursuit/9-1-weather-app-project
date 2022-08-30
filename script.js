@@ -17,14 +17,14 @@ headerForm.addEventListener(`submit`, (e) => {
   fetch(URL)
     .then((res) => res.json())
     .then((resJson) => {
-      const current = resJson.current_condition[0];
-      const area = resJson.nearest_area[0];
+      let current = resJson.current_condition[0];
+      let area = resJson.nearest_area[0];
       console.log(area); // works, not sure why it wont print in statement
 
-      const areaName = area.areaName[0].value; //--> area.areaName
-      const region = area.region[0].value; //--> area.region
-      const country = area.country[0].value; //--> area.country
-        const feels_LikeF = current.FeelsLikeF; //--> currentcurrent_condition
+      let areaName = area.areaName[0].value; //--> area.areaName
+      let region = area.region[0].value; //--> area.region
+      let country = area.country[0].value; //--> area.country
+        let feels_LikeF = current.FeelsLikeF; //--> currentcurrent_condition
         
     //   console.log(country)
 
