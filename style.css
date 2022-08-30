@@ -1,9 +1,12 @@
  *{
-    border: 1px solid red;
+    /* border: 1px solid red; */
     box-sizing: border-box;
 }  
 
-
+body{
+    display: grid;
+    grid-template-rows: 1fr 4fr ;
+}
 
 form label {
     text-align: left;
@@ -12,9 +15,15 @@ form label {
 
 .info{
     display: grid;
-    grid-template-columns: 80% 20%;
-  }
+    grid-template-columns: 3fr 1fr;
+}
 
+aside{
+    text-align: center;
+}
+ul{
+    margin: 0px;
+}
 
 form {
     border: 2px solid black;
@@ -22,4 +31,18 @@ form {
     margin: 40px 100px 40px 100px;
     padding: 10px;
     text-align: center;
+}
+
+main{
+    display: grid;
+    grid-template-rows: 3fr 3fr ;
+    font-weight: bold;
+
+} 
+h3{
+text-align: center;
+border: 1px solid black;
+height: 20%;
+margin: 0px 50px 30px 100px;
+padding: 30px;
 }

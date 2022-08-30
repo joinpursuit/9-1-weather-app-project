@@ -24,3 +24,20 @@ div.setAttribute("class", "info")
 const main = document.createElement("main")
 const aside = document.createElement("aside")
 div.append(main, aside)
+
+const h4 = document.createElement("h4")
+h4.textContent = "Previous Searches"
+
+const ul = document.createElement("ul")
+
+aside.append(h4, ul)
+
+ const aside2 = document.createElement("aside")
+ main.append(aside2)
+
+ aside2.setAttribute("class", "weatherInfo")
+
+const h3 = document.createElement("h3")
+h3.textContent = "Choose a Location View the Weather"
+
+aside2.append(h3)
