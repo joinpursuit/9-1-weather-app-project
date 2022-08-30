@@ -4,9 +4,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Triane's Weather App</title>
+    <!-- might have to say weather app -->
+    <link href="./style.css" rel="stylesheet"/>
+    <script defer src="./index.js"></script>
+    <!-- I think it wont let me do a self closing script  -->
 </head>
 <body>
-    
+    <header>
+        <h1>Weather App</h1>
+        <form>
+            <section>
+                <label for ="location"> Pick a Location</label>
+                <!-- Idk about this name -->
+                <input type="text" name="location" id="location" required />
+                <input type="submit" value="Get Weather" />
+            </section>
+        </form>
+    </header>
+    <aside id ="main">
+        <!-- MIGHT NOT NEED IT MIGHT NEED A DIV -->
+        <main class="mainDisplay">
+            Choose a location to view the weather.
+        </main>
+        <section id="previousSeach" class="history">
+            <h4>Previous Searches</h4>
+            <p class="previousSearches">No Previous Searches.</p>
+            <ul></ul>
+        </section>
+    <aside/>
 </body>
 </html>
