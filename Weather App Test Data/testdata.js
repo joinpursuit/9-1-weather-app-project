@@ -102,6 +102,10 @@ form.addEventListener(`submit`, (e) => {
             <p><strong>Min Temperature:</strong>${day.mintemp}°F</p>`
         }
       })
+      //TOGGLE HIDDEN ELEMENTS 
+      const hide = document.querySelectorAll(`.defaultdisplay, .hidden`)
+      console.log(hide)
+      hide.forEach(x => x.classList.toggle(`hidden`))
       
 
     })

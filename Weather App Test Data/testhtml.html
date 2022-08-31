@@ -18,25 +18,26 @@
         </form>
     </header>
     <main>
-        <article class="getshidden">
-            <div>Choose a location to view the weather</div>
-            <div class="todaysWeather">
-                hello
-            </div>
+        <div class="defaultdisplay">Choose a location to view the weather</div>
+        <article class=" getshidden hidden">
+            <div class="todaysWeather"></div>
         </article>
        <aside class="upcomingStats">
-        <article id="todayStats">0</article>
-        <article id="tomorrowStats">1</article>
-        <article id="dayAfterStats">2</article>
+        <article id="todayStats" class="hidden">0</article>
+        <article id="tomorrowStats" class="hidden">1</article>
+        <article id="dayAfterStats" class="hidden">2</article>
        </aside>
-        <aside class="getshidden">
-            <h4>Previous Searches</h4>
-            <div>No Previous Searches</div>
-            <ul id="getshidden">
+        <aside class="defaultdisplay">
+            <section>
+                <h4>Previous Searches</h4>
+                <p class="indent">No Previous Searches</p>
+            
+            <ul id="getshidden" class="hidden">
                 <li></li>
             </ul>
+            </section>
         </aside>
-        <form class="converter" action="click">
+        <form class="converter hidden" action="click">
                 <input type="text">
             </form>
             
