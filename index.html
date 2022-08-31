@@ -8,6 +8,12 @@
     <link rel="stylesheet" href="/style.css" />
     <script defer src="/script.js"></script>
 </head>
+
+
+
+
+
+
 <!--BODY-->
 <body>
     <!--HEADER-->
@@ -19,24 +25,31 @@
         <input type="submit" value="Get Weather"></input>
     </form>
 </header>
+
+<div class="container">
+
+
+
+
+<!--Converter-->
+<aside class="converter">
+
+</aside>
+
 <!--Main-->
 <main>
     <article class="chooseWeather">
         Choose a location to view the weather
     </article>
     
-        <!--Aside Previous Searches-->
 
-    <aside class="asidePreviousSearches">
-        <section>
-            <h4>Previous Searches</h4>
-            <p>No previous searches</p>
-        </section>
-    </aside>
+
+
+       
 
     <!--Aside 3 Dy Forcast-->
     <aside class="forcastAside hidden">
-        <article id="day1"><h2>Today</h2>
+        <article id="day1"><h3>Today</h3>
              <strong>Average Temperature:</strong>
              <p id="day1AvgTemp"></p>
             <strong>Max Temperature:</strong>
@@ -46,7 +59,7 @@
         </article>
 
         <article id="day2 hidden">
-            <h2>Tomorrow</h2>
+            <h3>Tomorrow</h3>
             <strong>Average Temperature:</strong>
             <p id="day2AvgTemp"></p>
             <strong>Max Temperature:</strong>
@@ -56,7 +69,7 @@
         </article>
 
         <article id="day3 hidden">
-            <h2>Day After Tomorrow</h2>
+            <h3>Day After Tomorrow</h3>
             <strong>Average Temperature:</strong>
             <p id="day3AvgTemp"></p>
             <strong>Max Temperature:</strong>
@@ -65,12 +78,24 @@
             <p id="day3MinTemp"></p>
         </article>
     </aside>
-       
-   
-
-
-
 </main>
+       
+<!--Aside Previous Searches-->
 
+<aside class="asidePreviousSearches">
+    <section>
+        <h4>Previous Searches</h4>
+        <p id="noPreviousSearches">No previous searches</p>
+        <ul class="previousSearches">
+
+        </ul>
+    </section>
+</aside>
+
+
+
+
+</div>
+   
 </body>
 </html>

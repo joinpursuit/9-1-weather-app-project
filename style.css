@@ -2,11 +2,10 @@
 font-family: sans-serif;
 }
 
-body {
+.container {
 display: grid;
-
-
-
+grid-template-columns: 1fr 2fr 1fr;
+column-gap: 20px;
 }
 
 header {
@@ -16,6 +15,7 @@ header {
     border: 3px solid black ;
     border-radius: 10px;
     background-color: #3f858b;
+    text-align: center;
    
 }
 
@@ -29,23 +29,34 @@ color: white;
 
 main {
     display: grid;
-    grid-template-columns: 3fr 1fr;
-    height: 100px;
-    width: 100%;
+    grid-template-rows: 2fr 1fr ;
+   
+    height: 80%;
+    width: 80%;
     margin-top: 35px;
-    border:  2px solid #3f858b;
-    border-radius: 10px;
+   
+    border-radius: 10px; 
+    text-align: center;
     
-/* grid-template-rows: 1fr 3fr; */
-grid-template-columns: 3fr 1fr;
 }
 
 .chooseWeather {
+
 background-color: lightgray;
+border: 3px solid #3f858b;
+border-radius: 10px;
+text-align: center;
+width: 100%;
+
 }
 
+.asidePreviousSearches{
+/* border: 2px solid #3f858b; */
+text-align: center;
+}
 .asidePreviousSearches h4 {
     font: color black;
+    
 
 }
 
@@ -54,7 +65,15 @@ background-color: lightgray;
     grid-template-columns: 1fr 1fr 1fr;
     height: 200px;
     width: 3fr;
+    text-align: center;
   
+}
+
+.converter {
+    /* border: 2px solid #3f858b;
+    border-radius: 10px; */
+    margin-right: 55px;
+
 }
 
 .hidden {

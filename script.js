@@ -2,13 +2,22 @@
 const cityInputBox = document.querySelector(`.cityInputBox`);
 const headerForm = document.querySelector(`.headerForm`);
 const chooseWeatherMain = document.querySelector(`.chooseWeather`);
+
+// Previous Searches UL
+
+//grabs the previous searches ul
+const previousSearches = document.querySelector(`.previousSearches`);
+
+//grabs the p tag with the id noPreviousSearches
+const noPreviousSearchesP = document.querySelector(`#noPreviousSearches`);
+
+
 // 3 Day Forcast
 
 // grabs the 3 day forcast articles with the classlist of hidden
-const hidden = document.querySelector(`.hidden`);
+const forcastAside = document.querySelector(`.forcastAside`);
 
 let day1AvgTemp = document.querySelector(`#day1AvgTemp`);
-console.log(day1AvgTemp)
 let day1MaxTemp = document.querySelector(` #day1MaxTemp`);
 let day1MinTemp = document.querySelector(`#day1MinTemp`);
 
@@ -32,10 +41,15 @@ let day3MinTemp = document.querySelector(`#day3MinTemp`);
 
 //Add submit event listener to headerForm
 headerForm.addEventListener(`submit`, (e) => {
-    e.preventDefault();
+  e.preventDefault();
+  
     
     //turns input.value into a variable, trims it, and removes spaces and adds + char to make it URL-ready
-    const cityInputVal = cityInputBox.value.trim().split(" ").join("+");
+  const cityInputVal = cityInputBox.value.trim().split(" ").join("+");
+
+// Fetch request city
+  let previousSearchedCity = cityInputBox.value.trim(); //--> New York
+  
       
     //inserts user input string into the URL to complete a fetch call
     let URL = `https://wttr.in/${cityInputVal}?format=j1`; //--> "New+York"
@@ -43,8 +57,11 @@ headerForm.addEventListener(`submit`, (e) => {
     //FETCH
   fetch(URL)
     .then((res) => res.json())
-      .then((resJson) => {
+    .then((resJson) => {
+
+          
         
+      
           //Weather Conditions
           let current = resJson.current_condition[0];
           //Areas
@@ -54,15 +71,13 @@ headerForm.addEventListener(`submit`, (e) => {
           let day2 = resJson.weather[1];
           let day3 = resJson.weather[2];
           
-      console.log(day1); 
+      
 
       let areaName = area.areaName[0].value; //--> area.areaName
       let region = area.region[0].value; //--> area.region
       let country = area.country[0].value; //--> area.country
           let feels_LikeF = current.FeelsLikeF; //--> currentcurrent_condition
     
-          
-
     
             // IF Statement that fires via submit event IF Input Box has information it. Displays output for weather and regional info.
       if (cityInputBox.value !== "" && resJson !== undefined) {
@@ -82,25 +97,30 @@ headerForm.addEventListener(`submit`, (e) => {
 
         day3AvgTemp.innerText  = `${day3.mintempF}`;
         day3MaxTemp.innerText  = `${day3.mintempF}`;
-        day3MinTemp.innerText  = `${day3.mintempF}`;
-          
-
-        hidden.classList.remove(`hidden`);
-
-        //HAS TO GO INTO A FUNCTION -- sets the 3 day forcast aside articles
-        //   day1.innerHTML = `<h2>Today</h2>\n</p>\n<strong>Average Temperature:</strong><p>${day1.avgtempF}</p>\n<strong>Max Temperature:<p>${day1.mintempF}</p></strong>\n<strong>Min Temperature:</strong> <p>Feels Like ${day1.maxtempF} F</p>`;
-
-        //   day2.innerHTML = `<h2>Today</h2>\n</p>\n<strong>Average Temperature:</strong><p>${day2.avgtempF}</p>\n<strong>Max Temperature:<p>${day2.mintempF}</p></strong>\n<strong>Min Temperature:</strong> <p>Feels Like ${day2.maxtempF} F</p>`;
-
-        //   day3.innerHTML = `<h2>Today</h2>\n</p>\n<strong>Average Temperature:</strong><p>${day3.avgtempF}</p>\n<strong>Max Temperature:<p>${day3.mintempF}</p></strong>\n<strong>Min Temperature:</strong> <p>Feels Like ${day3.maxtempF} F</p>`;
-      } //else {
-    //       console.error(`We could not find any city matching your input! Please Input a city name (with or without a country name) seperated by spaces.  `)
-      
+        day3MinTemp.innerText = `${day3.mintempF}`;
         
-   
+        //unhides the 3 day forcast articles
+        forcastAside.classList.remove(`hidden`);
+
+        noPreviousSearchesP.classList.add(`hidden`)
+
+
+        //create list items for previous searches
+        const previousSearchItem = document.createElement(`li`);
+        previousSearchLink = document.createElement(`a`)
+        // previousSearchLink.innerText = ${}
         
-        
-        
+
+
+
+
+
+
+
+
+
+
+      } 
     })
     .catch((err) => {
       console.error(err);
