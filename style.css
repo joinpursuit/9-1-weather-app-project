@@ -1,5 +1,4 @@
  *{
-    /* border: 1px solid red; */
     box-sizing: border-box;
 }  
 
@@ -23,6 +22,7 @@ aside{
 }
 ul{
     margin: 0px;
+    list-style: none;
 }
 
 form {
@@ -33,16 +33,13 @@ form {
     text-align: center;
 }
 
-main{
-    display: grid;
-    grid-template-rows: 3fr 3fr ;
-    font-weight: bold;
 
-} 
-h3{
-text-align: center;
-border: 1px solid black;
-height: 20%;
-margin: 0px 50px 30px 100px;
-padding: 30px;
+
+main{
+    text-align: center;
+    border: 1px solid black;
+    background-color: #9fd3c7;
+    margin: 0px 40px 600px 100px ;
 }
+
+
