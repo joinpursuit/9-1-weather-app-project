@@ -11,10 +11,10 @@
 <body>
     <header>
         <h1 class="header">Weather App</h1>
-        <form class="header" action="submit">
+        <form class="header">
             <label for="location">Pick a Location</label>
-            <input type="text" id ="location"/>
-            <input class="submitButton" type="submit" value="Get Weather">
+            <input type="text" id ="location" name="location"/>
+            <button class="submitButton" type="submit">Get Weather</button>
         </form>
     </header>
     <main>
@@ -25,9 +25,9 @@
             </div>
         </article>
        <aside class="upcomingStats">
-        <article>1</article>
-        <article>2</article>
-        <article>3</article>
+        <article id="todayStats">1</article>
+        <article id="tomorrowStats">2</article>
+        <article id="dayAfterStats">3</article>
        </aside>
         <aside class="getshidden">
             <h4>Previous Searches</h4>
