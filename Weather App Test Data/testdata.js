@@ -5,26 +5,7 @@ const submit = document.querySelector(`.submitButton`);
 // console.log(submit)
 submit.addEventListener(`click`, (e) => {
   // e.preventDefault()
-});
-
-//         //populate all sub aside.upcomingStats using loop
-// const mainSubArticles = document.querySelectorAll(`.upcomingStats article`)
-// console.log(mainSubArticles)
-// mainSubArticles.forEach(a => {
-//     const paragraphTag1 = document.createElement(`p`)
-//     paragraphTag1.classList.add(`0`)
-//     const paragraphTag2 = document.createElement(`p`)
-//     paragraphTag2.classList.add(`1`)
-//     const paragraphTag3 = document.createElement(`p`)
-//     paragraphTag3.classList.add(`2`)
-//     const subMainHeading = document.createElement(`h3`)
-//     a.append(subMainHeading)
-//     a.append(paragraphTag1)
-//     a.append(paragraphTag2)
-//     a.append(paragraphTag3)
-// }
-
-//         )
+})
 
 // ADD EVENT LISTENER TO FORM TO FETCH API DATA WHEN SUBMITTED
 const form = document.querySelector(`form`);
@@ -34,7 +15,7 @@ form.addEventListener(`submit`, (e) => {
   const location = form.location.value;
   // console.log(form.location.value)
 
-  // fetch for API and store neccessary values (sub in location)
+  // FETCH for API and store neccessary values (sub in location)
   fetch(`https://wttr.in/${location}?format=j1`)
     .then((resp) => resp.json())
     .then((json) => {
@@ -85,33 +66,47 @@ form.addEventListener(`submit`, (e) => {
       todaysForecast.push(todayObj, tomObj, dayAfterObj);
       console.log(todaysForecast);
 
-      // create and populate elements for div.todaysWeather
+      // create and populate elements for div.todaysWeather and aside.upcomingStats
       const todaysWeather = document.querySelector(`.todaysWeather`);
-      // console.log(todaysWeather)
+      const todaysStats = document.querySelector(`#todayStats`)
+      const tomStats = document.querySelector(`#tomorrowStats`)
+      const dayAfterStats = document.querySelector(`#dayAfterStats`)
+      
+      //LOOP INTO todaysForecast arr and apply values to page elements
+      todaysForecast.forEach((day,i) =>{
+        if(i === 0){
+            todaysWeather.innerHTML = `
+            <h2>${day.Location}</h2>
+            <p><strong>Area:</strong> ${day.Location}</p>
+            <p><strong>Region:</strong> ${day.Region}</p>
+            <p><strong>Country:</strong> ${day.Country}</p>
+            <p><strong>Currently:</strong> Feels Like ${day.FeelsLike}°F`
+            todaysStats.innerHTML =`
+            <h3>Today</h3>
+            <p><strong>Average Temperature:</strong> ${day.avgtemp}°F</p>
+            <p><strong>Max Temperature:</strong> ${day.maxtemp}°F</p>
+            <p><strong>Min Temperature:</strong>${day.mintemp}°F</p>`
+        }
+        if(i === 1){
+            tomStats.innerHTML = `
+            <h3>Tomorrow</h3>
+            <p><strong>Average Temperature:</strong> ${day.avgtemp}°F</p>
+            <p><strong>Max Temperature:</strong> ${day.maxtemp}°F</p>
+            <p><strong>Min Temperature</strong> ${day.mintemp}°F</p>`
+        }
+        if(i === 2){
+            dayAfterStats.innerHTML = `
+            <h3>Day After Tomorrow</h3>
+            <p><strong>Average Temperature:</strong> ${day.avgtemp}°F</p>
+            <p><strong>Max Temperature:</strong>${day.maxtemp}°F</p>
+            <p><strong>Min Temperature:</strong>${day.mintemp}°F</p>`
+        }
+      })
+      
 
-      //POPULATE ELEMENTS IN aside.upcomingStats articles on page
-      //populate all sub aside.upcomingStats using loop
-      const mainSubArticles = document.querySelectorAll(
-        `.upcomingStats article`
-      );
-      console.log(mainSubArticles);
-      mainSubArticles.forEach((a) => {
-        const paragraphTag1 = document.createElement(`p`);
-        // paragraphTag1.innerText =
-        const paragraphTag2 = document.createElement(`p`);
-        paragraphTag2.classList.add(`1`);
-        const paragraphTag3 = document.createElement(`p`);
-        paragraphTag3.classList.add(`2`);
-        const subMainHeading = document.createElement(`h3`);
-        a.append(subMainHeading);
-        a.append(paragraphTag1);
-        a.append(paragraphTag2);
-        a.append(paragraphTag3);
-      });
     })
     .catch((err) => {
       console.log(err);
     });
 });
 
-//test for commit tracker code track
