@@ -1,23 +1,31 @@
-const Base_URL = 'https://wttr.in/London'
-const form1 = document.querySelector("#search-bar")
+const searchBar = document.querySelector(".enter-location");
+const bar = document.querySelector("#enter-location");
+// console.log(bar.value);
+const form = document.querySelector("form");
+const today = document.querySelector("#Today")
+const tomorrow = document.querySelector("#Tomorrow")
+const dayAfter= document.querySelector("#Day After Tomotrrow")
+const ul = document.querySelector("ul")
 // console.log(form1)
 //search bar
-const searchBar= document.querySelector(".enter-location")
 // console.log(searchBar)
-form1.addEventListener("submit", (event)=>{
- event.preventDefault()  
- form1.reset()
-console.log("I have been reset")
-// let location = event.target.location.value
-// console.log(location)
-fetch("https://wttr.in/London")
-.then((res)=>res.json)
-.then((resJson)=>{
-    console.log(resJson.results)
-    let results = resJson.results
-})
-.catch((err)=> err)
-})
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  //   form.reset();
+  const city = bar.value.split(" ").join("+"); //?
+  console.log(city);
+  let Base_URL = `http://wttr.in/${city}?format=j1`;
+
+  fetch(Base_URL)
+    .then((res) => res.json())
+
+    .then((resJson) => {
+      console.log(resJson);
+    //   let results = resJson.results;
+      console.log(resJson.current_condition[0].FeelsLikeF);
+    })
+    .catch((err) => err);
+});
 //!
 // form1.addEventListener("submit", (event)=>{
 //     event.preventDefault()
