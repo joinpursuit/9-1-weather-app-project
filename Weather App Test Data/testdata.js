@@ -104,7 +104,7 @@ form.addEventListener(`submit`, (e) => {
       })
       //TOGGLE HIDDEN ELEMENTS 
       const hide = document.querySelectorAll(`.defaultdisplay, .hidden`)
-      console.log(hide)
+    //   console.log(hide)
       hide.forEach(x => x.classList.toggle(`hidden`))
       
 
