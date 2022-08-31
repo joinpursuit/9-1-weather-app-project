@@ -39,13 +39,21 @@
 <!--Main-->
 <main>
     <article class="chooseWeather">
-        Choose a location to view the weather
+        <p id="mainPlaceHolderText">
+            Choose a location to view the weather
+        </p>
+        <div id="mainTodaysWeather" class="hidden">
+            <h2 class="hidden" id="mainCityName"> <!--${cityInputBox.value}--> </h2>
+            <strong>Area:</strong>
+            <p id="mainAreaName"><!--${areaName}--></p>
+            <strong>Region:</strong>
+            <p id="mainRegionName"><!--${region}--> </p>
+            <strong>Country:</strong>
+            <p id="mainCountryName"><!--${country}--></p>
+            <strong>Currently:</strong>
+            <p id="mainFeelsLike">Feels Like ${feels_LikeF} F</p>
+        </div>
     </article>
-    
-
-
-
-       
 
     <!--Aside 3 Dy Forcast-->
     <aside class="forcastAside hidden">
@@ -69,7 +77,7 @@
         </article>
 
         <article id="day3 hidden">
-            <h3>Day After Tomorrow</h3>
+            <h3>Day After</h3>
             <strong>Average Temperature:</strong>
             <p id="day3AvgTemp"></p>
             <strong>Max Temperature:</strong>

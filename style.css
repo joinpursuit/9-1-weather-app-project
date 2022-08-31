@@ -16,7 +16,6 @@ header {
     border-radius: 10px;
     background-color: #3f858b;
     text-align: center;
-   
 }
 
 header h1{
@@ -30,24 +29,19 @@ color: white;
 main {
     display: grid;
     grid-template-rows: 2fr 1fr ;
-   
     height: 80%;
     width: 80%;
     margin-top: 35px;
-   
     border-radius: 10px; 
     text-align: center;
-    
 }
 
 .chooseWeather {
-
 background-color: lightgray;
 border: 3px solid #3f858b;
 border-radius: 10px;
 text-align: center;
 width: 100%;
-
 }
 
 .asidePreviousSearches{
@@ -56,8 +50,6 @@ text-align: center;
 }
 .asidePreviousSearches h4 {
     font: color black;
-    
-
 }
 
 .forcastAside {
@@ -66,7 +58,6 @@ text-align: center;
     height: 200px;
     width: 3fr;
     text-align: center;
-  
 }
 
 .converter {

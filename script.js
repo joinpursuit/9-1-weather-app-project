@@ -1,9 +1,10 @@
-// User Input Box, Header Form, Main
+// USER INPUT, HEADER, MAIN, TODAY'S WEATHER
 const cityInputBox = document.querySelector(`.cityInputBox`);
 const headerForm = document.querySelector(`.headerForm`);
 const chooseWeatherMain = document.querySelector(`.chooseWeather`);
+const mainTodaysWeather = document.querySelector(`#mainTodaysWeather`);
 
-// Previous Searches UL
+// PREVIOUS SEARCHES UL ASIDE
 
 //grabs the previous searches ul
 const previousSearches = document.querySelector(`.previousSearches`);
@@ -11,43 +12,52 @@ const previousSearches = document.querySelector(`.previousSearches`);
 //grabs the p tag with the id noPreviousSearches
 const noPreviousSearchesP = document.querySelector(`#noPreviousSearches`);
 
+//grabs p tag in main that contains placeholder text
+const mainPlaceHolderText = document.querySelector(`#mainPlaceHolderText`);
 
-// 3 Day Forcast
+
+// 3 DAY FORCAST ASIDE
 
 // grabs the 3 day forcast articles with the classlist of hidden
 const forcastAside = document.querySelector(`.forcastAside`);
-
+//Day1
 let day1AvgTemp = document.querySelector(`#day1AvgTemp`);
 let day1MaxTemp = document.querySelector(` #day1MaxTemp`);
 let day1MinTemp = document.querySelector(`#day1MinTemp`);
-
-
+//Day2
 let day2AvgTemp = document.querySelector(`#day2AvgTemp`);
 let day2MaxTemp = document.querySelector(`#day2MaxTemp`);
 let day2MinTemp = document.querySelector(`#day2MinTemp`);
-
-
+//Day3
 let day3AvgTemp = document.querySelector(`#day3AvgTemp`);
 let day3MaxTemp = document.querySelector(`#day3MaxTemp`);
 let day3MinTemp = document.querySelector(`#day3MinTemp`);
 
+// MAIN ARTICLE TAG
+let mainCityName = document.querySelector(`#mainCityName`);
+let mainAreaName = document.querySelector(`#mainAreaName`);
+let mainRegionName = document.querySelector(`#mainRegionName`);
+let mainCountryName = document.querySelector(`#mainCountryName`);
+let mainFeelsLike = document.querySelector(`#mainFeelsLike`);
 
-//grbs individual days
-// const forcastAside = document.querySelector(`.forcastAside`)
-// const day1 = document.querySelector(`#day1`);
-// const day2 = document.querySelector(`#day2`);
-// const day3 = document.querySelector(`#day3`);
+// console.log(
+//   mainCityName,
+//   mainAreaName,
+//   mainRegionName,
+//   mainCountryName,
+//   mainFeelsLike
+// );
 
-
-//Add submit event listener to headerForm
+//EVENT LISTENER
 headerForm.addEventListener(`submit`, (e) => {
   e.preventDefault();
-  
+
+   //URL VARIABLES
     
     //turns input.value into a variable, trims it, and removes spaces and adds + char to make it URL-ready
   const cityInputVal = cityInputBox.value.trim().split(" ").join("+");
 
-// Fetch request city
+    // Fetch request city
   let previousSearchedCity = cityInputBox.value.trim(); //--> New York
   
       
@@ -59,9 +69,6 @@ headerForm.addEventListener(`submit`, (e) => {
     .then((res) => res.json())
     .then((resJson) => {
 
-          
-        
-      
           //Weather Conditions
           let current = resJson.current_condition[0];
           //Areas
@@ -70,8 +77,6 @@ headerForm.addEventListener(`submit`, (e) => {
           let day1 = resJson.weather[0]; 
           let day2 = resJson.weather[1];
           let day3 = resJson.weather[2];
-          
-      
 
       let areaName = area.areaName[0].value; //--> area.areaName
       let region = area.region[0].value; //--> area.region
@@ -81,29 +86,34 @@ headerForm.addEventListener(`submit`, (e) => {
     
             // IF Statement that fires via submit event IF Input Box has information it. Displays output for weather and regional info.
       if (cityInputBox.value !== "" && resJson !== undefined) {
-        chooseWeatherMain.innerHTML = `<h2>${cityInputBox.value}</h2>\n<strong>Area:</strong><p>${areaName}</p>\n<strong>Region:</strong><p>${region}</p>\n<strong>Country:<p>${country}</p></strong>\n<strong>Currently:</strong> <p>Feels Like ${feels_LikeF} F</p>`;
+
+        mainCityName.innerText = `${cityInputBox.value}`;
+        mainAreaName.innerText = `${areaName}`;
+        mainRegionName.innerText = `${region}`;
+        mainCountryName.innerText = `${country}`;
+        mainFeelsLike.innerText = `Feels Like ${feels_LikeF} F`;
 
         // sets 3 day forcast variables to values from resJson
 
+        //Day 1
         day1AvgTemp.innerText = `${day1.avgtempF}`;
         day1MaxTemp.innerText = `${day1.maxtempF}`;
         day1MinTemp.innerText = `${day1.mintempF}`;
-        
-
+        //Day 2
         day2AvgTemp.innerText = `${day2.avgtempF}`;
         day2MaxTemp.innerText = `${day2.maxtempF}`;
         day2MinTemp.innerText = `${day2.mintempF}`;
-       
-
+       //Day 3
         day3AvgTemp.innerText  = `${day3.mintempF}`;
         day3MaxTemp.innerText  = `${day3.mintempF}`;
         day3MinTemp.innerText = `${day3.mintempF}`;
         
-        //unhides the 3 day forcast articles
+        //unhides/hides the 3 day forcast articles, the previous searches and main article placeholder text
         forcastAside.classList.remove(`hidden`);
-
-        noPreviousSearchesP.classList.add(`hidden`)
-
+        noPreviousSearchesP.classList.add(`hidden`);
+        mainPlaceHolderText.classList.add(`hidden`);
+        mainTodaysWeather.classList.remove(`hidden`);
+        
 
         //create list items for previous searches
         const previousSearchItem = document.createElement(`li`);
