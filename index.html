@@ -13,17 +13,27 @@
         <h1>Weather App</h1>
         <form>
             <label for="location">Pick a Location</label>
-            <br>
-            <br>
-            <input id="input-text" type="text" placeholder="Enter City or Zip Code">
-            <br>
-            <br>
+            <p><input id="input-text" type="text" placeholder="Enter City or Zip Code"></p>
             <input id="submit" type="submit" value="Search">
         </form>
     </header>
     <main>
-        <aside id="temp-conv">
-
+        <div class="main">
+            <p>Choose a location to view the weather:</p>
+            <article id="currentWeather"></article>
+            <aside>
+                <article id="today"></article>
+                <article id="tomorrow"></article>
+                <article id="afterTomorrow"></article>
+            </aside>
+        </div>
+        <aside>
+            <div class="sidebar">
+                <section>
+                    <h4>Previous Searches:</h4>
+                        <p>No previous searches</p>
+                </section>
+            </div>
         </aside>
     </main>
 </body>
