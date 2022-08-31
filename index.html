@@ -14,9 +14,29 @@
         <form>
             <label for="location">Pick a Location</label>
             <p><input id="inputText" type="text" placeholder="Enter City or Zip Code"></p>
-            <input id="submit" type="submit" value="Search">
+            <input id="submitLocation" type="submit" value="Search">
         </form>
     </header>
+
+    <aside class="temp-conversion">
+            <form>
+                <strong>Convert the Temperature:</strong>
+                <p>
+                    <input type="number" id="temp-conv">
+                </p>
+                <label>
+                    <input type="radio" name="convert-temp" value="C" id="to-c" checked="yes">Celsius
+                </label>
+                <br>
+                <label>
+                    <input type="radio" name="convert-temp" value="F" id="to-f">Fahrenheit
+                </label>
+                <p>
+                    <input type="submit" value="Submit">
+                </p>
+            </form>
+    </aside>
+
     <main id="container" class="display">
         <div class="main">
             <p>Choose a location to view the weather:</p>
@@ -27,37 +47,21 @@
                 <article id="afterTomorrow"></article>
             </aside>
         </div>
-        <aside>
-            <div class="sidebar">
-                <section>
-                    <h4>Previous Searches:</h4>
-                    <ul>
-                        <p><i>No previous searches</i></p>
-                    </ul>
-                </section>
-            </div>
-        </aside>
-
-        <section>
-            <aside class="temp-conversion">
-                <form>
-                    <strong>Convert the Temperature:</strong>
-                    <p>
-                        <input type="number" id="temp-conv">
-                    </p>
-                    <label>
-                        <input type="radio" name="convert-temp" value="C" id="to-c" checked="yes">Celsius
-                    </label>
-                    <br>
-                    <label>
-                        <input type="radio" name="convert-temp" value="F" id="to-f">Fahrenheit
-                    </label>
-                    <p>
-                        <input type="submit" value="Submit">
-                    </p>
-                </form>
-            </aside>
-        </section>
     </main>
+
+    <aside class="sidebar">
+        <div>
+            <section>
+                <h4>Previous Searches:
+                    <ul>
+                        <p>
+                            <h5><i>No previous searches</i></h5>
+                        </p>
+                    </ul>
+                </h4>
+            </section>
+        </div>
+    </aside>
+
 </body>
 </html>
