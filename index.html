@@ -13,15 +13,15 @@
         <h1>Weather App</h1>
         <form>
             <label for="location">Pick a Location</label>
-            <p><input id="input-text" type="text" placeholder="Enter City or Zip Code"></p>
+            <p><input id="inputText" type="text" placeholder="Enter City or Zip Code"></p>
             <input id="submit" type="submit" value="Search">
         </form>
     </header>
-    <main>
+    <main id="container" class="display">
         <div class="main">
             <p>Choose a location to view the weather:</p>
             <article id="currentWeather"></article>
-            <aside>
+            <aside class="weatherForecast">
                 <article id="today"></article>
                 <article id="tomorrow"></article>
                 <article id="afterTomorrow"></article>
@@ -31,10 +31,33 @@
             <div class="sidebar">
                 <section>
                     <h4>Previous Searches:</h4>
-                        <p>No previous searches</p>
+                    <ul>
+                        <p><i>No previous searches</i></p>
+                    </ul>
                 </section>
             </div>
         </aside>
+
+        <section>
+            <aside class="temp-conversion">
+                <form>
+                    <strong>Convert the Temperature:</strong>
+                    <p>
+                        <input type="number" id="temp-conv">
+                    </p>
+                    <label>
+                        <input type="radio" name="convert-temp" value="C" id="to-c" checked="yes">Celsius
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="convert-temp" value="F" id="to-f">Fahrenheit
+                    </label>
+                    <p>
+                        <input type="submit" value="Submit">
+                    </p>
+                </form>
+            </aside>
+        </section>
     </main>
 </body>
 </html>

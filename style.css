@@ -1,0 +1,23 @@
+header {
+    background-color: rgb(255, 192, 203);
+    border-radius: 5px;
+    text-align: center;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding-top: 1px;
+    padding-bottom: 10px;
+    grid-column-start: span 3;
+}
+
+body {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 3;
+    margin: 1;
+    background-color: rgb(233, 228, 247);
+}
+
+h4 {
+    display: grid;
+    text-align: left;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
