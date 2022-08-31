@@ -1,0 +1,30 @@
+h1{
+    display :grid;
+    color: white;
+    background: red;
+   
+    
+}
+.green{
+    display:grid;
+    text-align: center;
+    background: turquoise;
+    border: 3px solid black;
+    width: 50%;
+    justify-content: center;
+    margin: auto;
+    
+}
+.aside{
+    display:grid ;
+}
+main{
+    display: grid;
+    color: black;
+    background-color: lightgray;
+    border: 2px solid green;
+    width: 48%;
+    height: auto;
+    margin: auto;
+    justify-content: center;
+}
