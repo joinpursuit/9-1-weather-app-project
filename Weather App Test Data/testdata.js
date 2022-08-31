@@ -12,9 +12,8 @@ const form = document.querySelector(`form`);
 // console.log(form)
 form.addEventListener(`submit`, (e) => {
   e.preventDefault();
-  form.reset()
   const location = form.location.value;
-  // console.log(form.location.value)
+  console.log(form.location.value)
 
   // FETCH for API and store neccessary values (sub in location)
   fetch(`https://wttr.in/${location}?format=j1`)
@@ -115,5 +114,7 @@ form.addEventListener(`submit`, (e) => {
     .catch((err) => {
       console.log(err);
     });
+    form.reset()
 });
+  
 
