@@ -1,36 +1,46 @@
 
 *{
-    border: 1px solid black;
+    /* border: 1px solid black; */
     /* text-align: center; */
+    box-sizing: border-box;
 }
 
 /* Grid layout for page */
 header {
     display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-columns: .5fr 1fr 1fr .5fr .5fr;
     
 }
-.header {
-    grid-column: 2;
-    
+div.header {
+    grid-column: 2/5;
+    background-color: teal;
+    color: white;
+    text-align: center;
 }
 
 main {
     display: grid;
-    grid-template-columns: repeat(5,1fr);
-    grid-template-rows: 1fr 1fr;
+    /* grid-template-columns: repeat(5,1fr); */
+    grid-template-columns: .5fr 1fr 1fr .5fr .5fr;
+    grid-template-rows: 1.5fr 1fr;
     /* height: 100vh; */
     margin-top: 50px;
+    gap: 30px 10px ;
 }
 
+
 div.defaultdisplay{
-    grid-column: 2/5;
+    grid-column: 2/4;
     grid-row: 1;
     background-color: lightgray;
     border: 1px solid teal;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
 }
-aside.defaultdisplay{
-    grid-column: 5;
+aside.list{
+    grid-column: 4;
     grid-row: 1;
 }
 p.indent{
@@ -39,17 +49,18 @@ p.indent{
 
 
 article.getshidden {
-    grid-column: 2/5;
+    grid-column: 2/4;
     grid-row: 1;
     display: grid;
     justify-content: center;
+    
 }
 
 div.todaysWeather {
     
 }
 aside.getshidden {
-    grid-column: 5;
+    grid-column: 4;
     grid-row: 1 /5;
 }
 form.converter{
@@ -57,14 +68,25 @@ form.converter{
     grid-row: 1 / 5;
 }
 aside.upcomingStats {
-    grid-column: 2/5;
+    grid-column: 2/4;
     grid-row: 2;
-    display:flex;
+    display:grid;
     justify-content: center;
-    align-items: space-between;
-
+    grid-template-columns: repeat(3,1fr);
+    column-gap: 20px;
 }
+.upcomingStats h3, .upcomingStats p, .todaysWeather h2, .todaysWeather p {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
 /* Create generic class to hide elements on page */
 .hidden {
     display:none;
+}
+
+.greybackground{
+    background-color: lightgray;
+    border: 1px solid teal;
 }

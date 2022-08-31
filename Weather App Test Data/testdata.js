@@ -12,6 +12,7 @@ const form = document.querySelector(`form`);
 // console.log(form)
 form.addEventListener(`submit`, (e) => {
   e.preventDefault();
+  form.reset()
   const location = form.location.value;
   // console.log(form.location.value)
 
@@ -104,8 +105,10 @@ form.addEventListener(`submit`, (e) => {
       })
       //TOGGLE HIDDEN ELEMENTS 
       const hide = document.querySelectorAll(`.defaultdisplay, .hidden`)
-    //   console.log(hide)
-      hide.forEach(x => x.classList.toggle(`hidden`))
+      console.log(hide)
+      hide.forEach(x => {
+        if( x === document.querySelector(`article.getshidden`)) x.classList.toggle(`greybackground`)
+        x.classList.toggle(`hidden`)})
       
 
     })
