@@ -10,10 +10,12 @@ const mainTodaysWeather = document.querySelector(`#mainTodaysWeather`);
 const previousSearches = document.querySelector(`.previousSearches`);
 
 //grabs the p tag with the id noPreviousSearches
-const noPreviousSearchesP = document.querySelector(`#noPreviousSearches`);
+const noPreviousSearches = document.querySelector(`#noPreviousSearches`);
 
 //grabs p tag in main that contains placeholder text
 const mainPlaceHolderText = document.querySelector(`#mainPlaceHolderText`);
+
+
 
 
 // 3 DAY FORCAST ASIDE
@@ -109,16 +111,31 @@ headerForm.addEventListener(`submit`, (e) => {
         day3MinTemp.innerText = `${day3.mintempF}`;
         
         //unhides/hides the 3 day forcast articles, the previous searches and main article placeholder text
-        forcastAside.classList.remove(`hidden`);
-        noPreviousSearchesP.classList.add(`hidden`);
-        mainPlaceHolderText.classList.add(`hidden`);
-        mainTodaysWeather.classList.remove(`hidden`);
         
+        noPreviousSearches.classList.add(`hidden`);
+        mainPlaceHolderText.classList.add(`hidden`);
+        noPreviousSearches.classList.add(`hidden`);
+        mainTodaysWeather.classList.remove(`hidden`);
+        forcastAside.classList.remove(`hidden`);
+
+      //PREVIOUS SEARCHES SIDEBAR
 
         //create list items for previous searches
         const previousSearchItem = document.createElement(`li`);
-        previousSearchLink = document.createElement(`a`)
-        // previousSearchLink.innerText = ${}
+
+        // Previous Search Link
+        previousSearchLink = document.createElement(`a`);
+        previousSearchLink.innerText = cityInputBox.value;
+        previousSearchLink.setAttribute(`href`, `URL`);
+        
+        const feelsLikePreviousSearches = document.createElement(`p`)
+        feelsLikePreviousSearches.innerText = ` - ${feels_LikeF} F`;
+
+         feelsLikePreviousSearches.prepend(previousSearchLink);
+        previousSearches.append(feelsLikePreviousSearches);
+       
+
+
         
 
 
