@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="./main.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Weather App Project</title>
+</head>
+<body>
+    <header>
+   
+    <h1>Weather App</h1>
+    <form action="pick-location" type="text">
+
+        <label for="Pick a Location">
+            Pick a Location
+            <input id="enter-location" name="input" value="" type="text" placeholder="Enter Location"/>
+          </label>
+          <label for="Submit button">
+        <input type="submit" name="input button" id="get-weather" value="Get Weather">
+    </label>
+    </form>
+</header>
+<div class="conversion">
+</fieldset>
+
+<aside class="left-aside">
+    <form>
+      
+    <label>Convert the Temperature:
+    <input id="to-convert" type="number" placeholder="Temperature" >
+</label>
+
+<label for="Celcius">
+    To Celcius:<input id="celcius" name="celcius" value="c" type="radio" />
+  </label>
+  <label for="Fahrenheit">
+    To Fahrenheit:<input id="fahrenheit" name="fahrenheit" value="F" type="radio" checked />
+</label>
+  <input class="toSubmit" type="button" value="Submit">
+  <h4></h4>
+</form>
+
+</div>
+
+<div class="history">
+<main>
+    <article class="current-weather">Choose a location to view the weather.</article>
+    <aside>
+        <article></article>
+        <article></article>
+        <article></article>
+    </aside>
+</main>
+</div>
+
+</aside>
+
+ 
+    <!-- <aside>
+    <p></p>
+</aside>  -->
+<main>
+<aside class="right-aside">
+<section>
+    <h4>Previous Searches</h4>
+    <ul></ul>
+    <p>No previous searches.</p>
+</section>
+</aside>
+</main>
+</body>
+</html>
