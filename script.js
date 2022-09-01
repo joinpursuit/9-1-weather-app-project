@@ -4,6 +4,9 @@ const headerForm = document.querySelector(`.headerForm`);
 const chooseWeatherMain = document.querySelector(`.chooseWeather`);
 const mainTodaysWeather = document.querySelector(`#mainTodaysWeather`);
 
+const main = document.querySelector(`main`)
+console.log(main.innerHTML)
+
 // PREVIOUS SEARCHES UL ASIDE
 
 //grabs the previous searches ul
@@ -106,8 +109,8 @@ headerForm.addEventListener(`submit`, (e) => {
         day2MaxTemp.innerText = `${day2.maxtempF}°F`;
         day2MinTemp.innerText = `${day2.mintempF}°F`;
        //Day 3
-        day3AvgTemp.innerText  = `${day3.mintempF}°F`;
-        day3MaxTemp.innerText  = `${day3.mintempF}°F`;
+        day3AvgTemp.innerText  = `${day3.avgempF}°F`;
+        day3MaxTemp.innerText  = `${day3.maxtempF}°F`;
         day3MinTemp.innerText = `${day3.mintempF}°F`;
         
         //unhides/hides the 3 day forcast articles, the previous searches and main article placeholder text
