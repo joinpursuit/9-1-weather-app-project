@@ -1,6 +1,9 @@
 const weatherButton = document.querySelector('#weather-button')
 const main = document.querySelector('main')
-const content2 = document.getElementsByClassName('content-2')
+const content2 = document.getElementById('content2')
+const content3 = document.getElementById('content3')
+const content4 = document.getElementById('content4')
+const sidebar = document.getElementById('sidebar-list')
 
 
 weatherButton.addEventListener('click', (event) => {
@@ -57,7 +60,22 @@ weatherButton.addEventListener('click', (event) => {
                 <p><strong>Country:</strong> ${country}</p>\n
                 <p><strong>Currently:</strong> Feels Like ${current}°F</p>`
 
-                content2.innerHTML = `<h2>Today</h2>`
+                content2.innerHTML = `<h2>Today</h2>\n
+                <p><strong>Average Temperature:</strong> ${avgTempToday}°F</p>\n
+                <p><strong>Max Temperature:</strong> ${maxTempToday}°F</p>\n
+                <p><strong>Min Temperature:</strong> ${minTempToday}°F</p>`
+
+                content3.innerHTML = `<h2>Tomorrow</h2>\n
+                <p><strong>Average Temperature:</strong> ${avgTempTomorrow}°F</p>\n
+                <p><strong>Max Temperature:</strong> ${maxTempTomorrow}°F</p>\n
+                <p><strong>Min Temperature:</strong> ${minTempTomorrow}°F</p>`
+
+                content4.innerHTML = `<h2>Day After Tomorrow</h2>\n
+                <p><strong>Average Temperature:</strong> ${avgTemp2Days}°F</p>\n
+                <p><strong>Max Temperature:</strong> ${maxTemp2Days}°F</p>\n
+                <p><strong>Min Temperature:</strong> ${minTemp2Days}°F</p>`
+
+                sidebar.innerHTML = `${id.value} - ${current}°F`
             }
         
             
