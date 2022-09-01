@@ -34,6 +34,18 @@
 <!--Converter-->
 <aside class="converter">
 
+    <form class="converterForm"><p>Convert the Temperature</p>
+    <input id="tempInputBox" type="number">
+    
+    <p>Convert the temperature</p>
+    
+    To Celcius
+    <input type="radio" id="celcius" name="pickTwo" value="celcius" checked />
+    To Fahrenheit
+    <input type="radio" id="fahrenheit" name="pickTwo" value="fehrenheit">
+    <input type="submit">
+    <h4 id="conversionOutput">0.00</h4></form>
+
 </aside>
 
 <!--Main-->
@@ -55,7 +67,7 @@
         </div>
     </article>
 
-    <!--Aside 3 Dy Forcast-->
+    <!--Aside 3 Day Forcast-->
     <aside class="forcastAside hidden">
         <article id="day1"><h4>Today</h3>
              <strong>Average Temperature:</strong>
@@ -95,7 +107,7 @@
         <h4>Previous Searches</h4>
         <p id="noPreviousSearches">No previous searches</p>
         <ul class="previousSearches">
-
+            <!--New Searches Go Here-->
         </ul>
     </section>
 </aside>

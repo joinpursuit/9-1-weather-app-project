@@ -71,6 +71,11 @@ text-align: center;
     display: none;
 }
 
+input[type="radio"]{
+    display: block;
+    margin-bottom: 10px;
+}
+
 /* #day1 {
     background-color: red;
 }

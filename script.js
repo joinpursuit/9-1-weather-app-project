@@ -93,22 +93,22 @@ headerForm.addEventListener(`submit`, (e) => {
         mainAreaName.innerText = `${areaName}`;
         mainRegionName.innerText = `${region}`;
         mainCountryName.innerText = `${country}`;
-        mainFeelsLike.innerText = `Feels Like ${feels_LikeF} F`;
+        mainFeelsLike.innerText = `Feels Like ${feels_LikeF} °F`;
 
         // sets 3 day forcast variables to values from resJson
 
         //Day 1
-        day1AvgTemp.innerText = `${day1.avgtempF}`;
-        day1MaxTemp.innerText = `${day1.maxtempF}`;
-        day1MinTemp.innerText = `${day1.mintempF}`;
+        day1AvgTemp.innerText = `${day1.avgtempF}°F`;
+        day1MaxTemp.innerText = `${day1.maxtempF}°F`;
+        day1MinTemp.innerText = `${day1.mintempF}°F`;
         //Day 2
-        day2AvgTemp.innerText = `${day2.avgtempF}`;
-        day2MaxTemp.innerText = `${day2.maxtempF}`;
-        day2MinTemp.innerText = `${day2.mintempF}`;
+        day2AvgTemp.innerText = `${day2.avgtempF}°F`;
+        day2MaxTemp.innerText = `${day2.maxtempF}°F`;
+        day2MinTemp.innerText = `${day2.mintempF}°F`;
        //Day 3
-        day3AvgTemp.innerText  = `${day3.mintempF}`;
-        day3MaxTemp.innerText  = `${day3.mintempF}`;
-        day3MinTemp.innerText = `${day3.mintempF}`;
+        day3AvgTemp.innerText  = `${day3.mintempF}°F`;
+        day3MaxTemp.innerText  = `${day3.mintempF}°F`;
+        day3MinTemp.innerText = `${day3.mintempF}°F`;
         
         //unhides/hides the 3 day forcast articles, the previous searches and main article placeholder text
         
@@ -129,11 +129,12 @@ headerForm.addEventListener(`submit`, (e) => {
         previousSearchLink.setAttribute(`href`, `URL`);
         
         const feelsLikePreviousSearches = document.createElement(`p`)
-        feelsLikePreviousSearches.innerText = ` - ${feels_LikeF} F`;
+        feelsLikePreviousSearches.innerText = ` - ${feels_LikeF} °F`;
 
          feelsLikePreviousSearches.prepend(previousSearchLink);
         previousSearches.append(feelsLikePreviousSearches);
        
+      
 
 
         
@@ -153,6 +154,42 @@ headerForm.addEventListener(`submit`, (e) => {
       console.error(err);
     });
 });
+
+//  CONVERTER 
+
+//converter form
+
+const tempInputBox = document.querySelector(`#tempInputBox`);
+
+const converterForm = document.querySelector(`.converterForm`);
+
+const celciusRadio = document.querySelector(`#celcius`);
+const fahrenheitRadio = document.querySelector(`#fahrenheit`);
+
+let conversionOutput = document.querySelector(`#conversionOutput`);
+
+let tempReturnVal = 0
+
+// console.log(fahrenheitRadio.checked)
+converterForm.addEventListener(`submit`, (e) => {
+  e.preventDefault();
+  if (celciusRadio.checked) {
+    //to Celcius(n°F − 32) × 5/9
+    tempReturnVal = (tempInputBox.value - 32) * 5 / 9;
+    conversionOutput.innerText = tempReturnVal.toFixed(2);
+  } else if (fahrenheitRadio.checked) {
+    //to Fahrenheit (n°C × 9/5) + 32 = n°F
+    tempReturnVal = (tempInputBox.value * 9) / 5 + 32;
+    conversionOutput.innerText = tempReturnVal.toFixed(2);;
+  }
+})
+
+
+
+
+
+
+
 
 
  
