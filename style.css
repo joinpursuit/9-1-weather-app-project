@@ -21,10 +21,10 @@ header{
    border: 3px solid black ;
 }
 
-.history{
+/* .history{
     text-align: center;
     border: 3px solid mediumspringgreen;
-}
+} */
 
 .right-aside h4{
     font-weight: bold;
@@ -37,7 +37,27 @@ text-align: center;
     border: 3px solid black;
     text-align: center;
 }
-#celsius{
+
+main{
+ 
+    display: grid;
+    grid-template-rows: 2fr 1fr;
+    row-gap: 10px;
+}
+
+#threeDays{
+    border:  3px solid plum;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 10px;
+}
+
+
+.current-weather{
+    border: 3px dotted blue;
+
+}
+#threeDays{
 
 }
 
