@@ -129,6 +129,7 @@ headerForm.addEventListener(`submit`, (e) => {
         // Previous Search Link
         previousSearchLink = document.createElement(`a`);
         previousSearchLink.innerText = cityInputBox.value;
+        cityInputBox.value = ``;
         previousSearchLink.setAttribute(`href`, `URL`);
         
         const feelsLikePreviousSearches = document.createElement(`p`)
