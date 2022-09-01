@@ -14,9 +14,10 @@ const previousSearches = document.querySelector(`h4`);
 const list = document.querySelector(`ul`);
 
 // location data
-let locationData = {};
+// let locationData = {};
 let locationName = ``;
 let areaSearched = ``;
+let feelsLikeF = ``;
 
 // Helper functions
 const createURL = (locationValue) => {
@@ -24,7 +25,7 @@ const createURL = (locationValue) => {
   URL = BASE_URL + locationURL + formatURL;
 };
 
-const fetchFunc = () => {};
+//const fetchFunc = () => {};
 
 const editSearches = () => {
   noSearches.style.display = `none`;
@@ -60,6 +61,11 @@ const editMain = (place) => {
   const country = document.createElement(`p`);
   country.innerHTML = `<strong>Country:</strong> ${areaPath.country[0].value}`;
   main.append(country);
+
+  const currentTemp = document.createElement(`p`);
+  feelsLikeF = place.current_condition[0].FeelsLikeF;
+  currentTemp.innerHTML = `<strong>Currently:</strong> Feels Like ${feelsLikeF}°F`;
+  main.append(currentTemp);
 };
 
 // Event Listeners
@@ -68,6 +74,7 @@ form.addEventListener(`submit`, (event) => {
 
   locationName = locationInput.value;
   createURL(locationName);
+
   areaSearched = locationName.split(` `);
   areaSearched = areaSearched
     .map((el) => el.charAt(0).toUpperCase() + el.slice(1))
@@ -77,7 +84,7 @@ form.addEventListener(`submit`, (event) => {
     .then((res) => res.json())
     .then((res) => {
       console.log(res);
-      locationData = res;
+      //   locationData = res;
       editMain(res);
       editSearches();
     })
