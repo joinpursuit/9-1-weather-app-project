@@ -22,7 +22,7 @@ header h1{
     text-align: center;
 }
 
-header h1, label{
+header h1{
 color: white;
 }
 
@@ -75,6 +75,10 @@ input[type="radio"]{
     display: block;
     margin-bottom: 10px;
 }
+
+/* .tempRadio{
+font: color black;
+} */
 
 /* #day1 {
     background-color: red;

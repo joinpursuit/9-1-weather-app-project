@@ -159,12 +159,12 @@ headerForm.addEventListener(`submit`, (e) => {
 
 //converter form
 
-const tempInputBox = document.querySelector(`#tempInputBox`);
+const tempInputBox = document.querySelector(`#temp-to-convert`);
 
 const converterForm = document.querySelector(`.converterForm`);
 
-const celciusRadio = document.querySelector(`#celcius`);
-const fahrenheitRadio = document.querySelector(`#fahrenheit`);
+const celciusRadio = document.querySelector(`#to-c`);
+const fahrenheitRadio = document.querySelector(`#to-f`);
 
 let conversionOutput = document.querySelector(`#conversionOutput`);
 

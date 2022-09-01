@@ -33,18 +33,16 @@
 
 <!--Converter-->
 <aside class="converter">
-
-    <form class="converterForm"><p>Convert the Temperature</p>
-    <input id="tempInputBox" type="number">
-    
-    <p>Convert the temperature</p>
-    
-    To Celcius
-    <input type="radio" id="celcius" name="pickTwo" value="celcius" checked />
-    To Fahrenheit
-    <input type="radio" id="fahrenheit" name="pickTwo" value="fehrenheit">
+    <form class="converterForm">
+        <label class="tempRadio">Convert the temperature</label>
+    <input id="temp-to-convert" type="number">
+    <label class="tempRadio">To Celcius</label>  
+    <input type="radio" id="to-c" name="convert-temp" value="c" checked />
+    <label class="tempRadio">To Fahrenheit</label>
+    <input type="radio" id="to-f" name="convert-temp" value="f">
     <input type="submit">
-    <h4 id="conversionOutput">0.00</h4></form>
+    </form>
+    <h4 id="conversionOutput">0.00</h4>
 
 </aside>
 
@@ -69,34 +67,42 @@
 
     <!--Aside 3 Day Forcast-->
     <aside class="forcastAside hidden">
-        <article id="day1"><h4>Today</h3>
-             <strong>Average Temperature:</strong>
-             <p id="day1AvgTemp"></p>
-            <strong>Max Temperature:</strong>
-             <p id="day1MaxTemp"></p>
-            <strong>Min Temperature:</strong>
-            <p id="day1MinTemp"></p>
-        </article>
-
-        <article id="day2 hidden">
+        <main>
+            <article id="day1">
+                <h4>Today</h3>
+                    <strong>Average Temperature:</strong>
+                    <p id="day1AvgTemp"></p>
+                    <strong>Max Temperature:</strong>
+                    <p id="day1MaxTemp"></p>
+                    <strong>Min Temperature:</strong>
+                    <p id="day1MinTemp"></p>
+            </article>
+        </main>
+       
+        <main>
+            <article id="day2 hidden">
             <h4>Tomorrow</h3>
-            <strong>Average Temperature:</strong>
-            <p id="day2AvgTemp"></p>
-            <strong>Max Temperature:</strong>
-            <p id="day2MaxTemp"></p>
-            <strong>Min Temperature:</strong>
-            <p id="day2MinTemp"></p>
-        </article>
-
-        <article id="day3 hidden">
-            <h4>Day After</h3>
-            <strong>Average Temperature:</strong>
-            <p id="day3AvgTemp"></p>
-            <strong>Max Temperature:</strong>
-            <p id="day3MaxTemp"></p>
-            <strong>Min Temperature:</strong>
-            <p id="day3MinTemp"></p>
-        </article>
+                <strong>Average Temperature:</strong>
+                <p id="day2AvgTemp"></p>
+                <strong>Max Temperature:</strong>
+                <p id="day2MaxTemp"></p>
+                <strong>Min Temperature:</strong>
+                <p id="day2MinTemp"></p>
+            </article>
+        </main>
+        
+        <main>
+            <article id="day3 hidden">
+                <h4>Day After</h3>
+                    <strong>Average Temperature:</strong>
+                    <p id="day3AvgTemp"></p>
+                    <strong>Max Temperature:</strong>
+                    <p id="day3MaxTemp"></p>
+                    <strong>Min Temperature:</strong>
+                    <p id="day3MinTemp"></p>
+            </article>
+        </main>
+        
     </aside>
 </main>
        
