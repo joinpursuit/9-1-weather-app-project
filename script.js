@@ -18,9 +18,6 @@ const noPreviousSearches = document.querySelector(`#noPreviousSearches`);
 //grabs p tag in main that contains placeholder text
 const mainPlaceHolderText = document.querySelector(`#mainPlaceHolderText`);
 
-
-
-
 // 3 DAY FORCAST ASIDE
 
 // grabs the 3 day forcast articles with the classlist of hidden
@@ -44,7 +41,7 @@ let mainAreaName = document.querySelector(`#mainAreaName`);
 let mainRegionName = document.querySelector(`#mainRegionName`);
 let mainCountryName = document.querySelector(`#mainCountryName`);
 let mainFeelsLike = document.querySelector(`#mainFeelsLike`);
-
+let mainAreaStrong = document.querySelector(`#mainAreaStrong`);
 // console.log(
 //   mainCityName,
 //   mainAreaName,
@@ -74,6 +71,8 @@ headerForm.addEventListener(`submit`, (e) => {
     .then((res) => res.json())
     .then((resJson) => {
 
+      console.log(resJson)
+
           //Weather Conditions
           let current = resJson.current_condition[0];
           //Areas
@@ -91,9 +90,13 @@ headerForm.addEventListener(`submit`, (e) => {
     
             // IF Statement that fires via submit event IF Input Box has information it. Displays output for weather and regional info.
       if (cityInputBox.value !== "" && resJson !== undefined) {
-
         mainCityName.innerText = `${cityInputBox.value}`;
         mainAreaName.innerText = `${areaName}`;
+        if (mainCityName.innerText === mainAreaName.innerText) {
+          mainAreaStrong.innerText = `Area:`;
+        } else {
+          mainAreaStrong.innerText = `Nearest Area:`;
+        }
         mainRegionName.innerText = `${region}`;
         mainCountryName.innerText = `${country}`;
         mainFeelsLike.innerText = `Feels Like ${feels_LikeF} °F`;
@@ -108,50 +111,46 @@ headerForm.addEventListener(`submit`, (e) => {
         day2AvgTemp.innerText = `${day2.avgtempF}°F`;
         day2MaxTemp.innerText = `${day2.maxtempF}°F`;
         day2MinTemp.innerText = `${day2.mintempF}°F`;
-       //Day 3
-        day3AvgTemp.innerText  = `${day3.avgempF}°F`;
-        day3MaxTemp.innerText  = `${day3.maxtempF}°F`;
+        //Day 3
+        day3AvgTemp.innerText = `${day3.avgempF}°F`;
+        day3MaxTemp.innerText = `${day3.maxtempF}°F`;
         day3MinTemp.innerText = `${day3.mintempF}°F`;
-        
+
         //unhides/hides the 3 day forcast articles, the previous searches and main article placeholder text
-        
+
         noPreviousSearches.classList.add(`hidden`);
         mainPlaceHolderText.classList.add(`hidden`);
         noPreviousSearches.classList.add(`hidden`);
         mainTodaysWeather.classList.remove(`hidden`);
         forcastAside.classList.remove(`hidden`);
+        mainCityName.classList.remove(`hidden`);
 
-      //PREVIOUS SEARCHES SIDEBAR
+      
+
+        //PREVIOUS SEARCHES SIDEBAR
 
         //create list items for previous searches
-        const previousSearchItem = document.createElement(`li`);
-
         // Previous Search Link
         previousSearchLink = document.createElement(`a`);
         previousSearchLink.innerText = cityInputBox.value;
+        previousSearchLink.setAttribute(`href`, `#`);
+        //previous searches cont...
+
+        //  [CITY INPUT BOX RESET]
         cityInputBox.value = ``;
-        previousSearchLink.setAttribute(`href`, `URL`);
-        
-        const feelsLikePreviousSearches = document.createElement(`p`)
+
+        //... cont previous searches
+
+        //Spawns new list itemd for previous searches sidebar
+
+        const feelsLikePreviousSearches = document.createElement(`li`);
         feelsLikePreviousSearches.innerText = ` - ${feels_LikeF} °F`;
-
-         feelsLikePreviousSearches.prepend(previousSearchLink);
+        feelsLikePreviousSearches.prepend(previousSearchLink);
         previousSearches.append(feelsLikePreviousSearches);
-       
-      
+        const previousSearchesListItems = document.querySelectorAll(`li`);
 
-
-        
-
-
-
-
-
-
-
-
-
-
+        // // EVENT LISTENER FOR PREVIOUS SEARCHES ASIDE
+        // previousSearchesListItems.addEventListener(`click`, () => {});
       } 
     })
     .catch((err) => {
@@ -212,4 +211,9 @@ converterForm.addEventListener(`submit`, (e) => {
 //add event listener to new york so that it clears out the info from previous fetch call, and so that it does the current fetch 
 
 // prevent default for form e
+
+
+
+//create  click event for the li itself --- you need the city variable that was used to complete the fetch request, 
+
 

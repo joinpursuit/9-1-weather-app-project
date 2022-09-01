@@ -54,7 +54,9 @@
         </p>
         <div id="mainTodaysWeather" class="hidden">
             <h2 class="hidden" id="mainCityName"> <!--${cityInputBox.value}--> </h2>
-            <strong>Area:</strong>
+            <strong>
+                <p id="mainAreaStrong"><!--Area: / Nearest Area:--></p>
+            </strong>
             <p id="mainAreaName"><!--${areaName}--></p>
             <strong>Region:</strong>
             <p id="mainRegionName"><!--${region}--> </p>
@@ -67,7 +69,7 @@
 
     <!--Aside 3 Day Forcast-->
     <aside class="forcastAside hidden">
-        <main>
+        
             <article id="day1">
                 <h4>Today</h3>
                     <strong>Average Temperature:</strong>
@@ -77,9 +79,9 @@
                     <strong>Min Temperature:</strong>
                     <p id="day1MinTemp"></p>
             </article>
-        </main>
+        
        
-        <main>
+        
             <article id="day2 hidden">
             <h4>Tomorrow</h3>
                 <strong>Average Temperature:</strong>
@@ -89,9 +91,9 @@
                 <strong>Min Temperature:</strong>
                 <p id="day2MinTemp"></p>
             </article>
-        </main>
         
-        <main>
+        
+        
             <article id="day3 hidden">
                 <h4>Day After</h3>
                     <strong>Average Temperature:</strong>
@@ -101,7 +103,7 @@
                     <strong>Min Temperature:</strong>
                     <p id="day3MinTemp"></p>
             </article>
-        </main>
+        
         
     </aside>
 </main>
