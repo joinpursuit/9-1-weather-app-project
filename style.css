@@ -1,0 +1,43 @@
+body {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: auto;
+  justify-content: center;
+  margin: 6px 12%;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  gap: 20px 10px;
+}
+
+header {
+  background-color: #417e80ed;
+  border: 4px solid #2c2d2c;
+  padding: 16px;
+  grid-column: 1/3;
+  text-align: center;
+  color: #fbfdfe;
+}
+
+#widget {
+    display: none;
+}
+
+main {
+  border: 2px solid #8cb4b4;
+  background-color: #efefef;
+  /* grid-column: 1/3; */
+  text-align: center;
+  align-self: stretch;
+  padding-top: 5%;
+  /* justify-self: stretch; */
+}
+
+h4 {
+  align-self: start;
+  justify-content: start;
+}
+
+#no-searches {
+  text-indent: 20%;
+}
+
