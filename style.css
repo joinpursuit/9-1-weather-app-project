@@ -1,4 +1,5 @@
  *{
+    /* border: 1px solid black; */
     box-sizing: border-box;
 }  
 
@@ -36,10 +37,26 @@ form {
 
 
 main{
-    text-align: center;
-    border: 1px solid black;
-    background-color: #9fd3c7;
-    margin: 0px 40px 600px 100px ;
+display: grid;
+grid-template-rows: 4fr 5fr;
+
 }
 
 
+#current{
+text-align: center;
+border: 1px solid black;
+background-color: #9fd3c7;
+margin: 0px 40px 600px 100px ; 
+}
+
+#forecast{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.readings{
+    border: 1px solid black;
+    background-color: gray;
+    margin: 0px 40px 600px 100px ; 
+}
