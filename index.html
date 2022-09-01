@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,65 +9,66 @@
     <link rel="stylesheet" href="style.css">
     <title>Weather App Project</title>
 </head>
+
 <body>
     <header>
-   
-    <h1>Weather App</h1>
-    <form type="text">
 
-        <label for="Pick a Location">
-            Pick a Location
-            <input id="enter-location" name="input" type="text" placeholder="Enter Location"/>
-          </label>
-          <label for="Submit button">
-        <input type="submit" name="input button" id="get-weather" value="Get Weather">
-    </label>
-    </form>
-</header>
-<div class="conversion">
-</fieldset>
+        <h1>Weather App</h1>
+        <form type="text">
 
-<aside class="left-aside">
-    <form>
-      
-    <label>Convert the Temperature:
-    <input id="to-convert" type="number" placeholder="Temperature" >
-</label>
+            <label for="Pick a Location">
+                Pick a Location
+                <input id="enter-location" name="input" type="text" placeholder="Enter Location" />
+            </label>
+            <label for="Submit button">
+                <input type="submit" name="input button" id="get-weather" value="Get Weather">
+            </label>
+        </form>
+    </header>
+    <div class="conversion">
+        </fieldset>
 
-<label for="Celcius">
-    To Celcius:<input id="celcius" name="celcius" value="c" type="radio" />
-  </label>
-  <label for="Fahrenheit">
-    To Fahrenheit:<input id="fahrenheit" name="fahrenheit" value="F" type="radio" checked />
-</label>
-  <input class="toSubmit" type="button" value="Submit">
-  <h4></h4>
-</form>
-</aside>
+        <aside class="left-aside">
+            <form>
+                <label>Convert the Temperature: </label>
+                    <input id="temp-to-convert" type="number" placeholder="Temperature">
+                </label>
 
-</div>
+                <label for="Celcius"> </label>
+                    To Celcius:<input id="to-c" name="celcius" value="c" type="radio" />
+               
+                <label for="Fahrenheit"> </label>
+                    To Fahrenheit:<input id="to-f" name="fahrenheit" value="F" type="radio" checked />
+               
+                <input class="toSubmit" type="submit" value="Submit">
+                <h4></h4>
+            </form>
+        </aside>
 
-<div class="history">
-<main>
-    <article class="current-weather">Choose a location to view the weather.</article>
-    <aside id="threeDays">
-        <article id="Today" >Today</article>
-        <article id="Tomorrow">Tomorrow</article>
-        <article id="Day After Tomorrow">Day After Tomorrow</article> 
+    </div>
+
+    <div class="history">
+        <main>
+            <article class="current-weather">Choose a location to view the weather.</article>
+            <aside id="threeDays">
+                <article><p>Today</p></article>
+                <article><p>Tomorrow</p></article>
+                <article><p>Day After Tomorrow</p></article>
+            </aside>
+
+    </div>
+
+
+
+    </main>
+    <aside class="right-aside">
+        <section id="searches">
+            <h4>Previous Searches</h4>
+            <ul></ul>
+            <p>No previous searches.</p>
+        </section>
     </aside>
 
-</div>
-
-
-
-</main>
-<aside class="right-aside">
-<section id="searches">
-    <h4>Previous Searches</h4>
-    <ul></ul>
-    <p>No previous searches.</p>
-</section>
-</aside>
-
 </body>
+
 </html>
