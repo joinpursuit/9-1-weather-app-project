@@ -19,17 +19,15 @@ header {
 }
 
 #widget {
-    display: none;
+  display: none;
 }
 
 main {
   border: 2px solid #8cb4b4;
   background-color: #efefef;
-  /* grid-column: 1/3; */
   text-align: center;
   align-self: stretch;
   padding-top: 5%;
-  /* justify-self: stretch; */
 }
 
 h4 {
@@ -38,6 +36,5 @@ h4 {
 }
 
 #no-searches {
-  text-indent: 20%;
+  text-align: right;
 }
-
