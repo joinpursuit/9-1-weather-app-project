@@ -13,6 +13,7 @@
       <header class="header">
         <form>
           <h1>Weather App</h1>
+          <div></div>
           <div>
             <label for="cityInput">Pick a Location</label>
             <input type="text" name="cityInput" class="cityInput" />
@@ -23,9 +24,10 @@
 
       <div class="containsInfo">
         <aside class="left">
-          <fieldset>
+          <form class="converter-box">
             <div class="containsConverter">
               <label for="temp-to-convert">Convert the temperature:</label>
+              <br />
               <input
                 id="temp-to-convert"
                 name="converter"
@@ -34,30 +36,32 @@
               />
             </div>
             <div class="C">
-              <label for="to-c">To Celcius</label>
+              <label for="to-c">To Celsius</label>
               <input id="to-c" name="convert-temp" value="c" type="radio" />
             </div>
             <div class="F">
               <label for="to-f">To Fahrenheit</label>
               <input id="to-f" name="convert-temp" type="radio" value="f" />
             </div>
-            <input class="submit-temp" type="submit" />
-          </fieldset>
+            <div>
+              <input class="submit-temp" type="submit" />
+            </div>
+          </form>
         </aside>
 
         <main>
           <article class="placeholder">
-            Choose a location to view the weather
+            Choose a location to view the weather.
           </article>
           <aside class="weatherInfo">
             <article class="today">
-              <h3 class="hidden">Today</h3>
+              <h5>Today</h5>
             </article>
             <article class="tomorrow">
-              <h3 class="hidden">Tomorrow</h3>
+              <h5>Tomorrow</h5>
             </article>
             <article class="day-after">
-              <h3 class="hidden">Day After Tomorrow</h3>
+              <h5>Day After Tomorrow</h5>
             </article>
           </aside>
         </main>
