@@ -18,9 +18,8 @@ const locationName = (x) => {
 // Define variables for ul element to hold previous search list
 const previousSearch = document.querySelector(`ul`)
 console.log(previousSearch)
-
-
-
+//create array to store past search location values
+const previousSearchArr = []
 // ADD EVENT LISTENER TO FORM TO FETCH API DATA WHEN SUBMITTED
 const form = document.querySelector(`form`);
 // console.log(form)
@@ -28,6 +27,7 @@ form.addEventListener(`submit`, (e) => {
   e.preventDefault();
   const location = locationName(form.location.value)
   console.log(location)
+
 
   // FETCH for API and store neccessary values (sub in location)
   fetch(`https://wttr.in/${location}?format=j1`)
@@ -130,10 +130,18 @@ form.addEventListener(`submit`, (e) => {
         let searchLink = document.createElement(`li`)
         searchLink.classList.add(`previousSearch`)
         searchLink.innerHTML = `<a href="http://">${location}</a>`
-        if(!document.querySelector(`li`)) previousSearch.append(searchLink)
-        const links = document.querySelectorAll(`li.previousSearch`)
-        console.log(links)
+        console.log(searchLink.innerText)
         // create and search nodelist for all previous search values
+        const links = document.querySelectorAll(`li.previousSearch`)
+        console.log(previousSearchArr)
+        if(!previousSearchArr.includes(searchLink.innerText)){
+            previousSearchArr.push(location)
+            previousSearch.append(searchLink)
+        }
+        console.log(`links`, links)
+        
+        
+
         
         
     
