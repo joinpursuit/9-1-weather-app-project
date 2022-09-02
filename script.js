@@ -13,7 +13,7 @@ search.addEventListener('submit', (e) => {
   fetch(url)
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
+      // console.log(data);
       const hideLocation = document.querySelector('#chooseLocation');
       // hideLocation.classList.remove('hidden');
 
@@ -25,10 +25,8 @@ search.addEventListener('submit', (e) => {
       const state = data.nearest_area[0].region[0].value;
       const stateP = document.createElement('p');
 
-      stateP.innerHTML = `<strong>Region: </strong>${state}`
+      stateP.innerHTML = `<strong>Region: </strong>${state}`;
       hideLocation.innerHTML = `<h2>${initialInput}</h2>`;
-
-     
 
       const country = data.nearest_area[0].country[0].value;
       const countryP = document.createElement('p');
@@ -59,9 +57,21 @@ search.addEventListener('submit', (e) => {
 
       // initialInput.style.textAlign = 'left';
 
+      const image = document.createElement('img');
+      if (snow > 50) {
+        image.setAttribute('src', './assets/icons8-light-snow.gif');
+        image.setAttribute('alt', 'snow');
+      } else if (sunshine > 50) {
+        image.setAttribute('src', './assets/icons8-summer.gif');
+        image.setAttribute('alt', 'sun');
+      } else if (rain > 50) {
+        image.setAttribute('src', './assets/icons8-torrential-rain.gif');
+        image.setAttribute('alt', 'rain');
+      }
       hideLocation.append(nearestArea1);
       // nearestArea1.append(initialInput);
       hideLocation.append(
+        image,
         stateP,
         countryP,
         feelslike,
@@ -70,14 +80,16 @@ search.addEventListener('submit', (e) => {
         santaIsComing
       );
 
-      const today = document.querySelector('#today');
-      const todayP1 = document.createElement('p');
-      todayP1.setAttribute('class', 'avgtemp');
-      todayP1.innerHTML = data.weather[0].avgtempf;
-      today.append(todayP1, todayP2, todayP3);
+    
 
-      const todayP2 = document.createElement('p');
-      todayP2;
+      // const today = document.querySelector('#today');
+      // const todayP1 = document.createElement('p');
+      // todayP1.setAttribute('class', 'avgtemp');
+      // todayP1.innerHTML = data.weather[0].avgtempf;
+      // today.append(todayP1, todayP2, todayP3);
+
+      // const todayP2 = document.createElement('p');
+      // todayP2;
     })
     .catch((error) => {
       console.log(error);
