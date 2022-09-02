@@ -26,11 +26,9 @@
     </form>
 </header>
 
+
+<!--Main Div, For CSS Styling-->
 <div class="container">
-
-
-
-
 <!--Converter-->
 <aside class="converter">
     <form class="converterForm">
@@ -53,6 +51,7 @@
             Choose a location to view the weather
         </p>
         <div id="mainTodaysWeather" class="hidden">
+            <img id="mainWeatherIcon" src="/assets/icons8-fog.gif" alt="">
             <h2 class="hidden" id="mainCityName"> <!--${cityInputBox.value}--> </h2>
             <strong>
                 <p id="mainAreaStrong"><!--Area: / Nearest Area:--></p>
@@ -64,6 +63,13 @@
             <p id="mainCountryName"><!--${country}--></p>
             <strong>Currently:</strong>
             <p id="mainFeelsLike">Feels Like ${feels_LikeF} F</p>
+            <p><strong>Chance of Sunshine:</strong></p>
+            <p id="mainChanceOfSunshine"><!--n%--></p>
+            <p><strong>Chance of Rain:</strong></p> 
+            <p id="mainChanceOfRain"><!--n%--></p>
+            <p><strong>Chance of Snow:</strong></p>
+            <p id="mainChanceOfSnow"><!--n%--></p>
+
         </div>
     </article>
 

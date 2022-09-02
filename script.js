@@ -5,7 +5,6 @@ const chooseWeatherMain = document.querySelector(`.chooseWeather`);
 const mainTodaysWeather = document.querySelector(`#mainTodaysWeather`);
 
 const main = document.querySelector(`main`)
-console.log(main.innerHTML)
 
 // PREVIOUS SEARCHES UL ASIDE
 
@@ -42,41 +41,30 @@ let mainRegionName = document.querySelector(`#mainRegionName`);
 let mainCountryName = document.querySelector(`#mainCountryName`);
 let mainFeelsLike = document.querySelector(`#mainFeelsLike`);
 let mainAreaStrong = document.querySelector(`#mainAreaStrong`);
-// console.log(
-//   mainCityName,
-//   mainAreaName,
-//   mainRegionName,
-//   mainCountryName,
-//   mainFeelsLike
-// );
+let mainChanceOfSunshine = document.querySelector(`#mainChanceOfSunshine`);
+let mainChanceOfRain = document.querySelector(`#mainChanceOfRain`);
+let mainChanceOfSnow = document.querySelector(`#mainChanceOfSnow`);
 
-//EVENT LISTENER
-headerForm.addEventListener(`submit`, (e) => {
-  e.preventDefault();
+//ICONS
+const mainWeatherIcon = document.querySelector(`#mainWeatherIcon`);
 
-   //URL VARIABLES
-    
-    //turns input.value into a variable, trims it, and removes spaces and adds + char to make it URL-ready
-  const cityInputVal = cityInputBox.value.trim().split(" ").join("+");
 
-    // Fetch request city
-  let previousSearchedCity = cityInputBox.value.trim(); //--> New York
-  
-      
-    //inserts user input string into the URL to complete a fetch call
-    let URL = `https://wttr.in/${cityInputVal}?format=j1`; //--> "New+York"
-    
-    //FETCH
+
+//CITY SEARCH FUNCTION
+
+function citySearch(URL) {
+  //FETCH
   fetch(URL)
     .then((res) => res.json())
     .then((resJson) => {
 
-      console.log(resJson)
+      console.log(resJson.weather[0].hourly[0]);
 
           //Weather Conditions
           let current = resJson.current_condition[0];
           //Areas
           let area = resJson.nearest_area[0];
+          let chanceOfWeather = resJson.weather[0].hourly[0];
           //Weather -- for 3 Day Forcast Aside
           let day1 = resJson.weather[0]; 
           let day2 = resJson.weather[1];
@@ -100,11 +88,25 @@ headerForm.addEventListener(`submit`, (e) => {
         mainRegionName.innerText = `${region}`;
         mainCountryName.innerText = `${country}`;
         mainFeelsLike.innerText = `Feels Like ${feels_LikeF} °F`;
+        mainChanceOfSunshine.innerText = `${chanceOfWeather.chanceofsunshine}`;
+        mainChanceOfRain.innerText = `${chanceOfWeather.chanceofrain}`;
+        mainChanceOfSnow.innerText = `${chanceOfWeather.chanceofsnow}`;
 
-        // sets 3 day forcast variables to values from resJson
+        //ICONS
+        if (Number(chanceOfWeather.chanceofsunshine) > 50) {
+          mainWeatherIcon.setAttribute(`src`, `./assets/icons8-summer.gif`);
+          mainWeatherIcon.setAttribute(`alt`, `sun`);
+        } else if (Number(chanceOfWeather.chanceofrain) > 50) {
+          mainWeatherIcon.setAttribute(`src`, `./assets/icons8-torrential-rain.gif`);
+          mainWeatherIcon.setAttribute(`alt`, `rain`);
+        } else if (Number(chanceOfWeather.chanceofsnow) > 50) {
+          mainWeatherIcon.setAttribute(`src`, `./assets/icons8-light-snow.gif`);
+          mainWeatherIcon.setAttribute(`alt`, `snow`);
+        }
+          // sets 3 day forcast variables to values from resJson
 
-        //Day 1
-        day1AvgTemp.innerText = `${day1.avgtempF}°F`;
+          //Day 1
+          day1AvgTemp.innerText = `${day1.avgtempF}°F`;
         day1MaxTemp.innerText = `${day1.maxtempF}°F`;
         day1MinTemp.innerText = `${day1.mintempF}°F`;
         //Day 2
@@ -112,7 +114,7 @@ headerForm.addEventListener(`submit`, (e) => {
         day2MaxTemp.innerText = `${day2.maxtempF}°F`;
         day2MinTemp.innerText = `${day2.mintempF}°F`;
         //Day 3
-        day3AvgTemp.innerText = `${day3.avgempF}°F`;
+        day3AvgTemp.innerText = `${day3.avgtempF}°F`;
         day3MaxTemp.innerText = `${day3.maxtempF}°F`;
         day3MinTemp.innerText = `${day3.mintempF}°F`;
 
@@ -124,8 +126,6 @@ headerForm.addEventListener(`submit`, (e) => {
         mainTodaysWeather.classList.remove(`hidden`);
         forcastAside.classList.remove(`hidden`);
         mainCityName.classList.remove(`hidden`);
-
-      
 
         //PREVIOUS SEARCHES SIDEBAR
 
@@ -147,15 +147,56 @@ headerForm.addEventListener(`submit`, (e) => {
         feelsLikePreviousSearches.innerText = ` - ${feels_LikeF} °F`;
         feelsLikePreviousSearches.prepend(previousSearchLink);
         previousSearches.append(feelsLikePreviousSearches);
-        const previousSearchesListItems = document.querySelectorAll(`li`);
+        // const previousSearchesListItems = document.querySelector(`li`);
 
-        // // EVENT LISTENER FOR PREVIOUS SEARCHES ASIDE
-        // previousSearchesListItems.addEventListener(`click`, () => {});
+        
+        // PREVIOUS SEARCHES ASIDE EVENT LISTENER (CLICK)
+        feelsLikePreviousSearches.addEventListener(`click`, () => {
+          let PreviousSearchesURLCity = previousSearchLink.innerText
+            .split(" ")
+            .join("+"); //--> New+York
+          
+          let PreviousSearchesURL = `https://wttr.in/${PreviousSearchesURLCity}?format=j1`; //--> https://wttr.in/new+nork?format=j1
+          console.log(PreviousSearchesURL);
+
+          citySearch(PreviousSearchesURL);
+
+          // got to get the url
+          // so i need only the city name from the side bar previous search
+          //have to plug that city name into the url
+          //then call city search( cuz now ill have a complete url)
+        });
       } 
     })
     .catch((err) => {
       console.error(err);
-    });
+    })
+} 
+  
+
+
+
+//_________MAIN________________
+
+
+
+
+//MAIN SECTION EVENT LISTENER (SUBMIT) 
+headerForm.addEventListener(`submit`, (e) => {
+  e.preventDefault();
+
+  //URL VARIABLES
+
+  //turns input.value into a variable, trims it, and removes spaces and adds + char to make it URL-ready
+  const cityInputVal = cityInputBox.value.trim().split(" ").join("+"); //--> New+York
+
+  // Fetch request city
+  let previousSearchedCity = cityInputBox.value.trim(); //--> New York
+
+  //inserts user input string into the URL to complete a fetch call
+  let URL = `https://wttr.in/${cityInputVal}?format=j1`; //--> https://wttr.in/new+nork?format=j1
+
+  citySearch(URL);
 });
 
 //  CONVERTER 
@@ -183,7 +224,7 @@ converterForm.addEventListener(`submit`, (e) => {
   } else if (fahrenheitRadio.checked) {
     //to Fahrenheit (n°C × 9/5) + 32 = n°F
     tempReturnVal = (tempInputBox.value * 9) / 5 + 32;
-    conversionOutput.innerText = tempReturnVal.toFixed(2);;
+    conversionOutput.innerText = tempReturnVal.toFixed(2);
   }
 })
 
