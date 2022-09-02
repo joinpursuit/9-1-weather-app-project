@@ -31,8 +31,9 @@ main {
   padding-top: 5%;
 }
 
-article,
-.main-initial {
+#main-article,
+.main-initial,
+#three-days article {
   border: 2px solid #8cb4b4;
   background-color: #efefef;
   margin-bottom: 12px;
@@ -41,7 +42,11 @@ article,
 #three-days {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  border: 5px solid red;
+}
+
+#three-days article {
+  margin-left: -1px;
+  margin-right: -1px;
 }
 
 h4 {

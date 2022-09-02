@@ -81,8 +81,32 @@ const editSearches = (element) => {
       .then((res) => res.json())
       .then((res) => {
         editMain(res, aTag.innerText);
+
+        const threeDayData = res.weather;
+        createThreeDay(threeDayData);
       })
       .catch((err) => console.log(err));
+  });
+};
+
+const createThreeDay = (data) => {
+  const editThreeDay = document.querySelector(`#three-days`);
+  editThreeDay.innerHTML = ``;
+  const dayTitle = [`Today`, `Tomorrow`, `Day After Tomorrow`];
+  let dayIndex = 0;
+  data.forEach((el) => {
+    const dayData = document.createElement(`article`);
+    dayData.innerHTML = `<h3><strong>${dayTitle[dayIndex]}</strong></h3>`;
+    const avgTemp = document.createElement(`p`)
+    avgTemp.innerHTML = `<strong>Average Temperature:</strong></br>${el.avgtempF}°F`
+    const maxTemp = document.createElement(`p`)
+    maxTemp.innerHTML = `<strong>Max Temperature:</strong></br>${el.maxtempF}°F`
+    const minTemp = document.createElement(`p`)
+    minTemp.innerHTML = `<strong>Min Temperature:</strong></br>${el.mintempF}°F`
+
+    editThreeDay.append(dayData);
+    dayData.append(avgTemp, maxTemp, minTemp)
+    dayIndex += 1;
   });
 };
 
@@ -103,6 +127,10 @@ form.addEventListener(`submit`, (event) => {
     .then((res) => {
       console.log(res);
       editMain(res, areaSearched);
+
+      const threeDayData = res.weather;
+      createThreeDay(threeDayData);
+
       if (!searchesArray.includes(areaSearched)) {
         editSearches(areaSearched);
       }
