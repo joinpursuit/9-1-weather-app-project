@@ -9,15 +9,18 @@ form.addEventListener('submit', (event) => {
     const weather = document.querySelector('#inputText');
     const current = document.querySelector('#currentWeather')
 
-    let val = weather.value
-    // let userLocationInput = val.value
+    let userLocationInput = weather.value
     
-    const url = `${BASE_URL}${val}${JSON_URL}`
+    const url = `${BASE_URL}${userLocationInput}${JSON_URL}`
     form.reset();
     fetch(url)
     .then((res) => res.json())
     .then((res2) => {
         // console.log(res2)
+
+        const hiddenLocation = document.querySelector('#currentWeather')
+        hiddenLocation.innerHTML = `<h2>${userLocationInput}<h2/>`
+
         const area = res2.nearest_area[0].areaName[0].value;
         // console.log(area)
         const areaP = document.createElement('p');
