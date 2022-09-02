@@ -25,6 +25,8 @@ div.setAttribute("class", "info")
 const main = document.createElement("main")
 main.setAttribute("id", "city")
 const aside = document.createElement("aside")
+aside.setAttribute("id", "previous")
+const previous = document.getElementById('#previous')
 div.append(main, aside)
 
 const section = document.createElement("section")
@@ -141,32 +143,34 @@ input2.addEventListener("click", (event) => {
             p1.textContent = `Area: ${area}`
             p2.textContent = `Country: ${country}`
             p3.textContent = `Region: ${region}`
-            p4.textContent = `Currently feels like ${temp}`
+            p4.textContent = `Currently feels like ${temp}\u00B0F`
             
-            pg1.textContent = `Avg Temp: ${avgTemp1}`
-            pg2.textContent = `Max Temp: ${maxTemp1}`
-            pg3.textContent = `Min Temp: ${minTemp1}`
+
+            pg1.textContent = `Avg Temp: ${avgTemp1}\u00B0F`
+            pg2.textContent = `Max Temp: ${maxTemp1}\u00B0F`
+            pg3.textContent = `Min Temp: ${minTemp1}\u00B0F`
             
-            page1.textContent = `Avg Temp: ${avgTemp2}`
-            page2.textContent = `Max Temp: ${maxTemp2}`
-            page3.textContent = `Min Temp: ${minTemp2}`
+            page1.textContent = `Avg Temp: ${avgTemp2}\u00B0F`
+            page2.textContent = `Max Temp: ${maxTemp2}\u00B0F`
+            page3.textContent = `Min Temp: ${minTemp2}\u00B0F`
             
-            pa1.textContent = `Avg Temp: ${avgTemp3}`
-            pa2.textContent = `Max Temp: ${maxTemp3}`
-            pa3.textContent = `Min Temp: ${minTemp3}`
+            pa1.textContent = `Avg Temp: ${avgTemp3} \u00B0F`
+            pa2.textContent = `Max Temp: ${maxTemp3} \u00B0F`
+            pa3.textContent = `Min Temp: ${minTemp3} \u00B0F`
 
             paragraph.classList.add("hidden")
+            h2.classList.add("hidden")
+
 
         const anchor = document.createElement("a")
         
-        anchor.setAttribute("href", "javascript:history.go()")
+        anchor.setAttribute("href", "")
         anchor.textContent = `${area} - ${temp}`
         
         const notes = anchor
         generateList(notes)
-        
-        
-        
+    
+
         
         form.reset()
     
