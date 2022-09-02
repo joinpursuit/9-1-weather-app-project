@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script defer src="./script.js"></script>
+  </head>
+  <body>
+    <div class="header">
+      <header>
+        <h1>Weather App</h1>
+        <form>
+          <label>Pick a Location</label>
+          <input id="city" type="text" name="name" required />
+          <input id="submit-city" type="submit" value="Get Weather" />
+        </form>
+      </header>
+    </div>
+    <div class="converter">
+      <aside>
+        <form id="conversion">
+          <label for="temp-to-convert">Convert the temperature</label>
+          <input
+            type="number"
+            name="temp-to-convert"
+            id="to-convert"
+            required
+          />
+          <input type="radio" name="f-to-c" value="Celsius" id="to-c" />
+          <label for="to-C">Celsius</label>
+          <br />
+          <input type="radio" name="c-to-f" value="Fahrenheit" id="to-f" />
+          <label for="to-F">Fahrenheit</label>
+          <input type="submit" value="submit" />
+          <h4></h4>
+        </form>
+      </aside>
+    </div>
+    <div class="content">
+      <main>
+        <article class="hidden">Choose a location to view the weather.</article>
+        <aside class="upComing">
+          <article class="today"></article>
+          <article class="tomorrow"></article>
+          <article class="afterTomorrow"></article>
+        </aside>
+      </main>
+    </div>
+    <div class="history">
+      <aside>
+        <section>
+          <h4><strong>Previous Searches</strong></h4>
+          <p>No previous searches.</p>
+          <ul></ul>
+        </section>
+      </aside>
+    </div>
+  </body>
+</html>

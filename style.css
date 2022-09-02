@@ -1,0 +1,110 @@
+/*  {
+  /* width: 100vw;
+  height: 100vh;
+  display: grid; 
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.header {
+  border: 3px solid black;
+  background-color: rgb(20, 94, 79);
+  text-align: center;
+  font-family: sans-serif;
+  color: aliceblue;
+  display: grid;
+  grid-template-columns: 1fr;
+} */
+
+/* body {
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+
+  grid-gap: 0.5rem;
+}
+
+.header {
+  border: 3px solid black;
+  padding: 30px 200px;
+  text-align: center;
+  font-family: sans-serif;
+  color: aliceblue;
+  background-color: rgb(20, 94, 79);
+}
+
+.converter {
+  display: grid;
+  padding: 100px;
+  border: 1px solid rgb(20, 94, 79);
+  background-color: antiquewhite;
+  grid-column: 2 / span 4;
+}
+
+.content {
+  display: grid;
+  padding: 100px;
+  border: 1px solid rgb(20, 94, 79);
+  background-color: antiquewhite;
+  grid-column: 2 / span 3;
+}
+
+.main {
+  display: grid;
+  padding: 100px;
+  border: 1px solid rgb(20, 94, 79);
+  background-color: antiquewhite;
+  grid-column: 2 / span 3;
+}
+
+.history {
+  display: grid;
+  padding: 100px;
+  border: 1px solid rgb(20, 94, 79);
+  background-color: antiquewhite;
+  grid-column: 2 / span 3;
+} */
+
+body {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: 1fr 5fr;
+  grid-template-areas:
+    ". header header header header ."
+    ". converter content content history .";
+  grid-gap: 1rem;
+  font-family: sans-serif, Arial, Helvetica;
+}
+
+.header {
+  background-color: rgb(56, 128, 109);
+  grid-area: header;
+  border: 3px solid black;
+  padding: 100px 100px;
+  text-align: center;
+  font-family: sans-serif;
+  color: aliceblue;
+}
+
+.converter {
+  background-color: aqua;
+  grid-area: converter;
+}
+
+.content {
+  background-color: palevioletred;
+  grid-area: content;
+}
+
+.history {
+  background-color: yellow;
+  grid-area: history;
+}
+
+/* @media (max-width: 550px) {
+} ; */
