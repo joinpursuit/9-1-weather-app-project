@@ -132,6 +132,17 @@ const fetchInfo = (input) => {
           previousSearchArr.push(input)
           previousSearch.append(searchLink)
       }
+      // ADD EVENT LISTENERS TO LI (LINK) ELEMENTS ON PAGE (RE-FETCH)
+      const links = document.querySelectorAll(`li.previousSearch a`)
+    //   console.log(`links`, links)
+      links.forEach(link => {
+        link.addEventListener(`click`, (event) => {
+            event.preventDefault()
+            const linkName = link.innerText
+            fetchInfo(linkName)
+        })
+      })
+      
 
   // END OF FETCH, NEED TO ASSIGN TO A VARIABLE, AND CALL AS FUNCTION IN EVENT LISTENERS
   })
@@ -148,16 +159,10 @@ form.addEventListener(`submit`, (e) => {
     const location = locationName(form.location.value)
     console.log(location)
     fetchInfo(location)
-
-    // ADD EVENT LISTENERS TO LI (LINK) ELEMENTS ON PAGE (RE-FETCH)
-    const links = document.querySelectorAll(`li.previousSearch`)
-    console.log(`links`, links)
-    
-    form.reset()
+     form.reset()
+     
 });
 
-// // ADD EVENT LISTENERS TO LI (LINK) ELEMENTS ON PAGE (RE-FETCH)
-// const links = document.querySelectorAll(`li.previousSearch`)
-// console.log(`links`, links)
+
   
 
