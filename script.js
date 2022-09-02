@@ -1,5 +1,5 @@
 const BASE_URL = "https://wttr.in/"
-const JSON_URL = '?format=j1'
+const END_URL = '?format=j1'
 
 const form = document.querySelector('#location');
 const main = document.querySelector('main');
@@ -11,7 +11,7 @@ form.addEventListener('submit', (event) => {
 
     let userLocationInput = weather.value
     
-    const url = `${BASE_URL}${userLocationInput}${JSON_URL}`
+    const url = `${BASE_URL}${userLocationInput}${END_URL}`
     form.reset();
     fetch(url)
     .then((res) => res.json())
@@ -38,9 +38,9 @@ form.addEventListener('submit', (event) => {
         current.append(countries);
 
         const feelsLike = res2.current_condition[0].FeelsLikeF;
-        const feelsLikeP = document.createElement('p');
-        feelsLikeP.innerHTML = `<strong>Currently: <strong/>Feels Like ${feelsLike}°F`;
-        current.append(feelsLikeP);
+        const feelsLike2 = document.createElement('p');
+        feelsLike2.innerHTML = `<strong>Currently: <strong/>Feels Like ${feelsLike}°F`;
+        current.append(feelsLike2);
 
         const sun = res2.weather[0].hourly[0].chanceofsunshine;
         const sunny = document.createElement('p');
@@ -86,17 +86,17 @@ form.addEventListener('submit', (event) => {
         today.append(avgTempToday, minTempToday, maxTempToday);
 
         const tomorrow = document.querySelector('#tomorrow');
-        const avgTempTom = document.createElement('p');
-        const minTempTom = document.createElement('p');
-        const maxTempTom = document.createElement('p');
+        const avgTempTmw = document.createElement('p');
+        const minTempTmw = document.createElement('p');
+        const maxTempTmw = document.createElement('p');
         const avgTemp1 = res2.weather[1].avgtempF
-        avgTempTom.innerHTML = `<strong>Average Temperature: <strong/>${avgTemp1}°F`;
+        avgTempTmw.innerHTML = `<strong>Average Temperature: <strong/>${avgTemp1}°F`;
         const minTemp1 = res2.weather[1].mintempF
-        minTempTom.innerHTML = `<strong>Min Temperature: <strong/>${minTemp1}°F`;
+        minTempTmw.innerHTML = `<strong>Min Temperature: <strong/>${minTemp1}°F`;
         const maxTemp1 = res2.weather[1].maxtempF
-        maxTempTom.innerHTML = `<strong>Max Temperature: <strong/>${maxTemp1}°F`;
+        maxTempTmw.innerHTML = `<strong>Max Temperature: <strong/>${maxTemp1}°F`;
 
-        tomorrow.append(avgTempTom, minTempTom, maxTempTom);
+        tomorrow.append(avgTempTmw, minTempTmw, maxTempTmw);
 
         const afterTmw = document.querySelector('#afterTomorrow');
         const avgTempAfter = document.createElement('p');

@@ -9,8 +9,10 @@ body {
         '. temp-conversion display display sidebar .'
         '. temp-conversion display display sidebar .';
     grid-gap: 20px;
-    margin: 1;
+    margin: auto;
     background-color: rgb(204, 220, 226);
+    color: white;
+    align-self: center;
 }
 
 header {
@@ -21,6 +23,7 @@ header {
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     padding-top: 1px;
     padding-bottom: 15px;
+    color: white;
 }
 
 .temp-conversion {
@@ -29,6 +32,7 @@ header {
 
 h4 {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: white;
 }
 
 #container {
@@ -38,6 +42,7 @@ h4 {
     border-radius: 5px;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     padding-top: 1px;
+    color: white;
 
 }
 
@@ -50,4 +55,6 @@ h4 {
     display: grid;
     border: 1px solid rgb(204, 220, 226);
     grid-template-columns: repeat(3, 1fr);
+    text-align: center;
+    color: white;
 }
