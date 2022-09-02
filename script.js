@@ -13,7 +13,7 @@ search.addEventListener('submit', (e) => {
   fetch(url)
     .then((res) => res.json())
     .then((data) => {
-      // console.log(data);
+      console.log(data);
       const hideLocation = document.querySelector('#chooseLocation');
       // hideLocation.classList.remove('hidden');
 
@@ -80,16 +80,49 @@ search.addEventListener('submit', (e) => {
         santaIsComing
       );
 
-    
+      const today = document.querySelector('#today');
+      const todayAvgTemp = document.createElement('p');
+      const todayMinTemp = document.createElement('p');
+      const todayMaxTemp = document.createElement('p');
+      const avgtemp1 = data.weather[0].avgtempF;
+      todayAvgTemp.innerHTML = `<strong>Average Temperature: </strong>${avgtemp1}°F`;
 
-      // const today = document.querySelector('#today');
-      // const todayP1 = document.createElement('p');
-      // todayP1.setAttribute('class', 'avgtemp');
-      // todayP1.innerHTML = data.weather[0].avgtempf;
-      // today.append(todayP1, todayP2, todayP3);
+      const minTemp1 = data.weather[0].mintempF;
+      todayMinTemp.innerHTML = `<strong>Min Temperature: </strong>${minTemp1}°F`;
 
-      // const todayP2 = document.createElement('p');
-      // todayP2;
+      const maxTemp1 = data.weather[0].maxtempF;
+      todayMaxTemp.innerHTML = `<strong>Max Temperature: </strong>${maxTemp1}°F`;
+      today.append(todayAvgTemp, todayMinTemp, todayMaxTemp);
+
+      const tomorrow = document.querySelector('#tomorrow');
+      const tomAvgTemp = document.createElement('p');
+      const tomMinTemp = document.createElement('p');
+      const tomMaxTemp = document.createElement('p');
+
+      const avgtemp2 = data.weather[1].avgtempF;
+      tomAvgTemp.innerHTML = `<strong>Average Temperature: </strong>${avgtemp2}°F`;
+
+      const minTemp2 = data.weather[1].mintempF;
+      tomMinTemp.innerHTML = `<strong>Min Temperature: </strong>${minTemp2}°F`;
+
+      const maxTemp2 = data.weather[1].maxtempF;
+      tomMaxTemp.innerHTML = `<strong>Min Temperature: </strong>${maxTemp2}°F`;
+      tomorrow.append(tomAvgTemp, tomMinTemp, tomMaxTemp);
+
+      const dayAfter = document.getElementById('third-day');
+      const dayAfterAvgTemp = document.createElement('p');
+      const dayAfterMinTemp = document.createElement('p');
+      const dayAfterMaxTemp = document.createElement('p');
+
+      const avgtemp3 = data.weather[2].avgtempF;
+      dayAfterAvgTemp.innerHTML = `<strong>Average Temperature: </strong>${avgtemp3}°F`;
+
+      const minTemp3 = data.weather[2].mintempF;
+      dayAfterMinTemp.innerHTML = `<strong>Min Temperature: </strong>${minTemp3}°F`;
+
+      const maxTemp3 = data.weather[2].maxtempF;
+      dayAfterMaxTemp.innerHTML = `<strong>Min Temperature: </strong>${maxTemp3}°F`;
+      dayAfter.append(dayAfterAvgTemp, dayAfterMinTemp, dayAfterMaxTemp);
     })
     .catch((error) => {
       console.log(error);
