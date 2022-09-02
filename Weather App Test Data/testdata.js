@@ -123,25 +123,23 @@ const fetchInfo = (input) => {
       previousPlaceholder.innerHTML =""
 
       // Create li elements for each search and assign innerHTML value (link : <a href="http://"></a>, feels like temp)
-      let searchLink = document.createElement(`li`)
+      const searchLink = document.createElement(`li`)
       searchLink.classList.add(`previousSearch`)
       searchLink.innerHTML = `<a href="http://">${input}</a> -${todayObj[`FeelsLike`]}°F`
+      
       // create and search nodelist for all previous search values, if search value isn't in ul, append li to ul
     //   console.log(previousSearchArr)
       if(!previousSearchArr.includes(input)){
           previousSearchArr.push(input)
           previousSearch.append(searchLink)
       }
-      // ADD EVENT LISTENERS TO LI (LINK) ELEMENTS ON PAGE (RE-FETCH)
-      const links = document.querySelectorAll(`li.previousSearch a`)
-    //   console.log(`links`, links)
-      links.forEach(link => {
-        link.addEventListener(`click`, (event) => {
+     // ADD EVENT LISTENERS TO LI (LINK) ELEMENTS ON PAGE (RE-FETCH). When clicked will show info for that city without adding to list
+        searchLink.addEventListener(`click`, (event) => {
             event.preventDefault()
-            const linkName = link.innerText
+            const linkName = event.target.innerText
             fetchInfo(linkName)
         })
-      })
+     
       
 
   // END OF FETCH, NEED TO ASSIGN TO A VARIABLE, AND CALL AS FUNCTION IN EVENT LISTENERS
