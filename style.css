@@ -1,0 +1,35 @@
+header {
+    background-color: rgb(43, 84, 63);
+    text-align: center;
+    color: white;
+    border: 2px solid black;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    padding-top: 15px;
+}
+
+.grid-container div {
+    border: 1px solid black;
+    padding-top: 15px;
+    text-align: center;
+}
+
+.grid-container2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-left: 227.5px;
+    margin-right: 227.5px;
+    padding-top: 20px;
+}
+
+.grid-container2 article {
+    border: 1px solid black;
+    text-align: center;
+}
+
+
