@@ -7,13 +7,27 @@ submit.addEventListener(`click`, (e) => {
   // e.preventDefault()
 })
 
+// FUNCTION FOR CONVERTING INPUTTED LOCATION TO CAPITAL LETTER FORMAT
+const locationName = (x) => {
+    let arr = x.split(` `)
+    arr.forEach((y,i) => {
+     arr[i] = `${y.charAt(0).toUpperCase()}${y.slice(1).toLowerCase()}` 
+     })
+     return arr.join(` `)
+    }
+// Define variables for ul element to hold previous search list
+const previousSearch = document.querySelector(`ul`)
+console.log(previousSearch)
+
+
+
 // ADD EVENT LISTENER TO FORM TO FETCH API DATA WHEN SUBMITTED
 const form = document.querySelector(`form`);
 // console.log(form)
 form.addEventListener(`submit`, (e) => {
   e.preventDefault();
-  const location = form.location.value;
-  console.log(form.location.value)
+  const location = locationName(form.location.value)
+  console.log(location)
 
   // FETCH for API and store neccessary values (sub in location)
   fetch(`https://wttr.in/${location}?format=j1`)
@@ -64,7 +78,7 @@ form.addEventListener(`submit`, (e) => {
 
       // PUSH ALL OBJ'S TO TODAYFORCAST ARRAY (to be referenced to populate page)
       todaysForecast.push(todayObj, tomObj, dayAfterObj);
-      console.log(todaysForecast);
+    //   console.log(todaysForecast);
 
       // create and populate elements for div.todaysWeather and aside.upcomingStats
       const todaysWeather = document.querySelector(`.todaysWeather`);
@@ -104,10 +118,31 @@ form.addEventListener(`submit`, (e) => {
       })
       //TOGGLE HIDDEN ELEMENTS 
       const hide = document.querySelectorAll(`.defaultdisplay, .hidden`)
-      console.log(hide)
+    //   console.log(hide)
       hide.forEach(x => {
         if( x === document.querySelector(`article.getshidden`)) x.classList.toggle(`greybackground`)
         x.classList.toggle(`hidden`)})
+        //remove aside elements
+        const previousPlaceholder = document.querySelector(`p.indent`)
+        previousPlaceholder.innerHTML =""
+
+        // Create li elements for each search and append to ul (previousSearch) element <a href="http://"></a>
+        let searchLink = document.createElement(`li`)
+        searchLink.classList.add(`previousSearch`)
+        searchLink.innerHTML = `<a href="http://">${location}</a>`
+        if(!document.querySelector(`li`)) previousSearch.append(searchLink)
+        const links = document.querySelectorAll(`li.previousSearch`)
+        console.log(links)
+        // create and search nodelist for all previous search values
+        
+        
+    
+           
+        
+        // add event listener to links (anchor <a> tags under ul)
+        
+        
+
       
 
     })
