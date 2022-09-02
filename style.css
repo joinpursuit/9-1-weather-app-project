@@ -45,3 +45,9 @@ h4 {
     grid-area: sidebar;
     text-align: center;
 }
+
+.weatherForecast {
+    display: grid;
+    border: 1px solid rgb(204, 220, 226);
+    grid-template-columns: repeat(3, 1fr);
+}
