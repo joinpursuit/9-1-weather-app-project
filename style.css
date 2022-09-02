@@ -1,5 +1,6 @@
 * {
 font-family: sans-serif;
+
 }
 
 .container {
@@ -56,16 +57,23 @@ text-align: center;
 .forcastAside {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 50px;
     height: 200px;
     width: 3fr;
     text-align: center;
 }
 
+
 .converter {
     /* border: 2px solid #3f858b;
     border-radius: 10px; */
-    margin-right: 55px;
+    margin-right: 170px;
 
+
+}
+
+#temp-to-convert {
+    width: 190px;
 }
 
 .hidden {
@@ -75,6 +83,12 @@ text-align: center;
 input[type="radio"]{
     display: block;
     margin-bottom: 10px;
+}
+
+#mainWeatherIcon {
+margin-top: 30px;
+border: 4px solid #3f858b;
+border-radius: 10px;
 }
 
 /* .tempRadio{
