@@ -13,11 +13,11 @@ const noSearches = document.querySelector(`#no-searches`);
 const previousSearches = document.querySelector(`h4`);
 const list = document.querySelector(`ul`);
 
-// location data
-// let locationData = {};
+// Needed Variables
 let locationName = ``;
 let areaSearched = ``;
 let feelsLikeF = ``;
+const searchesArray = [];
 
 // Helper functions
 const createURL = (locationValue) => {
@@ -25,29 +25,26 @@ const createURL = (locationValue) => {
   URL = BASE_URL + locationURL + formatURL;
 };
 
-//const fetchFunc = () => {};
-
-const editSearches = () => {
-  noSearches.style.display = `none`;
-  const li = document.createElement(`li`);
-  const aTag = document.createElement(`a`);
-  li.append(aTag);
-  noSearches.before(li);
-  aTag.innerText = areaSearched;
-  console.log();
-};
-
-const editMain = (place) => {
+const editMain = (place, mainName) => {
   main.innerHTML = ``;
+  main.classList.remove(`main-initial`);
+
+  const article = document.createElement(`article`);
+  article.setAttribute(`id`, `main-article`);
+  const threeDays = document.createElement(`article`);
+  threeDays.setAttribute(`id`, `three-days`);
+  main.append(article, threeDays);
+  // test code
+  threeDays.textContent = `test`;
+
   const areaPath = place.nearest_area[0];
 
   const h2AreaSearched = document.createElement(`h2`);
-  h2AreaSearched.innerHTML = `<strong>${areaSearched}</strong>`;
-  main.append(h2AreaSearched);
+  h2AreaSearched.innerHTML = `<strong>${mainName}</strong>`;
 
   const areaValReturn = areaPath.areaName[0].value;
   const pArea = document.createElement(`p`);
-  main.append(pArea);
+
   if (areaValReturn === areaSearched) {
     pArea.innerHTML = `<strong>Area:</strong> ${areaValReturn}`;
   } else {
@@ -56,16 +53,37 @@ const editMain = (place) => {
 
   const region = document.createElement(`p`);
   region.innerHTML = `<strong>Region:</strong> ${areaPath.region[0].value}`;
-  main.append(region);
 
   const country = document.createElement(`p`);
   country.innerHTML = `<strong>Country:</strong> ${areaPath.country[0].value}`;
-  main.append(country);
 
   const currentTemp = document.createElement(`p`);
   feelsLikeF = place.current_condition[0].FeelsLikeF;
   currentTemp.innerHTML = `<strong>Currently:</strong> Feels Like ${feelsLikeF}°F`;
-  main.append(currentTemp);
+
+  article.append(h2AreaSearched, pArea, region, country, currentTemp);
+};
+
+const editSearches = (element) => {
+  noSearches.style.display = `none`;
+  const li = document.createElement(`li`);
+  const aTag = document.createElement(`a`);
+  aTag.setAttribute(`href`, ``);
+  list.append(li);
+  aTag.innerText = areaSearched;
+  li.innerText = ` - ${feelsLikeF}°F`;
+  li.prepend(aTag);
+  searchesArray.push(element);
+  aTag.addEventListener(`click`, (event) => {
+    event.preventDefault();
+    createURL(aTag.innerText);
+    fetch(URL)
+      .then((res) => res.json())
+      .then((res) => {
+        editMain(res, aTag.innerText);
+      })
+      .catch((err) => console.log(err));
+  });
 };
 
 // Event Listeners
@@ -77,18 +95,20 @@ form.addEventListener(`submit`, (event) => {
 
   areaSearched = locationName.split(` `);
   areaSearched = areaSearched
-    .map((el) => el.charAt(0).toUpperCase() + el.slice(1))
+    .map((el) => el.charAt(0).toUpperCase() + el.slice(1).toLowerCase())
     .join(` `);
 
   fetch(URL)
     .then((res) => res.json())
     .then((res) => {
       console.log(res);
-      //   locationData = res;
-      editMain(res);
-      editSearches();
+      editMain(res, areaSearched);
+      if (!searchesArray.includes(areaSearched)) {
+        editSearches(areaSearched);
+      }
     })
     .catch((err) => {
       console.log(err);
     });
+  form.reset();
 });

@@ -23,11 +23,25 @@ header {
 }
 
 main {
-  border: 2px solid #8cb4b4;
-  background-color: #efefef;
   text-align: center;
   align-self: stretch;
+}
+
+.main-initial {
   padding-top: 5%;
+}
+
+article,
+.main-initial {
+  border: 2px solid #8cb4b4;
+  background-color: #efefef;
+  margin-bottom: 12px;
+}
+
+#three-days {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 5px solid red;
 }
 
 h4 {
@@ -35,8 +49,7 @@ h4 {
   justify-content: start;
 }
 
-#no-searches,
-li {
+#no-searches {
   text-indent: 20%;
   text-align: left;
 }
