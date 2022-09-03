@@ -108,17 +108,17 @@ const fetchInfo = (input) => {
         console.log(day.Rain,day.Snow,day.Sun)
         const iconImg = document.createElement(`img`)
         if(+day.Sun > 50 ){
-            iconImg.src = "assets/icons8-summer.gif"
+            iconImg.src = "../assets/icons8-summer.gif"
             iconImg.alt = `sun`
             document.querySelector(`h2`).before(iconImg)
         }
         else if(+day.Rain > 50 ){
-            iconImg.src = `assets/icons8-torrential-rain.gif`
+            iconImg.src = `../assets/icons8-torrential-rain.gif`
             iconImg.alt = `rain`
             document.querySelector(`h2`).before(iconImg)
         }
         else if(+day.Snow > 50 ){
-            iconImg.src = `assets/icons8-light-snow.gif`
+            iconImg.src = `../assets/icons8-light-snow.gif`
             iconImg.alt = `snow`
             document.querySelector(`h2`).before(iconImg)
         }
@@ -211,12 +211,12 @@ console.log(fareinheit,celsius, converterOutput)
     // e.preventDefault()
  })
 function tempConversion(x){
-   if(fareinheit.checked){
-        converterOutput.innerText=` ${((x - 32) * (5/9)).toFixed(2)}°F`
+    if(celsius.checked){
+        converterOutput.innerText=` ${((x - 32) * (5/9)).toFixed(2)}°C`
         //(32°F − 32) × 5/9 = 0°C
     }
-    if(celsius.checked){
-        converterOutput.innerText = `${((x * 9/5) + 32).toFixed(2)}°C` 
+    if(fareinheit.checked){
+        converterOutput.innerText = `${((x * 9/5) + 32).toFixed(2)}°F` 
         //(0°C × 9/5) + 32 = 32°F
     }
 }

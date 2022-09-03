@@ -214,8 +214,8 @@ form.addEventListener(`submit`, (e) => {
     });
 
     // EVENT LISTENERS AND TEMP CONVERTER FUNCTION FOR BONUS FUNCTIONS
- //declare variables for converter form, radio buttons,submit button, and h3 output element
- // f id = degreesF; c id =degreesC -> used .checked
+ //declare variables for converter form, radio buttons,submit button, and h4 output element
+ // f id = to-f; c id =to-c -> use .checked
 const converterForm = document.querySelector(`form.converter`)
 // console.log(`convert form`,converterForm)
 const fareinheit = document.querySelector(`#to-f`)
