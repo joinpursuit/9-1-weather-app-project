@@ -10,7 +10,7 @@ const current = document.querySelector(".current-weather");
 // console.log(form1)
 //search bar
 // console.log(searchBar)
-form.addEventListener("submit", (event) => {
+const project = form.addEventListener("submit", (event) => {
   const city = bar.value; //?
   let Base_URL = `https://wttr.in/${city}?format=j1`;
   event.preventDefault();
@@ -19,7 +19,7 @@ form.addEventListener("submit", (event) => {
   fetch(Base_URL)
     .then((res) => res.json())
     .then((resJson) => {
-      console.log(resJson);
+      // console.log(resJson);
       let area = resJson.nearest_area[0].areaName[0].value;
       //   console.log(areaP);
       if (resJson) {
@@ -53,20 +53,22 @@ form.addEventListener("submit", (event) => {
       const dayAfter = document.querySelector("#Day-After-Tomorrow");
 
       //!THREEDAYS --> create a loop to go iterate and update the days.
-    //? Use let instead of const because it needs to update after every loop. 
-      let days = ["Today", "Tomorrow", "Day After Tomorrow"]
-      for(let i=0; i< threeDays.length; i++){
-        threeDays[i].innerHTML= ""
-         //* Create an element to hold the temp days 
-      let tempDays = document.createElement('p')
-      //* temDays should be able to hold days
-      tempDays.textContent= days[i]
-        //avg --> 
+      //? Use let instead of const because it needs to update after every loop.
+      let days = ["Today", "Tomorrow", "Day After Tomorrow"];
+      for (let i = 0; i < threeDays.length; i++) {
+        threeDays[i].innerHTML = "";
+        //* Create an element to hold the temp days
+        let tempDays = document.createElement("p");
+
+        //* temDays should be able to hold days
+        tempDays.textContent = days[i];
+
+        //avg -->
         let avgP = document.createElement("p");
         const avgTempF = resJson.weather[i].avgtempF;
         avgP.innerHTML = `<b>Average Temeprature:</b>${avgTempF}°F`;
         //min
-       let minP = document.createElement("p");
+        let minP = document.createElement("p");
         const minTempF = resJson.weather[i].mintempF;
         minP.innerHTML = `<strong>Min Temperature:</strong>${minTempF}°F`;
         // max
@@ -92,7 +94,61 @@ form.addEventListener("submit", (event) => {
       const snow = resJson.weather[0].hourly[0].chanceofsnow;
       snowP.innerHTML = `<b>Chance of Snow:</b>${snow}`;
       current.append(snowP);
-      //!
+
+      //!Previous Searches
+      //* Query select right-aside
+      //* QuerySelect p tag
+      //* QuerySelect ul tag
+      //* Create a li to update ul 
+      //* Create an <a> to create hyperlink
+      const history = document.querySelector('.right-aside')
+      // console.log(history)
+      const previousP = document.querySelector('section p')
+      console.log(previousP)
+       previousP.innerHTML="" // To clear message when submit
+     console.log(ul)
+     let li = document.createElement('li')
+
+     let link = document.createElement("a")
+     link.href = "#"  
+     console.log(link)
+     link.textContent = `${area}`
+li.innerHTML =`${link} - ${currently}°F`
+li.prepend(link)
+ul.append(li)
+ 
+link.addEventListener("click", (project)
+)
+
+// link.addEventListener("click", (event)=>{
+//   event.preventDefault()
+// })
+
+
+
+ //! Conversion
+//       //? if the temp is in celscius apply the conversion formula to change to F((TEMPERATURE°F − 32) × 5/9 = 0°C), vice versa(F--> (TEMPERATURE°C × 9/5) + 32 = 89.6°F).
+//       //*Created an event listener.. submit was resting page
+//       conversionType.addEventListener("submit", (event)=>{
+//         event.preventDefault()
+      
+//       const conversionType = document.querySelector(".left-aside")
+//       console.log(conversionType)
+//       let input = document.querySelector("#temp-to-convert"); // temp input search bar.. always changing
+//       // console.log(input);
+//       let tempInput = document.querySelector("h4"); // store results for converion
+//       // console.log(tempInput)
+//       //* select radio button
+//       const celButton = document.querySelector("#to-c");
+//       // console.log(celButton)
+//       const fahButton = document.querySelector("#to-f");
+//       // console.log(fahButton)
+
+//       if(celButton.checked = true){
+// tempInput.innerText=((input * 9/5) + 32)
+// console.log() 
+//       }
+//     })
 
       // let searchValue =`${city}`
       // // style.textAlign ="Right"
@@ -101,4 +157,6 @@ form.addEventListener("submit", (event) => {
       // areaP.prepend(searchV)
     })
     .catch((err) => err);
+  
+
 });
