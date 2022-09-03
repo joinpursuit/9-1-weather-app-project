@@ -64,18 +64,18 @@ form.addEventListener("submit", (event) => {
         //avg --> 
         let avgP = document.createElement("p");
         const avgTempF = resJson.weather[i].avgtempF;
-        avgP.innerHTML = `<b>Average Temeprature</b>:${avgTempF}`;
+        avgP.innerHTML = `<b>Average Temeprature:</b>${avgTempF}°F`;
         //min
        let minP = document.createElement("p");
         const minTempF = resJson.weather[i].mintempF;
-        minP.innerHTML = `<strong>Min Temperature:</strong>${minTempF}`;
+        minP.innerHTML = `<strong>Min Temperature:</strong>${minTempF}°F`;
         // max
         let maxTempP = document.createElement("p");
         const maxTempF = resJson.weather[i].maxtempF;
-        maxTempP.innerHTML = `<b>Max Temperature:${maxTempF}`;
+        maxTempP.innerHTML = `<b>Max Temperature:</b>${maxTempF}°F`;
         threeDays[i].append(tempDays, avgP, maxTempP, minP);
       }
-      
+
       //! Chance of rain, sunshine, snow
       //sunshine
       const sunShineP = document.createElement("p");
