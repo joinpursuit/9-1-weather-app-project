@@ -120,7 +120,9 @@ const fetchInfo = (input) => {
       x.classList.toggle(`hidden`)})
       //remove aside elements
       const previousPlaceholder = document.querySelector(`p.indent`)
-      previousPlaceholder.innerHTML =""
+      if(previousPlaceholder) previousPlaceholder.remove()
+      const defaultDisplay = document.querySelector(`div.defaultdisplay`)
+      if(defaultDisplay) defaultDisplay.remove()
 
       // Create li elements for each search and assign innerHTML value (link : <a href="http://"></a>, feels like temp)
       const searchLink = document.createElement(`li`)
@@ -139,6 +141,7 @@ const fetchInfo = (input) => {
             const linkName = event.target.innerText
             fetchInfo(linkName)
         })
+        
      
       
 
@@ -160,6 +163,7 @@ form.addEventListener(`submit`, (e) => {
      form.reset()
      
 });
+//NEXT UPDATE CSS FOR GRID NEED COLUMNS TO SHIFT WHEN FETCH FIRED
 
 
   
