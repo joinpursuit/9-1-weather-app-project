@@ -31,8 +31,8 @@ function cityInfo(userInput) {
 
       //Tomorrow Forcast
       let tomorrowAvg = data.weather[1]["avgtempF"];
-      let TomorrowMax = data.weather[1]["maxtempF"];
-      let TomorrowMin = data.weather[1]["mintempF"];
+      let tomorrowMax = data.weather[1]["maxtempF"];
+      let tomorrowMin = data.weather[1]["mintempF"];
 
       //Day After
       let dayAfterTAvg = data.weather[2]["avgtempF"];
@@ -59,8 +59,8 @@ function cityInfo(userInput) {
             <article>
             <h3>Tomorrow</h3>
             <div><strong>Average Temperature: </strong>${tomorrowAvg}</div>
-            <div><strong>Max Temparture: </strong>${TomorrowMax}</div>
-            <div><strong>Min Temparture: </strong>${TomorrowMax}</div>
+            <div><strong>Max Temparture: </strong>${tomorrowMax}</div>
+            <div><strong>Min Temparture: </strong>${tomorrowMax}</div>
             </article>
             <article>
             <h3>Day After Tomorrow</h3>
