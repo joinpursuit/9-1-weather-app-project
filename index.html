@@ -4,35 +4,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Weather App</title>
     <link rel="stylesheet" href="./style.css">
-    <script src="./main.js"></script>
+    <script defer src="./main.js"></script>
 </head>
+<body>  
     <header>
         <h1>Weather App</h1>
-        <form>Pick a Location
-            <label for=""></label>
-            <input type="text">
+        <form> 
+            <label><strong>Pick a Location</strong>
+                <input type="text" id="input">
+            </label>
             <input type="submit" value="Get Weather">
         </form>
     </header>
     <aside></aside>
     <main>
-        <div>Choose a location to view the weather</div>
-        <article></article> 
-        <aside> 
+        <article id="full-display">Choose a location to view the weather.</article> 
+        <aside id="future-forcast"> 
             <article></article>
             <article></article>
             <article></article>
         </aside>        
     </main>
     <aside>
-        <section>
+        <section id="previous-input">
             <h4>Previous Searches</h4>
-            <p>No previous searches</p>
+            <p><strong>No previous searches</strong></p>
             <ul></ul>
         </section>   
     </aside>
-<body>   
 </body>
 </html>
