@@ -38,27 +38,30 @@
             </ul>
             </section>
         </aside>
-        <form class="converter hidden" action="click">
-            <label for="converter">Convert the Temperature:</label>
-            <input type="number" name="converter">
-            <p>
-                To Celsius<input 
-                type="radio"
-                name="temp"
-                id="degreesC"
-                value="degreesC"
-            >
-            </p>
-            <p>
-                To Fareinheit<input 
-                type="radio"
-                name="temp"
-                id="degreesF"
-                value="degreesF"
-            >
-            </p>
-            <button type="submit">Convert</button>
-            </form>
+        <aside class="converter hidden">
+            <form class="converter hidden" action="click">
+                <label for="to-c">Convert the temperature:</label>
+                <input type="number" name="converter" id="temp-to-convert">
+                <p>
+                    To Celsius<input 
+                    type="radio"
+                    name="convert-temp"
+                    id="to-c"
+                    value="c"
+                >
+                </p>
+                <p>
+                    To Fareinheit<input 
+                    type="radio"
+                    name="convert-temp"
+                    id="to-f"
+                    value="f"
+                >
+                </p>
+                <input class="convertButton" type="submit" value="Convert"/>
+                <h4 class="output">0.00</h4>
+                </form>
+        </aside>
             
         
     </main>

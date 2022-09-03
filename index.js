@@ -213,6 +213,40 @@ form.addEventListener(`submit`, (e) => {
     
     });
 
+    // EVENT LISTENERS AND TEMP CONVERTER FUNCTION FOR BONUS FUNCTIONS
+ //declare variables for converter form, radio buttons,submit button, and h3 output element
+ // f id = degreesF; c id =degreesC -> used .checked
+const converterForm = document.querySelector(`form.converter`)
+// console.log(`convert form`,converterForm)
+const fareinheit = document.querySelector(`#to-f`)
+const celsius = document.querySelector(`#to-c`)
+const convertButton = document.querySelector(`.convertButton`)
+const converterOutput = document.querySelector('.output')
+// console.log(fareinheit,celsius, converterOutput)
+// console.log(celsius.checked)
+ //prevent convert button from refreshing page
+ convertButton.addEventListener(`click`, (e) => {
+    // e.preventDefault()
+ })
+function tempConversion(x){
+   if(celsius.checked){
+        converterOutput.innerText=` ${((x - 32) * (5/9)).toFixed(2)}°C`
+        //(32°F − 32) × 5/9 = 0°C
+    }
+    if(fareinheit.checked){
+        converterOutput.innerText = `${((x * 9/5) + 32).toFixed(2)}°F` 
+        //(0°C × 9/5) + 32 = 32°F
+    }
+}
+converterForm.addEventListener(`submit`, (e) => {
+    e.preventDefault()
+    const tempInput = converterForm.converter.value
+    // console.log(tempInput)
+    // console.log(celsius.checked,fareinheit.checked)
+    tempConversion(tempInput)
+    converterForm.reset()
+})
+
 
 
   
