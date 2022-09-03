@@ -105,7 +105,11 @@ const fetchInfo = (input) => {
           <p class = "area"><strong>Area:</strong> ${day.Location}</p>
           <p><strong>Region:</strong> ${day.Region}</p>
           <p><strong>Country:</strong> ${day.Country}</p>
-          <p><strong>Currently:</strong> Feels Like ${day.FeelsLike}°F`
+          <p><strong>Currently:</strong> Feels Like ${day.FeelsLike}°F
+          <p><strong>Chance of Sunshine:</strong> ${day.Sun}</p>
+          <p><strong>Chance of Rain:</strong> ${day.Rain}</p>
+          <p><strong>Chance of Snow:</strong> ${day.Snow}</p>`
+          
           // NEAREST AREA IF APPLICABLE
           if(day.Location !== input){
             const removeArea = document.querySelector(`.area`)
@@ -116,20 +120,20 @@ const fetchInfo = (input) => {
         }
         //CONDITIONALS FOR ICON PLACEMENT
           //img attr. src="" alt=""
-          console.log(day.Rain,day.Snow,day.Sun)
+          // console.log(day.Rain,day.Snow,day.Sun)
           const iconImg = document.createElement(`img`)
           if(+day.Sun > 50 ){
-              iconImg.src = `../assets/icons8-summer.gif`
+              iconImg.src = `./assets/icons8-summer.gif`
               iconImg.alt = `sun`
               document.querySelector(`h2`).before(iconImg)
           }
           else if(+day.Rain > 50 ){
-              iconImg.src = `../assets/icons8-torrential-rain.gif`
+              iconImg.src = `./assets/icons8-torrential-rain.gif`
               iconImg.alt = `rain`
               document.querySelector(`h2`).before(iconImg)
           }
           else if(+day.Snow > 50 ){
-              iconImg.src = `../assets/icons8-light-snow.gif`
+              iconImg.src = `./assets/icons8-light-snow.gif`
               iconImg.alt = `snow`
               document.querySelector(`h2`).before(iconImg)
           }
