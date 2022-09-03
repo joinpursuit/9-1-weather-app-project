@@ -22,7 +22,7 @@ main {
     display: grid;
     /* grid-template-columns: repeat(5,1fr); */
     grid-template-columns: .5fr .5fr 1fr .5fr .5fr;
-    grid-template-rows: 1.5fr 1fr;
+    grid-template-rows: fit-content;
     /* height: 100vh; */
     margin-top: 50px;
     gap: 30px 10px ;
@@ -53,6 +53,7 @@ article.getshidden {
     grid-row: 1;
     display: grid;
     justify-content: center;
+    
     
 }
 
