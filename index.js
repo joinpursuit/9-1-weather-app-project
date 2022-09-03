@@ -57,12 +57,23 @@ const fetchInfo = (input) => {
     });
     
     //loop for info about weather for all 3 days/objects
+    //CAME BACK TO GRAB ICON INFO {HOURLY}
     const weather = json[`weather`];
-    weather.forEach(({ avgtempF, maxtempF, mintempF }, i) => {
+    weather.forEach(({ avgtempF, maxtempF, mintempF,hourly }, i) => {
       if (i === 0) {
         todayObj[`avgtemp`] = avgtempF;
         todayObj[`maxtemp`] = maxtempF;
         todayObj[`mintemp`] = mintempF;
+
+        //came back for icon info
+        hourly.forEach(({chanceofrain,chanceofsnow,chanceofsunshine},i) => {
+          if(i === 0){
+              todayObj[`Rain`] = chanceofrain
+              todayObj[`Snow`] = chanceofsnow
+              todayObj[`Sun`] = chanceofsunshine
+          }
+          
+      })
       }
       if (i === 1) {
         tomObj[`avgtemp`] = avgtempF;
@@ -103,6 +114,26 @@ const fetchInfo = (input) => {
             nearArea.innerHTML = `<strong>Nearest Area:</strong> ${day.Location}`
             document.querySelector(`h2`).after(nearArea)
         }
+        //CONDITIONALS FOR ICON PLACEMENT
+          //img attr. src="" alt=""
+          console.log(day.Rain,day.Snow,day.Sun)
+          const iconImg = document.createElement(`img`)
+          if(+day.Sun > 50 ){
+              iconImg.src = `../assets/icons8-summer.gif`
+              iconImg.alt = `sun`
+              document.querySelector(`h2`).before(iconImg)
+          }
+          else if(+day.Rain > 50 ){
+              iconImg.src = `../assets/icons8-torrential-rain.gif`
+              iconImg.alt = `rain`
+              document.querySelector(`h2`).before(iconImg)
+          }
+          else if(+day.Snow > 50 ){
+              iconImg.src = `../assets/icons8-light-snow.gif`
+              iconImg.alt = `snow`
+              document.querySelector(`h2`).before(iconImg)
+          }
+  
 
           todaysStats.innerHTML =`
           <h3>Today</h3>
