@@ -18,13 +18,13 @@
       </form>
     </header>
     <aside id="widget">
-      <form action="">
+      <form id="widget-form" action="">
         <label for="temp-to-convert">Convert the temperature:</label>
         <br />
-        <input type="number" id="temp-to-convert" />
+        <input type="number" id="temp-to-convert" required/>
         <br />
         <label for="to-c">To Celsius</label>
-        <input type="radio" name="convert-temp" id="to-c" value="c" />
+        <input type="radio" name="convert-temp" id="to-c" value="c" checked/>
         <br />
         <label for="to-f">To Fahrenheit</label>
         <input type="radio" name="convert-temp" id="to-f" value="f" />
@@ -34,7 +34,7 @@
       </form>
     </aside>
     <main class="main-initial">Choose a location to view the weather.</main>
-    <aside>
+    <aside id="previous-search">
       <section>
         <h4>Previous Searches</h4>
         <ul></ul>

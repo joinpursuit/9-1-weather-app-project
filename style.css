@@ -50,6 +50,7 @@ main {
 #three-days article {
   margin-left: -1px;
   margin-right: -1px;
+  padding: 2%;
 }
 
 h4 {
@@ -60,4 +61,17 @@ h4 {
 #no-searches {
   text-indent: 16%;
   text-align: left;
+}
+
+@media screen and (max-width: 860px) {
+  #widget {
+    grid-row: 3;
+  }
+  main {
+    grid-column: 1/4;
+    font-size: smaller;
+  }
+  #previous-search {
+    grid-column: 2/4;
+  }
 }

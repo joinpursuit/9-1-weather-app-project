@@ -12,6 +12,8 @@ const widget = document.querySelector(`#widget`);
 const noSearches = document.querySelector(`#no-searches`);
 const previousSearches = document.querySelector(`h4`);
 const list = document.querySelector(`ul`);
+const widgetForm = document.querySelector(`#widget-form`);
+const converterInput = document.querySelector(`#temp-to-convert`)
 
 // Needed Variables
 let locationName = ``;
@@ -141,4 +143,10 @@ form.addEventListener(`submit`, (event) => {
       console.log(err);
     });
   form.reset();
+});
+
+widgetForm.addEventListener(`submit`, (event) => {
+  event.preventDefault();
+  console.log(converterInput.value)
+  // get c or f value functionality
 });
