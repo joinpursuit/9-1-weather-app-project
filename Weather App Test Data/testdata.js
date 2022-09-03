@@ -180,5 +180,13 @@ converterForm.addEventListener(`submit`, (e) => {
 })
 
 
+/* 
+ADD ICONS TO MAIN ARTICLE ON PAGE USING json[`current_condition] ->"weatherDesc" -> value, also need weather -> hourly[{}] -> `chanceofrain`, `chanceofsnow`, `chanceofsunshine`
+if there is more than a 50% chance of sunshine, show the summer icon with alt text sun
+if there is more than a 50% chance of rain, show the torrential-rain icon with alt text rain
+if there is more than a 50% chance of snow, show the light-snow icon with alt text snow
+*/
+
+
   
 
