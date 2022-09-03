@@ -2,7 +2,7 @@ const searchBar = document.querySelector(".enter-location");
 const bar = document.querySelector("#enter-location");
 // console.log(bar.value);
 const form = document.querySelector("form");
-const threeDays = document.querySelector("#threeDays");
+const threeDays = document.querySelectorAll("aside article");
 const title = document.querySelector("main article");
 
 const ul = document.querySelector("ul");
@@ -52,25 +52,30 @@ form.addEventListener("submit", (event) => {
       const tomorrow = document.querySelector("#Tomorrow");
       const dayAfter = document.querySelector("#Day-After-Tomorrow");
 
-      //!THREEDAYS --> create a loop to go iterate and update the days. 
+      //!THREEDAYS --> create a loop to go iterate and update the days.
+    //? Use let instead of const because it needs to update after every loop. 
       let days = ["Today", "Tomorrow", "Day After Tomorrow"]
       for(let i=0; i< threeDays.length; i++){
-threeDays.innerHTML= ""
-        //avg
-        const avgP = document.createElement("p");
-        avgTempF = resJson.weather[i].avgtempF;
+        threeDays[i].innerHTML= ""
+         //* Create an element to hold the temp days 
+      let tempDays = document.createElement('p')
+      //* temDays should be able to hold days
+      tempDays.textContent= days[i]
+        //avg --> 
+        let avgP = document.createElement("p");
+        const avgTempF = resJson.weather[i].avgtempF;
         avgP.innerHTML = `<b>Average Temeprature</b>:${avgTempF}`;
         //min
-        const minP = document.createElement("p");
-        let minTempF = resJson.weather[i].mintempF;
+       let minP = document.createElement("p");
+        const minTempF = resJson.weather[i].mintempF;
         minP.innerHTML = `<strong>Min Temperature:</strong>${minTempF}`;
         // max
-        const maxTempP = document.createElement("p");
-        let maxTempF = resJson.weather[i].maxtempF;
+        let maxTempP = document.createElement("p");
+        const maxTempF = resJson.weather[i].maxtempF;
         maxTempP.innerHTML = `<b>Max Temperature:${maxTempF}`;
-  
-        threeDays.append(avgP, maxTempP, minP);
+        threeDays[i].append(tempDays, avgP, maxTempP, minP);
       }
+      
       //! Chance of rain, sunshine, snow
       //sunshine
       const sunShineP = document.createElement("p");
