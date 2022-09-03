@@ -16,13 +16,14 @@ const locationName = (x) => {
      return arr.join(` `)
     }
 
-// Define variables for ul element to hold previous search list
+// Define variable for ul element to hold previous search list
 const previousSearch = document.querySelector(`ul`)
-console.log(previousSearch)
+// console.log(previousSearch)
+
 //create array to store past search location values
 const previousSearchArr = []
 
-// *********CAME BACK CREATE FETCHINFO VARIABLE => FUNCTION TO RUN FETCH IN MULTOPLE EVENT LISTENERS
+// *********CAME BACK CREATE FETCHINFO VARIABLE => FUNCTION TO RUN FETCH IN MULTIPLE EVENT LISTENERS
 
 const fetchInfo = (input) => {
     // FETCH for API and store neccessary values (sub in location)
@@ -38,6 +39,7 @@ const fetchInfo = (input) => {
     const todayObj = {};
     const tomObj = {};
     const dayAfterObj = {};
+    
     // Create and LOOP into object returned from fetch (need access/variables for current_condition, nearest_area, weather)
     const today = json[`current_condition`];
     today.forEach(({ FeelsLikeF, temp_C, temp_F }) => {
@@ -45,6 +47,7 @@ const fetchInfo = (input) => {
       todayObj[`Fareinheit`] = temp_F;
       todayObj[`Celsius`] = temp_C;
     });
+    
     // loop for info about area
     const area = json[`nearest_area`];
     area.forEach(({ areaName, country, region }) => {
@@ -52,6 +55,7 @@ const fetchInfo = (input) => {
       country.forEach(({ value }) => (todayObj[`Country`] = value));
       region.forEach(({ value }) => (todayObj[`Region`] = value));
     });
+    
     //loop for info about weather for all 3 days/objects
     const weather = json[`weather`];
     weather.forEach(({ avgtempF, maxtempF, mintempF }, i) => {
@@ -74,9 +78,9 @@ const fetchInfo = (input) => {
 
     // PUSH ALL OBJ'S TO TODAYFORCAST ARRAY (to be referenced to populate page)
     todaysForecast.push(todayObj, tomObj, dayAfterObj);
-  //   console.log(todaysForecast);
+    //console.log(todaysForecast);
 
-    // create and populate elements for div.todaysWeather and aside.upcomingStats
+    // create variables for and populate elements for div.todaysWeather and aside.upcomingStats
     const todaysWeather = document.querySelector(`.todaysWeather`);
     const todaysStats = document.querySelector(`#todayStats`)
     const tomStats = document.querySelector(`#tomorrowStats`)
@@ -121,9 +125,10 @@ const fetchInfo = (input) => {
           <p><strong>Min Temperature:</strong>${day.mintemp}°F</p>`
       }
     })
+    
     //TOGGLE HIDDEN ELEMENTS 
     const hide = document.querySelectorAll(`.defaultdisplay, .hidden`)
-  //   console.log(hide)
+    //console.log(hide)
     hide.forEach(x => {
       if( x === document.querySelector(`article.getshidden`)) x.classList.toggle(`greybackground`)
       x.classList.toggle(`hidden`)})
@@ -138,23 +143,21 @@ const fetchInfo = (input) => {
       searchLink.classList.add(`previousSearch`)
       searchLink.innerHTML = `<a href="http://">${input}</a> -${todayObj[`FeelsLike`]}°F`
       
-      // create and search nodelist for all previous search values, if search value isn't in ul, append li to ul
-    //   console.log(previousSearchArr)
+      // check previousSearchArr for previous search values, if current (input) search value isn't in ul (previousSearhArr), append li to ul
+      //console.log(previousSearchArr)
       if(!previousSearchArr.includes(input)){
           previousSearchArr.push(input)
           previousSearch.append(searchLink)
       }
-     // ADD EVENT LISTENERS TO LI (LINK) ELEMENTS ON PAGE (RE-FETCH). When clicked will show info for that city without adding to list
+     
+      // ADD EVENT LISTENERS TO LI (LINK) ELEMENTS ON PAGE (RE-FETCH). When clicked will show info for that city without adding to list
         searchLink.addEventListener(`click`, (event) => {
             event.preventDefault()
             const linkName = event.target.innerText
             fetchInfo(linkName)
         })
-        
-     
-      
 
-  // END OF FETCH, NEED TO ASSIGN TO A VARIABLE, AND CALL AS FUNCTION IN EVENT LISTENERS
+        // END OF FETCH, NEED TO ASSIGN TO A VARIABLE, AND CALL AS FUNCTION IN EVENT LISTENERS
   })
   .catch((err) => {
     console.log(err);
@@ -162,6 +165,7 @@ const fetchInfo = (input) => {
 }
 
 // ADD EVENT LISTENER TO FORM TO FETCH API DATA WHEN SUBMITTED
+// *****Came back and used fetchInfo variable to be called in event listener*****
 const form = document.querySelector(`form`);
 // console.log(form)
 form.addEventListener(`submit`, (e) => {
@@ -171,8 +175,8 @@ form.addEventListener(`submit`, (e) => {
     const location = form.location.value /*(<- switch to this for mamaroneck test)*/
     fetchInfo(location)
      form.reset()
-     
-});
+    
+    });
 
 
 
