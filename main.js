@@ -24,6 +24,6 @@ console.log(artStor)
 // select the article storage ( in main ) | line 5
 // printing to console, success!
 // added event listener to header form, preventing default | line 7-8
-// printing to console on form submission, success !
-// saving input to variable
-// looking for where event variable stores input
+// printing to console on form submission, no success :( could not find variable that stores data of form entry
+// saving input to variable (UNFINISHED)
+// looking for where event variable stores input (UNFINISHED)
