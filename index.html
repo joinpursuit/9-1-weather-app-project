@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <script defer src="./index.js"></script>
+    <title>Weather Scrap</title>
+</head>
+<body>
+    <header>
+        <div class="header">
+            <h1 class="header">Weather App</h1>
+            <form class="header">
+            <label for="location">Pick a Location</label>
+            <input type="text" id ="location" name="location"/>
+            <input class="submitButton" type="submit" value="Get Weather"/>
+        </form>
+        </div>
+    </header>
+    <main>
+        <div class="defaultdisplay greybackground">Choose a location to view the weather</div>
+        <article class=" getshidden hidden ">
+            <div class="todaysWeather "></div>
+        </article>
+       <aside class="upcomingStats">
+        <article id="todayStats" class="hidden">0</article>
+        <article id="tomorrowStats" class="hidden">1</article>
+        <article id="dayAfterStats" class="hidden">2</article>
+       </aside>
+        <aside class="list">
+            <section>
+                <h4>Previous Searches</h4>
+                <p class="indent defaultdisplay">No previous searches</p>
+            
+            <ul id="getshidden" class="hidden">
+            </ul>
+            </section>
+        </aside>
+        <form class="converter hidden" action="click">
+            <label for="converter">Convert the Temperature:</label>
+            <input type="number" name="converter">
+            <p>
+                To Celsius<input 
+                type="radio"
+                name="temp"
+                id="degreesC"
+                value="degreesC"
+            >
+            </p>
+            <p>
+                To Fareinheit<input 
+                type="radio"
+                name="temp"
+                id="degreesF"
+                value="degreesF"
+            >
+            </p>
+            <button type="submit">Convert</button>
+            </form>
+            
+        
+    </main>
+    
+
+   
+</body>
+</html>
+

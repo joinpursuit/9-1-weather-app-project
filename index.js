@@ -86,11 +86,20 @@ const fetchInfo = (input) => {
     todaysForecast.forEach((day,i) =>{
       if(i === 0){
           todaysWeather.innerHTML = `
-          <h2>${day.Location}</h2>
-          <p><strong>Area:</strong> ${day.Location}</p>
+          <h2>${input}</h2>
+          <p class = "area"><strong>Area:</strong> ${day.Location}</p>
           <p><strong>Region:</strong> ${day.Region}</p>
           <p><strong>Country:</strong> ${day.Country}</p>
           <p><strong>Currently:</strong> Feels Like ${day.FeelsLike}°F`
+          // NEAREST AREA IF APPLICABLE
+          if(day.Location !== input){
+            const removeArea = document.querySelector(`.area`)
+            removeArea.remove()
+            const nearArea = document.createElement(`p`)
+            nearArea.innerHTML = `<strong>Nearest Area:</strong> ${day.Location}`
+            document.querySelector(`h2`).after(nearArea)
+        }
+
           todaysStats.innerHTML =`
           <h3>Today</h3>
           <p><strong>Average Temperature:</strong> ${day.avgtemp}°F</p>
@@ -157,27 +166,14 @@ const form = document.querySelector(`form`);
 // console.log(form)
 form.addEventListener(`submit`, (e) => {
     e.preventDefault();
-    const location = locationName(form.location.value)
-    console.log(location)
+    // const location = locationName(form.location.value)
+    // console.log(location)
+    const location = form.location.value /*(<- switch to this for mamaroneck test)*/
     fetchInfo(location)
      form.reset()
      
 });
- // EVENT LISTENERS AND TEMP CONVERTER FUNCTION FOR BONUS FUNCTIONS
-const converterForm = document.querySelector(`form.converter`)
-console.log(`convert form`,converterForm)
-function tempConversion(x){
-    if(Fareinheit.checked){
-        //(32°F − 32) × 5/9 = 0°C
 
-    }
-    if(Celsius.checked){
-        //(0°C × 9/5) + 32 = 32°F
-    }
-}
-converterForm.addEventListener(`submit`, (e) => {
-
-})
 
 
   
