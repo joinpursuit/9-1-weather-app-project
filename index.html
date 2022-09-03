@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
     <script defer src="./script.js"></script>
+    <script defer src="./convert.js"></script>
     <title>Weather App</title>
   </head>
 
@@ -31,17 +32,12 @@
         <aside>
           <form class="conversionForm" id="conversion">
             <label for="temp-to-convert">Convert the Temperature</label>
-            <input
-              type="number"
-              name="temp-to-convert"
-              id="temp-to-convert"
-              required
-            />
+            <input type="number" name="convert" id="temp-to-convert" required />
 
-            <input type="radio" name="fromFtoC" value="celsius" id="to-c" />
+            <input type="radio" name="converter" value="celsius" id="to-c" />
             <label for="to-c">Celsius</label>
 
-            <input type="radio" name="fromCtoF" value="fahrenheit" id="to-f" />
+            <input type="radio" name="converter" value="fahrenheit" id="to-f" />
             <label for="to-f">Fahrenheit</label>
 
             <input type="submit" value="submit" />
@@ -54,12 +50,9 @@
           <article id="chooseLocation">
             Choose a location to view the weather.
           </article>
-          <!-- <p class="location-hidden"></p> -->
+
           <aside class="forecast">
             <article id="today">Today</article>
-            <!-- <p>avg temp</p>
-                    <p>mintempF</p>
-                    <p>maxtempF</p> -->
             <article id="tomorrow">Tomorrow</article>
             <article id="third-day">Day After Tomorrow</article>
           </aside>

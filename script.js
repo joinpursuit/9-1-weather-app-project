@@ -1,6 +1,7 @@
 const search = document.querySelector('#searchBar');
 const forecast = document.querySelector('#ThreeDayForecast');
 
+
 search.addEventListener('submit', (e) => {
   e.preventDefault();
   const textBox = document.querySelector('#typeCity');
@@ -58,15 +59,17 @@ search.addEventListener('submit', (e) => {
       // initialInput.style.textAlign = 'left';
 
       const image = document.createElement('img');
+      if (rain > 50) {
+        image.setAttribute('src', './assets/icons8-torrential-rain.gif');
+        image.setAttribute('alt', 'rain');
+      }
       if (snow > 50) {
         image.setAttribute('src', './assets/icons8-light-snow.gif');
         image.setAttribute('alt', 'snow');
-      } else if (sunshine > 50) {
+      }
+      if (sunshine > 50) {
         image.setAttribute('src', './assets/icons8-summer.gif');
         image.setAttribute('alt', 'sun');
-      } else if (rain > 50) {
-        image.setAttribute('src', './assets/icons8-torrential-rain.gif');
-        image.setAttribute('alt', 'rain');
       }
       hideLocation.append(nearestArea1);
       // nearestArea1.append(initialInput);
@@ -92,6 +95,7 @@ search.addEventListener('submit', (e) => {
 
       const maxTemp1 = data.weather[0].maxtempF;
       todayMaxTemp.innerHTML = `<strong>Max Temperature: </strong>${maxTemp1}°F`;
+      today.innerHTML = '';
       today.append(todayAvgTemp, todayMinTemp, todayMaxTemp);
 
       const tomorrow = document.querySelector('#tomorrow');
@@ -107,6 +111,7 @@ search.addEventListener('submit', (e) => {
 
       const maxTemp2 = data.weather[1].maxtempF;
       tomMaxTemp.innerHTML = `<strong>Min Temperature: </strong>${maxTemp2}°F`;
+      tomorrow.innerHTML = '';
       tomorrow.append(tomAvgTemp, tomMinTemp, tomMaxTemp);
 
       const dayAfter = document.getElementById('third-day');
@@ -122,9 +127,12 @@ search.addEventListener('submit', (e) => {
 
       const maxTemp3 = data.weather[2].maxtempF;
       dayAfterMaxTemp.innerHTML = `<strong>Min Temperature: </strong>${maxTemp3}°F`;
+      dayAfter.innerHTML = '';
       dayAfter.append(dayAfterAvgTemp, dayAfterMinTemp, dayAfterMaxTemp);
     })
     .catch((error) => {
       console.log(error);
     });
 });
+
+
