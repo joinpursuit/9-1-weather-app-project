@@ -120,9 +120,9 @@ form.addEventListener(`submit`, (event) => {
   areaSearched = locationName.split(` `);
 
   // will break one test that is case sensitive
-  //   areaSearched = areaSearched
-  //     .map((el) => el.charAt(0).toUpperCase() + el.slice(1).toLowerCase())
-  //     .join(` `);
+  areaSearched = areaSearched
+    .map((el) => el.charAt(0).toUpperCase() + el.slice(1).toLowerCase())
+    .join(` `);
 
   fetch(URL)
     .then((res) => res.json())
