@@ -40,7 +40,7 @@ const editMain = (place, mainName) => {
   const areaPath = place.nearest_area[0];
 
   const h2AreaSearched = document.createElement(`h2`);
-  h2AreaSearched.innerHTML = `<strong>${mainName}</strong>`;
+  h2AreaSearched.innerText = `${mainName}`;
 
   const areaValReturn = areaPath.areaName[0].value;
   const pArea = document.createElement(`p`);
@@ -65,7 +65,7 @@ const editMain = (place, mainName) => {
 };
 
 const editSearches = (element) => {
-  noSearches.style.display = `none`;
+  noSearches.remove();
   const li = document.createElement(`li`);
   const aTag = document.createElement(`a`);
   aTag.setAttribute(`href`, ``);
@@ -96,16 +96,16 @@ const createThreeDay = (data) => {
   let dayIndex = 0;
   data.forEach((el) => {
     const dayData = document.createElement(`article`);
-    dayData.innerHTML = `<h3><strong>${dayTitle[dayIndex]}</strong></h3>`;
-    const avgTemp = document.createElement(`p`)
-    avgTemp.innerHTML = `<strong>Average Temperature:</strong></br>${el.avgtempF}°F`
-    const maxTemp = document.createElement(`p`)
-    maxTemp.innerHTML = `<strong>Max Temperature:</strong></br>${el.maxtempF}°F`
-    const minTemp = document.createElement(`p`)
-    minTemp.innerHTML = `<strong>Min Temperature:</strong></br>${el.mintempF}°F`
+    dayData.innerHTML = `<h3>${dayTitle[dayIndex]}</h3>`;
+    const avgTemp = document.createElement(`p`);
+    avgTemp.innerHTML = `<strong>Average Temperature:</strong></br>${el.avgtempF}°F`;
+    const maxTemp = document.createElement(`p`);
+    maxTemp.innerHTML = `<strong>Max Temperature:</strong></br>${el.maxtempF}°F`;
+    const minTemp = document.createElement(`p`);
+    minTemp.innerHTML = `<strong>Min Temperature:</strong></br>${el.mintempF}°F`;
 
     editThreeDay.append(dayData);
-    dayData.append(avgTemp, maxTemp, minTemp)
+    dayData.append(avgTemp, maxTemp, minTemp);
     dayIndex += 1;
   });
 };
@@ -118,9 +118,11 @@ form.addEventListener(`submit`, (event) => {
   createURL(locationName);
 
   areaSearched = locationName.split(` `);
-  areaSearched = areaSearched
-    .map((el) => el.charAt(0).toUpperCase() + el.slice(1).toLowerCase())
-    .join(` `);
+
+  // will break one test that is case sensitive
+  //   areaSearched = areaSearched
+  //     .map((el) => el.charAt(0).toUpperCase() + el.slice(1).toLowerCase())
+  //     .join(` `);
 
   fetch(URL)
     .then((res) => res.json())
