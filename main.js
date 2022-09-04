@@ -8,13 +8,13 @@ const dayAfter = document.querySelector(".day-after");
 const weatherInfo = document.querySelector(".weatherInfo");
 const tempStats = document.querySelectorAll(".weatherInfo article");
 const history = document.querySelector(".history");
-const p = document.querySelector("section p");
+const section = document.querySelector("section p");
 const ul = document.querySelector("ul");
 // const value = cityInput.value.split(" ").join("+");
 // const URL = "http://wttr.in";
 // console.log(cityInput.value);
 
-form.addEventListener("submit", (e) => {
+let mainSubmit = form.addEventListener("submit", (e) => {
   let value = cityInput.value;
   let URL = `http://wttr.in/${value}?format=j1`;
   //   console.log(cityInput.value);
@@ -57,6 +57,7 @@ form.addEventListener("submit", (e) => {
       snow.innerHTML = `<b>Chance of Snow:</b> ${data.weather[0].hourly[0].chanceofsnow}`;
       //   placeholder.append(snow);
 
+      //! Conditionals to Set icons
       const icon = document.createElement("img");
       if (data.weather[0].hourly[0].chanceofsunshine > 50) {
         icon.setAttribute("src", "./assets/icons8-summer.gif");
@@ -83,6 +84,7 @@ form.addEventListener("submit", (e) => {
         snow
       );
 
+      //! loop to add the Days Information
       let dayValues = ["Today", "Tomorrow", "Day After Tomorrow"];
 
       tempStats.forEach((day, i) => {
@@ -108,15 +110,35 @@ form.addEventListener("submit", (e) => {
 
       //! previous searches
 
-      p.innerHTML = "";
+      section.innerHTML = "";
 
       const li = document.createElement("li");
-      li.innerHTML = `${cityName}- ${data.current_condition[0].FeelsLikeF}°F`;
-      ul.append(li);
+      ul.prepend(li);
+
       const a = document.createElement("a");
 
-      let text = document.createTextNode(cityName);
-      a.append.text;
-      a.href = ``;
+      a.innerText = `${cityName}`;
+      let nombre = a.innerText;
+      a.setAttribute("href", "#");
+      li.innerText = ` - ${data.current_condition[0].FeelsLikeF}°F`;
+
+      //   li.setAttribute("innerText", `${currently}°F`);
+      li.prepend(a);
+
+      a.addEventListener("click", () => {
+        placeholder.innerHTML = ``;
+        placeholder.innerHTML = `<h2>${nombre}</h2>`;
+
+        placeholder.prepend(icon);
+        placeholder.append(
+          area,
+          region,
+          country,
+          currently,
+          sunshine,
+          rain,
+          snow
+        );
+      });
     });
 });

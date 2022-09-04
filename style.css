@@ -44,7 +44,7 @@ h1 {
   display: grid;
   width: 80%;
   grid-template-columns: 1fr 2fr 1fr;
-  /* grid-column-gap: auto; */
+  grid-column-gap: 5px;
   /* border: 1px solid rgb(58, 140, 202); */
 }
 
@@ -83,10 +83,9 @@ main {
 
 .history {
   text-align: center;
-  margin: 15px;
   border: 1px solid rgb(58, 140, 202);
   border-radius: 8px;
-  padding-left: 20px;
+  padding-left: 40px;
 }
 
 section {
