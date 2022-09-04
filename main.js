@@ -7,8 +7,17 @@ const formInput = document.querySelector('input')
 
 form.addEventListener('submit', (event)=>{
     event.preventDefault()
+    const input = formInput.value
+    const URL = `${BASE_URL}/${input}${JSON}`
+    console.log(URL)
     console.log('form has been submitted successfully!')
-    console.log(formInput.value)}) 
+    console.log(formInput.value)
+    fetch('https://wttr.in/Detroit?format=j1')
+    .then((res) => res.json())
+    .then((res) => { 
+        console.log(res)
+    })
+}) 
 
 console.log(`${BASE_URL}${JSON}`)
 console.log(form)
@@ -28,3 +37,4 @@ console.log(artStor)
 // saving input to variable (Finished)
 // looking for where event variable stores input (Finished)
 // printing input to console log, success !
+// setting up our fetching data from API 

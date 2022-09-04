@@ -1,0 +1,16 @@
+// LOG
+// 154 finished HTML exo earlier today, pushing: 'HTML skeleton completed'
+// getting api base url | line 2,3
+// printing to console, success !
+// select the header form | line 4
+// printing to console, success !
+// select the article storage ( in main ) | line 5
+// printing to console, success!
+// added event listener to header form, preventing default | line 7-8
+// printing input to console on form submission, no success :( could not find variable that stores data of form entry
+// saving input to variable (Finished)
+// looking for where event variable stores input (Finished)
+// printing input to console log, success !
+// 846 PM , Saturday September 3rd
+// setting up our fetching data from API 
+// printing our fetched object from API, SUCCESS ( first didnt add https; crucial)
