@@ -79,77 +79,74 @@ const project = form.addEventListener("submit", (event) => {
       }
 
       //! Chance of rain, sunshine, snow
+      const img = document.createElement("img");
+
       //sunshine
       const sunShineP = document.createElement("p");
       const sunShine = resJson.weather[0].hourly[0].chanceofsunshine;
       sunShineP.innerHTML = `<b>Chance of Sunshine:</b> ${sunShine}`;
+
       current.append(sunShineP);
       //rain
       const rainP = document.createElement("p");
       const rain = resJson.weather[0].hourly[0].chanceofrain;
       rainP.innerHTML = `<strong>Chance of Rain:</strong>${rain}`;
+
       current.append(rainP);
       //snow
       const snowP = document.createElement("p");
       const snow = resJson.weather[0].hourly[0].chanceofsnow;
       snowP.innerHTML = `<b>Chance of Snow:</b>${snow}`;
+
       current.append(snowP);
 
+      // current.append(regionP, countryP, currentlyP, sunShine, rain, snow);
+      // //! ICONS
+      // if (resJson.weather[0].hourly[0].chanceofrain > 50) {
+      //   img.settAttribute("src", "./assets/icons8-torrential-rain.gif");
+      //   img.settAttribute("alt", "rain");
+      //   // current.prepend(img);
+      // }
+      // if (sunShine > 50) {
+      //   img.settAttribute("src", "./assets/icons8-summer.gif");
+      //   img.settAttribute("alt", "sun");
+      //   // current.prepend(img);
+      // }
+      // if (snow > 50) {
+      //   img.settAttribute("src", "./assets/icons8-light-snow.gif");
+      //   img.settAttribute("alt", "snow");
+      //   // current.before(img);
+      // }
+      current.prepend(img);
       //!Previous Searches
       //* Query select right-aside
       //* QuerySelect p tag
       //* QuerySelect ul tag
-      //* Create a li to update ul 
+      //* Create a li to update ul
       //* Create an <a> to create hyperlink
-      const history = document.querySelector('.right-aside')
+      const history = document.querySelector(".right-aside");
       // console.log(history)
-      const previousP = document.querySelector('section p')
-      console.log(previousP)
-       previousP.innerHTML="" // To clear message when submit
-     console.log(ul)
-     let li = document.createElement('li')
+      const previousP = document.querySelector("section p");
+      console.log(previousP);
+      previousP.innerHTML = ""; // To clear message when submit
+      console.log(ul);
+      let li = document.createElement("li");
 
-     let link = document.createElement("a")
-     link.href = "#"  
-     console.log(link)
-     link.textContent = `${area}`
-li.innerHTML =`${link} - ${currently}°F`
-li.prepend(link)
-ul.append(li)
- 
-link.addEventListener("click", (project)
-)
+      let link = document.createElement("a");
+      link.href = "#";
+      console.log(link);
+      link.textContent = `${area}`;
+      li.innerHTML = `${link} - ${currently}°F`;
+      li.prepend(link);
+      ul.append(li);
 
-// link.addEventListener("click", (event)=>{
-//   event.preventDefault()
-// })
+      // link.addEventListener("click", project);
 
+      // link.addEventListener("click", (event)=>{
+      //   event.preventDefault()
+      // })
 
-
- //! Conversion
-//       //? if the temp is in celscius apply the conversion formula to change to F((TEMPERATURE°F − 32) × 5/9 = 0°C), vice versa(F--> (TEMPERATURE°C × 9/5) + 32 = 89.6°F).
-//       //*Created an event listener.. submit was resting page
-//       conversionType.addEventListener("submit", (event)=>{
-//         event.preventDefault()
-      
-//       const conversionType = document.querySelector(".left-aside")
-//       console.log(conversionType)
-//       let input = document.querySelector("#temp-to-convert"); // temp input search bar.. always changing
-//       // console.log(input);
-//       let tempInput = document.querySelector("h4"); // store results for converion
-//       // console.log(tempInput)
-//       //* select radio button
-//       const celButton = document.querySelector("#to-c");
-//       // console.log(celButton)
-//       const fahButton = document.querySelector("#to-f");
-//       // console.log(fahButton)
-
-//       if(celButton.checked = true){
-// tempInput.innerText=((input * 9/5) + 32)
-// console.log() 
-//       }
-//     })
-
+    
       // let searchValue =`${city}`
       // // style.textAlign ="Right"
       // const searchV = document.createElement("h3")
@@ -157,6 +154,35 @@ link.addEventListener("click", (project)
       // areaP.prepend(searchV)
     })
     .catch((err) => err);
-  
-
 });
+ 
+
+ //! Conversion outside of first event
+      //? if the temp is in celscius apply the conversion formula to change to F((TEMPERATURE°F − 32) × 5/9 = 0°C), vice versa(F--> (TEMPERATURE°C × 9/5) + 32 = 89.6°F).
+      //*Created an event listener.. submit was resting page
+      const conversionType = document.querySelector(".left-aside");
+      console.log(conversionType);
+      conversionType.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        let input = document.querySelector("#temp-to-convert"); // temp input search bar.. always changing
+        let input2 = event.target.input.value;
+
+        // // console.log(input);
+        let tempInput = document.querySelector("h4"); // store results for converion
+        // console.log(tempInput)
+        //* select radio button
+        const celButton = document.querySelector("#to-c");
+        // console.log(celButton)
+        const fahButton = document.querySelector("#to-f");
+        // console.log(fahButton)
+
+        if ((celButton.checked)) {
+          input2 = (input2 - 32) * (5 / 9);
+          console.log();
+          tempInput.innerText = `${input2.toFixed(2)}`;
+        } else if (fahButton.checked) {
+          input2 = (input2 * (9 / 5) + 32)
+          tempInput.innerText = `${input2.toFixed(2)}`;
+        }
+      });

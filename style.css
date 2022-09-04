@@ -11,6 +11,7 @@ body{
 ".conversion .history .right-aside"
 ".conversion .history .right-aside"
 ; */
+background-image: sr ;
 }
 
 header{
@@ -63,6 +64,17 @@ main{
     border: 3px dotted blue;
 
 }
+#threeDays{
+    animation: blinkingText 2.2s infinite;
+  }
+  @keyframes blinkingText{
+      0%{     color: #000;    }
+      49%{    color: #000; }
+      60%{    color: transparent; }
+      99%{    color:transparent;  }
+      100%{   color: #000;    }
+  }
+  
 
 
 
