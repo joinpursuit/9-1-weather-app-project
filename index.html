@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
     <script defer src="./main.js"></script>
+    <script defer src="./converter.js"></script>
     <title>Weather App</title>
   </head>
   <body>
@@ -45,6 +46,7 @@
             </div>
             <div>
               <input class="submit-temp" type="submit" />
+              <h4 class="answer"></h4>
             </div>
           </form>
         </aside>
@@ -54,15 +56,9 @@
             Choose a location to view the weather.
           </article>
           <aside class="weatherInfo">
-            <article class="today">
-              <h5>Today</h5>
-            </article>
-            <article class="tomorrow">
-              <h5>Tomorrow</h5>
-            </article>
-            <article class="day-after">
-              <h5>Day After Tomorrow</h5>
-            </article>
+            <article class="today"></article>
+            <article class="tomorrow"></article>
+            <article class="day-after"></article>
           </aside>
         </main>
 
