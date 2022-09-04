@@ -114,3 +114,20 @@ form.addEventListener('submit', (event) => {
     .catch((err) => console.log(err))
 
 })
+
+const conversion = document.querySelector('#conversionForm');
+conversion.addEventListener('submit', (event) => {
+  event.preventDefault();
+  let conversion = event.target.convert.value;
+ 
+let toC = document.querySelector('#to-c')
+let toF = document.querySelector('#to-f')
+
+  if (toC.checked) {
+    conversion = (conversion - 32) * (5 / 9);
+    document.querySelector('#result').innerHTML = `${conversion.toFixed(2)}°C`;
+  } else if (toF.checked) {
+    conversion = conversion * (9 / 5) + 32;
+    document.querySelector('#result').innerHTML = `${conversion.toFixed(2)}°F`;
+  }
+});
