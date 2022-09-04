@@ -76,7 +76,7 @@ body {
   grid-template-rows: 1fr 5fr;
   grid-template-areas:
     ". header header header header ."
-    ". converter content content history .";
+    ". conversion content content history .";
   grid-gap: 1rem;
   font-family: sans-serif, Arial, Helvetica;
 }
@@ -91,9 +91,9 @@ body {
   color: aliceblue;
 }
 
-.converter {
+.conversion {
   background-color: aqua;
-  grid-area: converter;
+  grid-area: conversion;
 }
 
 .content {
@@ -106,5 +106,25 @@ body {
   grid-area: history;
 }
 
-/* @media (max-width: 550px) {
-} ; */
+/* 
+body {
+  text-align: center;
+  margin: auto;
+  width: 960px;
+}
+
+.header {
+  width: 960px;
+  border: 1px solid purple;
+}
+
+.converter {
+  float: left;
+  border: 1px solid purple;
+}
+
+.history {
+  float: right;
+  width: 200px;
+  border: 1px solid purple;
+} */

@@ -71,6 +71,86 @@ form.addEventListener("submit", (e) => {
         img.setAttribute("alt", "snow");
         hiddenP.prepend(img);
       }
+
+      // grab the 3 article inside "aside" inside "main"
+      const toDay = document.querySelector(".today");
+      const tomorrow = document.querySelector(".tomorrow");
+      const afterTomorrow = document.querySelector(".afterTomorrow");
+      toDay.innerHTML = "";
+      tomorrow.innerHTML = "";
+      afterTomorrow.innerHTML = "";
+
+      // this is for "Today average temperature"
+      const todayAvg = resJson.weather[0].avgtempF;
+      const todayAvgP = document.createElement("p");
+      todayAvgP.innerHTML = `<strong>Average Temperature: </strong>${todayAvg}°F`;
+
+      // this is for "Today Max temperature"
+      const todayMax = resJson.weather[0].maxtempF;
+      const todayMaxP = document.createElement("p");
+      todayMaxP.innerHTML = `<strong>Max Temperature: </strong>${todayMax}°F`;
+
+      // this is for "Today Min temperature"
+      const todayMin = resJson.weather[0].mintempF;
+      const todayMinP = document.createElement("p");
+      todayMinP.innerHTML = `<strong>Min Temperature: </strong>${todayMin}°F`;
+      // Today done
+
+      // this is for "tomorrow average temperature"
+      const tomorrowAvg = resJson.weather[1].avgtempF;
+      const tomorrowAvgP = document.createElement("p");
+      tomorrowAvgP.innerHTML = `<strong>Average Temperature: </strong>${tomorrowAvg}°F`;
+
+      // this is for "tomorrow Max temperature"
+      const tomorrowMax = resJson.weather[1].maxtempF;
+      const tomorrowMaxP = document.createElement("p");
+      tomorrowMaxP.innerHTML = `<strong>Max Temperature: </strong>${tomorrowMax}°F`;
+
+      // this is for "tomorrow Min temperature"
+      const tomorrowMin = resJson.weather[1].mintempF;
+      const tomorrowMinP = document.createElement("p");
+      tomorrowMinP.innerHTML = `<strong>Min Temperature: </strong>${tomorrowMin}°F`;
+      // tomorrow done
+
+      // this is for "after tomorrow average temperature"
+      const afterTomorrowAvg = resJson.weather[2].avgtempF;
+      const afterTomorrowAvgP = document.createElement("p");
+      afterTomorrowAvgP.innerHTML = `<strong>Average Temperature: </strong>${afterTomorrowAvg}°F`;
+
+      // this is for "after tomorrow Max temperature"
+      const afterTomorrowMax = resJson.weather[2].maxtempF;
+      const afterTomorrowMaxP = document.createElement("p");
+      afterTomorrowMaxP.innerHTML = `<strong>Max Temperature: </strong>${afterTomorrowMax}°F`;
+
+      // this is for "after tomorrow Min temperature"
+      const afterTomorrowMin = resJson.weather[2].mintempF;
+      const afterTomorrowMinP = document.createElement("p");
+      afterTomorrowMinP.innerHTML = `<strong>Min Temperature: </strong>${afterTomorrowMin}°F`;
+
+      // append all respectively
+      toDay.append(todayAvgP, todayMaxP, todayMinP);
+      tomorrow.append(tomorrowAvgP, tomorrowMaxP, tomorrowMinP);
+      afterTomorrow.append(
+        afterTomorrowAvgP,
+        afterTomorrowMaxP,
+        afterTomorrowMinP
+      );
     })
     .catch((err) => console.log(err));
+});
+
+convert.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  let userInput = event.target.temp.value;
+  console.log(userInput);
+  let converted = 0;
+
+  if (document.querySelector("#to-c").checked) {
+    converted = (userInput - 32) * (5 / 9);
+    document.querySelector("#result").innerHTML = `${converted.toFixed(2)}°C`;
+  } else if (document.querySelector("#to-f").checked) {
+    converted = userInput * (9 / 5) + 32;
+    document.querySelector("#result").innerHTML = `${converted.toFixed(2)}°F`;
+  }
 });
