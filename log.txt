@@ -14,3 +14,4 @@
 // 846 PM , Saturday September 3rd
 // setting up our fetching data from API 
 // printing our fetched object from API, SUCCESS ( first didnt add https; crucial)
+// making our hardcode push dynamic

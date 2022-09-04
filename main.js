@@ -1,5 +1,5 @@
 console.log('main.js successfully linked')
-const BASE_URL = 'wttr.in'
+const BASE_URL = 'https://wttr.in'
 const JSON = '?format=j1'
 const form = document.querySelector('form')
 const artStor = document.querySelector('main aside')
@@ -12,7 +12,7 @@ form.addEventListener('submit', (event)=>{
     console.log(URL)
     console.log('form has been submitted successfully!')
     console.log(formInput.value)
-    fetch('https://wttr.in/Detroit?format=j1')
+    fetch(URL)
     .then((res) => res.json())
     .then((res) => { 
         console.log(res)
