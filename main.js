@@ -4,7 +4,6 @@ const bar = document.querySelector("#enter-location");
 const form = document.querySelector("form");
 const threeDays = document.querySelectorAll("aside article");
 const title = document.querySelector("main article");
-
 const ul = document.querySelector("ul");
 const current = document.querySelector(".current-weather");
 // console.log(form1)
@@ -15,7 +14,7 @@ const project = form.addEventListener("submit", (event) => {
   let Base_URL = `https://wttr.in/${city}?format=j1`;
   event.preventDefault();
   form.reset();
-  //   console.log(city);
+
   fetch(Base_URL)
     .then((res) => res.json())
     .then((resJson) => {
@@ -79,7 +78,7 @@ const project = form.addEventListener("submit", (event) => {
       }
 
       //! Chance of rain, sunshine, snow
-      const img = document.createElement("img");
+      let img = document.createElement("img");
 
       //sunshine
       const sunShineP = document.createElement("p");
@@ -105,13 +104,15 @@ const project = form.addEventListener("submit", (event) => {
         img.setAttribute("src", "./assets/icons8-summer.gif");
         img.alt = "sun";
         current.prepend(img);
-      } else if (rain > 50) {
-        img.src = "./assets/icons8-torrential-rain.gif";
-        img.settAttribute("alt", "rain");
+      }
+      if (snow > 50) {
+        img.setAttribute("src", "./assets/icons8-light-snow.gif");
+        img.setAttribute("alt", "snow");
         current.prepend(img);
-      } else if (snow > 50) {
-        img.src = "./assets/icons8-light-snow.gif";
-        img.settAttribute("alt", "snow");
+      }
+      if (rain > 50) {
+        img.setAttribute("src", "./assets/icons8-torrential-rain.gif");
+        img.setAttribute("alt", "rain");
         current.prepend(img);
       }
       //!Previous Searches
@@ -122,39 +123,41 @@ const project = form.addEventListener("submit", (event) => {
       //* Create an <a> to create hyperlink
 
       const previousP = document.querySelector("section p");
-      // console.log(ul);
-      const ul = document.querySelector("ul");
-      let li = document.createElement("li");
-      ul.append(li);
 
-      let link = document.createElement("a");
+      const ulSearch = document.querySelector("#searches ul");
+      // console.log(ulSearch);
+      let li = document.createElement("li");
+      ul.append(li); //? for osme reason, this had to be here
+
+      let link = document.createElement("a"); //? created a tag element
       previousP.innerHTML = ""; //? To clear message in <p> when click submit
-      link.innerText = `${area}`;//? AKA user input
+      link.innerText = `${area}`; //? AKA user input
+      const userInput = `${link.innerText}`;
       link.href = "#";
-      li.textContent = `${currently}°F`;
+      li.textContent = `${currently}°F`; //? feels like input
       li.prepend(link);
 
       // link.addEventListener("click", project);
-       link.addEventListener("click", (event) => {
+      //?Created an event listener for the click action. It erases the values in the main and replaces it with the link inputs.
+      link.addEventListener("clickgitgit", () => {
         // event.preventDefault();
-        current.innerHTML="" //? to clear old data and replace with new one
-      // link.reset()
-      let area2 = document.createElement("h2") // created h2 to display city heading
-      area2.innerHTML = `${area}`; //city heading is user input
-      
-        let currentLink = current.append(
-          img,
+        current.innerHTML = ""; //? to clear old data and replace with new one
+        // link.reset()
+        let area2 = document.createElement("h2"); //* created h2 to display city heading
+        area2.innerText = `${area}`; //city heading is user input
+        current.prepend(img);
+        current.append(
           area2,
           areaP,
           regionP,
           countryP,
           currentlyP,
-          sunShine,
-          rain,
-          snow
+          sunShineP,
+          rainP,
+          snowP
         );
         // link.innerText = `${currentLink}`
-        // current.append(cu);
+        // current.append(currentLink);
       });
 
       // let searchValue =`${city}`
@@ -165,4 +168,3 @@ const project = form.addEventListener("submit", (event) => {
     })
     .catch((err) => err);
 });
-
