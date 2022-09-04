@@ -13,7 +13,7 @@ const noSearches = document.querySelector(`#no-searches`);
 const previousSearches = document.querySelector(`h4`);
 const list = document.querySelector(`ul`);
 const widgetForm = document.querySelector(`#widget-form`);
-const converterInput = document.querySelector(`#temp-to-convert`)
+const converterInput = document.querySelector(`#temp-to-convert`);
 
 // Needed Variables
 let locationName = ``;
@@ -147,6 +147,14 @@ form.addEventListener(`submit`, (event) => {
 
 widgetForm.addEventListener(`submit`, (event) => {
   event.preventDefault();
-  console.log(converterInput.value)
-  // get c or f value functionality
+  //   converterInput.value
+  const tempUnit = widgetForm.elements[`convert-temp`].value;
+  const result = document.querySelector(`#result`);
+  let newResult = ``;
+  if (tempUnit === `f`) {
+    newResult = `${((converterInput.value * 9) / 5 + 32).toFixed(2)}°C`;
+  } else {
+    newResult = `${(((converterInput.value - 32) * 5) / 9).toFixed(2)}°F`;
+  }
+  result.innerText = newResult;
 });
