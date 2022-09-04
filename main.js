@@ -23,7 +23,7 @@ const project = form.addEventListener("submit", (event) => {
       let area = resJson.nearest_area[0].areaName[0].value;
       //   console.log(areaP);
       if (resJson) {
-        title.innerHTML = `<h2><b>${city}</b></h2>`; //!
+        title.innerHTML = `<h2>${city}</h2>`; //!
       }
       // const weatherBut = document.querySelector("get-weather");
 
@@ -99,54 +99,64 @@ const project = form.addEventListener("submit", (event) => {
       snowP.innerHTML = `<b>Chance of Snow:</b>${snow}`;
 
       current.append(snowP);
-
       // current.append(regionP, countryP, currentlyP, sunShine, rain, snow);
       // //! ICONS
-      // if (resJson.weather[0].hourly[0].chanceofrain > 50) {
-      //   img.settAttribute("src", "./assets/icons8-torrential-rain.gif");
-      //   img.settAttribute("alt", "rain");
-      //   // current.prepend(img);
-      // }
-      // if (sunShine > 50) {
-      //   img.settAttribute("src", "./assets/icons8-summer.gif");
-      //   img.settAttribute("alt", "sun");
-      //   // current.prepend(img);
-      // }
-      // if (snow > 50) {
-      //   img.settAttribute("src", "./assets/icons8-light-snow.gif");
-      //   img.settAttribute("alt", "snow");
-      //   // current.before(img);
-      // }
-      current.prepend(img);
+      if (sunShine > 50) {
+        img.setAttribute("src", "./assets/icons8-summer.gif");
+        img.alt = "sun";
+        current.prepend(img);
+      } else if (rain > 50) {
+        img.src = "./assets/icons8-torrential-rain.gif";
+        img.settAttribute("alt", "rain");
+        current.prepend(img);
+      } else if (snow > 50) {
+        img.src = "./assets/icons8-light-snow.gif";
+        img.settAttribute("alt", "snow");
+        current.prepend(img);
+      }
       //!Previous Searches
       //* Query select right-aside
       //* QuerySelect p tag
       //* QuerySelect ul tag
       //* Create a li to update ul
       //* Create an <a> to create hyperlink
-      const history = document.querySelector(".right-aside");
-      // console.log(history)
-      const previousP = document.querySelector("section p");
-      console.log(previousP);
-      previousP.innerHTML = ""; // To clear message when submit
-      console.log(ul);
-      let li = document.createElement("li");
 
-      let link = document.createElement("a");
-      link.href = "#";
-      console.log(link);
-      link.textContent = `${area}`;
-      li.innerHTML = `${link} - ${currently}°F`;
-      li.prepend(link);
+      const previousP = document.querySelector("section p");
+      // console.log(ul);
+      const ul = document.querySelector("ul");
+      let li = document.createElement("li");
       ul.append(li);
 
+      let link = document.createElement("a");
+      previousP.innerHTML = ""; //? To clear message in <p> when click submit
+      link.innerText = `${area}`;//? AKA user input
+      link.href = "#";
+      li.textContent = `${currently}°F`;
+      li.prepend(link);
+
       // link.addEventListener("click", project);
+       link.addEventListener("click", (event) => {
+        // event.preventDefault();
+        current.innerHTML="" //? to clear old data and replace with new one
+      // link.reset()
+      let area2 = document.createElement("h2") // created h2 to display city heading
+      area2.innerHTML = `${area}`; //city heading is user input
+      
+        let currentLink = current.append(
+          img,
+          area2,
+          areaP,
+          regionP,
+          countryP,
+          currentlyP,
+          sunShine,
+          rain,
+          snow
+        );
+        // link.innerText = `${currentLink}`
+        // current.append(cu);
+      });
 
-      // link.addEventListener("click", (event)=>{
-      //   event.preventDefault()
-      // })
-
-    
       // let searchValue =`${city}`
       // // style.textAlign ="Right"
       // const searchV = document.createElement("h3")
@@ -155,34 +165,4 @@ const project = form.addEventListener("submit", (event) => {
     })
     .catch((err) => err);
 });
- 
 
- //! Conversion outside of first event
-      //? if the temp is in celscius apply the conversion formula to change to F((TEMPERATURE°F − 32) × 5/9 = 0°C), vice versa(F--> (TEMPERATURE°C × 9/5) + 32 = 89.6°F).
-      //*Created an event listener.. submit was resting page
-      const conversionType = document.querySelector(".left-aside");
-      console.log(conversionType);
-      conversionType.addEventListener("submit", (event) => {
-        event.preventDefault();
-
-        let input = document.querySelector("#temp-to-convert"); // temp input search bar.. always changing
-        let input2 = event.target.input.value;
-
-        // // console.log(input);
-        let tempInput = document.querySelector("h4"); // store results for converion
-        // console.log(tempInput)
-        //* select radio button
-        const celButton = document.querySelector("#to-c");
-        // console.log(celButton)
-        const fahButton = document.querySelector("#to-f");
-        // console.log(fahButton)
-
-        if ((celButton.checked)) {
-          input2 = (input2 - 32) * (5 / 9);
-          console.log();
-          tempInput.innerText = `${input2.toFixed(2)}`;
-        } else if (fahButton.checked) {
-          input2 = (input2 * (9 / 5) + 32)
-          tempInput.innerText = `${input2.toFixed(2)}`;
-        }
-      });
