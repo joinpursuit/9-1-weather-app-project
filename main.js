@@ -16,6 +16,20 @@ form.addEventListener('submit', (event)=>{
     .then((res) => res.json())
     .then((res) => { 
         console.log(res)
+        const article = document.createElement('article')
+        article.classList.add('CurrentCity')
+        const header = document.createElement('h2')
+        const area  = document.createElement('p')
+        const region  = document.createElement('p')
+        const country  = document.createElement('p')
+        const currently  = document.createElement('p')
+        // header.textContent = `${res.}`
+
+    article.append(header,area,region,country,currently)
+    artStor.append(article)
+
+        console.log(article)
+        console.log(res.current_condition)
     })
 }) 
 
@@ -38,3 +52,5 @@ console.log(artStor)
 // looking for where event variable stores input (Finished)
 // printing input to console log, success !
 // setting up our fetching data from API 
+// success
+// now that we have successfully set
