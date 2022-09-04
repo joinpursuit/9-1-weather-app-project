@@ -1,7 +1,6 @@
 const search = document.querySelector('#searchBar');
 const forecast = document.querySelector('#ThreeDayForecast');
 
-
 search.addEventListener('submit', (e) => {
   e.preventDefault();
   const textBox = document.querySelector('#typeCity');
@@ -14,7 +13,7 @@ search.addEventListener('submit', (e) => {
   fetch(url)
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
+      // console.log(data);
       const hideLocation = document.querySelector('#chooseLocation');
       // hideLocation.classList.remove('hidden');
 
@@ -34,8 +33,8 @@ search.addEventListener('submit', (e) => {
       countryP.innerHTML = `<strong>Country: </strong>${country}`;
 
       const currently = data.current_condition[0].FeelsLikeF;
-      const feelslike = document.createElement('p');
-      feelslike.innerHTML = `<strong>Currently:</strong>Feels Like ${currently}°F`;
+      const feelsLike = document.createElement('p');
+      feelsLike.innerHTML = `<strong>Currently:</strong>Feels Like ${currently}°F`;
 
       const sunshine = data.weather[0].hourly[0].chanceofsunshine;
       const iGotSunshine = document.createElement('p');
@@ -77,7 +76,7 @@ search.addEventListener('submit', (e) => {
         image,
         stateP,
         countryP,
-        feelslike,
+        feelsLike,
         iGotSunshine,
         itsRainingImSad,
         santaIsComing
@@ -87,8 +86,8 @@ search.addEventListener('submit', (e) => {
       const todayAvgTemp = document.createElement('p');
       const todayMinTemp = document.createElement('p');
       const todayMaxTemp = document.createElement('p');
-      const avgtemp1 = data.weather[0].avgtempF;
-      todayAvgTemp.innerHTML = `<strong>Average Temperature: </strong>${avgtemp1}°F`;
+      const avgTemp1 = data.weather[0].avgtempF;
+      todayAvgTemp.innerHTML = `<strong>Average Temperature: </strong>${avgTemp1}°F`;
 
       const minTemp1 = data.weather[0].mintempF;
       todayMinTemp.innerHTML = `<strong>Min Temperature: </strong>${minTemp1}°F`;
@@ -103,8 +102,8 @@ search.addEventListener('submit', (e) => {
       const tomMinTemp = document.createElement('p');
       const tomMaxTemp = document.createElement('p');
 
-      const avgtemp2 = data.weather[1].avgtempF;
-      tomAvgTemp.innerHTML = `<strong>Average Temperature: </strong>${avgtemp2}°F`;
+      const avgTemp2 = data.weather[1].avgtempF;
+      tomAvgTemp.innerHTML = `<strong>Average Temperature: </strong>${avgTemp2}°F`;
 
       const minTemp2 = data.weather[1].mintempF;
       tomMinTemp.innerHTML = `<strong>Min Temperature: </strong>${minTemp2}°F`;
@@ -119,8 +118,8 @@ search.addEventListener('submit', (e) => {
       const dayAfterMinTemp = document.createElement('p');
       const dayAfterMaxTemp = document.createElement('p');
 
-      const avgtemp3 = data.weather[2].avgtempF;
-      dayAfterAvgTemp.innerHTML = `<strong>Average Temperature: </strong>${avgtemp3}°F`;
+      const avgTemp3 = data.weather[2].avgtempF;
+      dayAfterAvgTemp.innerHTML = `<strong>Average Temperature: </strong>${avgTemp3}°F`;
 
       const minTemp3 = data.weather[2].mintempF;
       dayAfterMinTemp.innerHTML = `<strong>Min Temperature: </strong>${minTemp3}°F`;
@@ -129,10 +128,24 @@ search.addEventListener('submit', (e) => {
       dayAfterMaxTemp.innerHTML = `<strong>Min Temperature: </strong>${maxTemp3}°F`;
       dayAfter.innerHTML = '';
       dayAfter.append(dayAfterAvgTemp, dayAfterMinTemp, dayAfterMaxTemp);
+
+      //! previous search
+      // function previousAside (initialInput,)
+      const previousSearchUl = document.querySelector('#ul');
+      const previousP = document.querySelector('#no-result');
+      previousP.style.display = 'none';
+
+      const list = document.createElement('li');
+
+      previousP.after(list);
+
+      const a = document.createElement('a');
+      a.innerHTML = initialInput;
+      a.setAttribute('href', '#');
+      list.prepend(a);
+      list.innerHTML = `${initialInput} - ${currently}°F`;
     })
     .catch((error) => {
       console.log(error);
     });
 });
-
-
