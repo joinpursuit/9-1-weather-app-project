@@ -1,6 +1,6 @@
 body {display: grid;
-    grid-template-rows: 2/5; 
-    grid-template-columns: 2;    
+    /* grid-template-rows: 2; 
+    grid-template-columns: 2;     */
 }
 
 header {
@@ -29,7 +29,8 @@ header {
     margin: 15px;
 }
 
-main, aside { grid-row: 2 ;
-    grid-column: ;
+main, aside, article { grid-row: 2 ;
+   }
 
-}
+
+

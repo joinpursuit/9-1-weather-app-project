@@ -7,18 +7,41 @@ form.addEventListener("submit", (e) => {
 
   let userInput = e.target["input"].value;
 
-  cityInfo(userInput);
+  cityInfo(userInput, true);
 
   e.target.reset();
 });
 
-function cityInfo(userInput) {
+function addToPreviousSearch(city, temp) {
+
+  const previousSearch = document.querySelector("ul");
+  const p = document.querySelector("aside p");
+  const a = document.createElement("a");
+  let previousSearch1 = document.createElement("li");
+
+  a.setAttribute("href", "#");
+  a.textContent = city;
+  previousSearch1.textContent += `-${temp}°F`;
+  previousSearch1.prepend(a);
+
+  if (p) {
+    p.remove();
+  }
+
+  previousSearch.append(previousSearch1);
+
+  a.addEventListener("click", (e) => {
+    cityInfo(e.target.textContent, false);
+  });
+}
+
+function cityInfo(userInput, AddOrNot) {
   fetch(`https://wttr.in/${userInput}?format=j1`)
     .then((res) => res.json())
     .then((data) => {
       //console.log(data);
 
-      //userInput main data 
+      //userInput main data
       let areaVal = data.nearest_area[0].areaName[0]["value"];
       let regionVal = data.nearest_area[0].region[0]["value"];
       let countryVal = data.nearest_area[0].country[0]["value"];
@@ -42,41 +65,37 @@ function cityInfo(userInput) {
       let fullDisplay = document.querySelector("#full-display");
       fullDisplay.innerHTML = `
        <h2>${userInput}</h2>
-       <div><strong>Area: </strong>${areaVal}</div>
-       <div><strong>Region: </strong>${regionVal}</div>
-       <div><strong>Country: </strong>${countryVal}</div>
-       <div><strong>Currently: </strong>${currentlyVal}</div>
+       <p><strong>Area:</strong> ${areaVal}</p>
+       <p><strong>Region:</strong> ${regionVal}</p>
+       <p><strong>Country:</strong> ${countryVal}</p>
+       <p><strong>Currently:</strong> ${currentlyVal}°F</p>
        `;
 
       let futureForcast = document.querySelector("#future-forcast");
       futureForcast.innerHTML = `
-            <article>
-            <h3>Today</h3>
-            <div><strong>Average Temperature: </strong>${todayAvg}</div>
-            <div><strong>Max Temparture: </strong>${todayMax}</div>
-            <div><strong>Min Temparture: </strong>${todayMin}</div>
-            </article>
-            <article>
-            <h3>Tomorrow</h3>
-            <div><strong>Average Temperature: </strong>${tomorrowAvg}</div>
-            <div><strong>Max Temparture: </strong>${tomorrowMax}</div>
-            <div><strong>Min Temparture: </strong>${tomorrowMax}</div>
-            </article>
-            <article>
-            <h3>Day After Tomorrow</h3>
-            <div><strong>Average Temperature: </strong>${dayAfterTAvg}</div>
-            <div><strong>Max Temparture: </strong>${dayAfterTMax}</div>
-            <div><strong>Min Temparture: </strong>${dayAfterTMin}</div>
-            </article>
+      <article>
+      <h3>Today</h3>
+      <div><strong>Average Temperature:</strong> ${todayAvg}°F</div>
+      <div><strong>Max Temparture:</strong> ${todayMax}°F</div>
+      <div><strong>Min Temparture:</strong> ${todayMin}°F</div>
+      </article>
+      <article>
+      <h3>Tomorrow</h3>
+      <div><strong>Average Temperature:</strong> ${tomorrowAvg}°F</div>
+      <div><strong>Max Temparture:</strong> ${tomorrowMax}°F</div>
+      <div><strong>Min Temparture:</strong> ${tomorrowMin}°F</div>
+      </article>
+      <article>
+      <h3>Day After Tomorrow</h3>
+      <div><strong>Average Temperature:</strong> ${dayAfterTAvg}°F</div>
+      <div><strong>Max Temparture:</strong> ${dayAfterTMax}°F</div>
+      <div><strong>Min Temparture:</strong> ${dayAfterTMin}°F</div>
+      </article>
        `;
-        //when a user inputs a city we want that data to save to the city name and
-    //    let previousInput = document.querySelector('#previous-input')
-    //    previousInput.innerHTML = `
-    //         <h4>Previous Searches</h4>
-    //         <ul></ul>
-    //    ` 
 
-
+      if (AddOrNot) {
+        addToPreviousSearch(userInput, currentlyVal);
+      }
     })
     .catch((err) => console.log(err));
 }
