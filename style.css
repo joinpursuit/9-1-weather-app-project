@@ -68,7 +68,7 @@ h1 {
   border: 1px solid pink;
 }
 
-.forecast {
+#threeDayForecast {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   border: 3px solid slateblue;

@@ -1,5 +1,4 @@
 const search = document.querySelector('#searchBar');
-const forecast = document.querySelector('#ThreeDayForecast');
 
 search.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -86,6 +85,8 @@ search.addEventListener('submit', (e) => {
       const todayAvgTemp = document.createElement('p');
       const todayMinTemp = document.createElement('p');
       const todayMaxTemp = document.createElement('p');
+      today.innerHTML = '<h2>Today</h2>';
+
       const avgTemp1 = data.weather[0].avgtempF;
       todayAvgTemp.innerHTML = `<strong>Average Temperature: </strong>${avgTemp1}°F`;
 
@@ -94,13 +95,14 @@ search.addEventListener('submit', (e) => {
 
       const maxTemp1 = data.weather[0].maxtempF;
       todayMaxTemp.innerHTML = `<strong>Max Temperature: </strong>${maxTemp1}°F`;
-      today.innerHTML = '<h2>Today</h2>';
+
       today.append(todayAvgTemp, todayMinTemp, todayMaxTemp);
 
       const tomorrow = document.querySelector('#tomorrow');
       const tomAvgTemp = document.createElement('p');
       const tomMinTemp = document.createElement('p');
       const tomMaxTemp = document.createElement('p');
+      tomorrow.innerHTML = '<h2>Tomorrow</h2>';
 
       const avgTemp2 = data.weather[1].avgtempF;
       tomAvgTemp.innerHTML = `<strong>Average Temperature: </strong>${avgTemp2}°F`;
@@ -110,13 +112,14 @@ search.addEventListener('submit', (e) => {
 
       const maxTemp2 = data.weather[1].maxtempF;
       tomMaxTemp.innerHTML = `<strong>Min Temperature: </strong>${maxTemp2}°F`;
-      tomorrow.innerHTML = '<h2>Tomorrow</h2>';
+
       tomorrow.append(tomAvgTemp, tomMinTemp, tomMaxTemp);
 
       const dayAfter = document.getElementById('third-day');
       const dayAfterAvgTemp = document.createElement('p');
       const dayAfterMinTemp = document.createElement('p');
       const dayAfterMaxTemp = document.createElement('p');
+      dayAfter.innerHTML = '<h2>Day After</h2>';
 
       const avgTemp3 = data.weather[2].avgtempF;
       dayAfterAvgTemp.innerHTML = `<strong>Average Temperature: </strong>${avgTemp3}°F`;
@@ -126,18 +129,19 @@ search.addEventListener('submit', (e) => {
 
       const maxTemp3 = data.weather[2].maxtempF;
       dayAfterMaxTemp.innerHTML = `<strong>Min Temperature: </strong>${maxTemp3}°F`;
-      dayAfter.innerHTML = '<h2>Day After</h2>';
+
       dayAfter.append(dayAfterAvgTemp, dayAfterMinTemp, dayAfterMaxTemp);
 
       //! previous search
       // function previousAside (initialInput,)
       const previousSearchUl = document.querySelector('#ul');
-      const previousP = document.querySelector('#no-result');
+      const previousP = document.querySelector('section p');
+      const forecast = document.querySelector('#threeDayForecast');
+
       previousP.style.display = 'none';
 
       const list = document.createElement('li');
-
-      previousP.after(list);
+      previousSearchUl.append(list);
 
       const a = document.createElement('a');
       a.innerHTML = `${initialInput}`;
@@ -146,10 +150,11 @@ search.addEventListener('submit', (e) => {
       list.innerHTML = ` - ${currently}°F`;
 
       list.prepend(a);
-
+      // previousP.remove();
       list.addEventListener('click', () => {
-        // hideLocation.innerHTML = ''; //! this is breaking 1 test: has a sidebar section of the page that includes a 'Previous Searches' section
-        hideLocation.style.display = 'none'; // this is passing the cypress but the data displayed is clunky
+        // hideLocation.innerHTML = '';
+        hideLocation.innerHTML = `<h2>${initialInput}</h2>`; //! this is breaking 1 test: has a sidebar section of the page that includes a 'Previous Searches' section
+        // hideLocation.style.display = 'none'; // this is passing the cypress but the data displayed is clunky
         // hideLocation.prepend(image);
         hideLocation.append(
           image,
@@ -160,6 +165,8 @@ search.addEventListener('submit', (e) => {
           itsRainingImSad,
           santaIsComing
         );
+
+        forecast.append(today, tomorrow, dayAfter);
       });
     })
     .catch((error) => {
