@@ -23,7 +23,7 @@ header {
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     padding-top: 1px;
     padding-bottom: 15px;
-    color: white;
+    color: rgb(255, 255, 255);
 }
 
 .temp-conversion {
@@ -33,18 +33,17 @@ header {
 
 h4 {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color: white;
+    color: rgb(255, 255, 255);
 }
 
 #container {
     grid-area: display;
+    grid-template-columns: repeat(3, 1fr);
     text-align: center;
     background-color: rgb(255, 192, 203);
     border-radius: 5px;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    padding-top: 1px;
-    color: white;
-
+    color: rgb(255, 255, 255);
 }
 
 .sidebar {
@@ -54,8 +53,12 @@ h4 {
 
 .weatherForecast {
     display: grid;
-    border: 1px solid rgb(204, 220, 226);
     grid-template-columns: repeat(3, 1fr);
+    border: 1px solid rgb(204, 220, 226);
     text-align: center;
-    color: white;
+    color: rgb(255, 255, 255);
+}
+
+#currentWeather {
+    display: grid;
 }
