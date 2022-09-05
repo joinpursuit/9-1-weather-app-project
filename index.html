@@ -7,7 +7,7 @@
     <title>Weather App</title>
     <link rel="stylesheet" href="./style.css" />
     <script defer src="./script.js"></script>
-    <script defer src="./conversion.js"></script>
+    <script defer src="./history.js"></script>
   </head>
   <body>
     <header class="header">
@@ -18,22 +18,6 @@
         <input id="submit-city" type="submit" value="Get Weather" />
       </form>
     </header>
-    <!-- <aside class="converter">
-      <form id="conversion">
-        <label for="temp-to-convert">Convert the temperature</label>
-        <input type="number" name="temp" id="temp-to-convert" required />
-
-        <input type="radio" name="tempConvert" value="Celsius" id="to-c" />
-        <label for="to-C">Celsius</label>
-
-        <input type="radio" name="tempConvert" value="Fahrenheit" id="to-f" />
-        <label for="to-F">Fahrenheit</label>
-
-        <input type="submit" value="submit" />
-        <h4 id="result"></h4>
-      </form>
-    </aside> -->
-
     <aside>
       <form class="conversion" id="convert">
         <label for="temp-to-convert">Convert the Temperature</label>
@@ -53,16 +37,16 @@
     <main class="content">
       <article class="hidden">Choose a location to view the weather.</article>
       <aside class="upComing">
-        <article class="today"></article>
-        <article class="tomorrow"></article>
-        <article class="afterTomorrow"></article>
+        <article class="today">Today</article>
+        <article class="tomorrow">Tomorrow</article>
+        <article class="afterTomorrow">After Tomorrow</article>
       </aside>
     </main>
     <aside class="history">
       <section>
         <h4><strong>Previous Searches</strong></h4>
         <ul>
-          <p>No previous searches.</p>
+          <p class="hide">No previous searches.</p>
         </ul>
       </section>
     </aside>
