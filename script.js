@@ -94,7 +94,7 @@ search.addEventListener('submit', (e) => {
 
       const maxTemp1 = data.weather[0].maxtempF;
       todayMaxTemp.innerHTML = `<strong>Max Temperature: </strong>${maxTemp1}°F`;
-      today.innerHTML = '';
+      today.innerHTML = '<h2>Today</h2>';
       today.append(todayAvgTemp, todayMinTemp, todayMaxTemp);
 
       const tomorrow = document.querySelector('#tomorrow');
@@ -110,7 +110,7 @@ search.addEventListener('submit', (e) => {
 
       const maxTemp2 = data.weather[1].maxtempF;
       tomMaxTemp.innerHTML = `<strong>Min Temperature: </strong>${maxTemp2}°F`;
-      tomorrow.innerHTML = '';
+      tomorrow.innerHTML = '<h2>Tomorrow</h2>';
       tomorrow.append(tomAvgTemp, tomMinTemp, tomMaxTemp);
 
       const dayAfter = document.getElementById('third-day');
@@ -126,7 +126,7 @@ search.addEventListener('submit', (e) => {
 
       const maxTemp3 = data.weather[2].maxtempF;
       dayAfterMaxTemp.innerHTML = `<strong>Min Temperature: </strong>${maxTemp3}°F`;
-      dayAfter.innerHTML = '';
+      dayAfter.innerHTML = '<h2>Day After</h2>';
       dayAfter.append(dayAfterAvgTemp, dayAfterMinTemp, dayAfterMaxTemp);
 
       //! previous search
@@ -140,10 +140,27 @@ search.addEventListener('submit', (e) => {
       previousP.after(list);
 
       const a = document.createElement('a');
-      a.innerHTML = initialInput;
+      a.innerHTML = `${initialInput}`;
       a.setAttribute('href', '#');
+
+      list.innerHTML = ` - ${currently}°F`;
+
       list.prepend(a);
-      list.innerHTML = `${initialInput} - ${currently}°F`;
+
+      list.addEventListener('click', () => {
+        // hideLocation.innerHTML = ''; //! this is breaking 1 test: has a sidebar section of the page that includes a 'Previous Searches' section
+        hideLocation.style.display = 'none'; // this is passing the cypress but the data displayed is clunky
+        // hideLocation.prepend(image);
+        hideLocation.append(
+          image,
+          stateP,
+          countryP,
+          feelsLike,
+          iGotSunshine,
+          itsRainingImSad,
+          santaIsComing
+        );
+      });
     })
     .catch((error) => {
       console.log(error);
