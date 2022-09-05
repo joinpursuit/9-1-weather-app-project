@@ -6,11 +6,13 @@ const threeDays = document.querySelectorAll("aside article");
 const title = document.querySelector("main article");
 const ul = document.querySelector("ul");
 const current = document.querySelector(".current-weather");
+const previousP = document.querySelector("section p");
+
 // console.log(form1)
 //search bar
 // console.log(searchBar)
 const project = form.addEventListener("submit", (event) => {
-  const city = bar.value; //?
+  const city = bar.value; //? searchbar user input
   let Base_URL = `https://wttr.in/${city}?format=j1`;
   event.preventDefault();
   form.reset();
@@ -78,8 +80,7 @@ const project = form.addEventListener("submit", (event) => {
       }
 
       //! Chance of rain, sunshine, snow
-      let img = document.createElement("img");
-
+      const img = document.createElement("img");
       //sunshine
       const sunShineP = document.createElement("p");
       const sunShine = resJson.weather[0].hourly[0].chanceofsunshine;
@@ -121,33 +122,28 @@ const project = form.addEventListener("submit", (event) => {
       //* QuerySelect ul tag
       //* Create a li to update ul
       //* Create an <a> to create hyperlink
-
-      const previousP = document.querySelector("section p");
-
-      const ulSearch = document.querySelector("#searches ul");
+      // const ulSearch = document.querySelector("ul");
       // console.log(ulSearch);
-      let li = document.createElement("li");
-      ul.append(li); //? for osme reason, this had to be here
-
-      let link = document.createElement("a"); //? created a tag element
+      const li = document.createElement("li");
+      ul.append(li); //? for some reason, this had to be here. #controlFlowIssue
+      const link = document.createElement("a"); //? created a tag element
       previousP.innerHTML = ""; //? To clear message in <p> when click submit
-      link.innerText = `${area}`; //? AKA user input
-      const userInput = `${link.innerText}`;
+      link.innerHTML = `${area}`; //? AKA user input
+      console.log(link.innerHTML);
+      // const userInput = `${link.innerHTML}`;
       link.href = "#";
-      li.textContent = `${currently}°F`; //? feels like input
-      li.prepend(link);
-
+      li.textContent = `- ${currently}°F`; //? feels like input
+      li.prepend(link); //? means link first, then temp
       // link.addEventListener("click", project);
       //?Created an event listener for the click action. It erases the values in the main and replaces it with the link inputs.
-      link.addEventListener("clickgitgit", () => {
-        // event.preventDefault();
+      link.addEventListener("click", () => {
         current.innerHTML = ""; //? to clear old data and replace with new one
-        // link.reset()
-        let area2 = document.createElement("h2"); //* created h2 to display city heading
-        area2.innerText = `${area}`; //city heading is user input
+        previousP.remove(); 
+        // const area2 = document.createElement("h2"); //* created h2 to display city heading
+        current.innerHTML = `<h2>${area}</h2>`; //? Main heading is user input
         current.prepend(img);
         current.append(
-          area2,
+          // area2,
           areaP,
           regionP,
           countryP,
@@ -159,12 +155,8 @@ const project = form.addEventListener("submit", (event) => {
         // link.innerText = `${currentLink}`
         // current.append(currentLink);
       });
-
-      // let searchValue =`${city}`
-      // // style.textAlign ="Right"
-      // const searchV = document.createElement("h3")
-      // searchV.innerHTML=`${city}`
-      // areaP.prepend(searchV)
     })
-    .catch((err) => err);
+    .catch((err) => {
+      console.log(err);
+    });
 });
