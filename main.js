@@ -27,7 +27,7 @@ const project = form.addEventListener("submit", (event) => {
         title.innerHTML = `<h2>${city}</h2>`; //!
       }
       // const weatherBut = document.querySelector("get-weather");
-
+//!_________________________ Current Weather Section ________________________ 
       const areaP = document.createElement("p");
       areaP.innerHTML = `<b>Nearest Area:</b>${area}`;
       current.append(areaP);
@@ -53,7 +53,7 @@ const project = form.addEventListener("submit", (event) => {
       const tomorrow = document.querySelector("#Tomorrow");
       const dayAfter = document.querySelector("#Day-After-Tomorrow");
 
-      //!THREEDAYS --> create a loop to go iterate and update the days.
+      //!--------THREEDAYS Section --> created a loop to go iterate and update the days.
       //? Use let instead of const because it needs to update after every loop.
       let days = ["Today", "Tomorrow", "Day After Tomorrow"];
       for (let i = 0; i < threeDays.length; i++) {
@@ -63,7 +63,7 @@ const project = form.addEventListener("submit", (event) => {
 
         //* temDays should be able to hold days
         tempDays.textContent = days[i];
-
+//!_________________________AVG, MAX, MIN Section______________________________________
         //avg -->
         let avgP = document.createElement("p");
         const avgTempF = resJson.weather[i].avgtempF;
@@ -79,7 +79,7 @@ const project = form.addEventListener("submit", (event) => {
         threeDays[i].append(tempDays, avgP, maxTempP, minP);
       }
 
-      //! Chance of rain, sunshine, snow
+      //!_____________ Chance of rain, sunshine, snow_____________________
       const img = document.createElement("img");
       //sunshine
       const sunShineP = document.createElement("p");
@@ -100,7 +100,7 @@ const project = form.addEventListener("submit", (event) => {
 
       current.append(snowP);
       // current.append(regionP, countryP, currentlyP, sunShine, rain, snow);
-      // //! ICONS
+      //!______________________ ICONS Section____________________________
       if (sunShine > 50) {
         img.setAttribute("src", "./assets/icons8-summer.gif");
         img.alt = "sun";
@@ -116,7 +116,7 @@ const project = form.addEventListener("submit", (event) => {
         img.setAttribute("alt", "rain");
         current.prepend(img);
       }
-      //!Previous Searches
+      //!-------------------------Previous Searches Section-----------------------
       //* Query select right-aside
       //* QuerySelect p tag
       //* QuerySelect ul tag
@@ -125,25 +125,31 @@ const project = form.addEventListener("submit", (event) => {
       // const ulSearch = document.querySelector("ul");
       // console.log(ulSearch);
       const li = document.createElement("li");
+
       ul.append(li); //? for some reason, this had to be here. #controlFlowIssue
+
       const link = document.createElement("a"); //? created a tag element
+
       previousP.innerHTML = ""; //? To clear message in <p> when click submit
-      link.innerHTML = `${area}`; //? AKA user input
-      console.log(link.innerHTML);
-      // const userInput = `${link.innerHTML}`;
+
+      link.innerHTML = `${city}`; //? AKA user input
+
+      // console.log(link.innerHTML);
       link.href = "#";
       li.textContent = `- ${currently}°F`; //? feels like input
+
       li.prepend(link); //? means link first, then temp
+
       // link.addEventListener("click", project);
       //?Created an event listener for the click action. It erases the values in the main and replaces it with the link inputs.
       link.addEventListener("click", () => {
         current.innerHTML = ""; //? to clear old data and replace with new one
         previousP.remove(); 
-        // const area2 = document.createElement("h2"); //* created h2 to display city heading
-        current.innerHTML = `<h2>${area}</h2>`; //? Main heading is user input
+        const area2 = document.createElement("h2"); //* created h2 to display city heading
+        area2.innerHTML = `<h2>${city}</h2>`; //? Main heading is user input
         current.prepend(img);
         current.append(
-          // area2,
+          area2,
           areaP,
           regionP,
           countryP,
