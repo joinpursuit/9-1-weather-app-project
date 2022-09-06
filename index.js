@@ -55,6 +55,31 @@ const p2 = document.createElement("p")
 
 const p3 = document.createElement("p")
 
+const p4 = document.createElement("p")
+
+const p5 = document.createElement("p")
+
+const p6 = document.createElement("p")
+
+const p7 = document.createElement("p")
+
+const img = document.createElement("img")
+img.setAttribute("class", "hidden")
+img.setAttribute("alt", "snow")
+img.classList.add("icon")
+img.setAttribute("src", "./assets/icons8-light-snow.gif")
+
+const img2 = document.createElement("img")
+img2.setAttribute("class", "hidden")
+img2.setAttribute("alt", "sun")
+img2.classList.add("icon")
+img2.setAttribute("src", "./assets/icons8-summer.gif")
+
+const img3 = document.createElement("img")
+img3.setAttribute("class", "hidden")
+img3.setAttribute("alt", "rain")
+img3.classList.add("icon")
+img3.setAttribute("src", "./assets/icons8-torrential-rain.gif")
 
 
 const section2 = document.createElement("section")
@@ -97,20 +122,17 @@ const pa2 = document.createElement("p")
 const pa3 = document.createElement("p")
 div4.append(anotherh3, pa1, pa2, pa3)
 
-const p4 = document.createElement("p")
 main.append(section2, aside2)
-section2.append(h2, h3, p1, p2, p3, p4)
+section2.append(img, img2, img3, h2, p1, p2, p3, p4, p5, p6, p7, )
 aside2.append(div2, div3, div4)
 
-const li = document.createElement("li")
 
 
-input2.addEventListener("click", (event) => {
+const getInfo = () => {
     let id = document.getElementById('text');
     let city = id.value.trim().split(' ').join('+')
     let url = `https://wttr.in/${city}?format=j1`;
-    event.preventDefault();
-
+    
     fetch(url)
     .then((response) => response.json())
     .then((resJson) => {
@@ -123,6 +145,10 @@ input2.addEventListener("click", (event) => {
         // console.log(maxTemp1)
         const minTemp1 = weather.mintempF
         // console.log(minTemp1)
+        const rain = weather.hourly[0].chanceofrain
+        // console.log(sunshine1)
+        const sun = weather.hourly[0].chanceofsunshine
+        const snow = weather.hourly[0].chanceofsnow
         const weather2 = resJson.weather[1]
         const avgTemp2 = weather2.avgtempF
         const maxTemp2 = weather2.maxtempF
@@ -138,55 +164,87 @@ input2.addEventListener("click", (event) => {
         
         
         
+        // h3.textContent = area
+        p1.textContent = `Area: ${area}`
+        p2.textContent = `Country: ${country}`
+        p3.textContent = `Region: ${region}`
+        p4.textContent = `Currently feels like ${temp}\u00B0F`
+        p5.textContent = `Chance of Sunshine: ${sun}`
+        p6.textContent = `Chance of Rain: ${rain}`
+        p7.textContent = `Chance of Snow: ${snow}`
         
-            h3.textContent = area
-            p1.textContent = `Area: ${area}`
-            p2.textContent = `Country: ${country}`
-            p3.textContent = `Region: ${region}`
-            p4.textContent = `Currently feels like ${temp}\u00B0F`
-            
+        pg1.textContent = `Avg Temp: ${avgTemp1}\u00B0F`
+        pg2.textContent = `Max Temp: ${maxTemp1}\u00B0F`
+        pg3.textContent = `Min Temp: ${minTemp1}\u00B0F`
+        
+        page1.textContent = `Avg Temp: ${avgTemp2}\u00B0F`
+        page2.textContent = `Max Temp: ${maxTemp2}\u00B0F`
+        page3.textContent = `Min Temp: ${minTemp2}\u00B0F`
+        
+        pa1.textContent = `Avg Temp: ${avgTemp3}\u00B0F`
+        pa2.textContent = `Max Temp: ${maxTemp3}\u00B0F`
+        pa3.textContent = `Min Temp: ${minTemp3}\u00B0F`
+        
+        paragraph.classList.add("hidden")
+        h2.classList.add("hidden");
 
-            pg1.textContent = `Avg Temp: ${avgTemp1}\u00B0F`
-            pg2.textContent = `Max Temp: ${maxTemp1}\u00B0F`
-            pg3.textContent = `Min Temp: ${minTemp1}\u00B0F`
-            
-            page1.textContent = `Avg Temp: ${avgTemp2}\u00B0F`
-            page2.textContent = `Max Temp: ${maxTemp2}\u00B0F`
-            page3.textContent = `Min Temp: ${minTemp2}\u00B0F`
-            
-            pa1.textContent = `Avg Temp: ${avgTemp3} \u00B0F`
-            pa2.textContent = `Max Temp: ${maxTemp3} \u00B0F`
-            pa3.textContent = `Min Temp: ${minTemp3} \u00B0F`
-
-            paragraph.classList.add("hidden")
-            h2.classList.add("hidden")
-
-
+        if(sun >= 50){
+            img2.classList.remove("hidden")
+        }
+        else{
+            img2.classList.add("hidden")
+        }
+        if(snow >= 50){
+            img.classList.remove("hidden")
+        }
+        else{
+            img.classList.add("hidden")
+        }
+        if(rain >= 50){
+            img3.classList.remove("hidden")
+        }
+        else{
+            img3.classList.add("hidden")
+        }
+        
+        
         const anchor = document.createElement("a")
         
-        anchor.setAttribute("href", "")
-        anchor.textContent = `${area} - ${temp}`
+        anchor.setAttribute("href", "" )
+          anchor.textContent = `${area} - ${temp}`
         
-        const notes = anchor
-        generateList(notes)
-    
-
+         const notes = anchor
+          generateList(notes)
+        
         
         form.reset()
-    
-     
+        
+        
     })
     
     .catch((error) => console.log(error))
+}
 
 
+
+input2.addEventListener("click", (event) => {
+    event.preventDefault()
+    getInfo()
+
+
+    
 })
+
+ ul.addEventListener("click", () => {
+  getInfo()
+ })
 
 
 function addList(notes){
+    const li = document.createElement("li")
     li.textContent
     if(notes){
-        li.append(document.createElement("br"), notes)
+        li.append( notes)
     }
     
     return li
@@ -197,9 +255,9 @@ function generateList(notes){
     const li = addList(notes);
     const ul = document.querySelector("ul");
     
-        ul.append(li)
+    ul.append(li)
     
-
+    
 }
 
 
