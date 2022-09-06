@@ -4,6 +4,8 @@ const headerForm = document.querySelector(`.headerForm`);
 const chooseWeatherMain = document.querySelector(`.chooseWeather`);
 const mainTodaysWeather = document.querySelector(`#mainTodaysWeather`);
 
+ let cityNamesArr = [];
+
 const main = document.querySelector(`main`)
 
 // PREVIOUS SEARCHES UL ASIDE
@@ -48,11 +50,16 @@ let mainChanceOfSnow = document.querySelector(`#mainChanceOfSnow`);
 //ICONS
 const mainWeatherIcon = document.querySelector(`#mainWeatherIcon`);
 
-let formSubmitBool = true
+//allows the submit form to grab the mainCityName from inputBox.value in the first fetch, but grab it from e.target.textContent in the second fetcch
+let formSubmitBool = true; //--> True for 'submit' event / false for 'click' event
+
+//allows the city names to be filtered and pushed into cityNamesArr in the submit event so that there atre no duplicates, and flitered in the click event
+let eventListenerBool = false; //--> True for 'submit' event / false for 'click' event
 
 //CITY SEARCH FUNCTION
 
 function citySearch(URL, city) {
+
   //FETCH
   fetch(URL)
     .then((res) => res.json())
@@ -82,9 +89,9 @@ function citySearch(URL, city) {
         if (formSubmitBool) {
           mainCityName.innerText = `${cityInputBox.value}`;
         } else {
-          mainCityName.innerText = city
+          mainCityName.innerText = city;
         }
-   
+
         mainAreaName.innerText = `${areaName}`;
         if (mainCityName.innerText === mainAreaName.innerText) {
           mainAreaStrong.innerText = `Area:`;
@@ -138,62 +145,75 @@ function citySearch(URL, city) {
 
         //PREVIOUS SEARCHES SIDEBAR
 
-        
-
         //create list items for previous searches
         // Previous Search Link
         previousSearchLink = document.createElement(`a`);
-        previousSearchLink.innerText = cityInputBox.value;
-        // console.log(previousSearchLink)
-        previousSearchLink.setAttribute(`href`, `#`);
-        //previous searches cont...
+       
 
-        //  [CITY INPUT BOX RESET]
-        cityInputBox.value = ``;
+        //*************** */
 
 
+        if (!cityNamesArr.includes(cityInputBox.value.toLowerCase())) {
+          cityNamesArr.push(cityInputBox.value.toLowerCase());
+          eventListenerBool = true
+      }
+        
+        console.log(cityNamesArr);//--> pushes only unique names in
 
-        //check if text box === search bar list item -- if so create a new element, else dont... 
-        const previousSearchesListItems = document.querySelectorAll(`li`);
-        // console.log(previousSearchLink.innerText)
-
-          // if (previousSearchesListItems.innerText === previousSearchLink.innerText){console.log(`hello`)}
-
+       
         //... cont previous searches
 
         //Spawns new list items for previous searches sidebar
+       
 
         const feelsLikePreviousSearches = document.createElement(`li`);
-        feelsLikePreviousSearches.innerText = ` - ${feels_LikeF} °F`;
-        feelsLikePreviousSearches.prepend(previousSearchLink);
-        previousSearches.append(feelsLikePreviousSearches);
+        if (cityNamesArr.includes(cityInputBox.value.toLowerCase())) {
+          if (eventListenerBool) {
+            feelsLikePreviousSearches.innerText = ` - ${feels_LikeF} °F`;
+            feelsLikePreviousSearches.prepend(previousSearchLink);
+            previousSearches.append(feelsLikePreviousSearches);
+           
+            previousSearchLink.innerText = cityInputBox.value;
+            // console.log(previousSearchLink)
+            previousSearchLink.setAttribute(`href`, `#`);
+            //previous searches cont...
+          }
+        } 
+       
+
+         //  [CITY INPUT BOX RESET]
+        cityInputBox.value = ``;
 
         // PREVIOUS SEARCHES ASIDE EVENT LISTENER (CLICK)
         feelsLikePreviousSearches.addEventListener(`click`, (e) => {
-          formSubmitBool = false
+          formSubmitBool = false;
+          eventListenerBool = false;
           let PreviousSearchesURL = ``;
 
-          let cityNamesArr = [];
-          cityNamesArr.push(e.target.textContent);
-         
-         
+            console.log(eventListenerBool);
+
           let PreviousSearchesURLCity = e.target.textContent
-              .split(" ")
+            .split(" ")
             .join("+"); //--> New+York
-          
+
           mainCityName.innerText = e.target.textContent;
-          
+
           console.log(`e.target.textContent`, e.target.textContent);
-          console.log(cityNamesArr);
-          
-          
-          
+          // cityNamesArr.push(e.target.textContent);
+          // console.log(cityNamesArr);
+
           //have to push these vars into an array for storing
 
           PreviousSearchesURL = `https://wttr.in/${PreviousSearchesURLCity}?format=j1`; //--> https://wttr.in/new+nork?format=j1
           console.log(PreviousSearchesURL);
 
           citySearch(PreviousSearchesURL, e.target.textContent);
+
+            // if (cityNamesArr.includes(e.target.textContent.toLowerCase() && !eventListenerBool)) {
+              
+            // }
+          
+         
 
           // got to get the url
           // so i need only the city name from the side bar previous search
@@ -219,6 +239,7 @@ function citySearch(URL, city) {
 headerForm.addEventListener(`submit`, (e) => {
   e.preventDefault();
   formSubmitBool = true
+  eventListenerBool = false
 
   //URL VARIABLES
 
