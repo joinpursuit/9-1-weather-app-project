@@ -4,10 +4,15 @@ const JSON = '?format=j1'
 const form = document.querySelector('form')
 const artStor = document.querySelector('main aside')
 const formInput = document.querySelector('input')
+const todayStor = document.querySelector('#Today h4')
+const tmmStor =  document.querySelector('#Tommorow h4')
+const dayTmmStore = document.querySelector('#DayAfterTmm h4')
+console.log(tmmStor, todayStor, dayTmmStore)
 let count = 0
 console.log(`form submissions: ${count}`)
 
 form.addEventListener('submit', (event)=>{
+    // document.querySelector('main').innerText = ''
     event.preventDefault()
     count += 1
     console.log(`form submissions: ${count}`)
@@ -46,21 +51,3 @@ form.addEventListener('submit', (event)=>{
 console.log(`${BASE_URL}${JSON}`)
 console.log(form)
 console.log(artStor)
-
-
-// LOG
-// 154 finished HTML exo earlier today, pushing: 'HTML skeleton completed'
-// getting api base url | line 2,3
-// printing to console, success !
-// select the header form | line 4
-// printing to console, success !
-// select the article storage ( in main ) | line 5
-// printing to console, success!
-// added event listener to header form, preventing default | line 7-8
-// printing input to console on form submission, no success :( could not find variable that stores data of form entry
-// saving input to variable (Finished)
-// looking for where event variable stores input (Finished)
-// printing input to console log, success !
-// setting up our fetching data from API 
-// success
-// now that we have successfully set

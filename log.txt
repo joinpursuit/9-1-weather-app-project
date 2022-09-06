@@ -22,3 +22,10 @@
 // pushing 'created variables for our article elements, need to now append to correct location and populate with api data'
 // populating empty variables with api data
 // sep 5 801pm passed get details from text input test
+// pushed lines 23, 24
+// 932pm
+// time to make the 3 day article
+// tuesday sep 6 746am
+// selecting each of upcoming weather children
+// successfully selected 3 day articles
+// pushing line 30
