@@ -7,7 +7,13 @@ const main = document.querySelector("main")
 const tempP = document.querySelector(".temp_p")
 const sideBar = document.querySelector(".sidebar")
 const ul = document.querySelector("ul")
+const div = document.querySelector("div")
 
+
+// ul.addEventListener("click", (event) => {
+//     event.preventDefault()
+//     makeFetchCall()
+// })
 
 function createWeatherInfo(results) {
     const weatherSection = document.createElement("section")
@@ -16,7 +22,8 @@ function createWeatherInfo(results) {
     const area = document.createElement("p")
     const country = document.createElement("p")
     const currently = document.createElement("p")
-    const li = document.createElement("li")
+   // const li = document.createElement("li")
+    const search = document.querySelector("#location").value
 
 
     searchLocationH.innerHTML = results.nearest_area[0].areaName[0].value
@@ -29,23 +36,63 @@ function createWeatherInfo(results) {
    
     currently.innerHTML = `Currently: Feels Like ${results.current_condition[0].FeelsLikeF}°F`
 
-    li.innerHTML = `${results.nearest_area[0].areaName[0].value} - ${results.current_condition[0].FeelsLikeF}°F`
+   // li.innerHTML = `${search} - ${results.current_condition[0].FeelsLikeF}°F`
 
+    // li.addEventListener("click", (event) => {
+    //         event.preventDefault()
+    //         makeFetchCall(search)
+    //     })
+    //     // if ((ul.length > 0) && (ul[ul.length - 1].value != document.querySelector("#location").value)) {
+    //     //     ul.append(li)
+    //     // }
+    //      ul.append(li)
+  
+      
     weatherSection.append(
         searchLocationH,
         region,
         area, 
         country, 
         currently, 
-        li
     )
     return weatherSection
+}
+
+function clearPage() {
+    while(article.children.length > 0) {
+        article.children[0].remove()
+       }
+       while(div.children.length > 0) {
+        div.children[0].remove()
+       }
+}
+
+function createPrevSearches(location, results) {
+    const li = document.createElement("li")
+    const a = document.createElement("a")
+    a.innerHTML = `${location}`
+    a.setAttribute("href", "#")
+    const degrees = document.createElement("p")
+    degrees.innerHTML = ` - ${results.current_condition[0].FeelsLikeF}°F`
+    li.append(a, degrees)
+    
+    a.addEventListener("click", (event) => {
+        event.preventDefault()
+        clearPage()
+        fetch(`http://wttr.in/${location}?format=j1`)
+    .then((res) => res.json())
+    .then((res) => {   
+        article.append(createWeatherInfo(res) )
+        div.append(createForecastInfo(res))
+    })
+    })
+    return li
 }
 
 function createForecastInfo(results) {
     const forecastArticle = document.createElement("article")
     for(let i = 0;i < results.weather.length; i++) {
-        console.log(results.weather)
+        // console.log(results.weather)
         const forecastSection = document.createElement("section")
         const forecastHeading = document.createElement("h4")
         if (i === 0) {
@@ -74,16 +121,18 @@ function createForecastInfo(results) {
     return forecastArticle
 }
 
+// function makeListEvent(results) {
+//     const listItem = document.createElement("li")
+// }
+
 
 function makeFetchCall(location) {
     fetch(`http://wttr.in/${location}?format=j1`)
     .then((res) => res.json())
-    .then((res) => {
+    .then((res) => {   
         article.append(createWeatherInfo(res) )
-        main.append(createForecastInfo(res))
-        
-
-
+        div.append(createForecastInfo(res))
+        ul.append(createPrevSearches(location, res))
     })
 }
 
@@ -92,9 +141,12 @@ form.addEventListener("submit", (event) => {
     event.preventDefault()
     tempP.remove()
     heading.remove()
-    
-    
-    makeFetchCall(document.querySelector("#location").value)
+    clearPage()
+    const search = document.querySelector("#location").value
+
+    makeFetchCall(search)
+
+    document.querySelector("#location").value = ""
     
 
 })
