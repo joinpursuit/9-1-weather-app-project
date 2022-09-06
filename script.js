@@ -146,6 +146,8 @@ function citySearch(URL) {
         cityInputBox.value = ``;
 
 
+
+        //check if text box === search bar list item -- if so create a new element, else dont... 
         const previousSearchesListItems = document.querySelectorAll(`li`);
         console.log(previousSearchLink.innerText)
 
@@ -161,11 +163,15 @@ function citySearch(URL) {
         previousSearches.append(feelsLikePreviousSearches);
 
         // PREVIOUS SEARCHES ASIDE EVENT LISTENER (CLICK)
-        feelsLikePreviousSearches.addEventListener(`click`, () => {
+        feelsLikePreviousSearches.addEventListener(`click`, (e) => {
           let PreviousSearchesURL = ``;
           let PreviousSearchesURLCity = previousSearchLink.innerText
             .split(" ")
             .join("+"); //--> New+York
+          
+          console.log(`e.target.textContent`, e.target.textContent);
+          
+          //have to push these vars into an array for storing
 
           PreviousSearchesURL = `https://wttr.in/${PreviousSearchesURLCity}?format=j1`; //--> https://wttr.in/new+nork?format=j1
           console.log(PreviousSearchesURL);
