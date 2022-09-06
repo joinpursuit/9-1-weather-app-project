@@ -17,7 +17,7 @@ const ul = document.querySelector("ul");
 let mainSubmit = form.addEventListener("submit", (e) => {
   let value = cityInput.value;
   let URL = `http://wttr.in/${value}?format=j1`;
-  //   console.log(cityInput.value);
+
   e.preventDefault();
   form.reset();
   fetch(`${URL}`)
@@ -31,31 +31,24 @@ let mainSubmit = form.addEventListener("submit", (e) => {
 
       const area = document.createElement("p");
       area.innerHTML = `<b>Nearest Area:</b> ${cityName}`;
-      //   placeholder.append(area);
 
       const region = document.createElement("p");
       region.innerHTML = `<b>Region:</b> ${data.nearest_area[0].region[0].value}`;
-      //   placeholder.append(region);
 
       const country = document.createElement("p");
       country.innerHTML = `<b>Country:</b> ${data.nearest_area[0].country[0].value}`;
-      //   placeholder.append(country);
 
       const currently = document.createElement("p");
       currently.innerHTML = `<b>Currently:</b> Feels Like ${data.current_condition[0].FeelsLikeF}°F`;
-      //   placeholder.append(currently);
 
       const sunshine = document.createElement("p");
       sunshine.innerHTML = `<b>Chance of Sunshine:</b> ${data.weather[0].hourly[0].chanceofsunshine}`;
-      //   placeholder.append(sunshine);
 
       const rain = document.createElement("p");
       rain.innerHTML = `<b>Chance of Rain:</b> ${data.weather[0].hourly[0].chanceofrain}`;
-      //   placeholder.append(rain);
 
       const snow = document.createElement("p");
       snow.innerHTML = `<b>Chance of Snow:</b> ${data.weather[0].hourly[0].chanceofsnow}`;
-      //   placeholder.append(snow);
 
       //! Conditionals to Set icons
       const icon = document.createElement("img");
@@ -103,11 +96,6 @@ let mainSubmit = form.addEventListener("submit", (e) => {
         day.append(min);
       });
 
-      //   let avgTempF = data.weather[0].avgtempF;
-      //   console.log(avgTempF);
-      //   let minTempF = data.weather[0].mintempF;
-      //   console.log(minTempF);
-
       //! previous searches
 
       section.innerHTML = "";
@@ -122,7 +110,6 @@ let mainSubmit = form.addEventListener("submit", (e) => {
       a.setAttribute("href", "#");
       li.innerText = ` - ${data.current_condition[0].FeelsLikeF}°F`;
 
-      //   li.setAttribute("innerText", `${currently}°F`);
       li.prepend(a);
 
       a.addEventListener("click", () => {
