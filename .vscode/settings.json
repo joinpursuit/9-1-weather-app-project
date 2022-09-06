@@ -1,0 +1,11 @@
+{
+  "marquee.widgets.npm-stats.packageNames": ["8-0-weather-app-project"],
+  "cSpell.words": [
+    "avgtemp",
+    "chanceofrain",
+    "chanceofsnow",
+    "chanceofsunshine",
+    "maxtemp",
+    "mintemp"
+  ]
+}
