@@ -40,3 +40,13 @@
             currentArt.remove()
         }
 // to remove our populated today tommorow and day after tommorow articles if it contains data
+// tuesday sep 6 732
+// plan: recreate 3 day, review css via video lab, style page, complete previous searches test
+// i really first need to clear the hard coded children of aside id 'Upcoming Weather'
+//  / ! \ styles.css: background-color grey to body for eye strain be sure to remove this line
+// index.html removing children of '#Upcoming Weather', be sure to make new articles have id of Today, Tommorow, DayAfterTmm
+// main.js error wnen submitting now, removing lines 7,8,9, and 82,83,84 (old query selector for hardcoded articles, and appending of populated variables for 3 day article)
+// data is presenet on backend but not visually. populated article is not being appended
+// query selector that was selecting our main article was selecting the wrong element, fixed
+// page is now working correctly without added features !
+// pushing above line

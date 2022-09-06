@@ -2,16 +2,17 @@ console.log('main.js successfully linked')
 const BASE_URL = 'https://wttr.in'
 const JSON = '?format=j1'
 const form = document.querySelector('form')
-const artStor = document.querySelector('main aside')
+const artStor = document.querySelector('main article')
 const formInput = document.querySelector('input')
-const todayStor = document.querySelector('#Today')
-const tmmStor =  document.querySelector('#Tommorow')
-const dayTmmStore = document.querySelector('#DayAfterTmm')
+console.log(artStor)
+// const todayStor = document.querySelector('#Today')
+// const tmmStor =  document.querySelector('#Tommorow')
+// const dayTmmStore = document.querySelector('#DayAfterTmm')
 // artStor.innerHTML = ''
 // todayStor.innerHTML = ''
 // tmmStor.innerHTML = ''
 // dayTmmStore.innerHTML = ''
-console.log(tmmStor, todayStor, dayTmmStore)
+// console.log(tmmStor, todayStor, dayTmmStore)
 let count = 0
 console.log(`form submissions: ${count}`)
 
@@ -29,6 +30,7 @@ form.addEventListener('submit', (event)=>{
     fetch(URL)
     .then((res) => res.json())
     .then((res) => { 
+        console.log(artStor)
         const currentArt = document.querySelector('.CurrentCity')
         if(currentArt){
             currentArt.remove()
@@ -78,10 +80,10 @@ form.addEventListener('submit', (event)=>{
         maxDayTmm.textContent = `Max Temperature: ${res.weather[2].maxtempF}`
         minDayTmm.textContent = `Min Temperature: ${res.weather[2].mintempF}`
 
-        // appending elements to appopriate position
-        todayStor.append(averageToday, maxToday, minToday)
-        tmmStor.append(averageTmm, maxTmm, minTmm)
-        dayTmmStore.append(averageDayTmm, maxDayTmm, minDayTmm)
+        // OLD appending elements to appopriate position
+        // todayStor.append(averageToday, maxToday, minToday)
+        // tmmStor.append(averageTmm, maxTmm, minTmm)
+        // dayTmmStore.append(averageDayTmm, maxDayTmm, minDayTmm)
 
 
     article.append(header,area,region,country,currently)
