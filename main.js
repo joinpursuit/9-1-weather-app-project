@@ -26,7 +26,7 @@ formHeader.addEventListener(('submit'), (event) => {
        console.log("Fetched data", data)
        console.log(data.nearest_area[0].areaName[0].value)
         const weather_app_header = document.querySelector('.weather_App_Header')
-        const city = document.createElement('p')
+        const city = document.createElement('h2')
         const nArea = document.createElement('p')
         const region = document.createElement('p')
         const country = document.createElement('p')
@@ -74,10 +74,10 @@ formHeader.addEventListener(('submit'), (event) => {
             img.setAttribute('src', "./assets/icons8-light-snow.gif")
             img.setAttribute('alt',"snow")
         }
-        if(showFrost > 50){
-            img.setAttribute('src', "./assets/icons8-icy.gif")
-            img.setAttribute('alt',"icy")
-        }
+        // if(showFrost > 50){
+        //     img.setAttribute('src', "./assets/icons8-icy.gif")
+        //     img.setAttribute('alt',"icy")
+        // }
 
         if(showFog> 50){
             img.setAttribute('src', "./assets/icons8-fog.gif")
@@ -139,11 +139,11 @@ formHeader.addEventListener(('submit'), (event) => {
         //Calculate conversion based on user selection and display in h4 element
         tempConvertForm.addEventListener('submit', (event)=> {
             event.preventDefault()
-            console.log(event.target.value)
-            if((toF).checked){
-                answer = (event.target.value - 32) * (5/9) 
-             } else if((toC).checked){
-                answer = (event.target.value + 32) / (5/9) 
+            console.log(event)
+            if((toC).checked){
+                answer = (event.target.tempNum.value - 32) * (5/9) 
+             } else if((toF).checked){
+                answer = ((event.target.tempNum.value * 9/5) + 32)
              }
              answer = answer.toFixed(2)   
             tempResult.textContent = answer;
@@ -178,26 +178,35 @@ formHeader.addEventListener(('submit'), (event) => {
         const searchItem = document.createElement('li')
         const prevSearchLink = document.createElement('a')
 
-        
-       // searchItem.textContent = searchInput
-        searchList.append(searchItem)
+        //-- ---------- Previous Searches List (Search History) -hyperlinks with no duplicatins----------- 
 
-        //searchItem.setAttribute(prevSearchLink)
+       // searchItem is the list item that will populate the unordered list element that exists in the HTML Document
+        
+       searchList.append(searchItem)
+
+        //remove noPrevSearch to eliminate initial placeholder text once searches begin
         const noPrevSearch = document.querySelector('.noPrevSearch')
         if(noPrevSearch){noPrevSearch.remove()}
         prevSearchLink.setAttribute('href', '#')
-       // searchList.style.display = "block"
-       console.log("prev-searchLink = ", prevSearchLink)
+        //console.log("prev-searchLink = ", prevSearchLink) - checking if link structure is correct
 
-        prevSearchLink.textContent = searchInput
-       console.log("presearchLink = ", prevSearchLink)
-        searchItem.append(prevSearchLink)
-        console.log("searchItem2=", searchItem)
-        //searchItem.textContent += " - " + data.current_condition[0].FeelsLikeF + "°F"
-
-        searchList.appendChild(searchItem)
-
-        console.log("search list = ", searchList)
+        let searchCheck = ["initial]";
+        let searchFlag = 0
+        
+        for( let thisSearch of Searches){
+          if (searchInput === thisSearch){
+            searchFlag++
+          }
+          if(searchFlag ===0){
+                prevSearchLink.textContent = searchInput
+                //console.log("presearchLink = ", prevSearchLink) - checking if link appears successfully
+                searchItem.append(prevSearchLink)
+                //console.log("searchItem2=", searchItem)
+                //searchItem.textContent += " - " + data.current_condition[0].FeelsLikeF + "°F"
+                searchList.appendChild(searchItem)
+          }
+        searchCheck.push(searchInput)
+        //console.log("search list = ", searchList)
 
        //assign variables to fetched data values
 

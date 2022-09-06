@@ -34,12 +34,12 @@
             <!-- Temperature Conversion Widget Aside -->
         
             <aside class="tempConversions ">  
-                <form class="tempConvert">
+                <form  id="formConvert"class="tempConvert"  name="formConvert"> 
                     <label for="Convert the temperature:"><strong>Convert the temperature</strong></label>
                     <!-- vanilla input statement
                     <input type="number" id="temp-to-convert" >  -->
                     
-                    <input type="number" id="temp-to-convert" size="150" min="-50" max="150" step="1" value = "100"> <br><br>
+                    <input type="number" id="temp-to-convert"  name ="tempNum" size="150" min="-50" max="150" step="1" value = "100"> <br><br>
                     <label for="to-c"><strong>To Celsius:     </strong> </label> 
                     <input type="radio" id="to-c" name = 'convert-temp' value = 'c'><br><br>
                     <label for="to-f"><strong>To Farenheit: </strong> </label>
@@ -76,7 +76,7 @@
         <!-- ---------- End of Grid Container 1----------- --> 
 
 
-
+        <!-- ---------- Beginning of Grid Container 2----------- --> 
             <!-- 3 Articles - Today, Tomorrow and Day After Aside -->
 
             <main>  
@@ -90,7 +90,7 @@
                 </aside>
             </main>
 
-
+        <!-- ---------- End of Grid Container 2----------- --> 
    
    
     </body>
