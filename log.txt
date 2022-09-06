@@ -19,3 +19,6 @@
 // pushing 'fixed our fetch to be dynamic'
 // now we need to take fetched data and create an article that showcases the input city weather and appends to our article storage
 // 944pm stopping, created variables for our article elements, need to now append to correct location and populate with api data
+// pushing 'created variables for our article elements, need to now append to correct location and populate with api data'
+// populating empty variables with api data
+// sep 5 801pm passed get details from text input test

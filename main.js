@@ -4,9 +4,13 @@ const JSON = '?format=j1'
 const form = document.querySelector('form')
 const artStor = document.querySelector('main aside')
 const formInput = document.querySelector('input')
+let count = 0
+console.log(`form submissions: ${count}`)
 
 form.addEventListener('submit', (event)=>{
     event.preventDefault()
+    count += 1
+    console.log(`form submissions: ${count}`)
     const input = formInput.value
     const URL = `${BASE_URL}/${input}${JSON}`
     console.log(URL)
@@ -15,7 +19,6 @@ form.addEventListener('submit', (event)=>{
     fetch(URL)
     .then((res) => res.json())
     .then((res) => { 
-        console.log(res)
         const article = document.createElement('article')
         article.classList.add('CurrentCity')
         const header = document.createElement('h2')
@@ -24,12 +27,19 @@ form.addEventListener('submit', (event)=>{
         const country  = document.createElement('p')
         const currently  = document.createElement('p')
         // header.textContent = `${res.}`
+        header.textContent = res.nearest_area[0].areaName[0].value
+        area.textContent = `Area: ${res.nearest_area[0].areaName[0].value}`
+        region.textContent = `Region: ${res.nearest_area[0].region[0].value}`
+        country.textContent = `Country: ${res.nearest_area[0].country[0].value}`
+        currently.textContent = `Feels Like: ${res.current_condition[0].FeelsLikeF}°F`
 
     article.append(header,area,region,country,currently)
     artStor.append(article)
 
         console.log(article)
-        console.log(res.current_condition)
+        console.log(res.nearest_area[0].areaName[0].value)
+        formInput.value = ""
+
     })
 }) 
 
