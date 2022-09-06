@@ -4,9 +4,9 @@ const JSON = '?format=j1'
 const form = document.querySelector('form')
 const artStor = document.querySelector('main aside')
 const formInput = document.querySelector('input')
-const todayStor = document.querySelector('#Today h4')
-const tmmStor =  document.querySelector('#Tommorow h4')
-const dayTmmStore = document.querySelector('#DayAfterTmm h4')
+const todayStor = document.querySelector('#Today')
+const tmmStor =  document.querySelector('#Tommorow')
+const dayTmmStore = document.querySelector('#DayAfterTmm')
 console.log(tmmStor, todayStor, dayTmmStore)
 let count = 0
 console.log(`form submissions: ${count}`)
@@ -38,12 +38,45 @@ form.addEventListener('submit', (event)=>{
         country.textContent = `Country: ${res.nearest_area[0].country[0].value}`
         currently.textContent = `Feels Like: ${res.current_condition[0].FeelsLikeF}°F`
 
+        // creating the 3 day
+        const averageToday = document.createElement('p')
+        const maxToday = document.createElement('p')
+        const minToday = document.createElement('p')
+
+        const averageTmm = document.createElement('p')
+        const maxTmm = document.createElement('p')
+        const minTmm = document.createElement('p')
+
+        const averageDayTmm = document.createElement('p')
+        const maxDayTmm = document.createElement('p')
+        const minDayTmm = document.createElement('p')
+
+        // populating the 3 day elements with corrosponding data
+        averageToday.textContent = `Average Temperature: ${res.weather[0].avgtempF}`
+        maxToday.textContent = `Max Temperature: ${res.weather[0].maxtempF}`
+        minToday.textContent = `Min Temperature: ${res.weather[0].mintempF}`
+
+        averageTmm.textContent = `Average Temperature: ${res.weather[1].avgtempF}`
+        maxTmm.textContent = `Max Temperature: ${res.weather[1].maxtempF}`
+        minTmm.textContent = `Min Temperature: ${res.weather[1].mintempF}`
+
+        averageDayTmm.textContent = `Average Temperature: ${res.weather[2].avgtempF}`
+        maxDayTmm.textContent = `Max Temperature: ${res.weather[2].maxtempF}`
+        minDayTmm.textContent = `Min Temperature: ${res.weather[2].mintempF}`
+
+        // appending elements to appopriate position
+        todayStor.append(averageToday, maxToday, minToday)
+        tmmStor.append(averageTmm, maxTmm, minTmm)
+        dayTmmStore.append(averageDayTmm, maxDayTmm, minDayTmm)
+
+
     article.append(header,area,region,country,currently)
     artStor.append(article)
 
         console.log(article)
         console.log(res.nearest_area[0].areaName[0].value)
         formInput.value = ""
+        console.log(res)
 
     })
 }) 
