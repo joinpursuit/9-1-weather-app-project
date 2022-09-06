@@ -58,7 +58,7 @@ function citySearch(URL) {
     .then((res) => res.json())
     .then((resJson) => {
 
-      console.log(resJson.weather[0].hourly[0]);
+      // console.log(resJson.weather[0].hourly[0]);
 
           //Weather Conditions
           let current = resJson.current_condition[0];
@@ -97,16 +97,19 @@ function citySearch(URL) {
           mainWeatherIcon.setAttribute(`src`, `./assets/icons8-summer.gif`);
           mainWeatherIcon.setAttribute(`alt`, `sun`);
         } else if (Number(chanceOfWeather.chanceofrain) > 50) {
-          mainWeatherIcon.setAttribute(`src`, `./assets/icons8-torrential-rain.gif`);
+          mainWeatherIcon.setAttribute(
+            `src`,
+            `./assets/icons8-torrential-rain.gif`
+          );
           mainWeatherIcon.setAttribute(`alt`, `rain`);
         } else if (Number(chanceOfWeather.chanceofsnow) > 50) {
           mainWeatherIcon.setAttribute(`src`, `./assets/icons8-light-snow.gif`);
           mainWeatherIcon.setAttribute(`alt`, `snow`);
         }
-          // sets 3 day forcast variables to values from resJson
+        // sets 3 day forcast variables to values from resJson
 
-          //Day 1
-          day1AvgTemp.innerText = `${day1.avgtempF}°F`;
+        //Day 1
+        day1AvgTemp.innerText = `${day1.avgtempF}°F`;
         day1MaxTemp.innerText = `${day1.maxtempF}°F`;
         day1MinTemp.innerText = `${day1.mintempF}°F`;
         //Day 2
@@ -129,15 +132,24 @@ function citySearch(URL) {
 
         //PREVIOUS SEARCHES SIDEBAR
 
+        
+
         //create list items for previous searches
         // Previous Search Link
         previousSearchLink = document.createElement(`a`);
         previousSearchLink.innerText = cityInputBox.value;
+        // console.log(previousSearchLink)
         previousSearchLink.setAttribute(`href`, `#`);
         //previous searches cont...
 
         //  [CITY INPUT BOX RESET]
         cityInputBox.value = ``;
+
+
+        const previousSearchesListItems = document.querySelectorAll(`li`);
+        console.log(previousSearchLink.innerText)
+
+          if (previousSearchesListItems.innerText === previousSearchLink.innerText){console.log(`hello`)}
 
         //... cont previous searches
 
@@ -147,16 +159,15 @@ function citySearch(URL) {
         feelsLikePreviousSearches.innerText = ` - ${feels_LikeF} °F`;
         feelsLikePreviousSearches.prepend(previousSearchLink);
         previousSearches.append(feelsLikePreviousSearches);
-        // const previousSearchesListItems = document.querySelector(`li`);
 
-        
         // PREVIOUS SEARCHES ASIDE EVENT LISTENER (CLICK)
         feelsLikePreviousSearches.addEventListener(`click`, () => {
+          let PreviousSearchesURL = ``;
           let PreviousSearchesURLCity = previousSearchLink.innerText
             .split(" ")
             .join("+"); //--> New+York
-          
-          let PreviousSearchesURL = `https://wttr.in/${PreviousSearchesURLCity}?format=j1`; //--> https://wttr.in/new+nork?format=j1
+
+          PreviousSearchesURL = `https://wttr.in/${PreviousSearchesURLCity}?format=j1`; //--> https://wttr.in/new+nork?format=j1
           console.log(PreviousSearchesURL);
 
           citySearch(PreviousSearchesURL);
