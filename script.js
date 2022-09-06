@@ -12,11 +12,8 @@ search.addEventListener('submit', (e) => {
   fetch(url)
     .then((res) => res.json())
     .then((data) => {
-      // console.log(data);
       const hideLocation = document.querySelector('#chooseLocation');
-      // hideLocation.classList.remove('hidden');
 
-      // const nearest = data.nearest_area
       const nearestArea = data.nearest_area[0].areaName[0].value;
       const nearestArea1 = document.createElement('p');
       nearestArea1.innerHTML = `<strong>Nearest Area: </strong> ${nearestArea}`;
@@ -47,15 +44,6 @@ search.addEventListener('submit', (e) => {
       const santaIsComing = document.createElement('p');
       santaIsComing.innerHTML = `<strong>Chance of Snow: </strong>${snow}`;
 
-      // const location = document.querySelector('#chooseLocation');
-      // location.classList.toggle('location-hidden');
-
-      // console.log(city);
-      // console.log(state);
-      // console.log(country);
-
-      // initialInput.style.textAlign = 'left';
-
       const image = document.createElement('img');
       if (rain > 50) {
         image.setAttribute('src', './assets/icons8-torrential-rain.gif');
@@ -70,7 +58,7 @@ search.addEventListener('submit', (e) => {
         image.setAttribute('alt', 'sun');
       }
       hideLocation.append(nearestArea1);
-      // nearestArea1.append(initialInput);
+
       hideLocation.append(
         image,
         stateP,
@@ -133,7 +121,7 @@ search.addEventListener('submit', (e) => {
       dayAfter.append(dayAfterAvgTemp, dayAfterMinTemp, dayAfterMaxTemp);
 
       //! previous search
-      // function previousAside (initialInput,)
+
       const previousSearchUl = document.querySelector('#ul');
       const previousP = document.querySelector('section p');
       const forecast = document.querySelector('#threeDayForecast');
@@ -150,12 +138,10 @@ search.addEventListener('submit', (e) => {
       list.innerHTML = ` - ${currently}°F`;
 
       list.prepend(a);
-      // previousP.remove();
+
       list.addEventListener('click', () => {
-        // hideLocation.innerHTML = '';
         hideLocation.innerHTML = `<h2>${initialInput}</h2>`; //! this is breaking 1 test: has a sidebar section of the page that includes a 'Previous Searches' section
-        // hideLocation.style.display = 'none'; // this is passing the cypress but the data displayed is clunky
-        // hideLocation.prepend(image);
+
         hideLocation.append(
           image,
           stateP,
