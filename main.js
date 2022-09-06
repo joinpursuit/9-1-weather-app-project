@@ -140,5 +140,8 @@ let mainSubmit = form.addEventListener("submit", (e) => {
           snow
         );
       });
+    })
+    .catch((error) => {
+      console.log(error);
     });
 });
