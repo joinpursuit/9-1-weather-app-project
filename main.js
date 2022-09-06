@@ -1,8 +1,7 @@
 const form = document.querySelector("form");
 
 form.addEventListener("submit", (e) => {
-  //console.log('This button has been cicked.')
-
+ 
   e.preventDefault();
 
   let userInput = e.target["input"].value;
@@ -39,8 +38,7 @@ function cityInfo(userInput, AddOrNot) {
   fetch(`https://wttr.in/${userInput}?format=j1`)
     .then((res) => res.json())
     .then((data) => {
-      //console.log(data);
-
+      
       //userInput main data
       let areaVal = data.nearest_area[0].areaName[0]["value"];
       let regionVal = data.nearest_area[0].region[0]["value"];
@@ -62,8 +60,8 @@ function cityInfo(userInput, AddOrNot) {
       let dayAfterTMax = data.weather[2]["maxtempF"];
       let dayAfterTMin = data.weather[2]["mintempF"];
 
-      let fullDisplay = document.querySelector("#full-display");
-      fullDisplay.innerHTML = `
+      let maindData = document.querySelector("#main-data");
+      maindData.innerHTML = `
        <h2>${userInput}</h2>
        <p><strong>Area:</strong> ${areaVal}</p>
        <p><strong>Region:</strong> ${regionVal}</p>

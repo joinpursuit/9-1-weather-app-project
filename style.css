@@ -1,6 +1,5 @@
-body {display: grid;
-    /* grid-template-rows: 2; 
-    grid-template-columns: 2;     */
+body {display: grid; 
+    grid-template-columns: 1fr 3fr 1fr;
 }
 
 header {
@@ -10,27 +9,36 @@ header {
     color: white;
     text-align:center;    
     margin-bottom: 10px; 
-    grid-row: 1;
-    grid-column: 2;
-     
+    display: grid;
+    grid-column: 2/3   
 }
- header, form{
+
+ header form {
     padding-bottom: 10px;   
  }
+
+ main {
+    grid-column: 2/3;
+ }
  
-#full-display {
+#main-data {
     padding: 20px;
     border: 1px solid darkcyan;
     background-color:lightgray;
     color: black;
-    text-align: center;
-    grid-row: 2;
-    grid-column: 2;
+    text-align: center; 
     margin: 15px;
 }
 
-main, aside, article { grid-row: 2 ;
+#future-forcast { 
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+
+}
+#previous-search { 
+display: grid;
+grid-column: ;
+
+    
    }
-
-
 
