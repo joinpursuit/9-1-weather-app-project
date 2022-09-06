@@ -29,3 +29,7 @@
 // selecting each of upcoming weather children
 // successfully selected 3 day articles
 // pushing line 30
+// populating the 3 day elements with corrosponding data
+// passed 3day tests ! success !
+// next to do: add previous searches, stylize page ( might need css grid box refresher via youtube)
+// going to ask for help adding previous searches. in order to do that i need our articles to reset every submission

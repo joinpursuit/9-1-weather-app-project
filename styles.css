@@ -1,0 +1,12 @@
+header{
+    background-color: #278282;
+}
+
+header h1, form{ 
+    color: white;
+}
+
+div .body{
+    display: grid;
+    column-gap: 50x;
+}
