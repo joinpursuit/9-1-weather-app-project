@@ -1,0 +1,63 @@
+/* .container1 {
+    display: grid;
+    height: 400px;
+    width: 600px;
+    margin-left: 350px;
+    grid-template-columns: 1fr 2fr 1fr ;
+    grid-template-rows: 1fr 2fr 1fr ;
+    grid-template-areas: 
+    ".. .. header"
+    ".. container2 .."
+    "... ... ...";  
+} */
+
+/* .container2{
+    grid-area: container2;
+}
+header {
+    background-color: darkcyan;
+    width: 40vw ;
+    height: 10vh;
+    text-align: center;
+    color: white;
+    grid-area: "header"; 
+} */
+
+/* .weatherInfo{
+    background-color: lightgray;
+    border: 1px solid darkcyan ;
+    text-align: center;
+    font-weight: bold;
+    grid-area: "weatherInfo";
+    height: 400px;
+    width: 300px;
+    margin-left: 475px;
+}
+
+.tempConversions{
+    grid-area: "tempConversions";
+    height: 300px;
+    width: 200px;
+    margin-left: 300px;
+}  */
+
+
+
+/* .weatherImage {
+    grid-area: "weatherImage"; 
+}
+.prevSearches {
+    grid-area: "prevSearches";
+}
+.weatherInfo {
+    grid-area: "weatherInfo";
+}
+.todayTemp {
+    grid-area: "todayTemp";
+}
+.tomorrowTemp {
+    grid-area: "tomorrowTemp";
+}
+.dayAfterTemp {
+    grid-area: "dayAfterTemp";
+} */

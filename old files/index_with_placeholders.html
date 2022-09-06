@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DStukes Weather App</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- <script defer src="main.js"></script> -->
+</head>
+<body>
+
+<!-- main container for display grid settings -->
+   
+        <div class = "container1">      
+            
+            <div class = "weather_App_Header">  
+                <header><h1>Weather App</h1></header>
+                <form>
+                <label class="pickLocationLabel" for="search">Pick a location:</label><br>
+                <input type="search" id="search" name="search" value=""><br>
+                <button class="getWeatherButton" type="submit">Get Weather</button><br><br>
+            </form>
+            </div> 
+
+            <aside class="tempConversions">  
+                <form oninput="fTemp.value=parseInt(a.value)+parseInt(b.value)">
+                    <label for="tempSelect"><strong>Convert the temperature:</strong> </label><br>
+                    <input type ="number" id="tempSelect" name="tempSelect" size ="50" min ="-50" max ="130" step="1" value="100"><br>
+
+                    <label for="celcius">To Celcius:     </label>
+                    <input type="radio" id="celcius"
+                    name="celcius" value="celcius"> <br>
+                    <label for="farenheit">To Farenheit:</label>
+                    <input type="radio" id="farenheit"
+                    name="celcius" value="farenheit"><br><br>
+            
+                    <button type="submit">Submit</button><br><br>
+                    <p class="convertedTemp"></p>
+
+                </form>  
+            </aside>
+    <main>
+        <article>
+            <div class = "weatherInfo">
+                <img src="./assets/icons8-summer.gif" alt="picture of sun" width = "75vw" height = "75vh" >
+                    <p><span>City</span><br><br>
+                        <span>Nearest Area:</span> Nearest Area:<br><br>
+                    <span> Region:</span>
+                    <br><br>
+                        <span>Country:</span><br><br>
+                        <span>Currently: Feels like </span><br><br>
+                        <span>Chance of Sunshine:</span><br><br>
+                        <span>Chance of Rain:</span><br><br>
+                        <span>Chance of Snow:</span>   
+                    </p><br>
+            </div>
+           
+        <aside>
+            </article >
+
+            <article>
+                <div class="todayTemp">
+                    <span class ="todayHdg makeBold">Today</span> <br> <br>
+                    <span class ="avgTempToday makeBold">Average Temperature</span> <br>
+                    <span class ="avgTempValueToday notBold">tempValue</span> <br> <br>
+
+                    <span class ="maxTempToday makeBold">Max Temperature</span> <br>
+                    <span class ="maxTempValueToday notBold">tempValue</span> <br> <br>
+
+                    <span class ="minTempToday makeBold">Min Temperature</span> <br>
+                    <span class ="minTempValueToday notBold">tempValue</span> <br> <br>
+                </div>
+            </article>
+
+            <article>
+                <div class="tomorrowTemp">
+                    <span class ="tomorrowHdg makeBold">Tomorrow</span> <br> <br>
+                    <span class ="avgTempTomorrow makeBold">Average Temperature</span> <br>
+                    <span class ="avgTempValueTomorrow notBold">tempValue</span> <br> <br>
+
+                    <span class ="maxTempTomorrow makeBold">Max Temperature</span> <br>
+                    <span class ="maxTempValueTomorrow  notBold">tempValue</span> <br> <br>
+
+                    <span class ="minTempTomorrow makeBold">Min Temperature</span> <br>
+                    <span class ="minTempValueTomorrow notBold">tempValue</span> <br> <br>
+                </div>
+            </article>
+
+            <article>
+                <div class="dayAfterTemp" >
+                    <span class ="dayAfterHdg makeBold" >Day After</span> <br> <br>
+                    <span class ="avgTempDayAfter makeBold">Average Temperature</span> <br>
+                    <span class ="avgTempValueDayAfter notBold">tempValue</span> <br> <br>
+
+                    <span class ="maxTempDayAfter makeBold">Max Temperature</span> <br>
+                    <span class ="maxTempValueDayAfter notBold">tempValue</span> <br><br>
+
+                    <span class ="minTempDayAfter makeBold">Min Temperature</span> <br>
+                    <span class ="minTempValueDayAfter  notBold">tempValue</span> <br> <br>
+                </div>
+            </article>
+            </aside>
+
+            <aside class="prevSearches">
+                <section>
+                    <div >
+                        <h4 class="prevSearchesHdg">Previous Searches:</h4>
+                        <ul class="searchLink">
+                            <li>Search link 1</li>
+                            <li>Search link 2</li>
+                            <li>Search link 3</li>
+                        </ul>
+                 </div> 
+                </section>
+            </aside>
+        </div>
+    </main>
+</body>
+</html>

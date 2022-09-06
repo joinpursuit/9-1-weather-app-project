@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>DStukes Weather App</title>
+        <link rel="stylesheet" href="style.css">
+        <script defer src="main.js"></script>
+    </head>
+
+    <body>
+
+        <!-- ----------  Beginning of Grid Container ----------- -->
+    
+        <div class = "container1">   
+        
+            <!-- Heading, Header with form, & Initial Instructions -->
+            
+            <main class = "weather_App_Header">
+                <h1>Weather App</h1> 
+                <!-- <input type ="submit" /> -->
+                <header>
+                    <form class="pickLocation">
+
+                        <label  for="search">Pick a location:</label>
+                        <input type="text" id="search" name="search" required/>
+                        <input type ="submit" value="Get Weather"/>  
+                    </form>
+                </header>
+
+            </main>
+
+            <!-- Temperature Conversion Widget Aside -->
+        
+            <aside class="tempConversions ">  
+                <form class="tempConvert">
+                    <label for="Convert the temperature:"><strong>Convert the temperature</strong></label>
+                    <!-- vanilla input statement
+                    <input type="number" id="temp-to-convert" >  -->
+                    
+                    <input type="number" id="temp-to-convert" size="150" min="-50" max="150" step="1" value = "100"> <br><br>
+                    <label for="to-c"><strong>To Celsius:     </strong> </label> 
+                    <input type="radio" id="to-c" name = 'convert-temp' value = 'c'><br><br>
+                    <label for="to-f"><strong>To Farenheit: </strong> </label>
+                    <input type="radio" id="to-f" name = 'convert-temp' value ='f'> <br><br>
+                    <input type="submit"> 
+                    <br> 
+                    <h4 class="tempResult">Answer: </h4>
+                </form>
+            </aside>
+                
+
+            <!-- Central Weather Information Article -->
+            
+            <main class = "weatherInfo ">  
+
+                <article > Choose a location to view the weather </article >
+
+            </main>
+
+            <!-- Previous Searches Aside -->
+
+            <aside class="prevSearches"> 
+            <section>
+                    <h4 class="prevSearchesHdg">Previous Searches</h4>
+                    
+                    <ul class="searchList"></ul>
+
+                    <p class="noPrevSearch">No previous searches</p>
+            </section>
+        </aside>
+
+        </div>        
+    
+        <!-- ---------- End of Grid Container 1----------- --> 
+
+
+
+            <!-- 3 Articles - Today, Tomorrow and Day After Aside -->
+
+            <main class = "threeDays container2">  
+
+                <aside class ="threeDays">
+                    <article class="todayTemp "></article>
+        
+                    <article class="tomorrowTemp "> </article>
+        
+                    <article class="dayAfterTemp "></article>
+                </aside>
+            </main>
+
+
+   
+   
+    </body>
+
+</html>

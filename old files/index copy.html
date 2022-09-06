@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DStukes Weather App</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- <script src="main.js"></script> -->
+</head>
+<body>
+ 
+
+<div class = "container">   
+       <!-- created header, added app title as h1 and wrapped in div -->
+       <header><h1>Weather App</h1></header>
+
+       <!-- added  central placeholder image - to be replaced wth gif, based on weather --> 
+    
+    
+    <h3 class="tempConversions">Convert the temperature</h3>
+    
+    
+    <div class="tempConversions">
+        <form>
+        <label for="To Celcius">Email</label>
+        <input type="radio" id="celcius"
+        name="celcius" value="celcius"> <br>
+
+        <label for="To Farenheit">Email</label>
+        <input type="radio" id="farenheit"
+        name="celcius" value="farenheit">
+
+        <button type="submit">Submit</button>
+    </div>
+    
+    </div>
+
+        <div class = "weatherInfo">
+
+        <img src="./assets/icons8-summer.gif" alt="picture of sun" width = "75vw" height = "75vh" >
+        <p class="city">City </p><br>
+        <p class="nearbyArea">Nearest Area:</p><br>
+        <p class="region">Region:</p><br>
+        <p class="country">Country:</p><br>
+        <p class="feels-like">Currently: Feels like</p><br>
+        <p class="sunshine">Chance of Sunshine:</p><br>
+        <p class="rain">Chance of Rain:</p><br>
+        <p class="snow">Chance of Snow:</p><br>
+        </div>
+
+        <div class="prevSearches">
+            <ul>
+                <li>citysearch1  temp1<li>
+                <li>citysearch2  temp2</li>
+                <li>citysearch3  temp3</li>
+            </ul>
+        </div>
+
+
+        <div>
+            <div class="todayTemp">
+                <h3>Today</h3>
+                <h4>Average Temperature</h4>
+                <p>tempValue</p>
+                <h4>Max Temperature</h4>
+                <p>tempValue</p>
+                <h4>Min Temperature</h4>
+                <p>tempValue</p>
+            </div>
+
+            <div class="tomorrowTemp">
+                <h3>Tomorrow</h3>
+                <h4>Average Temperature</h4>
+                <p>tempValue</p>
+                <h4>Max Temperature</h4>
+                <p>tempValue</p>
+                <h4>Min Temperature</h4>
+                <p>tempValue</p>
+            </div>
+
+            <div class="dayAfterTemp" >
+                <h3>Day After Tomorrow</h3>
+                <h4>Average Temperature</h4>
+                <p>tempValue</p>
+                <h4>Max Temperature</h4>
+                <p>tempValue</p>
+                <h4>Min Temperature</h4>
+                <p>tempValue</p>
+            </div>
+
+
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,185 @@
+.container1 {
+    /* box-sizing: border-box; */
+    display: grid;
+    height: 500px;
+    width: 900px;
+    margin-left: 250px;
+    /* grid-template-columns: 1fr .5fr .5fr .5fr 1fr ; */
+    grid-template-columns: repeat(5,1fr) ;
+    grid-template-rows: .4fr 1fr ;
+    grid-row-gap: 15px;
+     
+}
+
+.container2 {
+    display: grid;
+    height: 200px;
+    width: 900px;
+    margin-left: 540px;
+    margin-top: 20px;
+    grid-template-columns: repeat(5,1fr) ;
+    grid-template-rows: 1fr 
+    
+}
+.weather_App_Header{
+    /* box-sizing: border-box; */
+    background-color: darkcyan;
+    border: 1px solid black;
+    width: auto ;
+    height: auto;
+    grid-column:  2 / 6;
+    grid-row:  1 / 1; 
+    text-align: center;
+    color: white;
+}
+
+
+ .weatherInfo {
+    /* box-sizing: border-box; */
+    grid-column: 3 / 5;
+    grid-row: 2 / 2;
+    background-color: lightgray;
+    border: 1px solid darkcyan ;
+    text-align: center;
+    font-weight: bold;
+    color: black;
+    /* grid-area: 4/3/5/4; */
+    height: auto;
+    width: 450px;
+    /* margin-left: 100px; */
+}
+
+.threeDays {
+    grid-row: 1;
+    justify-items: center;
+}
+
+
+.makeBold {
+    font-weight: bold;
+    font-size: 15px;
+}
+.notBold {
+    font-weight: lighter;
+}
+
+.todayTemp {
+    grid-column: 2;
+    grid-row: 1;
+    background-color: lightgray;
+    border: 1px solid darkcyan ;
+    text-align: center;
+    font-weight: bold;
+    /* grid-area: 4/2/5/5; */
+    height: auto;
+    width: 150px;
+    /* margin-left: 100px; */
+}
+
+.tomorrowTemp {
+    grid-column: 3;
+    grid-row: 1;
+    background-color: lightgray;
+    border: 1px solid darkcyan ;
+    text-align: center;
+    font-weight: bold;
+    height: auto;
+    width: 150px;
+}
+
+.dayAfterTemp {
+    grid-column: 4;
+    grid-row: 1;
+    background-color: lightgray;
+    border: 1px solid darkcyan ;
+    text-align: center;
+    font-weight: bold;
+    height: auto;
+    width: 150px;
+}
+
+
+
+.todayHdg, .tomorrowHdg, .dayAfterHdg {
+    font-size: 16px;
+    grid-row-gap: 50px;
+}
+
+.prevSearches {
+    grid-column: 5 / 5;
+    grid-row: 2/ 4;
+    text-align: left;
+    height: 300px;
+    width: auto;
+    margin-left: 15px;
+}
+
+.prevSearchesHdg {
+    text-align: left;
+    font-weight: bold;
+    margin-left: 10px;
+   }
+
+   .noPrevSearch{
+    margin-left: 15px;
+   }
+ 
+   .searchLink{
+       margin:0
+   }
+
+   .tempConversions {
+    grid-column: 2 ;
+    grid-row: 2 ;
+    text-align: left;
+    height: 300px;
+    width: auto;
+}
+
+
+    input[type="radio"] {
+     margin-top: -1px;
+     vertical-align: middle;
+}
+   
+
+/* 
+
+/* .initialInstruction{
+    background-color: lightgray;
+    border: 1px solid darkcyan ;
+    text-align: center;
+    width: 600px ;
+    height: 80px;
+    grid-column: 1 / 4;
+    grid-row: 4/ 4; 
+    color: black;
+    margin-top: 120px;
+    padding-top: 60px;
+ 
+}
+
+
+.weatherResults{
+    background-color: lightgray;
+    border: 1px solid darkcyan ;
+    text-align: center;
+    width: 600px ;
+    height: auto;
+    grid-column: 1 / 4;
+    grid-row: 4/ 4; 
+    color: black;
+    margin-top: 120px;
+    padding-top: 60px;
+
+}  */
+
+/* .showLater{
+    display:none
+} */
+
+/* .pickLocationLabel, .getWeatherButton{
+    font-weight: bold;
+    color: white;
+} */
+
