@@ -1,0 +1,19 @@
+header {
+  display: grid;
+  background: darkcyan;
+  justify-content: center;
+  grid-template-rows: repeat(2, 1fr);
+  margin: 75px;
+}
+
+main.Days {
+  display: grid;
+  grid-template-columns: repeat(3, 2fr);
+  margin: 20px;
+  width: 50%;
+  background-color: grey;
+}
+
+aside.weatherhistory {
+  display: grid;
+}
