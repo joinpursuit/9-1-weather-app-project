@@ -33,12 +33,10 @@ header {
 #future-forcast { 
 display: grid;
 grid-template-columns: repeat(3, 1fr);
+text-align: center;
 
 }
 #previous-search { 
 display: grid;
-grid-column: ;
-
-    
-   }
+}
 
