@@ -7,6 +7,10 @@ const formInput = document.querySelector('input')
 const todayStor = document.querySelector('#Today')
 const tmmStor =  document.querySelector('#Tommorow')
 const dayTmmStore = document.querySelector('#DayAfterTmm')
+// artStor.innerHTML = ''
+// todayStor.innerHTML = ''
+// tmmStor.innerHTML = ''
+// dayTmmStore.innerHTML = ''
 console.log(tmmStor, todayStor, dayTmmStore)
 let count = 0
 console.log(`form submissions: ${count}`)
@@ -14,6 +18,7 @@ console.log(`form submissions: ${count}`)
 form.addEventListener('submit', (event)=>{
     // document.querySelector('main').innerText = ''
     event.preventDefault()
+
     count += 1
     console.log(`form submissions: ${count}`)
     const input = formInput.value
@@ -24,6 +29,15 @@ form.addEventListener('submit', (event)=>{
     fetch(URL)
     .then((res) => res.json())
     .then((res) => { 
+        const currentArt = document.querySelector('.CurrentCity')
+        if(currentArt){
+            currentArt.remove()
+        }
+        const daysPs = document.querySelectorAll('.Today p')
+        console.log(daysPs)
+        // check for the children of the today, tommorow and day after tommorow articles inside of upcoming weather aside
+        // grab all the ps, remove the ps via querySelectorAll syntax, figure out how to syntaxily grab it.
+        // if that doesnt work, create elements with javascript and not HTML
         const article = document.createElement('article')
         article.classList.add('CurrentCity')
         const header = document.createElement('h2')

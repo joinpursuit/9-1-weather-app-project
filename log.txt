@@ -31,5 +31,12 @@
 // pushing line 30
 // populating the 3 day elements with corrosponding data
 // passed 3day tests ! success !
-// next to do: add previous searches, stylize page ( might need css grid box refresher via youtube)
+// next to do: add previous searches, stylize page ( might need css grid box refresher via youtube), fix bug thats causing overflow of data
 // going to ask for help adding previous searches. in order to do that i need our articles to reset every submission
+// going to try to bugfix by clearing the innerhtml after its query selected 
+// remove the hard coded article today tomm and day after, and start dynamically creating them similar to how the current is populated
+// after, use this logic: const currentArt = document.querySelector('.CurrentCity')
+        if(currentArt){
+            currentArt.remove()
+        }
+// to remove our populated today tommorow and day after tommorow articles if it contains data
