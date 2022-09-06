@@ -178,13 +178,14 @@ formHeader.addEventListener(('submit'), (event) => {
         // const searchItem = document.createElement('li')
         // const prevSearchLink = document.createElement('a')
 
-        // noPrevSearch.remove()
+        
         // searchItem.textContent = searchInput
-        // searchList.appendChild(searchItem)
+        // searchList.append(searchItem)
 
         // searchItem.setAttribute(prevSearchLink)
         // prevSearchLink.setAttribute('href', '#')
         // const noPrevSearch = document.querySelector('.noPrevSearch')
+        // noPrevSearch.remove()
         // searchList.style.display = "block"
 
 
@@ -224,7 +225,7 @@ formHeader.addEventListener(('submit'), (event) => {
         avgDayAfter.after(maxDayAfter)
         maxDayAfter.after(minDayAfter)
 
-
+console.log(maxTomorrow.textContent)
 
         formHeader.reset()
 
