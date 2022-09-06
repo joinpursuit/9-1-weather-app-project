@@ -1,80 +1,76 @@
 body {
+  border: 4px solid #269ccc;
+  background-color: #269ccc;
+}
+
+.all {
   display: grid;
-  height: 100vh;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: 1fr 5fr;
+  grid-template-columns: 1fr 3fr 1fr;
+  /* grid-gap: 2px 1px; */
   grid-template-areas:
-    ". header header header header ."
-    ". conversion content content history .";
-  grid-gap: 1rem;
-  font-family: sans-serif, Arial, Helvetica;
+    "header header header"
+    "conversion content history";
+  border: 3px solid whitesmoke;
+  font-family: Helvetica, Arial, sans-serif;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 75rem;
+  padding: 1em;
+  background-color: #dfdce3;
+  border-radius: 20px;
 }
 
 .header {
-  background-color: rgb(56, 128, 109);
   grid-area: header;
-  border: 3px solid black;
-  padding: 100px 100px;
   text-align: center;
-  font-family: sans-serif;
-  color: aliceblue;
+  border: 4px solid whitesmoke;
+  background-color: #269ccc;
+  color: #040404;
+  border-radius: 10px;
 }
 
 .conversion {
-  background-color: aqua;
   grid-area: conversion;
+  border: 2px solid #dfdce3;
+  background-color: #dfdce3;
+  color: #040404;
+  border-radius: 10px;
 }
 
 .content {
-  background-color: palevioletred;
   grid-area: content;
+  border: 4px solid whitesmoke;
   display: grid;
-  /* grid-template-columns: repeat(3, 1fr); */
+  text-align: center;
+  background-color: #269ccc;
+  color: white;
+  border-radius: 10px;
 }
 
 .history {
-  background-color: yellow;
   grid-area: history;
+  border: 2px solid #dfdce3;
+  background-color: #dfdce3;
+  color: #040404;
+  border-radius: 10px;
 }
 
 .upComing {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 1rem;
-  border: 1px solid black;
+  grid-template-columns: 1fr 1fr 1fr;
+  border-top: 5px solid whitesmoke;
+  border-bottom: 2px solid whitesmoke;
+  background-color: #269ccc;
+  color: #040404;
 }
 
-/* body > * {
-  margin-bottom: 10px;
+#submit-city {
+  background-color: #fc4a1a;
 }
 
-@media screen and (min-width: 40em) {
-  body > * {
-    margin-bottom: 0;
-  }
-} */
-
-/* .container {
-  display: grid;
-  grid-template-columns: 1fr 3fr 1fr;
-  grid-gap: 10px 20px;
-  grid-template-areas:
-    "header  header header"
-    "conversion content history";
+#get {
+  background-color: #fc4a1a;
 }
-
-.header {
-  grid-area: header;
+a {
+  color: #269ccc;
 }
-
-.conversion {
-  grid-area: conversion;
-}
-
-.content {
-  grid-area: main;
-}
-
-.history {
-  grid-area: history;
-} */
