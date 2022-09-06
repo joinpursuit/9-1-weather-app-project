@@ -48,11 +48,11 @@ let mainChanceOfSnow = document.querySelector(`#mainChanceOfSnow`);
 //ICONS
 const mainWeatherIcon = document.querySelector(`#mainWeatherIcon`);
 
-
+let formSubmitBool = true
 
 //CITY SEARCH FUNCTION
 
-function citySearch(URL) {
+function citySearch(URL, city) {
   //FETCH
   fetch(URL)
     .then((res) => res.json())
@@ -77,8 +77,14 @@ function citySearch(URL) {
     
     
             // IF Statement that fires via submit event IF Input Box has information it. Displays output for weather and regional info.
-      if (cityInputBox.value !== "" && resJson !== undefined) {
-        mainCityName.innerText = `${cityInputBox.value}`;
+      // cityInputBox.value !== "" &&
+      if (resJson !== undefined) {
+        if (formSubmitBool) {
+          mainCityName.innerText = `${cityInputBox.value}`;
+        } else {
+          mainCityName.innerText = city
+        }
+   
         mainAreaName.innerText = `${areaName}`;
         if (mainCityName.innerText === mainAreaName.innerText) {
           mainAreaStrong.innerText = `Area:`;
@@ -149,13 +155,13 @@ function citySearch(URL) {
 
         //check if text box === search bar list item -- if so create a new element, else dont... 
         const previousSearchesListItems = document.querySelectorAll(`li`);
-        console.log(previousSearchLink.innerText)
+        // console.log(previousSearchLink.innerText)
 
-          if (previousSearchesListItems.innerText === previousSearchLink.innerText){console.log(`hello`)}
+          // if (previousSearchesListItems.innerText === previousSearchLink.innerText){console.log(`hello`)}
 
         //... cont previous searches
 
-        //Spawns new list itemd for previous searches sidebar
+        //Spawns new list items for previous searches sidebar
 
         const feelsLikePreviousSearches = document.createElement(`li`);
         feelsLikePreviousSearches.innerText = ` - ${feels_LikeF} °F`;
@@ -164,19 +170,30 @@ function citySearch(URL) {
 
         // PREVIOUS SEARCHES ASIDE EVENT LISTENER (CLICK)
         feelsLikePreviousSearches.addEventListener(`click`, (e) => {
+          formSubmitBool = false
           let PreviousSearchesURL = ``;
-          let PreviousSearchesURLCity = previousSearchLink.innerText
-            .split(" ")
+
+          let cityNamesArr = [];
+          cityNamesArr.push(e.target.textContent);
+         
+         
+          let PreviousSearchesURLCity = e.target.textContent
+              .split(" ")
             .join("+"); //--> New+York
           
+          mainCityName.innerText = e.target.textContent;
+          
           console.log(`e.target.textContent`, e.target.textContent);
+          console.log(cityNamesArr);
+          
+          
           
           //have to push these vars into an array for storing
 
           PreviousSearchesURL = `https://wttr.in/${PreviousSearchesURLCity}?format=j1`; //--> https://wttr.in/new+nork?format=j1
           console.log(PreviousSearchesURL);
 
-          citySearch(PreviousSearchesURL);
+          citySearch(PreviousSearchesURL, e.target.textContent);
 
           // got to get the url
           // so i need only the city name from the side bar previous search
@@ -201,6 +218,7 @@ function citySearch(URL) {
 //MAIN SECTION EVENT LISTENER (SUBMIT) 
 headerForm.addEventListener(`submit`, (e) => {
   e.preventDefault();
+  formSubmitBool = true
 
   //URL VARIABLES
 
