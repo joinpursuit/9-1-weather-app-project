@@ -1,16 +1,36 @@
+// fetch url wttr.in/Detroit?format=j1
+
+// Prevent Button from refreshing page
+const submit = document.querySelector(`.submitButton`);
+// console.log(submit)
+submit.addEventListener(`click`, (e) => {
+  // e.preventDefault()
+})
+
+// FUNCTION FOR CONVERTING INPUTTED LOCATION TO CAPITAL LETTER FORMAT
+const locationName = (x) => {
+    let arr = x.split(` `)
+    arr.forEach((y,i) => {
+     arr[i] = `${y.charAt(0).toUpperCase()}${y.slice(1).toLowerCase()}` 
+     })
+     return arr.join(` `)
+    }
 
 // Define variable for ul element to hold previous search list
 const previousSearch = document.querySelector(`ul`)
+// console.log(previousSearch)
+
 //create array to store past search location values
 const previousSearchArr = []
 
 // *********CAME BACK CREATE FETCHINFO VARIABLE => FUNCTION TO RUN FETCH IN MULTIPLE EVENT LISTENERS
+
 const fetchInfo = (input) => {
     // FETCH for API and store neccessary values (sub in location)
   fetch(`https://wttr.in/${input}?format=j1`)
   .then((resp) => resp.json())
   .then((json) => {
-    // (json)
+    // console.log(json)
 
     //declare variables and grab values from json object
     // create todaysForecast array to hold objects of today, tomorrow, and dayafter objects
@@ -69,7 +89,8 @@ const fetchInfo = (input) => {
 
     // PUSH ALL OBJ'S TO TODAYFORCAST ARRAY (to be referenced to populate page)
     todaysForecast.push(todayObj, tomObj, dayAfterObj);
-  
+    //console.log(todaysForecast);
+
     // create variables for and populate elements for div.todaysWeather and aside.upcomingStats
     const todaysWeather = document.querySelector(`.todaysWeather`);
     const todaysStats = document.querySelector(`#todayStats`)
@@ -99,6 +120,7 @@ const fetchInfo = (input) => {
         }
         //CONDITIONALS FOR ICON PLACEMENT
           //img attr. src="" alt=""
+          // console.log(day.Rain,day.Snow,day.Sun)
           const iconImg = document.createElement(`img`)
           if(+day.Sun > 50 ){
               iconImg.src = `./assets/icons8-summer.gif`
@@ -141,6 +163,7 @@ const fetchInfo = (input) => {
     
     //TOGGLE HIDDEN ELEMENTS 
     const hide = document.querySelectorAll(`.defaultdisplay, .hidden`)
+    //console.log(hide)
     hide.forEach(x => {
       if( x === document.querySelector(`article.getshidden`)) x.classList.toggle(`greybackground`)
       x.classList.toggle(`hidden`)})
@@ -156,6 +179,7 @@ const fetchInfo = (input) => {
       searchLink.innerHTML = `<a href="http://">${input}</a> -${todayObj[`FeelsLike`]}°F`
       
       // check previousSearchArr for previous search values, if current (input) search value isn't in ul (previousSearhArr), append li to ul
+      //console.log(previousSearchArr)
       if(!previousSearchArr.includes(input)){
           previousSearchArr.push(input)
           previousSearch.append(searchLink)
@@ -178,9 +202,12 @@ const fetchInfo = (input) => {
 // ADD EVENT LISTENER TO FORM TO FETCH API DATA WHEN SUBMITTED
 // *****Came back and used fetchInfo variable to be called in event listener*****
 const form = document.querySelector(`form`);
+// console.log(form)
 form.addEventListener(`submit`, (e) => {
     e.preventDefault();
-    const location = form.location.value 
+    // const location = locationName(form.location.value)
+    // console.log(location)
+    const location = form.location.value /*(<- switch to this for mamaroneck test)*/
     fetchInfo(location)
      form.reset()
     
@@ -190,11 +217,17 @@ form.addEventListener(`submit`, (e) => {
  //declare variables for converter form, radio buttons,submit button, and h4 output element
  // f id = to-f; c id =to-c -> use .checked
 const converterForm = document.querySelector(`form.converter`)
+// console.log(`convert form`,converterForm)
 const fareinheit = document.querySelector(`#to-f`)
 const celsius = document.querySelector(`#to-c`)
 const convertButton = document.querySelector(`.convertButton`)
 const converterOutput = document.querySelector('.output')
-
+// console.log(fareinheit,celsius, converterOutput)
+// console.log(celsius.checked)
+ //prevent convert button from refreshing page
+ convertButton.addEventListener(`click`, (e) => {
+    // e.preventDefault()
+ })
 function tempConversion(x){
    if(celsius.checked){
         converterOutput.innerText=` ${((x - 32) * (5/9)).toFixed(2)}°C`
@@ -208,9 +241,12 @@ function tempConversion(x){
 converterForm.addEventListener(`submit`, (e) => {
     e.preventDefault()
     const tempInput = converterForm.converter.value
+    // console.log(tempInput)
+    // console.log(celsius.checked,fareinheit.checked)
     tempConversion(tempInput)
     converterForm.reset()
 })
 
 
 
+  
