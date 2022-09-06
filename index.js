@@ -247,7 +247,31 @@ converterForm.addEventListener(`submit`, (e) => {
     converterForm.reset()
 })
 
+// *************ADDITIONAL FEATURES*************
+//random fact api : https://uselessfacts.jsph.pl//random.json?language=en
 
 
-  
+ //  ADD CLOCK (W3SCHOOLS)
+ function startTime() {
+  const today = new Date();
+  let h = today.getHours();
+  let m = today.getMinutes();
+  let s = today.getSeconds();
+  m = checkTime(m);
+  s = checkTime(s);
+  document.querySelector('.clock').innerHTML =  h + ":" + m + ":" + s;
+  setTimeout(startTime, 1000);
+}
+function checkTime(i) {
+  if (i < 10) {i = "0" + i};
+  return i;
+}
+
+//Date 
+const date = document.querySelector(`.date`)
+date.innerText = `${dateConverter(Date())}`
+function dateConverter(x){
+  let arr = x.split(` `)
+  return arr.slice(0,4).join(` `)
+}
 

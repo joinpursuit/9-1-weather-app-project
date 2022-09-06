@@ -8,8 +8,9 @@
     <script defer src="./index.js"></script>
     <title>Destiny's Weather App</title>
 </head>
-<body>
+<body onload="startTime()">
     <header>
+        <div class="date"></div>
         <div class="header">
             <h1 class="header">Weather App</h1>
             <form class="header">
@@ -18,6 +19,7 @@
             <input class="submitButton" type="submit" value="Get Weather"/>
         </form>
         </div>
+        <div class="clock"></div>
     </header>
     <main>
         <div class="defaultdisplay greybackground">Choose a location to view the weather</div>
@@ -61,6 +63,9 @@
                 <input class="convertButton" type="submit" value="Convert"/>
                 <h4 class="output">0.00</h4>
                 </form>
+                <section class="randomfact hidden">
+                    <h4>Random Fact</h4>
+                </section>
         </aside>
             
         
