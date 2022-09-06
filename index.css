@@ -4,31 +4,17 @@
     /* text-align: center; */
     box-sizing: border-box;
 }
-body {
-    background-image: url("./assets/weatherbackgroundimage.jpeg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-size: 100% 100%;
-    -webkit-text-stroke: .5px rgb(55, 22, 164);
-    color: rgb(245, 245, 249);
-    font-size: 18px;
-}
 
 /* Grid layout for page */
 header {
     display: grid;
     grid-template-columns: .5fr 1fr 1fr .5fr .5fr;
-    align-items: center;
-    background-color: rgba(18, 48, 198, 0.582);
-    color: white;
-    -webkit-text-stroke: .5px black;
     
 }
 div.header {
     grid-column: 2/5;
-    /* background-color: teal;
-    color: white; */
+    background-color: teal;
+    color: white;
     text-align: center;
 }
 
@@ -67,8 +53,8 @@ article.getshidden {
     grid-row: 1;
     display: grid;
     justify-content: center;
-    background-color: rgba(10, 3, 85, 0.47);
-    text-align: center;
+    
+    
 }
 
 div.todaysWeather {
@@ -82,9 +68,6 @@ aside.getshidden {
 aside.converter{
     grid-column: 2;
     grid-row: 1 / 5;
-    display: grid;
-    grid-template-rows: .5fr 1fr;
-    background-color: rgba(0, 14, 84, 0.634);
 }
 aside.upcomingStats {
     grid-column: 3/4;
@@ -93,23 +76,6 @@ aside.upcomingStats {
     justify-content: center;
     grid-template-columns: repeat(3,1fr);
     column-gap: 20px;
-    grid-template-rows: fit-content;
-}
-aside.upcomingStats article {
-    border: 1px solid teal;
-}
-
-#todayStats {
-    background-color: rgba(12, 126, 226, 0.649);
-
-}
-#tomorrowStats {
-    background-color: rgba(226, 128, 9, 0.667);
-
-}
-#dayAfterStats{
-    background-color: rgba(72, 18, 198, 0.586);
-
 }
 .upcomingStats h3, .upcomingStats p, .todaysWeather h2, .todaysWeather p {
     display: flex;
@@ -123,25 +89,6 @@ aside.upcomingStats article {
 }
 
 .greybackground{
-    /* background-color: lightgray; */
+    background-color: lightgray;
     border: 1px solid teal;
-}
-
-/* Css for Additional features  */
-
-section.randomfacts {
-    
-}
-
-.clock {
-    margin: auto;
-    font-weight: bold;
-    font-size: 18px;
-}
-
-.date {
-    margin: auto;
-    font-weight: bold;
-    font-size: 18px;
-    text-align: center;
 }
