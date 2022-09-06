@@ -2,6 +2,9 @@
 //select form and assign to variable
 const formHeader = document.querySelector(".pickLocation")
 
+//create and initialize array to capture previous searches, in order to check for detect duplicate
+let searchCheck = ["initial"];
+let searchFlag = 0
 
 //create event listener for Search Form
 
@@ -20,11 +23,13 @@ formHeader.addEventListener(('submit'), (event) => {
 
     let Base_URL = `http://wttr.in/${searchInput}?format=j1`
 
+ 
+
     fetch(`${Base_URL}`) 
         .then(response => response.json())
         .then((data) => {
-       console.log("Fetched data", data)
-       console.log(data.nearest_area[0].areaName[0].value)
+        //console.log("Fetched data", data)
+        //console.log(data.nearest_area[0].areaName[0].value)
         const weather_app_header = document.querySelector('.weather_App_Header')
         const city = document.createElement('h2')
         const nArea = document.createElement('p')
@@ -180,7 +185,7 @@ formHeader.addEventListener(('submit'), (event) => {
 
         //-- ---------- Previous Searches List (Search History) -hyperlinks with no duplicatins----------- 
 
-       // searchItem is the list item that will populate the unordered list element that exists in the HTML Document
+       // searchItem is the list item (li) that will populate the unordered list element that exists in the HTML Document
         
        searchList.append(searchItem)
 
@@ -190,14 +195,13 @@ formHeader.addEventListener(('submit'), (event) => {
         prevSearchLink.setAttribute('href', '#')
         //console.log("prev-searchLink = ", prevSearchLink) - checking if link structure is correct
 
-        let searchCheck = ["initial]";
-        let searchFlag = 0
+       
         
-        for( let thisSearch of Searches){
+        for( let thisSearch of SearchCheck){
           if (searchInput === thisSearch){
             searchFlag++
           }
-          if(searchFlag ===0){
+          if(searchFlag === 0 ){
                 prevSearchLink.textContent = searchInput
                 //console.log("presearchLink = ", prevSearchLink) - checking if link appears successfully
                 searchItem.append(prevSearchLink)
@@ -238,17 +242,14 @@ formHeader.addEventListener(('submit'), (event) => {
         avgDayAfter.after(maxDayAfter)
         maxDayAfter.after(minDayAfter)
 
-console.log(maxTomorrow.textContent)
+        //console.log(maxTomorrow.textContent)
 
-        formHeader.reset()
+        formHeader.reset()     
+   }
+})
 
+   .catch((err) => console.log(err))
 
-
-        //.catch((err) => console.log(err))
-
-
-       
-   })
 })
 
 
