@@ -174,26 +174,30 @@ formHeader.addEventListener(('submit'), (event) => {
         const minDayAfter = document.createElement('p')
         minDayAfter.classList.add("minDayAfter");
 
-        // const searchList = document.querySelector('searchList')
-        // const searchItem = document.createElement('li')
-        // const prevSearchLink = document.createElement('a')
+        const searchList = document.querySelector('.searchList')
+        const searchItem = document.createElement('li')
+        const prevSearchLink = document.createElement('a')
 
         
-        // searchItem.textContent = searchInput
-        // searchList.append(searchItem)
+       // searchItem.textContent = searchInput
+        searchList.append(searchItem)
 
-        // searchItem.setAttribute(prevSearchLink)
-        // prevSearchLink.setAttribute('href', '#')
-        // const noPrevSearch = document.querySelector('.noPrevSearch')
-        // noPrevSearch.remove()
-        // searchList.style.display = "block"
+        //searchItem.setAttribute(prevSearchLink)
+        const noPrevSearch = document.querySelector('.noPrevSearch')
+        if(noPrevSearch){noPrevSearch.remove()}
+        prevSearchLink.setAttribute('href', '#')
+       // searchList.style.display = "block"
+       console.log("prev-searchLink = ", prevSearchLink)
 
+        prevSearchLink.textContent = searchInput
+       console.log("presearchLink = ", prevSearchLink)
+        searchItem.append(prevSearchLink)
+        console.log("searchItem2=", searchItem)
+        //searchItem.textContent += " - " + data.current_condition[0].FeelsLikeF + "°F"
 
-        // prevSearchLink.textContent = searchInput
-        // li.textContent= " - " + data.current_condition[0].FeelsLikeF + "°F"
-        // li.prepend(prevSearchLink)
-        // searchList.append(li)
-     
+        searchList.appendChild(searchItem)
+
+        console.log("search list = ", searchList)
 
        //assign variables to fetched data values
 
