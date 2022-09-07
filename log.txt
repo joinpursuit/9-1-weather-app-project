@@ -68,4 +68,7 @@
   // adding h2s
   // added h2s to children of .upcomingWeather 3 day articles
   // success
-// pushing line 69 lol
+  //      pushing line 69 lol
+// successfuly recreated 3 day.
+// next to add previous search function
+// stopping at 954 PM
