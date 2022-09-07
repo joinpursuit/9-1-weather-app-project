@@ -129,6 +129,11 @@ form.addEventListener('submit', (event)=>{
         prevSearch.textContent = `${res.nearest_area[0].areaName[0].value} - ${res.current_condition[0].FeelsLikeF}°F`
         console.log(prevSearch)
          // append to li to appopriate location ( sidebar )
+         if(cityArr.includes(document.querySelector('input').value)){
+            prevSearch.remove()
+         } else {
+            searchStor.append(prevSearch)
+         }
          const checkPreSearch = document.querySelector('.prevS')
          if(checkPreSearch){checkPreSearch.remove()}
          prevSearchA.setAttribute('href', '#')
@@ -263,13 +268,27 @@ form.addEventListener('submit', (event)=>{
 
         // adding previous search function
         // on form submission, create li `area-value and feel- like-temp`
+        
+        
         const prevSearch = document.createElement('li')
         console.log(prevSearch)
         // populating with data
         prevSearch.textContent = `${res.nearest_area[0].areaName[0].value} - ${res.current_condition[0].FeelsLikeF}°F`
         console.log(prevSearch)
          // append to li to appopriate location ( sidebar )
-         searchStor.append(prevSearch)
+         console.log(cityArr)
+        
+        //  for (let index = 0; index < cityArr.length; index++) {
+        //     const city = cityArr[index];
+        //     if(city === input){
+        //         console.log('there was an match!, removing created element!')
+        //         prevSearch.remove()
+        //     } else { 
+        //         searchStor.append(prevSearch)
+        //     }
+        // }
+        
+
 
 
 

@@ -100,3 +100,8 @@
 // all thats left is to do the optionals
 // pushing 'fixed previous search functionality, now to bugfix duplicate problem and stylize page'
 // stopping 1223PM
+// starting 404pm
+// on every submission input is saved inside an array
+// bug fixed :D
+// success @522pm
+// pushing 'previous search sidebar backend fully functional'
