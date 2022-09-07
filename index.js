@@ -35,7 +35,7 @@ const fetchInfo = (input) => {
         <h2>${input}</h2>
         <p><strong>Currently:</strong> Feels Like ${FeelsLikeF}°F</p>`;
         });
-        console.log(document.querySelector(`.todaysWeather`));
+        
         // LOOP FOR INFO ABOUT AREA
         const area = json[`nearest_area`];
         area.forEach(({ areaName, country, region }) => {
