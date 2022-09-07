@@ -3,8 +3,8 @@
 const formHeader = document.querySelector(".pickLocation")
 
 //create and initialize array to capture previous searches, in order to check for detect duplicate
-let searchCheck = ["initial"];
-let searchFlag = 0
+let searchCheck = ["initialValue1", "initialValue2"];
+
 
 //create event listener for Search Form
 
@@ -24,7 +24,7 @@ formHeader.addEventListener(('submit'), (event) => {
     let Base_URL = `http://wttr.in/${searchInput}?format=j1`
 
  
-
+   //fetch data, select elements, assign them to variables and assign data points to variables
     fetch(`${Base_URL}`) 
         .then(response => response.json())
         .then((data) => {
@@ -79,6 +79,8 @@ formHeader.addEventListener(('submit'), (event) => {
             img.setAttribute('src', "./assets/icons8-light-snow.gif")
             img.setAttribute('alt',"snow")
         }
+
+        // this one interefered with test results
         // if(showFrost > 50){
         //     img.setAttribute('src', "./assets/icons8-icy.gif")
         //     img.setAttribute('alt',"icy")
@@ -142,6 +144,7 @@ formHeader.addEventListener(('submit'), (event) => {
 
         
         //Calculate conversion based on user selection and display in h4 element
+
         tempConvertForm.addEventListener('submit', (event)=> {
             event.preventDefault()
             console.log(event)
@@ -179,6 +182,7 @@ formHeader.addEventListener(('submit'), (event) => {
         const minDayAfter = document.createElement('p')
         minDayAfter.classList.add("minDayAfter");
 
+        // the empty UL = searchList, each line item = searchItem, the hyperlinked serach = prevSearchLink
         const searchList = document.querySelector('.searchList')
         const searchItem = document.createElement('li')
         const prevSearchLink = document.createElement('a')
@@ -187,31 +191,36 @@ formHeader.addEventListener(('submit'), (event) => {
 
        // searchItem is the list item (li) that will populate the unordered list element that exists in the HTML Document
         
-       searchList.append(searchItem)
+      
 
         //remove noPrevSearch to eliminate initial placeholder text once searches begin
         const noPrevSearch = document.querySelector('.noPrevSearch')
         if(noPrevSearch){noPrevSearch.remove()}
-        prevSearchLink.setAttribute('href', '#')
+       
         //console.log("prev-searchLink = ", prevSearchLink) - checking if link structure is correct
 
-       
-        
-        for( let thisSearch of SearchCheck){
-          if (searchInput === thisSearch){
-            searchFlag++
-          }
-          if(searchFlag === 0 ){
-                prevSearchLink.textContent = searchInput
-                //console.log("presearchLink = ", prevSearchLink) - checking if link appears successfully
-                searchItem.append(prevSearchLink)
-                //console.log("searchItem2=", searchItem)
-                //searchItem.textContent += " - " + data.current_condition[0].FeelsLikeF + "°F"
-                searchList.appendChild(searchItem)
-          }
-        searchCheck.push(searchInput)
-        //console.log("search list = ", searchList)
 
+       //searchCheck is an array, intialized on line 6 with two initial values outside of this event handler.
+   
+        //Check for Duplicates in Search
+        if(searchCheck.includes(searchInput)=== false) {
+            searchList.append(searchItem)  //attach this li (searchItem)  to the ul (searchList)
+
+            prevSearchLink.setAttribute('href', '#') //add the hyperlink attribute to the a tag (prevSearchLink)
+            prevSearchLink.textContent = searchInput //assign the search value (searchInput) as textContent of the hyperlink (prevSearchLink)
+            searchItem.append(prevSearchLink) //attach hyperlinked search (prevSearchLink) to the line item (searchItem)
+
+            console.log("presearchLink = ", prevSearchLink) 
+            searchItem.textContent += " - " + data.current_condition[0].FeelsLikeF + "°F"
+            searchList.appendChild(searchItem)
+        }
+        searchCheck.push(searchInput)
+
+        //old test statements
+        //console.log("searchItem2=", searchItem)
+        //console.log("presearchLink = ", prevSearchLink) - checking if link appears successfully        
+        //console.log("search list = ", searchList)
+     
        //assign variables to fetched data values
 
         const todayTemp = document.querySelector('.todayTemp')
@@ -245,10 +254,10 @@ formHeader.addEventListener(('submit'), (event) => {
         //console.log(maxTomorrow.textContent)
 
         formHeader.reset()     
-   }
-})
+   })
+// })
 
-   .catch((err) => console.log(err))
+     .catch((err) => console.log(err))
 
 })
 
