@@ -1,5 +1,9 @@
 body{
     grid-template-columns: repeat(6, 1fr);
+    grid-column: 2/6;
+    box-shadow: 0 2px 10px 1px whitesmoke;
+    background-color: black;
+    color:azure
 }
 
 main{
@@ -20,3 +24,12 @@ aside{
     color:rgb(224, 224, 235)
 }
 
+form {
+    margin: 40px 100px 40px 100px;
+    padding: 10px;
+    text-align: center;
+}
+
+*{
+    text-align: center;
+}
