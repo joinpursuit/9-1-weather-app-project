@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <script defer src="./main.js"></script>
+    <script defer src="./converter.js"></script>
+    <title>Weather App</title>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <form>
+          <h1>Weather App</h1>
+          <div></div>
+          <div>
+            <label for="cityInput">Pick a Location</label>
+            <input type="text" name="cityInput" class="cityInput" />
+            <input class="toSubmit" type="submit" value="Get Weather" />
+          </div>
+        </form>
+      </header>
+
+      <div class="containsInfo">
+        <aside class="left">
+          <form class="converter-box">
+            <div class="containsConverter">
+              <label for="temp-to-convert">Convert the temperature:</label>
+              <br />
+              <input
+                id="temp-to-convert"
+                name="converter"
+                type="number"
+                placeholder="Enter temperature"
+              />
+            </div>
+            <div class="C">
+              <label for="to-c">To Celsius</label>
+              <input id="to-c" name="convert-temp" value="c" type="radio" />
+            </div>
+            <div class="F">
+              <label for="to-f">To Fahrenheit</label>
+              <input id="to-f" name="convert-temp" type="radio" value="f" />
+            </div>
+            <div>
+              <input class="submit-temp" type="submit" />
+              <h4 class="answer"></h4>
+            </div>
+          </form>
+        </aside>
+
+        <main>
+          <article class="placeholder">
+            Choose a location to view the weather.
+          </article>
+          <aside class="weatherInfo">
+            <article class="today"></article>
+            <article class="tomorrow"></article>
+            <article class="day-after"></article>
+          </aside>
+        </main>
+
+        <aside class="history">
+          <section>
+            <h4>Previous Searches</h4>
+            <ul>
+              <p>No previous searches</p>
+            </ul>
+          </section>
+        </aside>
+      </div>
+    </div>
+  </body>
+</html>
