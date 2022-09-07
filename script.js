@@ -67,20 +67,20 @@ function citySearch(URL, city) {
 
       // console.log(resJson.weather[0].hourly[0]);
 
-          //Weather Conditions
-          let current = resJson.current_condition[0];
-          //Areas
-          let area = resJson.nearest_area[0];
-          let chanceOfWeather = resJson.weather[0].hourly[0];
-          //Weather -- for 3 Day Forcast Aside
-          let day1 = resJson.weather[0]; 
-          let day2 = resJson.weather[1];
-          let day3 = resJson.weather[2];
+      //Weather Conditions
+      let current = resJson.current_condition[0];
+      //Areas
+      let area = resJson.nearest_area[0];
+      let chanceOfWeather = resJson.weather[0].hourly[0];
+      //Weather -- for 3 Day Forcast Aside
+      let day1 = resJson.weather[0]; 
+      let day2 = resJson.weather[1];
+      let day3 = resJson.weather[2];
 
       let areaName = area.areaName[0].value; //--> area.areaName
       let region = area.region[0].value; //--> area.region
       let country = area.country[0].value; //--> area.country
-          let feels_LikeF = current.FeelsLikeF; //--> currentcurrent_condition
+      let feels_LikeF = current.FeelsLikeF; //--> currentcurrent_condition
     
     
             // IF Statement that fires via submit event IF Input Box has information it. Displays output for weather and regional info.
@@ -155,8 +155,8 @@ function citySearch(URL, city) {
 
         if (!cityNamesArr.includes(cityInputBox.value.toLowerCase())) {
           cityNamesArr.push(cityInputBox.value.toLowerCase());
-          eventListenerBool = true
-      }
+          eventListenerBool = true;
+        }
         
         console.log(cityNamesArr);//--> pushes only unique names in
 
@@ -169,28 +169,31 @@ function citySearch(URL, city) {
         const feelsLikePreviousSearches = document.createElement(`li`);
         if (cityNamesArr.includes(cityInputBox.value.toLowerCase())) {
           if (eventListenerBool) {
-            feelsLikePreviousSearches.innerText = ` - ${feels_LikeF} °F`;
-            feelsLikePreviousSearches.prepend(previousSearchLink);
-            previousSearches.append(feelsLikePreviousSearches);
-           
-            previousSearchLink.innerText = cityInputBox.value;
-            // console.log(previousSearchLink)
-            previousSearchLink.setAttribute(`href`, `#`);
-            //previous searches cont...
+
+            if (cityInputBox.value) {
+              feelsLikePreviousSearches.innerText = ` - ${feels_LikeF} °F`;
+              feelsLikePreviousSearches.prepend(previousSearchLink);
+              previousSearches.append(feelsLikePreviousSearches);
+              previousSearchLink.innerText = cityInputBox.value;
+              // console.log(previousSearchLink)
+              previousSearchLink.setAttribute(`href`, `#`);
+              //previous searches cont...
+            }
           }
         } 
        
 
          //  [CITY INPUT BOX RESET]
-        cityInputBox.value = ``;
+        cityInputBox.value = '';
 
         // PREVIOUS SEARCHES ASIDE EVENT LISTENER (CLICK)
-        feelsLikePreviousSearches.addEventListener(`click`, (e) => {
+
+        feelsLikePreviousSearches.addEventListener('click', (e) => {
           formSubmitBool = false;
           eventListenerBool = false;
-          let PreviousSearchesURL = ``;
+          let PreviousSearchesURL = '';
 
-            console.log(eventListenerBool);
+          console.log(eventListenerBool);
 
           let PreviousSearchesURLCity = e.target.textContent
             .split(" ")
@@ -198,7 +201,7 @@ function citySearch(URL, city) {
 
           mainCityName.innerText = e.target.textContent;
 
-          console.log(`e.target.textContent`, e.target.textContent);
+          console.log('e.target.textContent', e.target.textContent);
           // cityNamesArr.push(e.target.textContent);
           // console.log(cityNamesArr);
 
