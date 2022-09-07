@@ -1,32 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather App</title>
-    <link rel="stylesheet" href="style.css"/>
-    <script defer src="./script.js"></script>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Weather App</title>
+        <link rel="stylesheet" href="style.css"/>
+        <script defer src="./script.js"></script>
+    </head>
 <body>
-    <div class = "green">
-    <header>
-        <h1>Weather App</h1>
-        <form>
-      <label>
-        Pick a Location
-        <input id = "location" name= "location" type="text">
-      </label>
-        <input type="submit">Get Weather</button>
-      </form>
-    </header>
+     <!-- div class of green to store the title and submit -->
+     <div class = "green">
+        <header>
+            <h1>Weather App</h1>
+            <form>
+                <label >
+                    Pick a Location
+                    <input type="text" id ="location" >
+                </label>
+            <input type="submit" value="Get Weather"/>
+          </form>
+        </header>
     </div>
+        
+<div class="grid-container">
+    <!-- main section -->
+    <main>
+        <p> Choose a location to view the weather.</p>
+        <article class ="current">
+        </article>
+        <div class = "aside">
 
+        </div>
+    </main>
+
+    <!-- history class with aside  -->
+    <aside>
+        <section> Previous Searches 
+
+            <ul> 
+             <p>No previous searches</p>
+            </ul>
+        </section>
+    </aside>
+
+    
+</div>
+
+    <!-- div class aside to hold temp widget -->
     <div class="aside">
 
     </div>
-    <main>
-        <p>Choose a location to view the weather.</p>
-    </main>
+    
+
 </body>
 </html>
