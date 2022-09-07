@@ -36,8 +36,6 @@ const editMain = (place, mainName) => {
   const threeDays = document.createElement(`article`);
   threeDays.setAttribute(`id`, `three-days`);
   main.append(article, threeDays);
-  // test code
-  threeDays.textContent = `test`;
 
   const areaPath = place.nearest_area[0];
 
@@ -63,7 +61,59 @@ const editMain = (place, mainName) => {
   feelsLikeF = place.current_condition[0].FeelsLikeF;
   currentTemp.innerHTML = `<strong>Currently:</strong> Feels Like ${feelsLikeF}°F`;
 
-  article.append(h2AreaSearched, pArea, region, country, currentTemp);
+  // icon and chance of sunshine, rain, and snow
+  let hrIndex = 0;
+  let diffVal = 450;
+  const currentHr = new Date().getHours();
+  const chanceOfPath = place.weather[0].hourly;
+
+  chanceOfPath.forEach((el, index) => {
+    const elDiff = Math.abs(currentHr * 100 - el.time);
+    if (elDiff < diffVal) {
+      hrIndex = index;
+      diffVal = elDiff;
+    }
+  });
+
+  const iconImg = document.createElement(`img`);
+
+  iconImg.setAttribute(`src`, `./assets/icons8-partly-cloudy-day.gif`);
+  iconImg.setAttribute(`alt`, `cloudy`);
+
+  if (chanceOfPath[hrIndex].chanceofsunshine > 50) {
+    iconImg.setAttribute(`src`, `./assets/icons8-summer.gif`);
+    iconImg.setAttribute(`alt`, `sun`);
+  }
+  if (chanceOfPath[hrIndex].chanceofrain > 50) {
+    iconImg.setAttribute(`src`, `./assets/icons8-torrential-rain.gif`);
+    iconImg.setAttribute(`alt`, `rain`);
+  }
+
+  if (chanceOfPath[hrIndex].chanceofsnow > 50) {
+    iconImg.setAttribute(`src`, `./assets/icons8-light-snow.gif`);
+    iconImg.setAttribute(`alt`, `snow`);
+  }
+
+  const sunshine = document.createElement(`p`);
+  sunshine.innerHTML = `<strong>Chance of Sunshine:</strong> ${chanceOfPath[hrIndex].chanceofsunshine}`;
+
+  const rain = document.createElement(`p`);
+  rain.innerHTML = `<strong>Chance of Rain:</strong> ${chanceOfPath[hrIndex].chanceofrain}`;
+
+  const snow = document.createElement(`p`);
+  snow.innerHTML = `<strong>Chance of Snow:</strong> ${chanceOfPath[hrIndex].chanceofsnow}`;
+
+  article.append(
+    iconImg,
+    h2AreaSearched,
+    pArea,
+    region,
+    country,
+    currentTemp,
+    sunshine,
+    rain,
+    snow
+  );
 };
 
 const editSearches = (element) => {

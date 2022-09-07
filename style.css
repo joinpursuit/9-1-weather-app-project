@@ -42,6 +42,10 @@ main {
   margin-bottom: 2%;
 }
 
+#main-article {
+  padding-top: 16px;
+}
+
 #three-days {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

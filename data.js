@@ -1319,6 +1319,7 @@ const newYorkData = {
 };
 
 // get the time
-const currentTime = new Date()
-console.log(currentTime.getHours())
+const currentTime = new Date().getHours()
+console.log(currentTime)
+// console.log(currentTime.getHours())
 // Date.prototype.getHours()
