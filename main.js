@@ -3,6 +3,7 @@ const BASE_URL = 'https://wttr.in'
 const JSON = '?format=j1'
 const form = document.querySelector('form')
 const artStor = document.querySelector('main article')
+artStor.id = 'artStor'
 const formInput = document.querySelector('input')
 console.log(artStor)
 // const todayStor = document.querySelector('#Today')
@@ -54,7 +55,17 @@ form.addEventListener('submit', (event)=>{
         country.textContent = `Country: ${res.nearest_area[0].country[0].value}`
         currently.textContent = `Feels Like: ${res.current_condition[0].FeelsLikeF}°F`
 
-        // creating the 3 day
+        // creating the 3 day ==
+        // creating the articles
+        // creating upcoming weather aside
+        const upcomingWeather = document.createElement('aside')
+        upcomingWeather.id = 'Upcoming Weather'
+        console.log(upcomingWeather)
+
+        // creating the 3 articles with classes of Today, Tommorow, DayAfterTmm
+        
+
+        // inner html of articles
         const averageToday = document.createElement('p')
         const maxToday = document.createElement('p')
         const minToday = document.createElement('p')

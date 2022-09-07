@@ -49,4 +49,7 @@
 // data is presenet on backend but not visually. populated article is not being appended
 // query selector that was selecting our main article was selecting the wrong element, fixed
 // page is now working correctly without added features !
-// pushing above line
+// success !
+// pushing above lines
+// adding id to parent of article id CurrentCity, id is being set to artStor
+// recreating 3day now, creating our article elements with ids of Today, Tommorow, DayAfterTmm
