@@ -44,16 +44,10 @@ form.addEventListener("submit", (event) => {
       <p>Max Temperature: ${resJson.weather[2].maxtempF}°F</p>
       <p>Min Temperature: ${resJson.weather[2].mintempF}°F</p>`;
 
-      aside1.location.append(
-        article.Today,
-        article.tomorrow,
-        article.AfterTomrrow
-      );
-
       const ul = document.querySelector("ul");
       const li = document.createElement("li");
       const anchor = document.createElement("a");
-      anchor.textContent = searchLocation;
+      anchor.innerHTML += searchLocation;
       anchor.setAttribute("href", "#");
 
       if (!prevSearchLocation.includes(searchLocation)) {
@@ -64,25 +58,26 @@ form.addEventListener("submit", (event) => {
 
       anchor.addEventListener("click", (event) => {
         event.preventDefault();
-
-        anchor + `${anchor.current_condition[0].FeelsLikeF}°F`;
+        anchor.innerHTML +=
+          anchor + `${anchor.current_condition[0].FeelsLikeF}°F`;
       });
 
       //  ICON based on data changes
       const img = document.createElement("img");
-      const chanceOfSunshine = resJson.weather[0].hourly[0].chanceofsunshine;
-      if (chanceOfSunshine > 50) {
+      const sunShine = resJson.weather[0].hourly[0].chanceofsunshine;
+      if (sunShine > 50) {
         img.setAttribute("src", "./assets/icons8-summer.gif");
         img.setAttribute("alt", "sun");
       }
 
-      const chanceOfRain = resJson.weather[0].hourly[0].chanceofrain;
-      if (chanceOfRain > 50) {
+      const rainFall = resJson.weather[0].hourly[0].chanceofrain;
+      if (rainFall > 50) {
         img.setAttribute("src", "./assets/icons8-torrential-rain.gif");
         img.setAttribute("alt", "rain");
       }
-      const chanceOfSnow = resJson.weather[0].hourly[0].chanceofsnow;
-      if (chanceOfSnow > 50) {
+
+      const snowFall = resJson.weather[0].hourly[0].chanceofsnow;
+      if (snowFall > 50) {
         img.setAttribute("src", "./assets/icons8-light-snow.gif");
         img.setAttribute("alt", "snow");
       }
@@ -91,20 +86,31 @@ form.addEventListener("submit", (event) => {
 
       // WIDGET - Temperature conversion
 
-      const aside1 = document.querySelector("aside.Conversion");
-      const label1 = document.createElement("label");
-      aside1.append(label1);
-      const form1 = document.createElement("form");
-      label1.append(form1);
+      const aside = document.querySelector(".Conversion");
+      const input = document.querySelector(".temp-to-convert");
+      const form = document.querySelector(".widget");
+      const Celsius = document.getElementById("to-c");
+      const Fahrenheit = document.getElementById("to-f");
+      const results = document.querySelector(".results");
 
-      // form1.addEventListener("submit", (event) => {
-      //   event.preventDefault();
-      // });
+      let conversion = 0;
 
-      //   const a1 = doucment.querySelector("article");
-      //   a1.innerText = "Today";
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        console.log(event);
+
+        if (Celsius.checked) {
+          conversion = (event.target.temp.value - 32) * (5 / 9);
+        } else if (Fahrenheit.checked) {
+          conversion = event.target.temp.value * (9 / 5) + 32;
+        }
+        conversion = conversion.toFixed(2);
+€€
+        results.innerHTML = conversion;
+      });
     })
     .catch((error) => console.log(error));
 
   form.reset();
 });
+2;
