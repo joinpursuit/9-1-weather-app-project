@@ -89,3 +89,6 @@
 // success
 // pushing, 'added event listener to list, console logging path on click. clicked text saved to variable clicked'
 // now we need to have another fetch happen with clicked variable as the added key to the search terms ( search with clicked data as the city being searched )
+// 5 min break
+// successfully added full functionality to our previous search function
+// testing
