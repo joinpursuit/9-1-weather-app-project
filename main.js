@@ -1,10 +1,10 @@
 const form = document.querySelector("form");
 
 form.addEventListener("submit", (e) => {
- 
-  e.preventDefault();
 
-  let userInput = e.target["input"].value;
+  e.preventDefault();
+  
+  let userInput = e.target["input"].value
 
   cityInfo(userInput, true);
 
@@ -39,6 +39,11 @@ function cityInfo(userInput, AddOrNot) {
     .then((res) => res.json())
     .then((data) => {
       
+      // if(userInput.charAt(0) !== userInput.charAt(0).toUpperCase()){
+      //   //Only works for one word city
+      //   userInput = userInput.charAt(0).toUpperCase()+userInput.slice(1);
+      // }
+
       //userInput main data
       let areaVal = data.nearest_area[0].areaName[0]["value"];
       let regionVal = data.nearest_area[0].region[0]["value"];
@@ -60,10 +65,19 @@ function cityInfo(userInput, AddOrNot) {
       let dayAfterTMax = data.weather[2]["maxtempF"];
       let dayAfterTMin = data.weather[2]["mintempF"];
 
-      let maindData = document.querySelector("#main-data");
-      maindData.innerHTML = `
+      let mainData = document.querySelector("#main-data");
+    
+      let areaOrNearest = ''
+
+      if(userInput !== areaVal){
+        areaOrNearest = "Nearest Area"
+      } else {
+        areaOrNearest = "Area"
+      }
+
+      mainData.innerHTML = `
        <h2>${userInput}</h2>
-       <p><strong>Area:</strong> ${areaVal}</p>
+       <p><strong>${areaOrNearest}:</strong> ${areaVal}</p>
        <p><strong>Region:</strong> ${regionVal}</p>
        <p><strong>Country:</strong> ${countryVal}</p>
        <p><strong>Currently:</strong> ${currentlyVal}°F</p>
@@ -90,7 +104,7 @@ function cityInfo(userInput, AddOrNot) {
       <div><strong>Min Temparture:</strong> ${dayAfterTMin}°F</div>
       </article>
        `;
-
+       
       if (AddOrNot) {
         addToPreviousSearch(userInput, currentlyVal);
       }
