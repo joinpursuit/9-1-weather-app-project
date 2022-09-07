@@ -109,9 +109,7 @@ function citySearch(URL, city) {
           mainWeatherIcon.setAttribute(`src`, `./assets/icons8-summer.gif`);
           mainWeatherIcon.setAttribute(`alt`, `sun`);
         } else if (Number(chanceOfWeather.chanceofrain) > 50) {
-          mainWeatherIcon.setAttribute(
-            `src`,
-            `./assets/icons8-torrential-rain.gif`
+          mainWeatherIcon.setAttribute(`src`, `./assets/icons8-torrential-rain.gif`
           );
           mainWeatherIcon.setAttribute(`alt`, `rain`);
         } else if (Number(chanceOfWeather.chanceofsnow) > 50) {
@@ -146,10 +144,6 @@ function citySearch(URL, city) {
         // Previous Search Link
         previousSearchLink = document.createElement(`a`);
        
-
-        //*************** */
-
-
         if (!cityNamesArr.includes(cityInputBox.value.toLowerCase())) {
           cityNamesArr.push(cityInputBox.value.toLowerCase());
           eventListenerBool = true;
@@ -216,12 +210,6 @@ function citySearch(URL, city) {
               
             // }
           
-         
-
-          // got to get the url
-          // so i need only the city name from the side bar previous search
-          //have to plug that city name into the url
-          //then call city search( cuz now ill have a complete url)
         });
       } 
     })
@@ -229,14 +217,8 @@ function citySearch(URL, city) {
       console.error(err);
     })
 } 
-  
-
-
 
 //_________MAIN________________
-
-
-
 
 //MAIN SECTION EVENT LISTENER (SUBMIT) 
 headerForm.addEventListener(`submit`, (e) => {
@@ -286,34 +268,3 @@ converterForm.addEventListener(`submit`, (e) => {
     conversionOutput.innerText = tempReturnVal.toFixed(2);
   }
 })
-
-
-
-
-
-
-
-
-
- 
-
-
-    
-
-
-
-
-
-
-
-//first time u click form u need input.value, but for subsequent searches (REFERRING TO PREVIOUS SEARCHED CITIES-- means u have store this somewhere/how) u have the base url, instead of using .value u the url of that city. u need to save the name from .value
-
-//add event listener to new york so that it clears out the info from previous fetch call, and so that it does the current fetch 
-
-// prevent default for form e
-
-
-
-//create  click event for the li itself --- you need the city variable that was used to complete the fetch request, 
-
-
