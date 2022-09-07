@@ -9,6 +9,7 @@ const main = document.querySelector('main')
 const searchStor = document.querySelector('aside section')
 console.log(searchStor)
 console.log(artStor)
+
 // const todayStor = document.querySelector('#Today')
 // const tmmStor =  document.querySelector('#Tommorow')
 // const dayTmmStore = document.querySelector('#DayAfterTmm')
@@ -141,6 +142,8 @@ form.addEventListener('submit', (event)=>{
         // appending 3 day article to artStor
         artStor.append(upcomingWeather)
 
+       
+
         console.log(article)
         console.log(res.nearest_area[0].areaName[0].value)
         formInput.value = ""
@@ -148,7 +151,14 @@ form.addEventListener('submit', (event)=>{
 
     })
 }) 
+ //adding click functionality to previous search aside
+        // selecting the whole UL first
+        search = document.querySelector('.search')
+        search.addEventListener('click', (event)=>{
+            clicked = event.path[0].textContent
+            console.log(clicked)
 
+        })
 console.log(`${BASE_URL}${JSON}`)
 console.log(form)
 console.log(artStor)

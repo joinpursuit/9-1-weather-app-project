@@ -80,3 +80,12 @@
         // on form submission: remvoving p 'no previous searches' on submission
 // 'successfully added previous search function with limited functionality, "keep track of previous searches" test not fully passed'
 // pushing above line
+// stopping at 1108pm
+// starting at sep 7 10:02AM
+// adding click functionality ( on click change data to clicked )
+// selecting our ul 
+// listening to the list
+// on click, console logging event path ( clicked item text)
+// success
+// pushing, 'added event listener to list, console logging path on click. clicked text saved to variable clicked'
+// now we need to have another fetch happen with clicked variable as the added key to the search terms ( search with clicked data as the city being searched )
