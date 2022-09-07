@@ -12,20 +12,19 @@ h1{
     border: 3px solid black;
     justify-content: center;
     margin: auto;
-    width: 50%;
+    width: auto;
     padding: 4px;
     gap: 5px;
     color: white;
 }
-.aside{
-    display:grid ;
-}
+
 main{
     display: grid;
     color: black;
     background-color: lightgray;
     border: 2px solid green;
     justify-content: center;
+    text-align: center;
 }
 
 .history{
@@ -37,11 +36,32 @@ main{
     display: grid;
     grid-template-columns: 3fr 1fr;
     gap: 4px;
-    width: 50%;
+    width: auto;
     margin: auto;
     padding: 25px;
 }
 
 main.p {
     font-size: large;
+}
+
+.threeDay{
+    border: 3px solid blue;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    height: auto;
+    width:125%;
+    padding: 4px;
+    margin-left: 20px;
+    background-color: black;
+    text-align: center;
+}
+#day1{
+    background-color: salmon;
+}
+#day2{
+    background-color: silver;
+}
+#day3{
+    background-color: goldenrod;
 }
