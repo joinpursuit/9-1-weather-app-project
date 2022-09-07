@@ -56,3 +56,10 @@
   // creating the 3 articles with classes of Today, Tommorow, DayAfterTmm
   // appending to artStor
   // success, page now shows first search correctly, bug after second search, fixing bug via method taught by JD
+  // bugfixed time overflow
+  // page now bug free, need to:
+  // 1) add h2s to .upcomingWeather 3 day article
+  // 2) add previous search function
+  // 3) remove 'choose a locatin to view the weater' after form submission
+  // 4) stylize the page
+  // stopping at 917pm.
