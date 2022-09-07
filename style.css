@@ -41,3 +41,7 @@ main{
     margin: auto;
     padding: 25px;
 }
+
+main.p {
+    font-size: large;
+}
