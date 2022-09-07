@@ -90,5 +90,13 @@
 // pushing, 'added event listener to list, console logging path on click. clicked text saved to variable clicked'
 // now we need to have another fetch happen with clicked variable as the added key to the search terms ( search with clicked data as the city being searched )
 // 5 min break
-// successfully added full functionality to our previous search function
+// semi-successfully added full functionality to our previous search function
 // testing
+// add conditional statement: when submitting the form if the city is not already in the city array, add to previous searches list, otherwise do not
+// we fixed the problem of functionality not working within our previous search function
+// now all that is left is to fix duplicate entrys being made
+// our logic is that we will ( already wrote the code ) add to an array for every submissision the input given. 
+// besides that, fix the style, and we would be doesnt
+// all thats left is to do the optionals
+// pushing 'fixed previous search functionality, now to bugfix duplicate problem and stylize page'
+// stopping 1223PM
