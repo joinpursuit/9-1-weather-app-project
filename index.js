@@ -1,5 +1,4 @@
-const form = document.querySelector("form")
-// const searchLocation = document.querySelector("#location").value
+const searchForm = document.querySelector("#search")
 const BASE_URL = `http://wttr.in/${document.querySelector("#location").value}?format=j1`
 const heading = document.querySelector(".main_location")
 const article = document.querySelector("article")
@@ -8,6 +7,11 @@ const tempP = document.querySelector(".temp_p")
 const sideBar = document.querySelector(".sidebar")
 const ul = document.querySelector("ul")
 const div = document.querySelector("div")
+const widget = document.querySelector("#widget")
+const toC = document.querySelector("#to-c")
+const toF = document.querySelector("#to-f")
+const tempH = document.querySelector("#temp")
+const tempToConvert = document.querySelector("#temp-to-convert")
 
 
 // ul.addEventListener("click", (event) => {
@@ -15,20 +19,25 @@ const div = document.querySelector("div")
 //     makeFetchCall()
 // })
 
-function createWeatherInfo(results) {
+function createWeatherInfo(location, results) {
     const weatherSection = document.createElement("section")
-    const searchLocationH = document.createElement("h3")
+    const searchLocationH = document.createElement("h2")
     const region = document.createElement("p")
     const area = document.createElement("p")
     const country = document.createElement("p")
     const currently = document.createElement("p")
-   // const li = document.createElement("li")
     const search = document.querySelector("#location").value
+    const sunChance = document.createElement("p")
+    const rainChance = document.createElement("p")
+    const snowChance = document.createElement("p")
 
-
-    searchLocationH.innerHTML = results.nearest_area[0].areaName[0].value
-        
-    area.innerHTML = `Area: ${results.nearest_area[0].areaName[0].value}`
+    searchLocationH.innerHTML = location
+    if (results.nearest_area[0].areaName[0].value != location) {
+        area.innerHTML = `Nearest Area: ${results.nearest_area[0].areaName[0].value}`
+    } else {
+        area.innerHTML = `Area: ${results.nearest_area[0].areaName[0].value}`
+    }
+    
     
     region.innerHTML = `Region: ${results.nearest_area[0].region[0].value}`
    
@@ -36,24 +45,22 @@ function createWeatherInfo(results) {
    
     currently.innerHTML = `Currently: Feels Like ${results.current_condition[0].FeelsLikeF}°F`
 
-   // li.innerHTML = `${search} - ${results.current_condition[0].FeelsLikeF}°F`
+   sunChance.innerHTML = `Chance of Sunshine:${results.weather[0].hourly[0].chanceofsunshine}`
 
-    // li.addEventListener("click", (event) => {
-    //         event.preventDefault()
-    //         makeFetchCall(search)
-    //     })
-    //     // if ((ul.length > 0) && (ul[ul.length - 1].value != document.querySelector("#location").value)) {
-    //     //     ul.append(li)
-    //     // }
-    //      ul.append(li)
+   rainChance.innerHTML = `Chance of Rain:${results.weather[0].hourly[0].chanceofrain}`
+
+   snowChance.innerHTML = `Chance of Snow:${results.weather[0].hourly[0].chanceofsnow}`
   
       
     weatherSection.append(
         searchLocationH,
-        region,
-        area, 
+        area,
+        region, 
         country, 
-        currently, 
+        currently,
+        sunChance, 
+        rainChance,
+        snowChance,
     )
     return weatherSection
 }
@@ -65,8 +72,26 @@ function clearPage() {
        while(div.children.length > 0) {
         div.children[0].remove()
        }
+    if (document.querySelector("img")) {
+        document.querySelector("img").remove()
+    }
 }
-
+function createIcons(results) {
+    const gif = document.createElement("img")
+    if (results.weather[0].hourly[0].chanceofsnow > 50) {
+        gif.src = "./assets/icons8-light-snow.gif"
+        gif.alt = "snow"
+    }
+    else if (results.weather[0].hourly[0].chanceofrain > 50) {
+        gif.src = "./assets/icons8-torrential-rain.gif"
+        gif.alt = "rain"
+    }
+    else if (results.weather[0].hourly[0].chanceofsunshine > 50) {
+        gif.src = "./assets/icons8-summer.gif"
+        gif.alt = "sun"
+    }
+    return gif
+}
 function createPrevSearches(location, results) {
     const li = document.createElement("li")
     const a = document.createElement("a")
@@ -82,8 +107,9 @@ function createPrevSearches(location, results) {
         fetch(`http://wttr.in/${location}?format=j1`)
     .then((res) => res.json())
     .then((res) => {   
-        article.append(createWeatherInfo(res) )
+        article.append(createWeatherInfo(location, res) )
         div.append(createForecastInfo(res))
+        main.prepend(createIcons(res))
     })
     })
     return li
@@ -121,23 +147,19 @@ function createForecastInfo(results) {
     return forecastArticle
 }
 
-// function makeListEvent(results) {
-//     const listItem = document.createElement("li")
-// }
-
-
 function makeFetchCall(location) {
     fetch(`http://wttr.in/${location}?format=j1`)
     .then((res) => res.json())
     .then((res) => {   
-        article.append(createWeatherInfo(res) )
+        article.append(createWeatherInfo(location, res) )
         div.append(createForecastInfo(res))
         ul.append(createPrevSearches(location, res))
+        main.prepend(createIcons(res))
     })
 }
 
 
-form.addEventListener("submit", (event) => {
+searchForm.addEventListener("submit", (event) => {
     event.preventDefault()
     tempP.remove()
     heading.remove()
@@ -147,6 +169,14 @@ form.addEventListener("submit", (event) => {
     makeFetchCall(search)
 
     document.querySelector("#location").value = ""
-    
+})
 
+widget.addEventListener("submit", (event) => {
+    event.preventDefault()
+    if (toC.checked) {
+        tempH.innerHTML = (((tempToConvert.value - 32) * (5/9))).toFixed(2)
+    }
+    if (toF.checked) {
+        tempH.innerHTML = ((tempToConvert.value * (9/5) + 32)).toFixed(2)
+    }
 })
