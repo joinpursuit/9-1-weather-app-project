@@ -18,7 +18,6 @@ const noPreviousSearches = document.querySelector(`#noPreviousSearches`);
 
 //grabs p tag in main that contains placeholder text
 const mainPlaceHolderText = document.querySelector(`#mainPlaceHolderText`);
-
 // 3 DAY FORCAST ASIDE
 
 // grabs the 3 day forcast articles with the classlist of hidden
@@ -135,10 +134,8 @@ function citySearch(URL, city) {
         day3MinTemp.innerText = `${day3.mintempF}°F`;
 
         //unhides/hides the 3 day forcast articles, the previous searches and main article placeholder text
-
         noPreviousSearches.classList.add(`hidden`);
-        mainPlaceHolderText.classList.add(`hidden`);
-        noPreviousSearches.classList.add(`hidden`);
+        // mainPlaceHolderText.classList.add(`hidden`);
         mainTodaysWeather.classList.remove(`hidden`);
         forcastAside.classList.remove(`hidden`);
         mainCityName.classList.remove(`hidden`);
@@ -164,7 +161,8 @@ function citySearch(URL, city) {
         //... cont previous searches
 
         //Spawns new list items for previous searches sidebar
-       
+
+        // const noPreviousSearchMsg = document.createElement('<p id="noPreviousSearches">No previous searches</p>');
 
         const feelsLikePreviousSearches = document.createElement(`li`);
         if (cityNamesArr.includes(cityInputBox.value.toLowerCase())) {
@@ -178,6 +176,8 @@ function citySearch(URL, city) {
               // console.log(previousSearchLink)
               previousSearchLink.setAttribute(`href`, `#`);
               //previous searches cont...
+
+              noPreviousSearches.remove();
             }
           }
         } 
