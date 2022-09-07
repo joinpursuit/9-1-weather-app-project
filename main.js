@@ -27,7 +27,7 @@ const project = form.addEventListener("submit", (event) => {
         title.innerHTML = `<h2>${city}</h2>`; //!
       }
       // const weatherBut = document.querySelector("get-weather");
-//!_________________________ Current Weather Section ________________________ 
+      //!_________________________ Current Weather Section ________________________
       const areaP = document.createElement("p");
       areaP.innerHTML = `<b>Nearest Area:</b>${area}`;
       current.append(areaP);
@@ -49,11 +49,10 @@ const project = form.addEventListener("submit", (event) => {
       current.append(currentlyP);
 
       const today = document.querySelector("#Today");
-      // today.innerText = "TODAY";
       const tomorrow = document.querySelector("#Tomorrow");
       const dayAfter = document.querySelector("#Day-After-Tomorrow");
 
-      //!--------THREEDAYS Section --> created a loop to go iterate and update the days.
+      //!--------THREEDAYS Section min, avg, day after --> created a loop to go iterate and update the days.
       //? Use let instead of const because it needs to update after every loop.
       let days = ["Today", "Tomorrow", "Day After Tomorrow"];
       for (let i = 0; i < threeDays.length; i++) {
@@ -63,7 +62,6 @@ const project = form.addEventListener("submit", (event) => {
 
         //* temDays should be able to hold days
         tempDays.textContent = days[i];
-//!_________________________AVG, MAX, MIN Section______________________________________
         //avg -->
         let avgP = document.createElement("p");
         const avgTempF = resJson.weather[i].avgtempF;
@@ -122,29 +120,22 @@ const project = form.addEventListener("submit", (event) => {
       //* QuerySelect ul tag
       //* Create a li to update ul
       //* Create an <a> to create hyperlink
-      // const ulSearch = document.querySelector("ul");
-      // console.log(ulSearch);
       const li = document.createElement("li");
 
       ul.append(li); //? for some reason, this had to be here. #controlFlowIssue
 
       const link = document.createElement("a"); //? created a tag element
-
       previousP.innerHTML = ""; //? To clear message in <p> when click submit
-
       link.innerHTML = `${city}`; //? AKA user input
-
-      // console.log(link.innerHTML);
       link.href = "#";
       li.textContent = `- ${currently}°F`; //? feels like input
-
       li.prepend(link); //? means link first, then temp
-
-      // link.addEventListener("click", project);
+      // link.addEventListener("click", project); //! Want to see ho to use this.. properly set it up later.
       //?Created an event listener for the click action. It erases the values in the main and replaces it with the link inputs.
+
       link.addEventListener("click", () => {
         current.innerHTML = ""; //? to clear old data and replace with new one
-        previousP.remove(); 
+        previousP.remove();
         const area2 = document.createElement("h2"); //* created h2 to display city heading
         area2.innerHTML = `<h2>${city}</h2>`; //? Main heading is user input
         current.prepend(img);
@@ -158,8 +149,6 @@ const project = form.addEventListener("submit", (event) => {
           rainP,
           snowP
         );
-        // link.innerText = `${currentLink}`
-        // current.append(currentLink);
       });
     })
     .catch((err) => {
