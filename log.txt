@@ -53,3 +53,6 @@
 // pushing above lines
 // adding id to parent of article id CurrentCity, id is being set to artStor
 // recreating 3day now, creating our article elements with ids of Today, Tommorow, DayAfterTmm
+  // creating the 3 articles with classes of Today, Tommorow, DayAfterTmm
+  // appending to artStor
+  // success, page now shows first search correctly, bug after second search, fixing bug via method taught by JD

@@ -5,6 +5,7 @@ const form = document.querySelector('form')
 const artStor = document.querySelector('main article')
 artStor.id = 'artStor'
 const formInput = document.querySelector('input')
+const main = document.querySelector('main')
 console.log(artStor)
 // const todayStor = document.querySelector('#Today')
 // const tmmStor =  document.querySelector('#Tommorow')
@@ -36,6 +37,12 @@ form.addEventListener('submit', (event)=>{
         if(currentArt){
             currentArt.remove()
         }
+        const current3Day = document.querySelector('.UpcomingWeather')
+        console.log(current3Day)
+        if(current3Day){
+            console.log('current3day true')
+            current3Day.remove()
+        } else {console.log('current3day false')}
         const daysPs = document.querySelectorAll('.Today p')
         console.log(daysPs)
         // check for the children of the today, tommorow and day after tommorow articles inside of upcoming weather aside
@@ -59,11 +66,19 @@ form.addEventListener('submit', (event)=>{
         // creating the articles
         // creating upcoming weather aside
         const upcomingWeather = document.createElement('aside')
-        upcomingWeather.id = 'Upcoming Weather'
+        upcomingWeather.id = 'Upcoming-Weather'
+        upcomingWeather.classList.add('UpcomingWeather')
         console.log(upcomingWeather)
 
         // creating the 3 articles with classes of Today, Tommorow, DayAfterTmm
-        
+        // first the elements
+        const todayStor = document.createElement('article')
+        const tmmStor = document.createElement('article')
+        const dayTmmStore = document.createElement('article')
+        // now the ids
+        todayStor.id = 'Today'
+        tmmStor.id = 'Tommorow'
+        dayTmmStore.id = 'DayAfterTmm'
 
         // inner html of articles
         const averageToday = document.createElement('p')
@@ -92,13 +107,16 @@ form.addEventListener('submit', (event)=>{
         minDayTmm.textContent = `Min Temperature: ${res.weather[2].mintempF}`
 
         // OLD appending elements to appopriate position
-        // todayStor.append(averageToday, maxToday, minToday)
-        // tmmStor.append(averageTmm, maxTmm, minTmm)
-        // dayTmmStore.append(averageDayTmm, maxDayTmm, minDayTmm)
+        todayStor.append(averageToday, maxToday, minToday)
+        tmmStor.append(averageTmm, maxTmm, minTmm)
+        dayTmmStore.append(averageDayTmm, maxDayTmm, minDayTmm)
 
-
-    article.append(header,area,region,country,currently)
-    artStor.append(article)
+        article.append(header,area,region,country,currently)
+        artStor.append(article)
+        // apppending 3 day classed elements to current weather aside
+        upcomingWeather.append(todayStor,tmmStor,dayTmmStore)
+        // appending 3 day article to artStor
+        artStor.append(upcomingWeather)
 
         console.log(article)
         console.log(res.nearest_area[0].areaName[0].value)
