@@ -67,13 +67,14 @@ const editMain = (place, mainName) => {
   const currentHr = new Date().getHours();
   const chanceOfPath = place.weather[0].hourly;
 
-  //   chanceOfPath.forEach((el, index) => {
-  //     const elDiff = Math.abs(currentHr * 100 - el.time);
-  //     if (elDiff < diffVal) {
-  //       hrIndex = index;
-  //       diffVal = elDiff;
-  //     }
-  //   });
+  // may break tests, as I look for a more accurate hour-time to match the chance of data
+  chanceOfPath.forEach((el, index) => {
+    const elDiff = Math.abs(currentHr * 100 - el.time);
+    if (elDiff < diffVal) {
+      hrIndex = index;
+      diffVal = elDiff;
+    }
+  });
 
   const iconImg = document.createElement(`img`);
   iconImg.setAttribute(`src`, `./assets/icons8-partly-cloudy-day.gif`);
@@ -172,9 +173,9 @@ form.addEventListener(`submit`, (event) => {
   areaSearched = locationName.split(` `);
 
   // will break one test that is case sensitive
-//   areaSearched = areaSearched
-//     .map((el) => el.charAt(0).toUpperCase() + el.slice(1).toLowerCase())
-//     .join(` `);
+  areaSearched = areaSearched
+    .map((el) => el.charAt(0).toUpperCase() + el.slice(1).toLowerCase())
+    .join(` `);
 
   fetch(URL)
     .then((res) => res.json())
