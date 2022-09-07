@@ -30,14 +30,10 @@ main{
     display: grid;
     grid-template-columns: repeat(3, 1fr) ;
     grid-template-rows: 1fr;
-    /* border: 15px solid palevioletred; */
     text-align: center;
     font-weight: bold;
-    /* background-color: white; */
 }
-aside section{
-    /* border: 10px solid orange ; */
-}
+
 div{
     font-weight: bold;
 }
@@ -49,7 +45,7 @@ h4{
     text-align: center;
 }
 #convert{
-    /* border: 10px solid purple; */
+   
     grid-column: 1;
 }
 
