@@ -6,6 +6,8 @@ const artStor = document.querySelector('main article')
 artStor.id = 'artStor'
 const formInput = document.querySelector('input')
 const main = document.querySelector('main')
+const searchStor = document.querySelector('aside section')
+console.log(searchStor)
 console.log(artStor)
 // const todayStor = document.querySelector('#Today')
 // const tmmStor =  document.querySelector('#Tommorow')
@@ -114,6 +116,16 @@ form.addEventListener('submit', (event)=>{
         h2Today.textContent = 'Today'
         h2Tmm.textContent = 'Tommorow'
         h2DayTmm.textContent = 'Day After Tommorow'
+
+        // adding previous search function
+        // on form submission, create li `area-value and feel- like-temp`
+        const prevSearch = document.createElement('li')
+        console.log(prevSearch)
+        // populating with data
+        prevSearch.textContent = `${res.nearest_area[0].areaName[0].value} - ${res.current_condition[0].FeelsLikeF}°F`
+        console.log(prevSearch)
+         // append to li to appopriate location ( sidebar )
+         searchStor.append(prevSearch)
 
 
 

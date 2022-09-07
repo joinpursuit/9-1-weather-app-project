@@ -71,4 +71,12 @@
   //      pushing line 69 lol
 // successfuly recreated 3 day.
 // next to add previous search function
-// stopping at 954 PM
+// stopping at 954pm
+// starating 1041pm
+   // adding previous search function
+        // on form submission, create li `area-value and feel- like-temp`
+        // append to li to appopriate location ( sidebar )
+        // adding functionality ( on click, populate main with corrosponding data ( do another fetch with clicked list item as the  value being fetched))
+        // on form submission: remvoving p 'no previous searches' on submission
+// 'successfully added previous search function with limited functionality, "keep track of previous searches" test not fully passed'
+// pushing above line
