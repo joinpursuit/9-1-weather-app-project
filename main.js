@@ -1,5 +1,6 @@
 const form = document.querySelector("form");
 const main = document.querySelector("main");
+let prevSearchLocation = [];
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -49,6 +50,24 @@ form.addEventListener("submit", (event) => {
         article.AfterTomrrow
       );
 
+      const ul = document.querySelector("ul");
+      const li = document.createElement("li");
+      const anchor = document.createElement("a");
+      anchor.textContent = searchLocation;
+      anchor.setAttribute("href", "#");
+
+      if (!prevSearchLocation.includes(searchLocation)) {
+        li.append(anchor);
+        ul.append(li);
+        prevSearchLocation.push(searchLocation);
+      }
+
+      anchor.addEventListener("click", (event) => {
+        event.preventDefault();
+
+        anchor + `${anchor.current_condition[0].FeelsLikeF}°F`;
+      });
+
       //  ICON based on data changes
       const img = document.createElement("img");
       const chanceOfSunshine = resJson.weather[0].hourly[0].chanceofsunshine;
@@ -67,8 +86,7 @@ form.addEventListener("submit", (event) => {
         img.setAttribute("src", "./assets/icons8-light-snow.gif");
         img.setAttribute("alt", "snow");
       }
-      if (condition) {
-      }
+
       main.append(img);
 
       // WIDGET - Temperature conversion
@@ -79,9 +97,9 @@ form.addEventListener("submit", (event) => {
       const form1 = document.createElement("form");
       label1.append(form1);
 
-      form.addEventListener("submit", (event) => {
-        event.preventDefault();
-      });
+      // form1.addEventListener("submit", (event) => {
+      //   event.preventDefault();
+      // });
 
       //   const a1 = doucment.querySelector("article");
       //   a1.innerText = "Today";
