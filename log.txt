@@ -57,9 +57,15 @@
   // appending to artStor
   // success, page now shows first search correctly, bug after second search, fixing bug via method taught by JD
   // bugfixed time overflow
+  // pushing above
   // page now bug free, need to:
-  // 1) add h2s to .upcomingWeather 3 day article
+  // 1) add h2s to children of .upcomingWeather 3 day article
   // 2) add previous search function
   // 3) remove 'choose a locatin to view the weater' after form submission
   // 4) stylize the page
   // stopping at 917pm.
+  // starrting at 939pm.
+  // adding h2s
+  // added h2s to children of .upcomingWeather 3 day articles
+  // success
+// pushing line 69 lol

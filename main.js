@@ -81,6 +81,11 @@ form.addEventListener('submit', (event)=>{
         dayTmmStore.id = 'DayAfterTmm'
 
         // inner html of articles
+        // adding h2s
+        const h2Today = document.createElement('h2')
+        const h2Tmm = document.createElement('h2')
+        const h2DayTmm = document.createElement('h2')
+
         const averageToday = document.createElement('p')
         const maxToday = document.createElement('p')
         const minToday = document.createElement('p')
@@ -106,10 +111,16 @@ form.addEventListener('submit', (event)=>{
         maxDayTmm.textContent = `Max Temperature: ${res.weather[2].maxtempF}`
         minDayTmm.textContent = `Min Temperature: ${res.weather[2].mintempF}`
 
+        h2Today.textContent = 'Today'
+        h2Tmm.textContent = 'Tommorow'
+        h2DayTmm.textContent = 'Day After Tommorow'
+
+
+
         // OLD appending elements to appopriate position
-        todayStor.append(averageToday, maxToday, minToday)
-        tmmStor.append(averageTmm, maxTmm, minTmm)
-        dayTmmStore.append(averageDayTmm, maxDayTmm, minDayTmm)
+        todayStor.append(h2Today,averageToday, maxToday, minToday)
+        tmmStor.append(h2Tmm,averageTmm, maxTmm, minTmm)
+        dayTmmStore.append(h2DayTmm,averageDayTmm, maxDayTmm, minDayTmm)
 
         article.append(header,area,region,country,currently)
         artStor.append(article)
