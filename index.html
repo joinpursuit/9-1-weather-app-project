@@ -7,7 +7,6 @@
     <title>Natasha weather app</title>
     <link rel="stylesheet" href="./style.css">
     <script defer src="./script.js"></script>
-    <!-- <img src="./assets/icons8-summer.gif" alt="sun"> -->
 </head>
 <body>
     <header>
@@ -18,7 +17,21 @@
             <input type="submit" name="getweather" id="getweather" value="Get Weather">
         </form>
     </header>
-    <aside>
+    <aside id="convert">
+        <form action="text">
+            <label for="Convert-the-temperature">Convert the temperature:
+                <input type="number" id="temp-to-convert">
+            </label>
+            <label for="to-c">To Celsius
+                <input type="radio" id="to-c" name="convert-temp" value="c" checked>
+            </label>
+            <br>
+            <label for="to-f">To Fahrenheit
+                <input type="radio" id="to-f" name="convert-temp" value="f">
+            </label>
+            <input type="submit">
+            <h4></h4>
+        </form>
     </aside>
     <main> 
         <article id="main">

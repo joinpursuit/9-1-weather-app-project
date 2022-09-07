@@ -1,21 +1,18 @@
 body{
     display: grid;
-    grid-template-columns: 1fr 7fr 1fr;
-    grid-template-rows: 1fr 2fr 1fr;
-    border: 10px solid red;
-    margin: 0;
+    grid-template-columns: 1fr 5fr 1fr;
     padding: 10px;
     font-family: Helvetica, sans-serif;
+    background-image: url(https://images.unsplash.com/photo-1517210122415-b0c70b2a09bf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEwfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=900&q=60) ;
 }
 
 header{
     border: 2px solid black;
+    padding-bottom: 10px;
     background-color: teal;
     text-align: center ;
     color: white;
     grid-column: 2/3;
-    width: 100%;
-    box-sizing: content-box;
 }
 
 main{
@@ -31,28 +28,28 @@ main{
 }
 #area{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr ;
-    border: 15px solid palevioletred;
+    grid-template-columns: repeat(3, 1fr) ;
+    grid-template-rows: 1fr;
+    /* border: 15px solid palevioletred; */
     text-align: center;
     font-weight: bold;
-    background-color: white;
+    /* background-color: white; */
 }
 aside section{
-    display: grid;
-    border: 10px solid orange ;
-    grid-column: auto;
-    /* width: 50% ; */
-    box-sizing: content-box;
+    /* border: 10px solid orange ; */
 }
 div{
     font-weight: bold;
 }
-ul{
-    cursor: pointer;
-    /* text-align: left; */
-    /* text-decoration-color: blue; */
-    /* text-decoration-line: underline; */
-}
 a{
     color: blue;
+    cursor: pointer;
 }
+h4{
+    text-align: center;
+}
+#convert{
+    /* border: 10px solid purple; */
+    grid-column: 1;
+}
+
