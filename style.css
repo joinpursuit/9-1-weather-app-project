@@ -1,0 +1,51 @@
+body{
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr;
+    padding: 10px;
+    font-family: Helvetica, sans-serif;
+    background-image: url(https://images.unsplash.com/photo-1517210122415-b0c70b2a09bf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEwfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=900&q=60) ;
+}
+
+header{
+    border: 2px solid black;
+    padding-bottom: 10px;
+    background-color: teal;
+    text-align: center ;
+    color: white;
+    grid-column: 2/3;
+}
+
+main{
+    grid-column: 2/3;
+}
+
+#main{
+    border: 5px solid  teal;
+    background-color: grey;
+    text-align: center;
+    margin: 10px;
+    padding: 5px;
+}
+#area{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) ;
+    grid-template-rows: 1fr;
+    text-align: center;
+    font-weight: bold;
+}
+
+div{
+    font-weight: bold;
+}
+a{
+    color: blue;
+    cursor: pointer;
+}
+h4{
+    text-align: center;
+}
+#convert{
+   
+    grid-column: 1;
+}
+
