@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script defer src="index.js"></script>
+    <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+    <header>
+        <h1>Weather App</h1>
+        <form id="search">
+            <h3>Pick a Location</h3>
+            <input type="text" name="location" id="location" required/>
+            <input type="submit" id="get_weather" value="Get Weather" />
+        </form>
+    </header>
+    <aside id="form_aside">
+        <form id="widget">
+            <label>Convert the temperature</label>
+            <input type="number" id="temp-to-convert" required/>
+            <br/>
+            <label>To Celsius</label>
+            <input type="radio" id="to-c" name="convert-temp" value="c"/>
+            <br/>
+            <label>To Fahrenheit</label>
+            <input type="radio" id="to-f" name="convert-temp" value="f"/>
+            <br/>
+            <input type="submit" />
+        </form>
+        <h4 id="temp">0.00</h4>
+    </aside>
+    <main>
+            
+        <article class="area_details">
+            <p class="main_location">Choose a location to view the weather</p>
+            
+        </article>
+        
+    <div id="forecast">
+
+    </div>
+    </main> 
+    <aside >
+        <section class="sidebar">
+            <h4>Previous Searches</h4>
+        <p class="temp_p">No previous searches</p>
+        <ul>
+
+        </ul>
+        </section>
+        
+    </aside>
+</body>
+</html>

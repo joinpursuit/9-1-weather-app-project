@@ -1,0 +1,128 @@
+html {
+    background: url("https://cdn.dribbble.com/users/62213/screenshots/3833462/icons.gif") no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+}
+
+header{
+    text-align: center;
+    font-size: larger;
+    color: white;
+} 
+
+h3 {
+    font-size: xx-large;
+    font-weight: bold;
+    color: white;
+}
+
+main {
+    text-align: center;
+    width: 500px;
+    color: black;
+}
+
+body {
+    margin: 3rem auto;
+    width: 70%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem 3rem;
+}
+
+header {
+    grid-column: 1/span 3;
+    margin-bottom: 50px;
+}
+
+#forecast_info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+#forecast_info section {
+    width: 150px;
+    background-color: gray;
+    border: 1px solid black;
+    border-radius: 15px;
+    margin: 3px;
+    padding: 10px;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+    height: 40%;
+}
+
+a:hover {
+    font-weight: bold;
+}
+
+input[type=submit]:hover {
+    cursor: pointer;
+}
+
+input[type=radio]:hover {
+    cursor: pointer;
+}
+
+span {
+    font-weight: bold;
+    font-size: large;
+}
+
+li a, li p{
+    display: inline;
+}
+
+.main_location {
+    font-weight: bold;
+    font-size: large;
+    border: 2px solid darkcyan;
+    border-radius: 5px;
+    padding: 5px 10px 5px 10px;
+    width: 300px;
+    text-align: center;
+    color: black;
+}
+
+input[type=number] {
+    width: 60px;
+}
+
+#widget {
+    text-align: center;
+    border: 1px solid black;
+    background-color: gray;
+    color: black;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#widget label, #widget input {
+    margin: 6px;
+}
+
+.sidebar {
+    text-align: center;
+    border: 1px solid black;
+    background-color: gray;
+    color: black;
+    border-radius: 5px;
+}
+
+.area_details {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+    color: white;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
