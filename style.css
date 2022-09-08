@@ -1,0 +1,93 @@
+body {
+    background-image: url(https://www.nasa.gov/sites/default/files/thumbnails/image/main_image_star-forming_region_carina_nircam_final-5mb.jpg);
+    background-size: 100%;
+}
+
+header h1 {
+    color: #bf8b6a;
+    text-decoration: underline;
+}
+
+header {
+    display: grid;
+    width: 75%;
+    margin: auto;
+    grid-template-columns: 1fr;
+    background-color:#312e44;
+    text-align: center;
+    border: solid 2px black;
+    font-family: American Typewriter;
+}
+
+header form {
+    text-align: center;
+    grid-template-columns: 1fr 4fr;
+    background-color: #8c5442;
+    padding: 30px;
+    font-family: American Typewriter;
+}
+
+aside .previousSearches {
+    display: inline-block;
+    position: absolute;
+    top: 180px;
+    right: 188px;
+    width: 20%;
+    border: solid 2px black;
+    text-align: center;
+    background-color: #566f97;
+    margin-top: 20px;
+    font-family: American Typewriter;
+}
+
+main .searches {
+    display: grid;
+    position: absolute;
+    left: 185px;
+    text-align: center;
+    grid-template-columns: 3fr;
+    background-color: #4577b1;
+    border: solid 2px black;
+    line-height: 10px;
+    margin: auto;
+    font-family: American Typewriter;
+} 
+
+ul {
+    list-style-type: square;
+    text-align: center;
+}
+
+
+main .weatherToday {
+    display: grid;
+    text-align: center;
+    background-color: darkgreen;
+}
+
+main .upcomingWeather {
+    display: grid;
+    position: absolute;
+    bottom: 100px;
+    left: 185px;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 51.5%;
+    margin: auto;
+    text-align: center;
+    text-decoration: bold;
+    background-color: #8eacd0;
+    border: solid 2px black;
+    padding-top: 20px;
+    font-family: American Typewriter;
+} 
+
+article.searches {
+    display: grid;
+    margin-right: auto;
+    width: 50%;
+    padding: 10px;
+    grid-column: 2/5;
+    grid-template-rows: repeat(3, 1fr);
+    font-family: American Typewriter;
+}
+
