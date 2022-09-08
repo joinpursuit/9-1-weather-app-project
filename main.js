@@ -119,6 +119,18 @@ form.addEventListener('submit', (event)=>{
         h2Tmm.textContent = 'Tommorow'
         h2DayTmm.textContent = 'Day After Tommorow'
 
+        // creaitng chance of sunshine article entry
+        const currentChanceOfSun = document.createElement ('p')
+        currentChanceOfSun.textContent = `Chance of Sunshine: ${res.weather[0].hourly[0].chanceofsunshine
+        }`
+        console.log(currentChanceOfSun)
+        
+        // creating chance of rain article entry
+        const currentChanceOfRain = document.createElement ('p')
+        currentChanceOfRain.textContent = `Chance of Rain: ${res.weather[0].hourly[0].chanceofrain}`
+        console.log(currentChanceOfRain)
+
+
         // adding previous search function
         // on form submission, create li `area-value and feel- like-temp`
         const prevSearch = document.createElement('li')
@@ -148,7 +160,7 @@ form.addEventListener('submit', (event)=>{
         tmmStor.append(h2Tmm,averageTmm, maxTmm, minTmm)
         dayTmmStore.append(h2DayTmm,averageDayTmm, maxDayTmm, minDayTmm)
 
-        article.append(header,area,region,country,currently)
+        article.append(header,area,region,country,currently,currentChanceOfSun,currentChanceOfRain)
         artStor.append(article)
         // apppending 3 day classed elements to current weather aside
         upcomingWeather.append(todayStor,tmmStor,dayTmmStore)

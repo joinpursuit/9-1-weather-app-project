@@ -105,3 +105,5 @@
 // bug fixed :D
 // success @522pm
 // pushing 'previous search sidebar backend fully functional'
+// only to do, do optional tests, style page
+// after break, creating the add icon based on chase data
