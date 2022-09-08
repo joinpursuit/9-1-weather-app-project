@@ -8,7 +8,6 @@ let searchCheck = ["initialValue1", "initialValue2"];
 
 //create event listener for Search Form
 
-
 const getData = (searchInputParam) => {
     //fetch data, select elements, assign them to variables and assign data points to variables
     fetch(`http://wttr.in/${searchInputParam}?format=j1`) 
@@ -38,20 +37,39 @@ const getData = (searchInputParam) => {
         const showThunder =  parseInt(data.weather[0].hourly[0].chanceofthunder)
   
 
+       //https://pixabay.com/
+       
+       let weatherHeader_bkgdUrl = `https://pixabay.com/api/?key=29790506-5b6a9a899f2d52301ae8b8967&q=${searchInputParam}&category=places&image_type=photo`
+            fetch(weatherHeader_bkgdUrl)
+            .then(response => response.json())
+            .then((picData) => {
+                console.log("Pixabay Data =", picData)
+            let weather_headerPic = ''
+            if(picData.hits[0].userImageURL !== "")  {
+                weather_headerPic = picData.hits[0].userImageURL
+            }  else if(picData.hits[0].previewURL !== ""){
+                weather_headerPic = picData.hits[0].previewURL
+            }  else {
+                weather_headerPic = picData.hits[0].largeImageURL
+            }
+            console.log("weather header pic = ", weather_headerPic)
+             
+            weather_app_header.style.backgoundImage = "'url('" + weather_headerPic + ")"
+            })
+            
+
+
         //clear old search results from weather box (article element in HTML doc)
-
-        weatherBox.innerHTML = ""
-
+        weatherBox.innerHTML = "";
+        weatherBox.style.maxHeight = "60vh";
 
         
         //set size of weather gif
-
         img.setAttribute('height', 100)
         img.setAttribute('width', 100)
 
        
         //Determine which whether gif should display based on fetched data: Currently
-
         if(showSun > 50){
             img.setAttribute('src', "./assets/icons8-summer.gif")
             img.setAttribute('alt',"sun")
@@ -88,14 +106,15 @@ const getData = (searchInputParam) => {
         }
 
 
-        //attach weather gif to weatherBox (article element in HTML doc)
+        
+        // <iframe width="560" height="315" src="https://www.youtube.com/embed/E-IvAOQ-6EY?start=10" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+        //attach weather gif to weatherBox (article element in HTML doc)
         weatherBox.appendChild(img)
 
 
 
         //attach weather results to weatherBox and set add the fetched data to their textContent property
-
         city.textContent = searchInputParam
         weatherBox.append(city)
     
@@ -139,12 +158,11 @@ const getData = (searchInputParam) => {
         //Display temperature conversion widget
         tempConversions.style.display = "block"
         let answer = 0;
-        console.log(toC)
-        console.log(toF)
+        //console.log(toC)
+        //console.log(toF)
 
         
         //Calculate conversion based on user selection and display in h4 element
-
         tempConvertForm.addEventListener('submit', (event)=> {
             event.preventDefault()
             console.log(event)
@@ -234,7 +252,7 @@ const getData = (searchInputParam) => {
             searchItem.append(prevSearchLink) //attach hyperlinked search (prevSearchLink) to the line item (searchItem)
 
             //console.log("presearchLink = ", prevSearchLink) 
-            console.log("prevSearchLink innerText =", prevSearchLink.innerText ) 
+            //console.log("prevSearchLink innerText =", prevSearchLink.innerText ) 
             //searchItem.innerText += " - " + data.current_condition[0].FeelsLikeF + "°F"
             searchList.appendChild(searchItem)
         }
