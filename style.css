@@ -1,0 +1,75 @@
+
+header {
+    margin: auto;
+    background-color:  rgb(35, 203, 184);
+    text-align: center;
+    display: grid;
+    border: 4px solid rgb(173, 222, 110);
+    border-radius: 20px;
+    padding: 30px;
+    font-size: 1.5rem;
+  }
+
+.fullForecast{
+margin:auto;
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+border: 4px double rgb(173, 222, 110);
+background-color: #26ccae;
+color: #040404;
+border-radius: 10px;
+padding:20px;
+background-image: linear-gradient(to right, rgb(67, 162, 200), #cc776e);
+
+}
+
+body {
+    display: grid;
+    grid-gap: 1rem;
+    font-family: Arial, sans-serif, Helvetica;
+  }
+
+  main{
+    margin: auto;
+    text-align: center;
+    background-color: rgb(154, 198, 198);
+    border: 4px solid rgb(173, 222, 110);
+    border-radius: 20px;
+    padding: 30px;
+
+    
+  }
+
+  h1{
+    text-align: center;
+    font-size: 3rem;
+    
+  }
+
+  .header{
+    background-color: beige;
+    border-radius: 1rem;
+  }
+
+  #location{
+    background-color: #b9cbf3;
+  }
+
+  .sideBar{
+    grid-template-columns: 4/4;
+    background-color: aquamarine;
+  }
+  main img {
+    border-radius: 45px;
+    border: 2px solid rgb(110, 222, 215);
+    height: 200px;
+    width: 200px;
+
+  }
+
+#today, #tomorrow,#dayAfterTomorrow {
+    padding:10px;
+    
+    border-radius: 20px;
+
+}

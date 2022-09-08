@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="./main.js"></script>
+    <link rel="stylesheet" href="./style.css"/>
+    <title>Document</title>
+</head>
+<body>
+    <div class="header">
+
+        <h1>Weather App</h1>
+        <header>
+            <form>
+                <label>Pick a location</label>
+                <input name="id" id="location" type="text" placeholder="type a city"/>
+                <input type="submit" id="button1" value="Get Weather">
+            </form>
+
+        </header>
+        <br>
+        <br>
+    </div>
+
+    <div class="converter">
+        <aside>
+          <form id="conversion">
+            <label for="temp-to-convert">Convert the temperature</label>
+            <input type="number" name="tempConvert"" id="temp-to-convert" required/>
+            <br/>
+            <input type="radio" name="converter" value="Celsius" id="to-c" />
+            <label for="to-c">Celsius</label>
+            <br />
+            <input type="radio" name="converter" value="Fahrenheit" id="to-f" />
+            <label for="to-f">Fahrenheit</label>
+            <br/>
+            <input type="submit" value="submit" />
+            <h4 id="convertResult"></h4>
+          </form>
+        </aside>
+      </div>
+    
+    <main>
+        <div class="main">
+            <article id="chooseLocation" class="hidden">Choose a location to view the weather.</article>
+            <aside class="fullForecast">
+                <article id="today"></article>
+                <article id="tomorrow"></article>
+                <article id="dayAfterTomorrow"></article>
+            </aside>
+
+        </div>
+    </main>
+    
+    <aside class="sideBar">
+            <section>
+                <h3 id="noPrev">No Previous Searches</h3>
+                <ul></ul>
+                <p id="no-search">No previous searches</p>
+
+            </section>
+    </aside>
+
+</body>
+</html>
