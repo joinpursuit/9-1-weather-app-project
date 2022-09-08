@@ -1,7 +1,5 @@
 const form = document.querySelector("form");
-// console.log(form);
 const main = document.querySelector("main");
-// console.log(main);
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -21,7 +19,6 @@ form.addEventListener("submit", (e) => {
       hiddenP.innerHTML = `<h2>${input}</h2>`;
 
       const areaName = resJson.nearest_area[0].areaName[0].value;
-      //   console.log(areaName);
       const areaP = document.createElement("p");
       areaP.innerHTML = `<strong>Nearest Area: </strong> ${areaName}`;
       const location = document.querySelector(".hidden");
@@ -57,6 +54,7 @@ form.addEventListener("submit", (e) => {
       snowyP.innerHTML = `<strong>Chance of Snow: </strong> ${snowy}`;
       location.append(snowyP);
 
+      // add an img to main
       const img = document.createElement("img");
       if (sunny > 50) {
         img.setAttribute("src", "./assets/icons8-summer.gif");
@@ -134,9 +132,7 @@ form.addEventListener("submit", (e) => {
       const ul = document.querySelector("ul");
       const li = document.createElement("li");
       const a = document.createElement("a");
-      // console.log(ul);
       ul.append(li);
-      //   console.log(li);
       a.innerHTML = `${input}`;
       a.setAttribute("href", `#`);
       li.innerHTML = `- ${feelslike}°F`;
