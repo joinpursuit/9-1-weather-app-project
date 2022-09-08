@@ -1,0 +1,171 @@
+
+             <!-- 3 Articles - Today, Tomorrow and Day After Aside -->
+             <!-- BELONGS INSIDE OF MAIN SECTION -->
+             
+             <aside>
+                <article class="todayTemp showLater">
+                        <!-- <div> -->
+                        <span class ="todayHdg makeBold">Today</span> <br> <br>
+                        <span class ="avgTempToday makeBold">Average Temperature</span> <br>
+                        <span class ="avgToday notBold">tempValue</span> <br> <br>
+    
+                        <span class ="maxTempToday makeBold">Max Temperature</span> <br>
+                        <span class ="maxToday notBold">tempValue</span> <br> <br>
+    
+                        <span class ="minTempToday makeBold">Min Temperature</span> <br>
+                        <span class ="minToday notBold">tempValue</span> <br> <br> 
+                    <!-- </div> -->
+                </article>
+    
+                <article class="tomorrowTemp showLater">
+                    <!-- <div > -->
+                        <span class ="tomorrowHdg makeBold">Tomorrow</span> <br> <br>
+                        <span class ="avgTempTomorrow makeBold">Average Temperature</span> <br>
+                        <span class ="avgTomorrow notBold">tempValue</span> <br> <br>
+    
+                        <span class ="maxTempTomorrow makeBold">Max Temperature</span> <br>
+                        <span class ="maxTomorrow  notBold">tempValue</span> <br> <br>
+    
+                        <span class ="minTempTomorrow makeBold">Min Temperature</span> <br>
+                        <span class ="minTomorrow notBold">tempValue</span> <br> <br>
+                    <!-- </div> -->
+                </article>
+    
+                <article class="dayAfterTemp showLater" >
+                    <!-- <div > -->
+                            <span class ="dayAfterHdg makeBold" >Day After</span> <br> <br>
+                        <span class ="avgTempDayAfter makeBold">Average Temperature</span> <br>
+                        <span class ="avgDayAfter notBold">tempValue</span> <br> <br>
+    
+                        <span class ="maxTempDayAfter makeBold">Max Temperature</span> <br>
+                        <span class ="maxDayAfter notBold">tempValue</span> <br><br>
+    
+                        <span class ="minTempDayAfter makeBold">Min Temperature</span> <br>
+                        <span class ="minDayAfter  notBold">tempValue</span> <br> <br>
+                    <!-- </div> -->
+                </article>
+              </aside>
+    
+            </main> 
+    
+    
+            <!-- Previous Searches Aside -->
+    
+            <aside class="prevSearches"> 
+                <section>
+                    <div >
+                        <h4 class="prevSearchesHdg">Previous Searches</h4>
+                        <p class="noPrevSearch">No previous searches</p>
+                        <ul class="searchList"></ul>
+    
+                        <!-- <ul class="searchLink">
+                            <li>Search link 1 -temp F degrees</li>
+                            <li>Search link 2-temp F degrees</li>
+                            <li>Search link 3-temp F degrees</li> 
+                        </ul> -->
+                    </div> 
+                </section>
+            </aside>
+    
+    
+            <!-- Temperature Conversion Widget Aside -->
+    
+            <aside class="tempConversions showLater">  
+                <form oninput="fTemp.value=parseInt(a.value)+parseInt(b.value)">
+                    <label for="tempSelect"><strong>Convert the temperature:</strong> </label><br>
+                    <input type ="number" id="tempSelect" name="tempSelect" size ="50" min ="-50" max ="130" step="1" value="100"><br>
+    
+                    <label for="celcius">To Celcius:     </label>
+                    <input type="radio" id="celcius"
+                    name="celcius" value="celcius"> <br>
+                    <label for="farenheit">To Farenheit:</label>
+                    <input type="radio" id="farenheit"
+                    name="farenheit" value="farenheit"><br><br>
+            
+                    <button type="submit">Submit</button><br><br>
+                    <p class="convertedTemp"></p>
+    
+                </form>  
+            </aside>
+    
+
+
+
+            <!-- OLD CODE I HAD IN THE HEADER -->
+
+                 <!-- <label class="pickLocation" for="search">Pick a location:</label><br>
+                <input type="search" id="search" name="search" value=""><br>
+                <button class="getWeatherButton" type="submit">Get Weather</button><br><br> -->
+
+
+
+            <!-- <p class="initialInstruction showFirst">Choose a location to view the weather </p>
+
+                <div class="weatherResults single">
+                    <h3 class="area  single">City</h3> <br><br>
+                    <span class="area single">Area</span><br><br>
+                    <span class="region1 single">Region: </span>
+                    <br><br>
+                    <span class="country1 single">Country</span><br><br>
+                    <span class="currently1 single">Currently</span><br><br>
+                </div> -->
+<!--             
+
+    REPLACED WITH DOCUMENT.ELEMENT-CREATE since test did not detect DATA values using existing HTML elements
+                // const avgToday = document.querySelector('.avgToday')
+                // const maxToday = document.querySelector('.maxToday')
+                // const minToday = document.querySelector('.minToday')
+        
+                // const avgTomorrow = document.querySelector('.avgTomorrow')
+                // const maxTomorrow = document.querySelector('.maxTomorrow')
+                // const minTomorrow = document.querySelector('.minTomorrow')
+        
+                // const avgDayAfter = document.querySelector('.avgDayAfter')
+                // const maxDayAfter = document.querySelector('.maxDayAfter')
+                // const minDayAfter = document.querySelector('.minDayAfter')
+        
+                // const prevSearches = document.querySelector('.prevSearchesHdg')
+                // const noPrevSearch = document.querySelector('.noPrevSearch')
+                // const searchList = document.querySelector('.searchList')
+         -->
+
+         <!-- // const avgToday = document.querySelector('.avgToday')
+         // const maxToday = document.querySelector('.maxToday')
+         // const minToday = document.querySelector('.minToday')
+ 
+         // const avgTomorrow = document.querySelector('.avgTomorrow')
+         // const maxTomorrow = document.querySelector('.maxTomorrow')
+         // const minTomorrow = document.querySelector('.minTomorrow')
+ 
+         // const avgDayAfter = document.querySelector('.avgDayAfter')
+         // const maxDayAfter = document.querySelector('.maxDayAfter')
+         // const minDayAfter = document.querySelector('.minDayAfter')
+ 
+         // const prevSearches = document.querySelector('.prevSearchesHdg')
+         // const noPrevSearch = document.querySelector('.noPrevSearch')
+         // const searchList = document.querySelector('.searchList')
+ 
+         // <!- <div> -->
+         // <!-- <span class ="todayHdg makeBold">Today</span> <br> <br>
+         // <span class ="avgTempToday makeBold">Average Temperature</span> <br>
+         // <span class ="avgToday notBold">tempValue</span> <br> <br> -->
+ 
+         // <!-- <span class ="maxTempToday makeBold">Max Temperature</span> <br>
+         // <span class ="maxToday notBold">tempValue</span> <br> <br>
+ 
+         // <span class ="minTempToday makeBold">Min Temperature</span> <br>
+         // <span class ="minToday notBold">tempValue</span> <br> <br>  
+ 
+         // Data for Initial Single Search - layout to be hidden after 3 searches
+   -->
+         <!-- <img src="./assets/icons8-summer.gif" alt="picture of sun" width = "75vw" height = "75vh" >
+                        <span class="city"></span><br><br>
+                            <span class="nearest"></span><br><br>
+                        <span class="region"> </span>
+                        <br><br>
+                            <span class="country">Country:</span><br><br>
+                            <span class="currently">Currently: Feels like </span><br><br>
+                            <span class="sun">Chance of Sunshine:</span><br><br>
+                            <span class="rain">Chance of Rain:</span><br><br>
+                            <span class="snow">Chance of Snow:</span>   
+                        <br> -->

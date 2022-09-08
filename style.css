@@ -1,0 +1,163 @@
+#skyVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+  }
+   
+.container1 {
+    /* box-sizing: border-box; */
+    position: relative;
+    display: grid;
+    height: 500px;
+    width: 900px;
+    margin-left: 6vw;
+    /* grid-template-columns: 1fr .5fr .5fr .5fr 1fr ; */
+    grid-template-columns: repeat(8,1fr) ;
+    grid-template-rows: .4fr 1fr ;
+    grid-row-gap: 1vh;
+     
+}
+
+.container2 {
+    display: grid;
+    height: 21vh;
+    width: 64.5vw;
+    margin-left: 12vw;
+    margin-top: 11vh;
+    grid-template-columns: repeat(3,1fr) ;
+    grid-template-rows: 1fr ;
+    /* display: none; */
+    
+}
+.weather_App_Header{
+    /* box-sizing: border-box; */
+    /* background-color: darkcyan; */
+    background-image: url("./assets/videos_and_pics/sunnyCity.jpg");
+    background-size:contain;
+    border: 1px solid black;
+    width: 55vw ;
+    height: 20vh;
+    grid-column:  2 / 5;
+    grid-row:  1 / 1; 
+    text-align: center;
+    color: white;
+
+} 
+
+
+ .weatherInfo {
+    /* box-sizing: border-box; */
+    grid-column: 2 / 5;
+    grid-row: 2 / 2;
+    background-color: rgba(211, 211, 211, .4);
+    border: 1px solid darkcyan ;
+    text-align: center;
+    font-weight: bold;
+    color: black;
+    height: auto;
+    width: 55vw;
+    margin-left: 21;
+}
+
+.threeDays {
+    grid-row: 1;
+    justify-items: center;
+    display: none;
+}
+
+
+.makeBold {
+    font-weight: bold;
+    font-size: 15px;
+}
+.notBold {
+    font-weight: lighter;
+}
+
+.todayTemp {
+    grid-column: 1;
+    grid-row: 1;
+    background-color: lightgray;
+    border: 1px solid darkcyan ;
+    text-align: center;
+    font-weight: bold;
+    height: auto;
+    width: 18vw;
+    margin-left: 9vw;
+}
+
+.tomorrowTemp {
+    grid-column: 2;
+    grid-row: 1;
+    background-color: lightgray;
+    border: 1px solid darkcyan ;
+    text-align: center;
+    font-weight: bold;
+    height: auto;
+    width: 18.5vw;
+    /* margin-left: 1vw; */
+}
+
+.dayAfterTemp {
+    grid-column: 3;
+    grid-row: 1;
+    background-color: lightgray;
+    border: 1px solid darkcyan ;
+    text-align: center;
+    font-weight: bold;
+    height: auto;
+    width: 18vw;
+}
+
+
+
+.todayHdg, .tomorrowHdg, .dayAfterHdg {
+    font-size: 16px;
+    /* grid-row-gap: 2vh; */
+}
+
+.prevSearches {
+    grid-column: 5 / 5;
+    grid-row: 2/ 4;
+    text-align: left;
+    height: 50vh;
+    width: 13vw;
+    margin-left: 3vw;
+}
+
+.prevSearchesHdg {
+    text-align: left;
+    font-weight: bold;
+    margin-left: 10px;
+   }
+
+   .noPrevSearch{
+    margin-left: 15px;
+   }
+ 
+   .searchLink{
+       margin:0
+   }
+
+   .tempConversions {
+    grid-column: 1 /1;
+    grid-row: 2/2 ;
+    text-align: left; 
+    width: 15vw;
+    height: 50vh;
+    display: none;
+}
+
+
+    input[type="radio"] {
+     margin-top: -1px;
+     vertical-align: middle;
+}
+
+
+
+
+
+
