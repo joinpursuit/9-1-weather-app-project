@@ -16,7 +16,7 @@ header {
     background-color:#312e44;
     text-align: center;
     border: solid 2px black;
-    font-family: Luminari;
+    font-family: American Typewriter;
 }
 
 header form {
@@ -24,6 +24,7 @@ header form {
     grid-template-columns: 1fr 4fr;
     background-color: #8c5442;
     padding: 30px;
+    font-family: American Typewriter;
 }
 
 aside .previousSearches {
@@ -36,6 +37,7 @@ aside .previousSearches {
     text-align: center;
     background-color: #566f97;
     margin-top: 20px;
+    font-family: American Typewriter;
 }
 
 main .searches {
@@ -48,6 +50,7 @@ main .searches {
     border: solid 2px black;
     line-height: 10px;
     margin: auto;
+    font-family: American Typewriter;
 } 
 
 ul {
@@ -75,6 +78,7 @@ main .upcomingWeather {
     background-color: #8eacd0;
     border: solid 2px black;
     padding-top: 20px;
+    font-family: American Typewriter;
 } 
 
 article.searches {
@@ -84,5 +88,6 @@ article.searches {
     padding: 10px;
     grid-column: 2/5;
     grid-template-rows: repeat(3, 1fr);
+    font-family: American Typewriter;
 }
 
