@@ -6,36 +6,74 @@ const ul = document.querySelector("ul")
 let loc = ""
 let i = 0
 let main = document.querySelector("main")
-let mainP = document.querySelector("main p")
-
+let mainLoc = ""
+const day1 = document.querySelector("#day1")
+const day2 = document.querySelector("#day2")
+const day3 = document.querySelector("#day3")
 
 
 //add date to list on side after search
 
 function addInitData(data){
+    
     // access temp data
     let temp = data["current_condition"][0]["temp_F"]
     // create li element for results
     let li = document.createElement('li')
     // create anchor element
     let a =  document.createElement("a")
-    a.setAttribute("href",`${BASE}${loc}?format=j1`)
-    a.setAttribute("class","button")
+    a.setAttribute("href","#")
+   
+
+    a.addEventListener("click",(event)=>{
+    event.preventDefault()
+   // console.log(a)
+    const searched = `${BASE}${a.textContent}?format=j1`
+    
+    
+    fetch(searched)
+        .then((res)=> res.json())
+        .then((res) => {
+            mainLoc = a.textContent
+            dataInMain(res)
+            addDay1(res)
+            addDay2(res)
+            addDay3(res)
+        })
+        .catch((error)=>{
+        
+            console.log(error)
+        })
+})
+    
+    // a.setAttribute()
+    
     a.textContent = loc
-    
+    mainLoc = loc
+    //console.log(a.textContent)
     // create p tag for the temp
-    let place = document.createTextNode( ` -${temp}⁰F`)
-    
-    a.appendChild(place)
+  
 
     li.append(a)
+    // a.insertAdjacentText('afterend',` - ${temp}⁰F`)
+    a.insertAdjacentHTML('afterend',` - ${temp}⁰F`)
+    
+
+
     ul.append(li)
     console.log(ul)
+    
 }
 
 function dataInMain(data){
+if(i > 0){
+        main.innerHTML = ""
+    }
+
 let searched = document.createElement('h2')
-searched.innerText = loc
+console.log(mainLoc)
+
+searched.innerText = mainLoc
 let area = document.createElement("p")
 area.innerHTML = ( `<strong> Area:</strong>  ${data["nearest_area"][0]["areaName"][0]["value"]}`)
 let region = document.createElement("p")
@@ -59,6 +97,10 @@ main.append(currently)
 }
 
 function addDay1 (data){
+    if(i > 0){
+        
+        day1.innerHTML = ""
+    }
 let today = document.createElement('h2')
 today.innerText = "Today"
 let avg = document.createElement("p")
@@ -68,12 +110,18 @@ maxT.innerHTML = (`<strong>Max Temperature: </strong> ${data["weather"][0]["maxt
 let minT= document.createElement("p")
 minT.innerHTML = (`<strong> Min Temperature :</strong>  ${data["weather"][0]["mintempF"]}⁰F`)
 
-const day1 = document.querySelector("#day1")
+
 day1.append(today,avg,maxT,minT)
+
+console.log("data: ", data)
 }
 
 
 function addDay2 (data){
+    if(i > 0){
+        
+        day2.innerHTML = ""
+    }
     let tomm = document.createElement('h2')
     tomm.innerText = "Tomorrow"
     let avg = document.createElement("p")
@@ -83,12 +131,16 @@ function addDay2 (data){
     let minT= document.createElement("p")
     minT.innerHTML = (`<strong> Min Temperature :</strong>  ${data["weather"][1]["mintempF"]}⁰F`)
     
-    const day2 = document.querySelector("#day2")
+    
     day2.append(tomm,avg,maxT,minT)
     }
 
 
 function addDay3 (data){
+    if(i > 0){
+        
+        day3.innerHTML = ""
+    }
     let dAft = document.createElement('h2')
     dAft.innerText = "Day After Tomorrow"
     let avg = document.createElement("p")
@@ -98,7 +150,7 @@ function addDay3 (data){
     let minT= document.createElement("p")
     minT.innerHTML = (`<strong> Min Temperature :</strong>  ${data["weather"][2]["mintempF"]}⁰F`)
     
-    const day3 = document.querySelector("#day3")
+    
     day3.append(dAft,avg,maxT,minT)
     }
 
@@ -107,20 +159,18 @@ form.addEventListener("submit",(event)=>{
     let input = document.querySelector("#location").value
     const searched = `${BASE}${input}?format=j1`
     loc = input
-    
+    form.reset()
     if(i === 0){
         ul.innerHTML = ''
         i++
     }
-    if(i > 0){
-        main.innerHTML = ""
-    }
+    
 
     fetch(searched)
         .then((res)=> res.json())
         .then((res) => {
-            //console.log (res)
-            console.log (input)
+            
+            //console.log (input)
             addInitData(res)
             dataInMain(res)
             addDay1(res)

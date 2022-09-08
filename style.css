@@ -29,7 +29,9 @@ main{
 
 .history{
     display: grid;
+    display: inline;
     border: 3px solid black;
+    
 }
 
 .grid-container{
@@ -39,6 +41,7 @@ main{
     width: auto;
     margin: auto;
     padding: 25px;
+    grid-template-rows: 2;
 }
 
 main.p {
