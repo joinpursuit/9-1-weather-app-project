@@ -1,9 +1,10 @@
-header {
+.header {
   display: grid;
   background: darkcyan;
   justify-content: center;
   grid-template-rows: repeat(2, 1fr);
-  margin: 75px;
+  margin: 14px;
+  margin-top: 31px;
 }
 
 .Days {
@@ -12,7 +13,7 @@ header {
   width: 50%;
   height: 300px;
   background-color: grey;
-  margin-top: auto;
+  margin-top: au;
 }
 
 .history {
