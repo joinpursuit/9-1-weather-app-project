@@ -6,18 +6,13 @@ const main = document.querySelector("main")
 const tempP = document.querySelector(".temp_p")
 const sideBar = document.querySelector(".sidebar")
 const ul = document.querySelector("ul")
-const div = document.querySelector("div")
+const div = document.querySelector("#forecast")
 const widget = document.querySelector("#widget")
 const toC = document.querySelector("#to-c")
 const toF = document.querySelector("#to-f")
 const tempH = document.querySelector("#temp")
 const tempToConvert = document.querySelector("#temp-to-convert")
 
-
-// ul.addEventListener("click", (event) => {
-//     event.preventDefault()
-//     makeFetchCall()
-// })
 
 function createWeatherInfo(location, results) {
     const weatherSection = document.createElement("section")
@@ -30,27 +25,48 @@ function createWeatherInfo(location, results) {
     const sunChance = document.createElement("p")
     const rainChance = document.createElement("p")
     const snowChance = document.createElement("p")
+    const areaSpan = document.createElement("span")
+    const regionSpan = document.createElement("span")
+    const countrySpan = document.createElement("span")
+    const currentlySpan = document.createElement("span")
+    const sunSpan = document.createElement("span")
+    const rainSpan = document.createElement("span")
+    const snowSpan = document.createElement("span")
 
     searchLocationH.innerHTML = location
     if (results.nearest_area[0].areaName[0].value != location) {
-        area.innerHTML = `Nearest Area: ${results.nearest_area[0].areaName[0].value}`
+        areaSpan.innerHTML = "Nearest Area: "
+        area.innerHTML = results.nearest_area[0].areaName[0].value
+        area.prepend(areaSpan)
     } else {
-        area.innerHTML = `Area: ${results.nearest_area[0].areaName[0].value}`
+        areaSpan.innerHTML = "Area: "
+        area.innerHTML = results.nearest_area[0].areaName[0].value
+        area.prepend(areaSpan)
     }
     
+    regionSpan.innerHTML = "Region: "
+    region.innerHTML = results.nearest_area[0].region[0].value
+    region.prepend(regionSpan)
+   
+    countrySpan.innerHTML = "Country: "
+    country.innerHTML = results.nearest_area[0].country[0].value
+    country.prepend(countrySpan)
+   
+    currentlySpan.innerHTML = "Currently: "
+    currently.innerHTML = `Feels Like ${results.current_condition[0].FeelsLikeF}°F`
+    currently.prepend(currentlySpan)
     
-    region.innerHTML = `Region: ${results.nearest_area[0].region[0].value}`
-   
-    country.innerHTML = `Country: ${results.nearest_area[0].country[0].value}`
-   
-    currently.innerHTML = `Currently: Feels Like ${results.current_condition[0].FeelsLikeF}°F`
+    sunSpan.innerHTML = "Chance of Sunshine: "
+    sunChance.innerHTML = `${results.weather[0].hourly[0].chanceofsunshine}%`
+    sunChance.prepend(sunSpan)
 
-   sunChance.innerHTML = `Chance of Sunshine:${results.weather[0].hourly[0].chanceofsunshine}`
-
-   rainChance.innerHTML = `Chance of Rain:${results.weather[0].hourly[0].chanceofrain}`
-
-   snowChance.innerHTML = `Chance of Snow:${results.weather[0].hourly[0].chanceofsnow}`
-  
+    rainSpan.innerHTML = "Chance of Rain: "
+    rainChance.innerHTML = `${results.weather[0].hourly[0].chanceofrain}%`
+    rainChance.prepend(rainSpan)
+    
+    snowSpan.innerHTML = "Chance of Snow: "
+    snowChance.innerHTML = `${results.weather[0].hourly[0].chanceofsnow}%`
+    snowChance.prepend(snowSpan)
       
     weatherSection.append(
         searchLocationH,
@@ -117,8 +133,9 @@ function createPrevSearches(location, results) {
 
 function createForecastInfo(results) {
     const forecastArticle = document.createElement("article")
+    forecastArticle.setAttribute("id","forecast_info")
     for(let i = 0;i < results.weather.length; i++) {
-        // console.log(results.weather)
+
         const forecastSection = document.createElement("section")
         const forecastHeading = document.createElement("h4")
         if (i === 0) {
@@ -154,7 +171,7 @@ function makeFetchCall(location) {
         article.append(createWeatherInfo(location, res) )
         div.append(createForecastInfo(res))
         ul.append(createPrevSearches(location, res))
-        main.prepend(createIcons(res))
+        article.prepend(createIcons(res))
     })
 }
 
@@ -174,9 +191,9 @@ searchForm.addEventListener("submit", (event) => {
 widget.addEventListener("submit", (event) => {
     event.preventDefault()
     if (toC.checked) {
-        tempH.innerHTML = (((tempToConvert.value - 32) * (5/9))).toFixed(2)
+        tempH.innerHTML = `Converted to ${((tempToConvert.value - 32) * (5/9)).toFixed(2)} °C`
     }
     if (toF.checked) {
-        tempH.innerHTML = ((tempToConvert.value * (9/5) + 32)).toFixed(2)
+        tempH.innerHTML = `Converted to ${((tempToConvert.value * (9/5) + 32)).toFixed(2)} °F`
     }
 })

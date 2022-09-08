@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script defer src="index.js"></script>
+    <link rel="stylesheet" href="./styles.css" />
 </head>
 
 <body>
@@ -17,25 +18,7 @@
             <input type="submit" id="get_weather" value="Get Weather" />
         </form>
     </header>
-    <main>
-        <article class="area_details">
-            <p class="main_location">Choose a location to view the weather</p>
-            
-        </article>
-        <aside >
-            <section class="sidebar">
-                <h4>Previous Searches</h4>
-            <p class="temp_p">No previous searches</p>
-            <ul>
-
-            </ul>
-            </section>
-            
-        </aside>
-       <div>
-
-       </div>
-       <aside>
+    <aside id="form_aside">
         <form id="widget">
             <label>Convert the temperature</label>
             <input type="number" id="temp-to-convert" required/>
@@ -49,7 +32,27 @@
             <input type="submit" />
         </form>
         <h4 id="temp">0.00</h4>
-       </aside>
+    </aside>
+    <main>
+            
+        <article class="area_details">
+            <p class="main_location">Choose a location to view the weather</p>
+            
+        </article>
+        
+    <div id="forecast">
+
+    </div>
     </main> 
+    <aside >
+        <section class="sidebar">
+            <h4>Previous Searches</h4>
+        <p class="temp_p">No previous searches</p>
+        <ul>
+
+        </ul>
+        </section>
+        
+    </aside>
 </body>
 </html>
