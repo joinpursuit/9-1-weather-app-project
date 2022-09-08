@@ -25,6 +25,8 @@ main{
     border: 2px solid green;
     justify-content: center;
     text-align: center;
+    grid-template-rows: auto;
+    grid-template-columns: auto;
 }
 
 .history{
@@ -41,7 +43,7 @@ main{
     width: auto;
     margin: auto;
     padding: 25px;
-    grid-template-rows: 2;
+    grid-template-rows: 2fr 2fr;
 }
 
 main.p {
@@ -51,11 +53,11 @@ main.p {
 .threeDay{
     border: 3px solid blue;
     display: grid;
+    
     grid-template-columns: repeat(3,1fr);
     height: auto;
     width:125%;
     padding: 4px;
-    margin-left: 20px;
     background-color: black;
     text-align: center;
 }

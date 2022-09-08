@@ -1,7 +1,7 @@
 const green = document.querySelector("green")
 const form = document.querySelector("form")
 const BASE = "https://wttr.in/"
-
+const mainP = document.querySelector("main p")
 const ul = document.querySelector("ul")
 let loc = ""
 let i = 0
@@ -10,7 +10,8 @@ let mainLoc = ""
 const day1 = document.querySelector("#day1")
 const day2 = document.querySelector("#day2")
 const day3 = document.querySelector("#day3")
-
+const threeday = document.querySelector("threeDay")
+const current = document.querySelector(".current")
 
 //add date to list on side after search
 
@@ -66,9 +67,13 @@ function addInitData(data){
 }
 
 function dataInMain(data){
-if(i > 0){
-        main.innerHTML = ""
+if(i === 1){
+        mainP.innerHTML = ""
+        i++
+    }else if(i >=2){
+        current.innerHTML = ""
     }
+
 
 let searched = document.createElement('h2')
 console.log(mainLoc)
@@ -84,14 +89,14 @@ let currently = document.createElement("p")
 currently.innerHTML = (`<strong> Currently:</strong>  Feels Like ${data["current_condition"][0]["FeelsLikeF"]}⁰F`)
 
 
-main.append(searched)
-main.append(area)
+current.append(searched)
+current.append(area)
 
-main.append(region)
+current.append(region)
 
-main.append(country)
+current.append(country)
 
-main.append(currently)
+current.append(currently)
 
 
 }
@@ -113,7 +118,7 @@ minT.innerHTML = (`<strong> Min Temperature :</strong>  ${data["weather"][0]["mi
 
 day1.append(today,avg,maxT,minT)
 
-console.log("data: ", data)
+//console.log("data: ", data)
 }
 
 
