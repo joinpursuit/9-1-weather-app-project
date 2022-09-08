@@ -207,11 +207,11 @@ formHeader.addEventListener(('submit'), (event) => {
             searchList.append(searchItem)  //attach this li (searchItem)  to the ul (searchList)
 
             prevSearchLink.setAttribute('href', '#') //add the hyperlink attribute to the a tag (prevSearchLink)
-            prevSearchLink.textContent = searchInput //assign the search value (searchInput) as textContent of the hyperlink (prevSearchLink)
+            prevSearchLink.innerHTML = searchInput //assign the search value (searchInput) as textContent of the hyperlink (prevSearchLink)
             searchItem.append(prevSearchLink) //attach hyperlinked search (prevSearchLink) to the line item (searchItem)
 
             console.log("presearchLink = ", prevSearchLink) 
-            searchItem.textContent += " - " + data.current_condition[0].FeelsLikeF + "°F"
+            searchItem.innerHTML += " - " + data.current_condition[0].FeelsLikeF + "°F"
             searchList.appendChild(searchItem)
         }
         searchCheck.push(searchInput)
