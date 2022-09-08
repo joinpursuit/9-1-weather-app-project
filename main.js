@@ -23,16 +23,6 @@ form.addEventListener("submit", (event) => {
         event.preventDefault()
         form.reset()
 
-
-        // if (id.value === "") {
-        //     // Remove hidden class & add text
-        //     error.classList.remove('hidden')
-        //     error.innerText = "Must input a location"
-        // } else {
-        //     // Add hidden class to error
-        //     error.classList.add('hidden')
-        // }
-
         fetch(BASE_URL)
             .then((res) => res.json())
             .then((result) => {
@@ -71,10 +61,13 @@ form.addEventListener("submit", (event) => {
 
                     const average = document.createElement("p")
                     average.innerHTML = `<strong>Average Temperature</strong>: ${result.weather[i].avgtempF}°F`
+
                     const max = document.createElement("p")
                     max.innerHTML = `<strong>Max Temperature</strong>: ${result.weather[i].maxtempF}°F`
+
                     const min = document.createElement("p")
                     min.innerHTML = `<strong>Min Temperature</strong>: ${result.weather[i].mintempF}°F`
+
                     day.append(average, max, min)
 
 
@@ -121,17 +114,8 @@ const searches = document.querySelector(".prevSearch")
 const list2 = document.querySelector("ul")
 
 
-// hidden.innerHtml = ""
 
 
-
-
-// fetch("https://wttr.in/city?format=j1", {
-//         method: 'GET'
-//     })
-//     .then(res => {
-//         if (res.ok) {
-//             return res.json
-//         }
-//     })
-//     // .then(data => console.log(data))
+if (currentTemp > 80) {
+    console.log(img = "")
+}
