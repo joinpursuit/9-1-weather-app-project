@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Allison&family=Bilbo&family=Bilbo+Swash+Caps&family=Lato:ital,wght@0,900;1,100&display=swap');
+
+
+
+
+
+body {
+    box-sizing: border-box; 
+    width: 100%; 
+    height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url("./my-images/blue-sky.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: black;
+}
+
+main {
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row: span 3;
+    text-align: center;
+
+ } 
+
+h4 {
+    color:whitesmoke;
+}
+
+h1 {
+    color: white;
+    margin-top: 10px;
+}
+button {
+    height: 15px;
+}
+
+footer {
+    box-shadow: 40px 25px 40px 0px  rgb(7, 78, 125);
+}
+
+#header {
+    text-align: center; 
+    height: 15%;
+    box-shadow: 25px 25px 40px 0px rgb(7, 78, 125);
+}
+
+#location__value {
+    width: 250px;
+    background-color: lightgrey;
+    border: 1px solid lightgrey;
+    border-radius: 60px;
+    margin-left: 20px;
+    padding: 10px 20px;
+}
+
+#get__weather {
+    grid-row: 1;
+     width: 80px;
+     font-size: 12px;
+     background: lightgrey;
+     border: none;
+     border-radius: 60px;
+ }
+
+#search__history {
+    color: white;
+    margin-top: 20px;
+    margin-right: 20px;
+    grid-column-start: 4;
+    text-align: center;
+    border-radius: 40px 0px 40px 0px;
+    border:1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 25px 25px 40px 0px rgb(3, 26, 43);
+}
+
+#forcast {
+    color: black;
+    font-size: 14px;
+    display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: 1fr;
+	grid-gap: 5px;	
+}
+
+#current__weather{
+    font-family: 'Lato', sans-serif;   
+    font-size: 14px;
+    border-radius: 20px; 
+    box-shadow: 25px 25px 40px 0px rgb(8, 40, 61);
+    width: 100%;
+    border-bottom: 1px solid #fff;
+    margin: auto;
+    margin-top: 20px;
+    color: whitesmoke; 
+    font-family: 'Lato', sans-serif;   
+ 
+}
+
+.container {
+    height: 75%;
+    width: 100%; 
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(4, 1fr); 
+    grid-template-rows: repeat(2, 1fr); 
+   
+}
+
+.search-form { 
+    display: flex;
+}
+
+ .view__location {
+    line-height: 150px;
+}
+
+.day {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    border-radius: 20px;
+    border:1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 25px 25px 40px 0px rgb(7, 78, 125);
+    border-bottom: 1px solid #fff;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.temp__conversion {
+    grid-row: 1;
+    margin-top: 20px;
+    padding: 20px;
+    text-align: center;
+    grid-column: 1;
+    color: whitesmoke;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    border-radius: 0px 40px 0px 40px;
+    border:1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 25px 25px 40px 0px rgb(7, 78, 125);
+    border-bottom: 1px solid #fff;
+}
+
+.input {
+    margin-top: 10px;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.temp__value {
+    color: hsl(0, 0, 15);
+    display: flex;
+    justify-content: center;    
+}
+
+.convert {
+    background: lightgrey;
+    width: 80px;
+    border-radius: 5px;   
+}
+
+.convert__field {
+    color: hsl(0, 0, 15);
+}
+
+.no__search {
+    padding-left: 35px;
+    color: red;
+}
+
+.location__search {
+    color: white;
+    margin: auto;
+}
+
+.search__btn {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid lightgrey;
+    border-radius: 60px;
+    width: 110px;
+    height: 35px;
+    background-color: lightgrey;
+    justify-content: center;
+    margin:auto;     
+}
+
+.search {
+    width: 25px;
+    height: 25px;
+    border: none;
+    border-radius: 50%;
+    margin: 5px;
+    padding: 0;
+    background-color: whitesmoke;
+}
+
+.display {
+    text-align: center;
+    font-size: 16px;
+
+}
+
+.social__menu {
+    margin-top: 50px;
+    width: 100%;
+    margin: 0 auto;
+}
+  
+.social__menu ul {
+    padding: 0;
+    margin: 0 ;
+    display: flex;
+}
+.social__menu ul li {
+    list-style: none;
+    margin: 10px;
+}
+
+.social__menu ul li .fa {
+    font-size: 14px;
+    line-height: 30px;
+    transition: .6s;
+    color: #4267B2;
+}
+  .social__menu ul li .fa:hover {
+    transform: translate(0, -10px);
+    color: #ff9900;
+}
+.social__menu ul li a {
+    position: relative;
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #fff;
+    text-decoration: none;
+    text-align: center;
+    transition: .6s;
+    box-shadow: 0 5px 4px rgba(0,0,0,.5);
+} 
+
+/* media queries*/
