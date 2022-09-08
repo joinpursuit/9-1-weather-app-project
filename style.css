@@ -1,0 +1,58 @@
+.wow {
+    width: 100px;
+  }
+  header {
+    text-align: center;
+    background: rgb(64, 58, 105);
+    padding: 25px;
+    color: white;
+  }
+  header button {
+    color: rgb(0, 68, 255);
+  }
+  
+  div {
+    border-style: solid;
+    border-color: rgb(239, 237, 242);
+    padding: 50px;
+    width: 200px;
+    text-align: center;
+    background: orange;
+  }
+  #container {
+    display: grid;
+    grid-template-columns: repeat(3, 3fr);
+    height: fit-content;
+  }
+  main {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+  }
+  
+  #aside1 {
+
+    display: inline-block;
+    border-style: onset;
+    border-color: bisque;
+  }
+  #searchSection {
+ 
+  }
+  
+  #leftSidebar {
+    display: contents;
+    border-style: onset;
+    border-color: bisque;
+    text-align: center;
+
+  }
+  
+  /* Media Queries */
+  
+  @media (min-width: 1280px) {
+  }
+  @media (min-width: 768px) and (max-width: 1279px) {
+  }
+  
+  @media (max-width: 767px) {
+  }
