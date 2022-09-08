@@ -27,6 +27,7 @@ const getData = (searchInputParam) => {
         const rain = document.createElement('p')
         const snow = document.createElement('p')
         const weatherBox = document.querySelector('article')
+        const threeDaysWeatherBox = document.querySelector('.threeDays')
         const img = document.createElement('img')
         const showSun =  parseInt(data.weather[0].hourly[0].chanceofsunshine)
         const showRain = parseInt(data.weather[0].hourly[0].chanceofrain)
@@ -36,7 +37,6 @@ const getData = (searchInputParam) => {
         const showWindy = parseInt(data.weather[0].hourly[0].chanceofwindy)
         const showThunder =  parseInt(data.weather[0].hourly[0].chanceofthunder)
   
-
 
         //clear old search results from weather box (article element in HTML doc)
 
@@ -105,7 +105,7 @@ const getData = (searchInputParam) => {
         //Check if City matches searchInputParam (formerly searchInput )- if not then replace value with Nearest area
         if(thisNearest === searchInputParam){
             nArea.textContent = "Area: " + data.nearest_area[0].areaName[0].value
-            weatherBox.append(area)
+            weatherBox.append(nArea)
         } else {
         nArea.textContent = "Nearest Area: " + data.nearest_area[0].areaName[0].value
         weatherBox.append(nArea)
@@ -130,10 +130,14 @@ const getData = (searchInputParam) => {
         weatherBox.append(snow)
        
 
+        const tempConversions = document.querySelector('.tempConversions')
         const tempConvertForm = document.querySelector('.tempConvert')
         const toC = document.getElementById('to-c')
         const toF = document.getElementById('to-f')
         const tempResult = document.querySelector('.tempResult')
+
+        //Display temperature conversion widget
+        tempConversions.style.display = "block"
         let answer = 0;
         console.log(toC)
         console.log(toF)
@@ -157,22 +161,28 @@ const getData = (searchInputParam) => {
             //tempResult.textContent = answer;
         })
 
-
+        //Display container 2 where temperatures for 3 days are stored
+        threeDaysWeatherBox.style.display = "inline-grid"
 
         //create elements to populate empty weather box with search results from fetched data
         const todayHdg = document.createElement('h4')
         const avgToday = document.createElement('p')
         avgToday .classList.add("avgToday");
+       
         const maxToday = document.createElement('p')
         maxToday.classList.add("maxToday");
+        
         const minToday = document.createElement('p')
         minToday.classList.add("minToday");
 
+       
         const tomorrowHdg = document.createElement('h4')
         const avgTomorrow = document.createElement('p')
         avgTomorrow.classList.add("avgTomorrow");
+        
         const maxTomorrow = document.createElement('p')
         maxTomorrow.classList.add("maxTomorrow");
+        
         const minTomorrow = document.createElement('p')
         minTomorrow.classList.add("minTomorrow");
 

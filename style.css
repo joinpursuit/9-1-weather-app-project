@@ -21,7 +21,8 @@
     margin-left: 12vw;
     margin-top: 11vh;
     grid-template-columns: repeat(3,1fr) ;
-    grid-template-rows: 1fr 
+    grid-template-rows: 1fr ;
+    /* display: none; */
     
 }
 .weather_App_Header{
@@ -54,6 +55,7 @@
 .threeDays {
     grid-row: 1;
     justify-items: center;
+    display: none;
 }
 
 
@@ -136,6 +138,7 @@
     text-align: left; 
     width: 15vw;
     height: 50vh;
+    display: none;
 }
 
 
