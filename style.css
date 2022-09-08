@@ -1,0 +1,63 @@
+body {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    height: 100vh;
+}
+
+header {
+    background-color: aqua;
+    text-align: center;
+    border: 2px solid black;
+    padding: 20px;
+}
+.content {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(2,1fr);
+    text-align: center;
+    height: 80%;
+    gap: 5px;
+    width: 100%;
+    margin-top: 50px;
+}
+
+main {
+  grid-column-start: 2;
+  grid-column-end: 4;
+  grid-row: 1/span2;
+  border: solid black;
+  text-align: center;
+  justify-content: center;
+    
+    
+}
+.search {
+    grid-column: 4;
+    grid-row: 1/span2;
+    border: solid black;
+}
+.main-article {
+    justify-content: center;
+    text-align: center;
+}
+
+.forecast {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: 1;
+    gap: 5px;
+}
+
+.weather-display {
+    display: grid;
+    gap: 5px;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1.5fr;
+}
+
+.conversion_widget {
+    grid-row: 1/span2;
+    border: solid black;
+}
+
