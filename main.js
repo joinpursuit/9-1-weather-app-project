@@ -8,30 +8,17 @@ let searchCheck = ["initialValue1", "initialValue2"];
 
 //create event listener for Search Form
 
-formHeader.addEventListener(('submit'), (event) => {
-    event.preventDefault()
-    //console.log(event)
 
-
-    //assign input entered in Get Weather form by user into a variable
-
-    const searchInput = event.target.search.value
-    console.log("Search input", searchInput)
-
-
-    //assign wttr.in API url to variable 
-
-    let Base_URL = `http://wttr.in/${searchInput}?format=j1`
-
- 
-   //fetch data, select elements, assign them to variables and assign data points to variables
-    fetch(`${Base_URL}`) 
+const getData = (searchInputParam) => {
+    //fetch data, select elements, assign them to variables and assign data points to variables
+    fetch(`http://wttr.in/${searchInputParam}?format=j1`) 
         .then(response => response.json())
         .then((data) => {
-        //console.log("Fetched data", data)
+        console.log("Fetched data", data)
         //console.log(data.nearest_area[0].areaName[0].value)
         const weather_app_header = document.querySelector('.weather_App_Header')
         const city = document.createElement('h2')
+        const area = document.createElement('h2')
         const nArea = document.createElement('p')
         const region = document.createElement('p')
         const country = document.createElement('p')
@@ -109,12 +96,21 @@ formHeader.addEventListener(('submit'), (event) => {
 
         //attach weather results to weatherBox and set add the fetched data to their textContent property
 
-        city.textContent = searchInput
+        city.textContent = searchInputParam
         weatherBox.append(city)
     
+        const thisCity = data.nearest_area[0].areaName[0].value
+        const thisNearest = data.nearest_area[0].areaName[0].value
+       
+        //Check if City matches searchInputParam (formerly searchInput )- if not then replace value with Nearest area
+        if(thisNearest === searchInputParam){
+            nArea.textContent = "Area: " + data.nearest_area[0].areaName[0].value
+            weatherBox.append(area)
+        } else {
         nArea.textContent = "Nearest Area: " + data.nearest_area[0].areaName[0].value
         weatherBox.append(nArea)
-       
+        }
+
         region.textContent =  "Region: " + data.nearest_area[0].region[0].value
         weatherBox.append(region)
        
@@ -149,18 +145,22 @@ formHeader.addEventListener(('submit'), (event) => {
             event.preventDefault()
             console.log(event)
             if((toC).checked){
-                answer = (event.target.tempNum.value - 32) * (5/9) 
+                answer = (event.target.tempNum.value - 32) * (5/9)
+                answer = answer.toFixed(2)  
+                tempResult.textContent = answer  + "°C";
              } else if((toF).checked){
                 answer = ((event.target.tempNum.value * 9/5) + 32)
+                answer = answer.toFixed(2)
+                tempResult.textContent = answer  + "°F";
              }
-             answer = answer.toFixed(2)   
-            tempResult.textContent = answer;
+             //answer = answer.toFixed(2)   
+            //tempResult.textContent = answer;
         })
 
 
 
         //create elements to populate empty weather box with search results from fetched data
-
+        const todayHdg = document.createElement('h4')
         const avgToday = document.createElement('p')
         avgToday .classList.add("avgToday");
         const maxToday = document.createElement('p')
@@ -168,6 +168,7 @@ formHeader.addEventListener(('submit'), (event) => {
         const minToday = document.createElement('p')
         minToday.classList.add("minToday");
 
+        const tomorrowHdg = document.createElement('h4')
         const avgTomorrow = document.createElement('p')
         avgTomorrow.classList.add("avgTomorrow");
         const maxTomorrow = document.createElement('p')
@@ -175,6 +176,7 @@ formHeader.addEventListener(('submit'), (event) => {
         const minTomorrow = document.createElement('p')
         minTomorrow.classList.add("minTomorrow");
 
+        const dayAfterHdg = document.createElement('h4')
         const avgDayAfter = document.createElement('p')
         avgDayAfter.classList.add("avgDayAfter");
         const maxDayAfter = document.createElement('p')
@@ -203,19 +205,34 @@ formHeader.addEventListener(('submit'), (event) => {
        //searchCheck is an array, intialized on line 6 with two initial values outside of this event handler.
    
         //Check for Duplicates in Search
-        if(searchCheck.includes(searchInput)=== false) {
+        if(searchCheck.includes(searchInputParam)=== false) {
             searchList.append(searchItem)  //attach this li (searchItem)  to the ul (searchList)
 
-            prevSearchLink.setAttribute('href', '#') //add the hyperlink attribute to the a tag (prevSearchLink)
-            prevSearchLink.innerHTML = searchInput //assign the search value (searchInput) as textContent of the hyperlink (prevSearchLink)
+            prevSearchLink.setAttribute('href', "#") //('href', '#') add the hyperlink attribute to the a tag (prevSearchLink)
+            const prevDegrees = document.createElement('li')
+            //prevDegrees.classList.add("pDegrees")
+            prevDegrees.style.listStyle ="none"
+            prevDegrees.style.display = "inline-block"
+            prevDegrees.innerText = " - " + data.current_condition[0].FeelsLikeF + "°F"
+
+            prevSearchLink.innerHTML = `<a href="http://">${searchInputParam}</a>` 
+           // prevSearchLink.innerHTML = `<a href=“http://“>${searchInputParam}</a> -${data.current_condition[0].FeelsLikeF}°F`
+            prevSearchLink.append(prevDegrees)
+
+            //- ${data.current_condition[0].FeelsLikeF}°F
+            //assign the search value (searchInputParam - formerly searchInput) as textContent of the hyperlink (prevSearchLink)
             searchItem.append(prevSearchLink) //attach hyperlinked search (prevSearchLink) to the line item (searchItem)
 
-            console.log("presearchLink = ", prevSearchLink) 
-            searchItem.innerHTML += " - " + data.current_condition[0].FeelsLikeF + "°F"
+            //console.log("presearchLink = ", prevSearchLink) 
+            console.log("prevSearchLink innerText =", prevSearchLink.innerText ) 
+            //searchItem.innerText += " - " + data.current_condition[0].FeelsLikeF + "°F"
             searchList.appendChild(searchItem)
         }
-        searchCheck.push(searchInput)
+        searchCheck.push(searchInputParam)
 
+        // --------  second fetch to activate previous search link------
+
+   
         //old test statements
         //console.log("searchItem2=", searchItem)
         //console.log("presearchLink = ", prevSearchLink) - checking if link appears successfully        
@@ -225,41 +242,80 @@ formHeader.addEventListener(('submit'), (event) => {
 
         const todayTemp = document.querySelector('.todayTemp')
      
+        todayHdg.textContent = "Today"
         avgToday.textContent = "Average Temperature " + data.weather[0].avgtempF + "°F"
         maxToday.textContent =  "Max Temperature " + data.weather[0].maxtempF + "°F"
         minToday.textContent =  "Min Temperature " + data.weather[0].mintempF + "°F"
+
+        todayTemp.append(todayHdg)
         todayTemp.append(avgToday)
         avgToday.after(maxToday)
         maxToday.after(minToday)
 
         const tomorrowTemp = document.querySelector('.tomorrowTemp')
-  
+        
+        tomorrowHdg.textContent = "Tomorrow"
         avgTomorrow.textContent =  "Average Temperature " + data.weather[1].avgtempF + "°F"
         maxTomorrow.textContent =  "Max Temperature " + data.weather[1].maxtempF + "°F"
         minTomorrow.textContent =   "Min Temperature " + data.weather[1].mintempF + "°F"
+
+        
+        tomorrowTemp.append(tomorrowHdg)
         tomorrowTemp.append(avgTomorrow)
         avgTomorrow.after(maxTomorrow)
         maxTomorrow.after(minTomorrow)
 
         const dayAfterTemp = document.querySelector('.dayAfterTemp')
 
+        dayAfterHdg.textContent = "Day After"
         avgDayAfter.textContent =  "Average Temperature " + data.weather[2].avgtempF + "°F"
         maxDayAfter.textContent =  "Max Temperature " + data.weather[2].maxtempF + "°F"
         minDayAfter.textContent =   "Min Temperature " + data.weather[2].mintempF + "°F"
 
+        dayAfterTemp.append(dayAfterHdg)
         dayAfterTemp.append(avgDayAfter)
         avgDayAfter.after(maxDayAfter)
         maxDayAfter.after(minDayAfter)
 
         //console.log(maxTomorrow.textContent)
 
+        prevSearchLink.addEventListener('click', (event) => {
+            event.preventDefault()
+             const prevLinkText = event.target.innerText 
+             console.log(prevLinkText)
+             getData(prevLinkText) 
+
+        })
+
         formHeader.reset()     
    })
-// })
+   .catch((err) => console.log(err))
+}
 
-     .catch((err) => console.log(err))
 
+
+
+formHeader.addEventListener(('submit'), (event) => {
+    event.preventDefault()
+  
+    //assign input entered in Get Weather form by user into a variable
+
+    const searchInput = event.target.search.value
+   // console.log("Search input", searchInput)
+
+
+    //assign wttr.in API url to variable 
+
+    // let Base_URL = `http://wttr.in/${searchInput}?format=j1` - added 2nd event listener to make Prev Search links work
+
+    getData(searchInput)
+
+   
 })
+
+    
+
+
 
 
 // NOTES
@@ -275,6 +331,12 @@ formHeader.addEventListener(('submit'), (event) => {
 // Farenheit input id:  to-f
 
 
+//   .skyVideo 
+//     position: fixed;
+//     right: 0;
+//     bottom: 0;
+//     min-width: 100%;
+//     min-height: 100%;
   
 
 
