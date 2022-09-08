@@ -1,0 +1,15 @@
+body {
+    border: 10px solid teal;
+    margin: 5px;
+}
+header{
+    border: 10px solid purple;
+}
+
+main {
+    border: 10px solid red;
+}
+aside {
+    border: 10px solid blue;
+
+}
