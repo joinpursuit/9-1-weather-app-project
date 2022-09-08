@@ -6,7 +6,7 @@ header {
   margin: 75px;
 }
 
-main.Days {
+.Days {
   display: grid;
   grid-template-columns: repeat(3, 2fr);
   margin: 20px;
@@ -14,6 +14,11 @@ main.Days {
   background-color: grey;
 }
 
-aside.weatherhistory {
+.history {
   display: grid;
+}
+
+.Conversion {
+  display: grid;
+  grid-template-columns: 200px 200px;
 }
