@@ -29,3 +29,7 @@
   grid-column: 1/4;
   text-align: center;
 }
+
+.history {
+  grid-column: 3/4;
+}
