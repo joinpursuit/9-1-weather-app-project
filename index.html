@@ -25,23 +25,33 @@
                 </aside>
             </div>
             <div>
-                <article id="current">Current weather</article>
+                <article id="current"></article>
+                <h4> Choose a location to view the weather </h4>
             </div>
             <div>
                 <aside class="searches">
-                    <h4>Previous Searches</h4>
                     <section>
-                        <p >No searches</p>
-                        <ul>
+                        <h4>Previous Searches</h4>
+                        <p>No previous searches</p>
+                        <ul class="hidden">
+                            <li>
+                                <a href=""></a>
+                            </li>
                         </ul>
                     </section>
                 </aside>
             </div>
         </div>
         <aside id="forecast" class="grid-container2">
-            <article id="today">Today</article>
-            <article id="tomorrow">Tomorrow</article>
-            <article id="next_day">Day after Tomorrow</article>
+            <article id="today" class="hidden">
+                <h4>Today</h4>
+            </article>
+            <article id="tomorrow" class="hidden">
+                <h4>Tomorrow</h4>                
+            </article>
+            <article id="next_day" class="hidden">
+                <h4>Next Day</h4>
+            </article>
         </aside>
     </main>
 </body>
