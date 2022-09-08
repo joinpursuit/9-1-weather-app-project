@@ -35,8 +35,8 @@ const getData = (searchInputParam) => {
         const showFog = parseInt(data.weather[0].hourly[0].chanceoffog)
         const showWindy = parseInt(data.weather[0].hourly[0].chanceofwindy)
         const showThunder =  parseInt(data.weather[0].hourly[0].chanceofthunder)
-  
-
+        const sunSound = document.querySelector('#sunSound')
+        const rainDropLullaby= document.querySelector('#rainDropLullaby')
        //https://pixabay.com/
        
        let weatherHeader_bkgdUrl = `https://pixabay.com/api/?key=29790506-5b6a9a899f2d52301ae8b8967&q=${searchInputParam}&category=places&image_type=photo`
@@ -73,11 +73,13 @@ const getData = (searchInputParam) => {
         if(showSun > 50){
             img.setAttribute('src', "./assets/icons8-summer.gif")
             img.setAttribute('alt',"sun")
+            sunSound.play()
         }
 
         if(showRain > 50){
             img.setAttribute('src', "./assets/icons8-torrential-rain.gif")
             img.setAttribute('alt',"rain")
+            rainDropLullaby.play()
         }
 
         if(showSnow > 50){
@@ -106,7 +108,7 @@ const getData = (searchInputParam) => {
         }
 
 
-        
+
         // <iframe width="560" height="315" src="https://www.youtube.com/embed/E-IvAOQ-6EY?start=10" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
         //attach weather gif to weatherBox (article element in HTML doc)
