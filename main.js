@@ -1,5 +1,20 @@
 const form = document.querySelector("form");
 
+let prevArr = [];
+let isDup = false;
+
+const checkDup = (el) => {
+  if (!prevArr.includes(el)) {
+    prevArr.push(el);
+    isDup = false;
+
+    //console.log();
+  } else {
+    isDup = true;
+  }
+};
+
+const prevSearch = document.querySelector("#noprev");
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -9,26 +24,33 @@ form.addEventListener("submit", (e) => {
     .then((res) => res.json())
     .then((forecast) => {
       generateWeatherDisplay(forecast, userInput);
-      
-      
+
+
+      //   const prevSearch = document.querySelector("#noprev");
+      //   prevSearch.innerHTML = "";
 
       const ul = document.querySelector("ul");
-      const li = document.createElement("li");
-      ul.append(li);
-      const a = document.createElement("a");
-      a.textContent = userInput;
-      a.href = "#";
       const newArea = forecast.nearest_area[0].areaName[0].value;
       const newRegion = forecast.nearest_area[0].region[0].value;
       const newCountry = forecast.nearest_area[0].country[0].value;
       const newCurrently = forecast.current_condition[0].FeelsLikeF;
-      li.textContent = newCurrently;
-      li.prepend(a);
-      a.addEventListener("click", (event) => {
-        ``;
-        event.preventDefault();
-        generateWeatherDisplay(forecast, userInput);
-      });
+      checkDup(userInput);
+      if (isDup === false) {
+       
+        prevSearch.remove()
+        const li = document.createElement("li");
+        ul.append(li);
+        const a = document.createElement("a");
+        a.textContent = userInput;
+        a.href = "";
+        li.textContent = newCurrently;
+        li.prepend(a);
+        a.addEventListener("click", (event) => {
+          ``;
+          event.preventDefault();
+          generateWeatherDisplay(forecast, userInput);
+        });
+      }
     });
 });
 
@@ -132,14 +154,13 @@ function generateWeatherDisplay(forecast, userInput) {
     icon.alt = "snow";
     display.prepend(icon);
   }
-  
 }
 let convertingTemp = document.querySelector("aside form");
 convertingTemp.addEventListener("submit", (event) => {
   event.preventDefault();
   let userInputTemp = parseInt(event.target.querySelector("input").value);
   let tempTypes = event.target.querySelectorAll(".converting-temp");
-  
+
   let type = "";
   for (let tempType of tempTypes) {
     if (tempType.checked) {

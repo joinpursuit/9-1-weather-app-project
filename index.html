@@ -23,30 +23,32 @@
     </form>
 
 </header>
-<aside>
+<aside> 
+  <div>
     <form id="Temp"> 
-        <section>
+        <!-- //<section> -->
         <label>
             Convert the Temperature
             <input type = "number" id="temp-to-convert" />
         </label>
-        </section>
-        <section>
+        <!-- </section> -->
+        <!-- <section> -->
         <label>
             To Celsius:
             <input type = "radio" id = "to-c" name = "convert-temp" value = "c" class = "converting-temp"/>
         </label>
-        </section>
-        <section>
+        <!-- </section>
+        <section> -->
         <label>
             To Fahrenheit:
             <input type = "radio" id = "to-f" name = "convert-temp" value = "f" class = "converting-temp"/>
         </label>
-        </section>
+        <!-- </section> -->
         <input type = "submit" />
         <h4> </h4>
     </form>
     <h4> </h4>
+  </div>
 </aside>
 <main>
 <article class="current weather" id="display"></article>
@@ -61,9 +63,9 @@
 <section>
 <h4>Previous Searches</h4>
 <ul></ul>
-<p>No previous searches</p>
+<p id= "noprev">No previous searches</p>
 </h4>
 </section>
 </aside>
 </body>
-</html>`
+</html>
