@@ -1,0 +1,25 @@
+header{
+    background-color: #278282;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border: 3px solid black;
+    max-width: 75%;
+}
+
+header h1, form{ 
+    color: white;
+}
+
+div .body{
+    display: grid;
+    column-gap: 50x;
+}
+form , h1{
+    text-align: center;
+}
+
+body{
+    padding-left: 20%;
+    background-color: grey;
+}
+

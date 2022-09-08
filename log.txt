@@ -1,0 +1,109 @@
+// LOG
+// 154 finished HTML exo earlier today, pushing: 'HTML skeleton completed'
+// getting api base url | line 2,3
+// printing to console, success !
+// select the header form | line 4
+// printing to console, success !
+// select the article storage ( in main ) | line 5
+// printing to console, success!
+// added event listener to header form, preventing default | line 7-8
+// printing input to console on form submission, no success :( could not find variable that stores data of form entry
+// saving input to variable (Finished)
+// looking for where event variable stores input (Finished)
+// printing input to console log, success !
+// 846 PM , Saturday September 3rd
+// setting up our fetching data from API 
+// printing our fetched object from API, SUCCESS ( first didnt add https; crucial)
+// making our hardcode push dynamic
+// printing our fetched object from API | DYNAMIC | SUCCESS!
+// pushing 'fixed our fetch to be dynamic'
+// now we need to take fetched data and create an article that showcases the input city weather and appends to our article storage
+// 944pm stopping, created variables for our article elements, need to now append to correct location and populate with api data
+// pushing 'created variables for our article elements, need to now append to correct location and populate with api data'
+// populating empty variables with api data
+// sep 5 801pm passed get details from text input test
+// pushed lines 23, 24
+// 932pm
+// time to make the 3 day article
+// tuesday sep 6 746am
+// selecting each of upcoming weather children
+// successfully selected 3 day articles
+// pushing line 30
+// populating the 3 day elements with corrosponding data
+// passed 3day tests ! success !
+// next to do: add previous searches, stylize page ( might need css grid box refresher via youtube), fix bug thats causing overflow of data
+// going to ask for help adding previous searches. in order to do that i need our articles to reset every submission
+// going to try to bugfix by clearing the innerhtml after its query selected 
+// remove the hard coded article today tomm and day after, and start dynamically creating them similar to how the current is populated
+// after, use this logic: const currentArt = document.querySelector('.CurrentCity')
+        if(currentArt){
+            currentArt.remove()
+        }
+// to remove our populated today tommorow and day after tommorow articles if it contains data
+// tuesday sep 6 732
+// plan: recreate 3 day, review css via video lab, style page, complete previous searches test
+// i really first need to clear the hard coded children of aside id 'Upcoming Weather'
+//  / ! \ styles.css: background-color grey to body for eye strain be sure to remove this line
+// index.html removing children of '#Upcoming Weather', be sure to make new articles have id of Today, Tommorow, DayAfterTmm
+// main.js error wnen submitting now, removing lines 7,8,9, and 82,83,84 (old query selector for hardcoded articles, and appending of populated variables for 3 day article)
+// data is presenet on backend but not visually. populated article is not being appended
+// query selector that was selecting our main article was selecting the wrong element, fixed
+// page is now working correctly without added features !
+// success !
+// pushing above lines
+// adding id to parent of article id CurrentCity, id is being set to artStor
+// recreating 3day now, creating our article elements with ids of Today, Tommorow, DayAfterTmm
+  // creating the 3 articles with classes of Today, Tommorow, DayAfterTmm
+  // appending to artStor
+  // success, page now shows first search correctly, bug after second search, fixing bug via method taught by JD
+  // bugfixed time overflow
+  // pushing above
+  // page now bug free, need to:
+  // 1) add h2s to children of .upcomingWeather 3 day article
+  // 2) add previous search function
+  // 3) remove 'choose a locatin to view the weater' after form submission
+  // 4) stylize the page
+  // stopping at 917pm.
+  // starrting at 939pm.
+  // adding h2s
+  // added h2s to children of .upcomingWeather 3 day articles
+  // success
+  //      pushing line 69 lol
+// successfuly recreated 3 day.
+// next to add previous search function
+// stopping at 954pm
+// starating 1041pm
+   // adding previous search function
+        // on form submission, create li `area-value and feel- like-temp`
+        // append to li to appopriate location ( sidebar )
+        // adding functionality ( on click, populate main with corrosponding data ( do another fetch with clicked list item as the  value being fetched))
+        // on form submission: remvoving p 'no previous searches' on submission
+// 'successfully added previous search function with limited functionality, "keep track of previous searches" test not fully passed'
+// pushing above line
+// stopping at 1108pm
+// starting at sep 7 10:02AM
+// adding click functionality ( on click change data to clicked )
+// selecting our ul 
+// listening to the list
+// on click, console logging event path ( clicked item text)
+// success
+// pushing, 'added event listener to list, console logging path on click. clicked text saved to variable clicked'
+// now we need to have another fetch happen with clicked variable as the added key to the search terms ( search with clicked data as the city being searched )
+// 5 min break
+// semi-successfully added full functionality to our previous search function
+// testing
+// add conditional statement: when submitting the form if the city is not already in the city array, add to previous searches list, otherwise do not
+// we fixed the problem of functionality not working within our previous search function
+// now all that is left is to fix duplicate entrys being made
+// our logic is that we will ( already wrote the code ) add to an array for every submissision the input given. 
+// besides that, fix the style, and we would be doesnt
+// all thats left is to do the optionals
+// pushing 'fixed previous search functionality, now to bugfix duplicate problem and stylize page'
+// stopping 1223PM
+// starting 404pm
+// on every submission input is saved inside an array
+// bug fixed :D
+// success @522pm
+// pushing 'previous search sidebar backend fully functional'
+// only to do, do optional tests, style page
+// after break, creating the add icon based on chase data
