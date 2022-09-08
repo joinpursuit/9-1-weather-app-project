@@ -1,0 +1,62 @@
+body {
+  background-image: url(https://cdn.pixabay.com/photo/2018/08/23/07/35/thunderstorm-3625405_1280.jpg);
+}
+h1 {
+  font-family: apple chancery;
+  color: aquamarine;
+}
+.header {
+  display: grid;
+  background: rgb(18, 77, 109);
+  text-align: center;
+  grid-template-rows: repeat(2, 1fr);
+  margin: 14px;
+  margin-top: 31px;
+  margin-left: 20%;
+  margin-right: 20%;
+  /* opacity: 0.5; */
+}
+
+.Days {
+  display: grid;
+  grid-template-columns: repeat(5, 2fr);
+  width: 50%;
+  height: 300%;
+  margin-top: auto;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+.history {
+  display: grid;
+}
+
+.Conversion {
+  display: grid;
+  grid-column: 1;
+}
+
+.location {
+  text-align: center;
+  background-color: rgba(128, 128, 128, 0.273);
+  /* opacity: 0.4; */
+  grid-column: 2/6;
+}
+
+aside {
+  grid-column: 2/6;
+}
+
+aside.history {
+  display: grid;
+  grid-column: 7;
+  grid-row: 1;
+}
+
+section {
+  text-align: center;
+}
+
+p {
+  text-align: right;
+}

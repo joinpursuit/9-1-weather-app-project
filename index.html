@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./main.js" defer></script>
+  </head>
+
+  <title>Weather App</title>
+
+  <body>
+    <center>
+        <div class="header">
+          <header>
+          <h1>Weather App</h1>
+          <form>
+            <label for="Pick a Location">Pick a Location</label>
+            <input id="search" name="search" type="text" placeholder="Search Location" />
+            <input type="submit"  value="Get Weather" >
+          </form>
+        </div>
+      </header>
+      <div>
+        <main class="Days">
+      <!-- Temperature conversion widget -->
+      <div>
+        <aside class="Conversion">
+          <form class="widget">
+            <label for="Convert the temperature:">Convert the temperature</label>
+            <input type="number" id="temp-to-convert" placeholder="enter number" name="temp">
+
+            <label for="to-c">to-c</label>
+            <input type="radio" id="to-c" name="convert-temp" value ="c">
+
+            <label for="to-f">to-f</label>
+            <input type="radio" id="to-f" name="convert-temp" value ="f">
+
+            <input type="submit"/>
+             <h4 class="results"> </h4>
+          </form>
+        </aside>
+      </div>
+
+<!-- main section with today and previous, tomorrow info -->
+      
+       
+          <article class="location">Choose a location to view the weather</article>
+          <aside>
+            <article class="Today"></article>
+            <article class="Tomorrow"></article>
+            <article class="AfterTomorrow"></article>
+          </aside>
+        
+
+      <!-- left side tab for history -->
+      <aside class=" history">
+        <section>
+        <h4>Previous Searches</h4>
+        <div class="sidebar">
+          <ul>
+            <p>No previous searches</p>
+          </ul>
+        </section>
+        </div>
+      </aside>
+    </main>
+  </div>
+    </center>
+  </body>
+</html>
