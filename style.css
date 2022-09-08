@@ -1,0 +1,113 @@
+.header,
+.main,
+.sidebar {
+  display: flex;
+  justify-content: center;
+}
+
+body {
+  background-image: url('https://cdn.dribbble.com/users/2129935/screenshots/12694549/media/ef7f3acd5ca3da6c0e492bbadda809a0.gif');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+.header {
+  font-size: 22px;
+  background-color: rgb(68, 151, 228);
+  border: 3px solid rgb(55, 54, 52);
+  padding: 40px;
+  border-radius: 3fr;
+  text-align: center;
+  border-radius: 20px;
+  opacity: .9;
+}
+
+.today h2{
+  text-decoration: underline;
+  text-decoration-color: rgb(18, 73, 181);
+}
+
+.tomorrow h2{
+  text-decoration: underline;
+  text-decoration-color: rgb(18, 73, 181);
+}
+
+.dayaftomo h2{
+  text-decoration: underline;
+  text-decoration-color: rgb(18, 73, 181);
+}
+
+.main {
+  flex-direction: column;
+  font-size: 18px;
+  background-color: rgb(135, 212, 242);
+  border: 2px solid rgb(55, 54, 52);  
+  padding: auto;
+  width: 70%;
+  margin-top: 30px;
+  margin-right: 20px;
+  margin-left: 20px;
+  text-align: center;
+  border-radius: 20px;
+  opacity: .8;
+}
+
+.sidebar_right {
+  background-color: rgb(236, 224, 169);
+  border: 2px solid rgb(55, 54, 52);
+  border-radius: 20px;
+  padding: auto;
+  width: 30%;
+  margin-top: 30px;
+  justify-content: center;
+  text-align: center;
+  opacity: .8;
+}
+
+.sidebar_right aside section h4:first-of-type {
+  display: none;
+}
+
+.body {
+  display: flex;
+  width: 100%;
+}
+
+body {
+  padding: 20px;
+  padding-right: 40px;
+  padding-left: 40px;
+}
+
+.bottomBox {
+  padding: 16px;
+  background-color: rgb(125, 196, 237);
+  border: 2px solid rgb(55, 54, 52);
+  border-radius: 20px;
+  width: 65%;
+  margin-top: 30px;
+  margin-right: 20px;
+  margin-left: 20px;
+  text-align: center; 
+  opacity: .8;
+}
+
+.bottomBox article {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 15px
+}
+
+.searchList{
+  justify-content: center;
+}
+
+.current-weather {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 2px solid rgb(55, 54, 52);
+  width: 100%;
+  text-align: center;
+}

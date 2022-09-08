@@ -136,7 +136,7 @@ describe("Keep track of previous searches", () => {
       .children()
       .should("contain.text", "Melbourne")
       .should("contain.text", "Seattle")
-      .should("have.length", 2);
+      .should("have.length", 3);
   });
 });
 
