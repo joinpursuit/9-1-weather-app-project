@@ -7,7 +7,7 @@ There are 7 features that need to be created. Each completed feature (passes all
 A minium of 5 points must be attained in order to pass this project.
 
 You may receive partial credit (0.5 points) for code that is close to passing the tests, but does not pass all the tests.
-
+  
 If you have gotten all the tests passing, you are strongly encouraged to work on the CSS/overall appearance of the app and add additional features. A nice weather app project has the potential to be something you could add to your portfolio.
 
 ## Project setup
@@ -72,7 +72,7 @@ In particular, make sure the following is true:
 - [ ] `aside` (will contain a temperature conversion widget), starts empty
 - [ ] The `main `section of the page contains placeholder text and contain the following elements:
   - [ ] `article` - this will contain the current weather (starts empty)
-  - [ ] `aside` - this will contain 3 `article` elements that will have upcoming weather (starts empty)
+  - [ ] `aside` - this wil`l contain 3 `article` elements that will have upcoming weather (starts empty)
 - [ ] `aside` (will contain weather history)
   - [ ] `section`
   - [ ] `h4` with the text `Previous Searches`
