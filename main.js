@@ -1,5 +1,29 @@
-//Selecting form from document 
+//Selecting and creating elements for current search window
 const form = document.querySelector(`form`)
+const current = document.querySelector(`#current`)
+const search = document.createElement(`h3`)
+const area = document.createElement(`p`)
+const region = document.createElement(`p`)
+const country = document.createElement(`p`)
+const realFeel = document.createElement(`p`)
+
+//Creating elements for Today of 3 day forecast
+const today = document.querySelector(`#today`)
+const weatherToday = document.createElement(`p`)
+const maxToday = document.createElement(`p`)
+const minToday = document.createElement(`p`)
+
+//Creating elements for Tomorrow of 3 day forcast
+const tomorrow = document.querySelector(`#tomorrow`)
+const weatherTmrw = document.createElement(`p`)
+const maxTmrw = document.createElement(`p`)
+const minTmrw = document.createElement(`p`)
+
+//Creating elements for Next Day of 3 day forcast
+const next = document.querySelector(`#next_day`)
+const weatherNext = document.createElement(`p`)
+const maxNext = document.createElement(`p`)
+const minNext = document.createElement(`p`)
 
 //Defining URL data for API
 const BASE_URL = `https://wttr.in/`
@@ -8,62 +32,31 @@ let locationId = ``
 
 //Creating function for current weather and 3 day forecast layout
 function weatherLayout(document){
-const current = document.querySelector(`#current`)
-const search = document.createElement(`h3`)
-search.classList.add = `search`
-current.append(search)
 
-const area = document.createElement(`p`)
-area.classList.add = `area`
-current.append(area)
+    //Creating main section for current search
+    current.append(search)
+    current.append(area)
+    current.append(region)
+    current.append(country)
+    current.append(realFeel)
 
-const region = document.createElement(`p`)
-region.classList.add =`region`
-current.append(region)
+    //Creating Today of 3 day forcast
+    today.append(weatherToday)
+    today.append(maxToday)
+    today.append(minToday)
 
-const country = document.createElement(`p`)
-country.classList.add =`country`
-current.append(country)
+    //Creating Tomorrow of 3 day forcast
+    tomorrow.append(weatherTmrw)
+    tomorrow.append(maxTmrw)
+    tomorrow.append(minTmrw)
 
-const realFeel = document.createElement(`p`)
-realFeel.classList.add = `realFeel`
-current.append(realFeel)
+    //Creating Next Day of 3 day forcast
+    next.append(weatherNext)
+    next.append(maxNext)
+    next.append(minNext)
+}
 
-//Creating Today of 3 day forcast
-const today = document.querySelector(`#today`)
-const weatherToday = document.createElement(`p`)
-weatherToday.classList.add = `weatherToday`
-today.append(weatherToday)
-
-const maxToday = document.createElement(`p`)
-maxToday.classList.add = `maxToday`
-today.append(maxToday)
-
-const minToday = document.createElement(`p`)
-minToday.classList.add = `minToday`
-today.append(minToday)
-
-//Creating Tomorrow of 3 day forcast
-const tomorrow = document.querySelector(`#tomorrow`)
-const weatherTmrw = document.createElement(`p`)
-tomorrow.append(weatherTmrw)
-
-const maxTmrw = document.createElement(`p`)
-tomorrow.append(maxTmrw)
-
-const minTmrw = document.createElement(`p`)
-tomorrow.append(minTmrw)
-
-//Creating Next Day of 3 day forcast
-const next = document.querySelector(`#next_day`)
-const weatherNext = document.createElement(`p`)
-next.append(weatherNext)
-const maxNext = document.createElement(`p`)
-next.append(maxNext)
-const minNext = document.createElement(`p`)
-next.append(minNext)
-
-
+//Creating function to add data to document elements
 function getWeather(res){
 
     //Adding current search loaction information
@@ -81,26 +74,22 @@ function getWeather(res){
     maxToday.innerHTML = `<span>Max Temperature:</span> ${res.weather[0].maxtempF}°F`
     minToday.innerHTML = `<span>Min Temperature:</span> ${res.weather[0].mintempF}°F`
     
-    today.classList.toggle(`hidden`)
+    today.classList.remove(`hidden`)
     
     //Adding weather for tomorrow
     weatherTmrw.innerHTML = `<span>Average Temperature:</span> ${res.weather[1].avgtempF}°F`
     maxTmrw.innerHTML = `<span>Max Temperature:</span> ${res.weather[1].maxtempF}°F`
     minTmrw.innerHTML = `<span>Min Temperature:</span> ${res.weather[1].mintempF}°F`
     
-    tomorrow.classList.toggle(`hidden`)
+    tomorrow.classList.remove(`hidden`)
     
     //Adding weather for next day
     weatherNext.innerHTML = `<span>Average Temperature:</span> ${res.weather[2].avgtempF}°F`
     maxNext.innerHTML = `<span>Max Temperature:</span> ${res.weather[2].maxtempF}°F`
     minNext.innerHTML = `<span>Min Temperature:</span> ${res.weather[2].mintempF}°F`
     
-    next.classList.toggle(`hidden`)
+    next.classList.remove(`hidden`)
     }
-}
-
-
-
 
 //Add event listener for submit
  form.addEventListener(`submit`, (event) => {
@@ -111,8 +100,8 @@ function getWeather(res){
     fetch(`${BASE_URL}${locationId}${json}`)
     .then(res => res.json())
     .then(res => {
-        weatherLayout(document)(res)
-        // getWeather(res)
+        weatherLayout(document)
+        getWeather(res)
 
         const ul = document.querySelector(`ul`)
         const li = document.createElement(`li`)
