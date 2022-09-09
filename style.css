@@ -1,0 +1,72 @@
+h1{
+    display :grid;
+    color: white;
+   
+   
+    
+}
+.green{
+    display:grid;
+    text-align: center;
+    background: turquoise;
+    border: 3px solid black;
+    justify-content: center;
+    margin: auto;
+    width: auto;
+    padding: 4px;
+    gap: 5px;
+    color: white;
+}
+
+main{
+    display: grid;
+    color: black;
+    background-color: lightgray;
+    border: 2px solid green;
+    justify-content: center;
+    text-align: center;
+    grid-template-rows: auto;
+    grid-template-columns: auto;
+}
+
+.history{
+    display: grid;
+    display: inline;
+    border: 3px solid black;
+    
+}
+
+.grid-container{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 4px;
+    width: auto;
+    margin: auto;
+    padding: 25px;
+    grid-template-rows: 2fr 2fr;
+}
+
+main.p {
+    font-size: large;
+}
+
+.threeDay{
+    border: 3px solid blue;
+    display: grid;
+    align-self: center;
+    grid-template-columns: repeat(3,1fr);
+    height: auto;
+    width: auto;
+    padding: 4px;
+    background-color: black;
+    text-align: center;
+}
+#day1{
+    background-color: salmon;
+}
+#day2{
+    background-color: silver;
+}
+#day3{
+    background-color: goldenrod;
+}

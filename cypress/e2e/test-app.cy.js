@@ -76,7 +76,7 @@ describe("Keep track of previous searches", () => {
   it("should also store searches with the name and current 'feels like' temperature in the sidebar", () => {
     cy.get("aside section")
       .should("contain.text", "Melbourne")
-      .should("contain.text", "47")
+      .should("contain.text", "50")
       .not("contain.text", "No previous searches");
   });
 
