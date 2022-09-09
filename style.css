@@ -53,10 +53,10 @@ main.p {
 .threeDay{
     border: 3px solid blue;
     display: grid;
-    
+    align-self: center;
     grid-template-columns: repeat(3,1fr);
     height: auto;
-    width:125%;
+    width: auto;
     padding: 4px;
     background-color: black;
     text-align: center;

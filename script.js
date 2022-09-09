@@ -12,7 +12,7 @@ const day2 = document.querySelector("#day2")
 const day3 = document.querySelector("#day3")
 const threeday = document.querySelector("threeDay")
 const current = document.querySelector(".current")
-
+let his = []
 //add date to list on side after search
 
 function addInitData(data){
@@ -51,19 +51,22 @@ function addInitData(data){
     
     a.textContent = loc
     mainLoc = loc
+    his.push (mainLoc)
+    
     //console.log(a.textContent)
     // create p tag for the temp
   
+console.log (his)
+console.log(loc)
+
 
     li.append(a)
     // a.insertAdjacentText('afterend',` - ${temp}⁰F`)
     a.insertAdjacentHTML('afterend',` - ${temp}⁰F`)
-    
-
-
     ul.append(li)
-    console.log(ul)
+    // console.log(ul)
     
+
 }
 
 function dataInMain(data){
@@ -169,6 +172,8 @@ form.addEventListener("submit",(event)=>{
         ul.innerHTML = ''
         i++
     }
+
+
     
 
     fetch(searched)
