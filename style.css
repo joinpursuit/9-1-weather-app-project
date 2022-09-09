@@ -42,3 +42,7 @@ aside section {
 aside p {
   text-align: center;
 }
+
+aside article {
+  height: 20px;
+}
