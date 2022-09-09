@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App Project</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer">
+     <script defer src="funcGenerator.js"></script>
+    <script src="./script.js" defer></script>
+   
+</head>
+<body>
+    <header id="header">
+        <h1>Weather App</h1>
+        <form action="" class="search-form">
+            <label for="searchBar__text" class="location__search">Pick a Location</label>
+            <input type="text" id="location__value" placeholder="Enter a new location" required>
+            <div class="search__btn">
+               <input type="submit"  id="get__weather" value="Get Weather" aria-label="search">
+               <button class="search__submit search" aria-label="submit">
+                <i class="fa fa-search"></i></button>
+            </div>   
+        </form> 
+    </header>
+ 
+    <div class="container">
+
+        <aside class="temp__conversion" hidden>
+           <form>
+            <section>
+                <label class="convert__field">Convert the temperature
+                    <input type="number" id="temp-to-convert" class="input" required>
+                </label>
+            </section>
+            <div class="temp__value">
+                <section>
+                    <label class="temp">
+                        To Celsius
+                        <input type="radio" id="to-c" name="convert-temp" value="c" class="convert-temp input">
+                    </label>
+                </section>
+                <section>
+                    <label class="temp">
+                        To Fahrenheit
+                        <input type="radio" id="to-f" name="convert-temp" value="f" class="convert-temp input">
+                    </label>
+                </section>
+            </div>
+            <section>
+                <input type="submit" value="Convert" class="input convert"  />
+            </section>
+            <h4 id="display__result"></h4>
+        </form>   
+        </aside>
+   
+        <main class="weather__report">
+            <article id="current__weather">
+                <p class="view__location">Choose a location to view the weather.</p>
+            </article>
+                    
+            <aside id="forcast">
+                <article id="today" class="weather__day day" hidden></article>
+                <article id="tomorrow" class="weather__day day" hidden></article>
+                <article id="day__after__tomorrow" class="weather__day day" hidden></article>
+            </aside>
+        </main>
+       
+        <aside id="search__history">
+            <section>
+                <h4 class="previous__search">Previous Searches</h4>
+                <ul></ul>
+                <p class="no__search">No previous searches</p>
+            </section>
+        </aside>
+       
+    </div>
+        <footer>
+            <div class="social__menu">
+                <ul>
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                  <li><a href="#" class="fa fa-facebook"></a></li>
+                  <li><a href="#" class="fa fa-twitter"></a></li>
+                  <li><a href="#" class="fa fa-linkedin"></a></li>
+                </ul>
+            </div>
+        </footer>     
+    
+</body>
+</html>
