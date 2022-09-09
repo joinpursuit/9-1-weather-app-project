@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="/style.css" />
+    <script defer src="./script.js"></script>
+</head>
+
+
+
+
+
+
+<!--BODY-->
+<body>
+    <!--HEADER-->
+<header class="header">
+    <h1>Weather App</h1>
+    <form class="headerForm">
+        <label class="formLabel" for="cityInputBox">Pick a Location</label>
+        <input class="cityInputBox" name="cityInputBox" type="text">
+        <input type="submit" value="Get Weather"></input>
+    </form>
+</header>
+
+
+<!--Main Div, For CSS Styling-->
+<div class="container">
+<!--Converter-->
+<aside class="converter">
+    <form class="converterForm">
+        <label class="tempRadio">Convert the temperature</label>
+    <input id="temp-to-convert" type="number">
+    <label class="tempRadio">To Celcius</label>  
+    <input type="radio" id="to-c" name="convert-temp" value="c" checked />
+    <label class="tempRadio">To Fahrenheit</label>
+    <input type="radio" id="to-f" name="convert-temp" value="f">
+    <input type="submit">
+    </form>
+    <h4 id="conversionOutput">0.00</h4>
+
+</aside>
+
+<!--Main-->
+<main>
+    <article class="chooseWeather">
+        <p id="mainPlaceHolderText">
+            Choose a location to view the weather
+        </p>
+        <div id="mainTodaysWeather" class="hidden">
+            <img id="mainWeatherIcon" src="/assets/icons8-fog.gif" alt="">
+            <h2 class="hidden" id="mainCityName"> <!--${cityInputBox.value}--> </h2>
+            <strong>
+                <p id="mainAreaStrong"><!--Area: / Nearest Area:--></p>
+            </strong>
+            <p id="mainAreaName"><!--${areaName}--></p>
+            <strong>Region:</strong>
+            <p id="mainRegionName"><!--${region}--> </p>
+            <strong>Country:</strong>
+            <p id="mainCountryName"><!--${country}--></p>
+            <strong>Currently:</strong>
+            <p id="mainFeelsLike">Feels Like ${feels_LikeF} F</p>
+            <p><strong>Chance of Sunshine:</strong></p>
+            <p id="mainChanceOfSunshine"><!--n%--></p>
+            <p><strong>Chance of Rain:</strong></p> 
+            <p id="mainChanceOfRain"><!--n%--></p>
+            <p><strong>Chance of Snow:</strong></p>
+            <p id="mainChanceOfSnow"><!--n%--></p>
+
+        </div>
+    </article>
+
+    <!--Aside 3 Day Forcast-->
+    <aside class="forcastAside hidden">
+        
+            <article id="day1">
+                <h4>Today</h3>
+                    <strong>Average Temperature:</strong>
+                    <p id="day1AvgTemp"></p>
+                    <strong>Max Temperature:</strong>
+                    <p id="day1MaxTemp"></p>
+                    <strong>Min Temperature:</strong>
+                    <p id="day1MinTemp"></p>
+            </article>
+        
+       
+        
+            <article id="day2 hidden">
+            <h4>Tomorrow</h3>
+                <strong>Average Temperature:</strong>
+                <p id="day2AvgTemp"></p>
+                <strong>Max Temperature:</strong>
+                <p id="day2MaxTemp"></p>
+                <strong>Min Temperature:</strong>
+                <p id="day2MinTemp"></p>
+            </article>
+        
+        
+        
+            <article id="day3 hidden">
+                <h4>Day After</h3>
+                    <strong>Average Temperature:</strong>
+                    <p id="day3AvgTemp"></p>
+                    <strong>Max Temperature:</strong>
+                    <p id="day3MaxTemp"></p>
+                    <strong>Min Temperature:</strong>
+                    <p id="day3MinTemp"></p>
+            </article>
+        
+        
+    </aside>
+</main>
+       
+<!--Aside Previous Searches-->
+
+<aside class="asidePreviousSearches">
+    <section>
+        <h4>Previous Searches</h4>
+        <p id="noPreviousSearches">No previous searches</p>
+        <ul class="previousSearches">
+            <!--New Searches Go Here-->
+        </ul>
+    </section>
+</aside>
+
+
+
+
+</div>
+   
+</body>
+</html>

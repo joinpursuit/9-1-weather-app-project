@@ -1,0 +1,119 @@
+* {
+font-family: sans-serif;
+
+}
+
+.container {
+display: grid;
+grid-template-columns: 1fr 2fr 1fr;
+column-gap: 20px;
+}
+
+header {
+    display: grid;
+    grid-template-columns: 1fr;
+    height: 200px;
+    border: 3px solid black ;
+    border-radius: 10px;
+    background-color: #3f858b;
+    text-align: center;
+}
+
+header h1{
+    text-align: center;
+}
+
+header h1{
+color: white;
+}
+
+main {
+    display: grid;
+    grid-template-rows: 2fr 1fr ;
+    height: 80%;
+    width: 80%;
+    margin-top: 35px;
+    border-radius: 10px; 
+    text-align: center;
+}
+
+.chooseWeather {
+background-color: lightgray;
+border: 3px solid #3f858b;
+border-radius: 10px;
+text-align: center;
+width: 100%;
+}
+
+
+.asidePreviousSearches{
+/* border: 2px solid #3f858b; */
+text-align: center;
+}
+.asidePreviousSearches h4 {
+    font: color black;
+}
+
+.forcastAside {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 50px;
+    height: 200px;
+    width: 3fr;
+    text-align: center;
+}
+
+
+.converter {
+    /* border: 2px solid #3f858b;
+    border-radius: 10px; */
+    margin-right: 170px;
+    
+    
+
+
+}
+
+#temp-to-convert {
+    width: 190px;
+}
+
+.hidden {
+    display: none;
+}
+
+input[type="radio"]{
+    display: block;
+    margin-bottom: 10px;
+}
+
+#mainCityName {
+    text-transform: capitalize;
+}
+
+#mainWeatherIcon {
+margin-top: 30px;
+border: 4px solid #3f858b;
+border-radius: 10px;
+}
+
+.previousSearches li { 
+    text-align: left; 
+    margin-top: 3px;
+    margin-bottom: 3px;
+    text-transform: capitalize; 
+}
+
+/* .tempRadio{
+font: color black;
+} */
+
+/* #day1 {
+    background-color: red;
+}
+#day2 {
+    background-color: blue;
+}
+#day3 {
+    background-color: yellow;
+} */
