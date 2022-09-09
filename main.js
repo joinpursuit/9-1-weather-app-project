@@ -92,7 +92,7 @@ next.classList.toggle(`hidden`)
     fetch(`${BASE_URL}${locationId}${json}`)
     .then(res => res.json())
     .then(res => {
-         getWeather(res)
+        getWeather(res)
 
         const ul = document.querySelector(`ul`)
         const li = document.createElement(`li`)
@@ -100,12 +100,28 @@ next.classList.toggle(`hidden`)
         prev.setAttribute(`href`, `#`)
         prev.innerHTML = `${res.nearest_area[0].areaName[0].value}<span> - ${res.current_condition[0].FeelsLikeF}°F</span>`
         ul.append(li,prev)
-        
+
+        prev.addEventListener(`click`, (event) => {
+            const main = document.querySelector(`main`)
+            getWeather(res)
+        })
+
         ul.classList.remove(`hidden`)
     
         const noPrev = document.querySelector(`.searches p`)
         noPrev.classList.add(`hidden`)
-        
-        })
-    .catch(err => console.log(err))
+
     })
+
+        
+        
+        
+        // prev.forEach((li) => {
+        //     li.addEventListener(`click`, (event) => {
+        //         locationId = `${event.target.search.value.substring(0, event.target.search.value.indexOf(` - `))}`
+        //         console.log(locationId)
+        //     })
+        // })
+         .catch(err => console.log(err))
+        })
+   
