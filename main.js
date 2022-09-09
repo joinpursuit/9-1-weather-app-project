@@ -1,7 +1,7 @@
 //Selecting and creating elements for current search window
 const form = document.querySelector(`form`)
 const current = document.querySelector(`#current`)
-const search = document.createElement(`h3`)
+const search = document.createElement(`h2`)
 const area = document.createElement(`p`)
 const region = document.createElement(`p`)
 const country = document.createElement(`p`)
@@ -102,35 +102,70 @@ function getWeather(res){
     .then(res => {
         weatherLayout(document)
         getWeather(res)
-
+        
         const ul = document.querySelector(`ul`)
+        // const li = document.querySelector(`li`)
         const li = document.createElement(`li`)
         const prev = document.createElement(`a`)
         prev.setAttribute(`href`, `#`)
         prev.innerHTML = `${res.nearest_area[0].areaName[0].value}<span> - ${res.current_condition[0].FeelsLikeF}°F</span>`
-        ul.append(li,prev)
+        prev.classList.add = `${locationId}`
+        ul.append(li, prev)
 
         prev.addEventListener(`click`, (event) => {
-            const main = document.querySelector(`main`)
-            getWeather(res)
-        })
+        // const main = document.querySelector(`main`)
+        getWeather(res)
+        
+        let lis = document.querySelectorAll(`li`)
+        for(let li of lis){
+            if(li.classList.contains(`${event.target.search.value}`)){
+                li.remove()
+            }
+        }
+
+
+        // const lis
+
+        // let count = 0
+        // for(li of ul){
+        //     if(locationId === ul.li.innerHTML.substring(0, indexOf(`<`))){
+        //         count++
+        //         if(count >= 1){
+        //             li.innerHTML = ``
+        //         }
+        //     }
+        // }
+        // console.log(ul)
+
+        
+
+        // for(li of lis){
+        //     let count = 0
+        //     if(li === locationId){
+        //         count++
+        //         if(count === 0){
+        //             const li = document.createElement(`li`)
+        //             const prev = document.createElement(`a`)
+        //             prev.setAttribute(`href`, `#`)
+        //             prev.innerHTML = `${res.nearest_area[0].areaName[0].value}<span> - ${res.current_condition[0].FeelsLikeF}°F</span>`
+        //             ul.append(li,prev)
+
+        //             prev.addEventListener(`click`, (event) => {
+        //             // const main = document.querySelector(`main`)
+        //             getWeather(res)
+                // })
+            // })
+        // })
+    })
 
         ul.classList.remove(`hidden`)
     
         const noPrev = document.querySelector(`.searches p`)
         noPrev.classList.add(`hidden`)
 
+        form.reset()
     })
 
-        
-        
-        
-        // prev.forEach((li) => {
-        //     li.addEventListener(`click`, (event) => {
-        //         locationId = `${event.target.search.value.substring(0, event.target.search.value.indexOf(` - `))}`
-        //         console.log(locationId)
-        //     })
-        // })
-         .catch(err => console.log(err))
-        })
+    .catch(err => console.log(err))
+    })
    
