@@ -1,0 +1,48 @@
+* {
+  /* border: 1px solid red; */
+}
+
+body {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+header {
+  color: aliceblue;
+  font-size: x-large;
+  font-weight: 900;
+  grid-column: 1/4;
+  text-align: center;
+  padding: 50px;
+  background-color: rgb(3, 131, 118);
+}
+form {
+  grid-column: 1/4;
+  text-align: center;
+}
+main {
+  grid-column: 1/3;
+  text-align: center;
+  border: 1px solid turquoise;
+  background-color: gray;
+  color: white;
+  padding: 30px;
+  margin: 10px;
+}
+
+aside section {
+  grid-column: 3/4;
+  text-align: center;
+  border: 1px solid turquoise;
+  background-color: gray;
+  color: white;
+  padding: 30px;
+  margin: 10px;
+}
+aside p {
+  text-align: center;
+}
+
+aside article {
+  height: 20px;
+}
