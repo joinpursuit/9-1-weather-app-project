@@ -13,6 +13,7 @@ const previousP = document.querySelector("section p");
 // console.log(searchBar)
 const project = form.addEventListener("submit", (event) => {
   const city = bar.value; //? searchbar user input
+  console.log(city);
   let Base_URL = `https://wttr.in/${city}?format=j1`;
   event.preventDefault();
   form.reset();
