@@ -12,21 +12,22 @@
     <header>
         <h1>Weather App</h1>
         <form>
-            <input id="city" type="text" name="name"/> 
+            <input id="city" type="text" name="city"/> 
             <input id="submit-city" type="submit" value="Get Weather"/>
         </form>
     </header>    
         <main>
-            <article class="hidden">Choose a location to view the weather.</article>
-            <aside>
+            <article class="searches">Choose a location to view the weather.</article>
+            <aside class="forecast">
                 <article class="today"></article>
                 <article class="tomorrow"></article>
                 <article class="dayAfter"></article>
             </aside>
             <aside>
-                <section>
+                <section class="preSearches">
                     <h4>Previous Searches</h4>
-                    <p>No previous searches</p>
+                    <ul></ul>
+                    <p class="hidden">No previous searches</p>
                 </section>
             </aside>
         </main>
