@@ -84,10 +84,9 @@ form.addEventListener('submit', (event) => {
         input.setAttribute('href', '#');
         li.textContent += `- ${current}°F`; 
         li.prepend(input); 
-        // const p = document.querySelector('p')
+        
+        
         input.addEventListener('click', () => {
-            // searches.innerHTML = ""
-            // preSearches.remove()
             let location = document.createElement("h2"); 
         location.innerHTML = `<h2>${city}</h2>`;
         srch.append(location) 
@@ -97,21 +96,3 @@ form.addEventListener('submit', (event) => {
         console.log(err)
     })
 })
-    
-    // function places(city){
-        
-        
-        
-        
-
-// const sunny = document.createElement('p')
-// sunny.innerHTML = res.weather[0].hourly[0].chanceofsunshine
-// srch.append(sunny)
-
-// const rain = document.createElement('p')
-// rain.innerHTML = res.weather[0].hourly[0].chanceofrain
-// srch.append(rain)
-
-// const snow = document.createElement('p')
-// snow.innerHTML = res.weather[0].hourly[0].chanceofsnow
-// srch.append(snow)
