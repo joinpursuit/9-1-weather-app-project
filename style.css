@@ -1,8 +1,8 @@
 body {
     border: 10px solid teal;
     margin: 5px;
-    padding: auto;
-    box-sizing: border-box;
+    /* padding: auto; */
+    /* box-sizing: border-box; */
     background: rgb(152, 152, 231);
 }
 header{
@@ -16,7 +16,7 @@ h1 {
 
 h1, form {
     text-align: center;
-    padding-bottom: 10px;
+    /* padding-bottom: 10px; */
 }
 
 form {
@@ -33,6 +33,7 @@ main, article {
 
 aside {
     border: 10px solid blue;
+    text-align: center;
 
 
 }
