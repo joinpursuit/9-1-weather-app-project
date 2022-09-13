@@ -1,0 +1,39 @@
+body {
+    border: 10px solid teal;
+    margin: 5px;
+    /* padding: auto; */
+    /* box-sizing: border-box; */
+    background: rgb(152, 152, 231);
+}
+header{
+    border: 10px solid purple;
+}
+
+h1 {
+    font-family: 'Trebuchet MS', sans-serif;
+    color: aqua;
+}
+
+h1, form {
+    text-align: center;
+    /* padding-bottom: 10px; */
+}
+
+form {
+    cursor: alias;
+}
+
+main {
+    border: 10px solid red;
+    
+}
+main, article {
+    text-align: center;
+}
+
+aside {
+    border: 10px solid blue;
+    text-align: center;
+
+
+}
