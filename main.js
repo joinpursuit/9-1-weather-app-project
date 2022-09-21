@@ -1,11 +1,13 @@
 //Selecting and creating elements for current search window
 const form = document.querySelector(`form`)
+const div = document.querySelector(`.current`)
 const current = document.querySelector(`#current`)
 const search = document.createElement(`h2`)
 const area = document.createElement(`p`)
 const region = document.createElement(`p`)
 const country = document.createElement(`p`)
 const realFeel = document.createElement(`p`)
+const forecast = document.querySelector(`#forecast`)
 
 //Creating elements for Today of 3 day forecast
 const today = document.querySelector(`#today`)
@@ -39,17 +41,19 @@ function weatherLayout(document){
     current.append(region)
     current.append(country)
     current.append(realFeel)
+    div.classList.add(`set`)
 
     //Creating Today of 3 day forcast
     today.append(weatherToday)
     today.append(maxToday)
     today.append(minToday)
+    forecast.classList.add(`fixed`)
 
     //Creating Tomorrow of 3 day forcast
     tomorrow.append(weatherTmrw)
     tomorrow.append(maxTmrw)
     tomorrow.append(minTmrw)
-
+    
     //Creating Next Day of 3 day forcast
     next.append(weatherNext)
     next.append(maxNext)
@@ -104,24 +108,32 @@ function getWeather(res){
         getWeather(res)
         
         const ul = document.querySelector(`ul`)
-        // const li = document.querySelector(`li`)
-        const li = document.createElement(`li`)
+        const lis = document.querySelectorAll(`li`)
+        const newLi = document.createElement(`li`)
         const prev = document.createElement(`a`)
         prev.setAttribute(`href`, `#`)
-        prev.innerHTML = `${res.nearest_area[0].areaName[0].value}<span> - ${res.current_condition[0].FeelsLikeF}°F</span>`
+        prev.innerHTML = `${res.nearest_area[0].areaName[0].value}`
+        const span = document.createElement(`span`)
+        span.innerText = ` - ${res.current_condition[0].FeelsLikeF}°F`
         prev.classList.add = `${locationId}`
-        ul.append(li, prev)
+        newLi.append(prev, span)
+        ul.append(newLi)
 
-        prev.addEventListener(`click`, (event) => {
-        // const main = document.querySelector(`main`)
-        getWeather(res)
-        
-        let lis = document.querySelectorAll(`li`)
         for(let li of lis){
-            if(li.classList.contains(`${event.target.search.value}`)){
-                li.remove()
+            if(newLi.innerHTML === li.innerHTML){
+                newLi.remove()
             }
         }
+
+        prev.addEventListener(`click`, (event) => {
+        getWeather(res)
+        
+        // let lis = document.querySelectorAll(`li`)
+        // for(let li of lis){
+        //     if(li.classList.contains(`${event.target.search.value}`)){
+        //         li.remove()
+        //     }
+        // }
 
 
         // const lis

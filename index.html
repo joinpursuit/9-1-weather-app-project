@@ -19,23 +19,19 @@
     </header>
     <main>
         <div class="grid-container">
-            <div>
+            <div class="temp_conv">
                 <aside id="temp_conv">
                     <form>
                         <input type="text">
                         <br>
-                        <label for="F">
-                            °F
-                            <input type="radio" id="F" name="unit">
-                        </label>
-                        <label for="C">
-                            °C
-                            <input type="radio" id="C" name="unit">
-                        </label>
+                        <input type="radio" id="F" name="unit" value="°F">
+                        <label for="°F">°F</label>
+                        <input type="radio" id="C" name="unit" value="°C">
+                        <label for="°C">°C</label>
                     </form>
                 </aside>
             </div>
-            <div>
+            <div class="current">
                 <article id="current"></article>
                 <h4> Choose a location to view the weather </h4>
             </div>

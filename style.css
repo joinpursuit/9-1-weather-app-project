@@ -9,27 +9,57 @@ header {
 
 .grid-container {
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 1fr 3fr 1fr;
     padding-top: 15px;
+    column-gap: 15px;
 }
 
 .grid-container div {
-    border: 1px solid black;
+    border: 3px solid rgb(122, 119, 119);
     padding-top: 15px;
     text-align: center;
+    border-radius: 5px;
+    background-color: rgb(213, 217, 221);
+}
+
+.temp_conv {
+    height: 120px;
+}
+
+#F {
+    padding-right: 30px;
+}
+
+.set {
+    height: 225px;
+}
+
+.fixed {
+    position: absolute;
+    top: 400px;
+    left: 21%;
+}
+
+ul {
+    text-align: left;
 }
 
 .grid-container2 {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 10px;
     margin-left: 227.5px;
     margin-right: 227.5px;
     padding-top: 20px;
+    width: 58%;
+    margin: auto;
 }
 
 .grid-container2 article {
-    border: 1px solid black;
+    border: 3px solid rgb(122, 119, 119);
     text-align: center;
+    border-radius: 5px;
+    background-color: rgb(213, 217, 221);
 }
 
 .hidden {
