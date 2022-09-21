@@ -127,47 +127,6 @@ function getWeather(res){
 
         prev.addEventListener(`click`, (event) => {
         getWeather(res)
-        
-        // let lis = document.querySelectorAll(`li`)
-        // for(let li of lis){
-        //     if(li.classList.contains(`${event.target.search.value}`)){
-        //         li.remove()
-        //     }
-        // }
-
-
-        // const lis
-
-        // let count = 0
-        // for(li of ul){
-        //     if(locationId === ul.li.innerHTML.substring(0, indexOf(`<`))){
-        //         count++
-        //         if(count >= 1){
-        //             li.innerHTML = ``
-        //         }
-        //     }
-        // }
-        // console.log(ul)
-
-        
-
-        // for(li of lis){
-        //     let count = 0
-        //     if(li === locationId){
-        //         count++
-        //         if(count === 0){
-        //             const li = document.createElement(`li`)
-        //             const prev = document.createElement(`a`)
-        //             prev.setAttribute(`href`, `#`)
-        //             prev.innerHTML = `${res.nearest_area[0].areaName[0].value}<span> - ${res.current_condition[0].FeelsLikeF}°F</span>`
-        //             ul.append(li,prev)
-
-        //             prev.addEventListener(`click`, (event) => {
-        //             // const main = document.querySelector(`main`)
-        //             getWeather(res)
-                // })
-            // })
-        // })
     })
 
         ul.classList.remove(`hidden`)
