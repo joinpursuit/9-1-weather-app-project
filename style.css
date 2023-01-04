@@ -1,0 +1,82 @@
+* { 
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+/* margin: auto; */
+/* box-sizing: border-box ; */
+text-align: center;
+margin: 10px;
+}
+body{
+    display: grid;
+    /* grid-template-areas: "header header header"
+".conversion .history .right-aside"
+".conversion .history .right-aside"
+; */
+background-image: sr ;
+}
+
+header{
+   display: grid; 
+   grid-column: 1/4;
+   background-color: rgb(10, 142, 98);
+   text-align: center;
+   border: 3px solid black ;
+}
+
+/* .history{
+    text-align: center;
+    border: 3px solid mediumspringgreen;
+} */
+.left-aside{
+    /* background-color: orangered; */
+    
+}
+
+.right-aside h4{
+    font-weight: bold;
+    
+  
+}
+.right-aside p{
+text-align: center;
+}
+.conversion{
+    border: 3px solid black;
+    text-align: center;
+    background-image: url("https://static.vecteezy.com/system/resources/thumbnails/002/017/303/original/colorful-liquid-gradient-animation-free-video.jpg");
+}
+
+main{
+ 
+    display: grid;
+    grid-template-rows: 2fr 1fr;
+    row-gap: 10px;
+}
+
+#threeDays{
+    border:  3px solid black;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* padding: 10px; */
+}
+
+
+.current-weather{
+    border: 3px dotted black;
+    background-color: grey;
+
+}
+#threeDays{
+    animation: blinkingText 2.2s infinite;
+  }
+  @keyframes blinkingText{
+      0%{     color: #000;    }
+      49%{    color: #000; }
+      60%{    color: transparent; }
+      99%{    color:transparent;  }
+      100%{   color: #000;    }
+  }
+  
+
+
+
+ 
